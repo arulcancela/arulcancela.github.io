@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raúl Cancela | Google Workspace Solution Architect</title>
+    <style>
+        :root {
+            --primary: #4285F4; /* Google Blue */
+            --dark: #202124;
+            --light: #f8f9fa;
+            --text-grey: #5f6368;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--dark);
+        }
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        h1 { margin: 0; font-size: 2.5rem; }
+        h2 { font-weight: 300; margin-top: 10px; opacity: 0.9; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section-title {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;}
+        .company { font-weight: bold; font-size: 1.1rem; }
+        .date { color: var(--text-grey); font-size: 0.9rem; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+        }
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .job-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Raúl Cancela</h1>
+    <h2>Google Workspace Solution Architect & Cloud Specialist</h2>
+    <p>Madrid, España | Física + Tecnología</p>
+    <a href="mailto:arulcancela@gmail.com" class="btn">Contactar</a>
+</header>
+
+<div class="container">
+    
+    <section>
+        <h3 class="section-title">Sobre mí</h3>
+        <p>Profesional con Grado en Física y sólida experiencia en consultoría tecnológica. Especializado en implementación y gestión de Google Workspace, migraciones de datos y transformación digital. Experiencia internacional (Arabia Saudí) y capacidad de gestión de cambio organizacional. Enfoque analítico (ISTJ-T) orientado a la resolución de incidencias complejas (L3).</p>
+    </section>
+
+    <section>
+        <h3 class="section-title">Experiencia Profesional</h3>
+
+        <div class="card">
+            <div class="job-header">
+                <span class="company">Inetum</span>
+                <span class="date">Oct 2025 - Actualidad</span>
+            </div>
+            <p><strong>Arquitecto de Soluciones Google (Workspace)</strong></p>
+            <p>Diseño de arquitectura y soluciones en la nube para clientes empresariales.</p>
+        </div>
+
+        <div class="card">
+            <div class="job-header">
+                <span class="company">Devoteam</span>
+                <span class="date">Mayo 2021 - Sept 2025</span>
+            </div>
+            <p><strong>Ingeniero de Soporte Google Workspace</strong></p>
+            <ul>
+                <li>Resolución de incidencias de alto nivel (L3).</li>
+                <li>Gestión del departamento de soporte y formación de agentes L1/L2.</li>
+                <li>Administración global de consolas para clientes (Superadmin).</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="job-header">
+                <span class="company">Nubalia</span>
+                <span class="date">Abril 2019 - Mayo 2021</span>
+            </div>
+            <p><strong>Ingeniero de Operaciones Senior</strong></p>
+            <ul>
+                <li>Preventa técnica y soporte al equipo comercial.</li>
+                <li>Gestión del cambio y formación a administradores de sistemas.</li>
+                <li>Planificación de procesos de transformación digital.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="job-header">
+                <span class="company">Accenture España</span>
+                <span class="date">Nov 2015 - Mar 2017</span>
+            </div>
+            <p><strong>Consultor IT (Proyecto en Riad, Arabia Saudí)</strong></p>
+            <ul>
+                <li>Investigación de software global y elaboración de RFIs/RFPs.</li>
+                <li>Gestión de staff y métricas financieras de proyecto (PMO).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="section-title">Aptitudes y Certificaciones</h3>
+        <div class="skills-grid">
+            <span class="skill-tag">Google Workspace</span>
+            <span class="skill-tag">Google Cloud Platform</span>
+            <span class="skill-tag">Bash Scripting</span>
+            <span class="skill-tag">Migración de Datos</span>
+            <span class="skill-tag">Gestión de Proyectos</span>
+            <span class="skill-tag">Inglés (Professional)</span>
+            <span class="skill-tag">GCP Big Data & ML Fundamentals</span>
+            <span class="skill-tag">LumApps Deployment L1</span>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="section-title">Formación Académica</h3>
+        <div class="card">
+            <div class="job-header">
+                <span class="company">Universidad Complutense de Madrid</span>
+                <span class="date">2011 - 2015</span>
+            </div>
+            <p><strong>Grado en Física</strong> (Ingeniería física / Física aplicada)</p>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 4rem; color: #888; font-size: 0.8rem;">
+        <p>&copy; 2025 Raúl Cancela. Diseñado con código limpio.</p>
+    </footer>
+</div>
+
+</body>
+</html>
