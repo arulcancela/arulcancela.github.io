@@ -3,73 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raúl Cancela | Google Workspace Solution Architect</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="Raúl Cancela - Arquitecto de Soluciones Google Workspace y Cloud Specialist. Experiencia en proyectos internacionales y soporte L3.">
+    <title>Raúl Cancela | Google Cloud & Workspace Architect</title>
+    
+    <!-- Fuentes Modernas: Poppins (Títulos) e Inter (Texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #4285F4; /* Google Blue */
-            --dark: #202124;
-            --light: #f8f9fa;
-            --text-grey: #5f6368;
+            /* Paleta de Colores Premium */
+            --primary: #2563eb; /* Azul brillante */
+            --primary-dark: #1e40af;
+            --secondary: #0f172a; /* Azul noche muy oscuro para textos */
+            --text-light: #475569; /* Gris pizarra para párrafos */
+            --bg-body: #f1f5f9; /* Gris muy suave para el fondo */
+            --surface: #ffffff;
+            --gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); /* Degradado Hero */
         }
+        
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-light);
             margin: 0;
-            color: var(--dark);
+            line-height: 1.7;
         }
+
+        h1, h2, h3, .company { font-family: 'Poppins', sans-serif; }
+
+        /* --- HERO SECTION (Cabecera) --- */
         header {
-            background: var(--primary);
+            background: var(--gradient);
             color: white;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Corte diagonal moderno */
+            margin-bottom: 2rem;
         }
-        h1 { margin: 0; font-size: 2.5rem; }
-        h2 { font-weight: 300; margin-top: 10px; opacity: 0.9; }
+        
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-weight: 400;
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-container { margin-top: 2.5rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-left: 10px;
+            backdrop-filter: blur(5px);
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: white;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 1.5rem 4rem 1.5rem;
         }
+
+        /* --- SECCIONES --- */
+        section { margin-bottom: 5rem; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
         .section-title {
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background: var(--primary);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        /* --- TARJETAS DE EXPERIENCIA --- */
+        .timeline-card {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); /* Sombra suave y elegante */
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+        }
+        .timeline-card:hover::before { opacity: 1; }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        .company {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        .role {
             color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            margin-top: 2px;
         }
-        .card {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
+
+        .date {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-weight: 500;
+            background: #f8fafc;
+            padding: 4px 10px;
+            border-radius: 6px;
         }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;}
-        .company { font-weight: bold; font-size: 1.1rem; }
-        .date { color: var(--text-grey); font-size: 0.9rem; }
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag {
-            background: var(--light);
-            padding: 5px 15px;
-            border-radius: 20px;
+
+        ul { margin: 0; padding-left: 1.2rem; }
+        li { margin-bottom: 0.8rem; color: var(--text-light); }
+
+        /* --- TAGS (Skills) --- */
+        .skills-wrapper {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .tag {
+            background: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 50px;
             font-size: 0.9rem;
-            border: 1px solid #e0e0e0;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid transparent;
         }
-        .btn {
-            display: inline-block;
+        
+        .tag:hover {
             background: white;
+            border-color: var(--primary);
             color: var(--primary);
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        @media (max-width: 600px) {
-            .job-header { flex-direction: column; }
+        
+        .tag.highlight {
+            background: #eff6ff;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            header { padding: 4rem 1.5rem; }
+            .job-header { flex-direction: column; gap: 5px; }
+            .date { align-self: flex-start; margin-top: 5px; }
+            .timeline-card { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -77,97 +262,157 @@
 
 <header>
     <h1>Raúl Cancela</h1>
-    <h2>Google Workspace Solution Architect & Cloud Specialist</h2>
-    <p>Madrid, España | Física + Tecnología</p>
-    <a href="mailto:arulcancela@gmail.com" class="btn">Contactar</a>
+    <h2>Google Workspace Solution Architect</h2>
+    <p style="opacity: 0.8; margin-top: 0.5rem;">Madrid, España • Física + Tecnología Cloud</p>
+    
+    <div class="cta-container">
+        <a href="mailto:arulcancela@gmail.com" class="btn btn-primary">Contactar Ahora</a>
+        <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" class="btn btn-outline">Ver LinkedIn</a>
+    </div>
 </header>
 
 <div class="container">
-    
+
+    <!-- Perfil -->
     <section>
-        <h3 class="section-title">Sobre mí</h3>
-        <p>Profesional con Grado en Física y sólida experiencia en consultoría tecnológica. Especializado en implementación y gestión de Google Workspace, migraciones de datos y transformación digital. Experiencia internacional (Arabia Saudí) y capacidad de gestión de cambio organizacional. Enfoque analítico (ISTJ-T) orientado a la resolución de incidencias complejas (L3).</p>
+        <div class="section-header">
+            <h3 class="section-title">Sobre mí</h3>
+        </div>
+        <p style="font-size: 1.05rem; color: var(--secondary);">
+            Arquitecto de Soluciones con base científica (Grado en Física) y especialización profunda en el ecosistema <strong>Google Cloud</strong>. Mi enfoque combina la capacidad analítica para resolver problemas complejos (L3) con la visión estratégica para liderar transformaciones digitales en grandes cuentas.
+        </p>
     </section>
 
+    <!-- Experiencia -->
     <section>
-        <h3 class="section-title">Experiencia Profesional</h3>
+        <div class="section-header">
+            <h3 class="section-title">Trayectoria Profesional</h3>
+        </div>
 
-        <div class="card">
+        <div class="timeline-card">
             <div class="job-header">
-                <span class="company">Inetum</span>
+                <div>
+                    <span class="company">Inetum</span>
+                    <span class="role">Arquitecto de Soluciones Google (Workspace)</span>
+                </div>
                 <span class="date">Oct 2025 - Actualidad</span>
             </div>
-            <p><strong>Arquitecto de Soluciones Google (Workspace)</strong></p>
-            <p>Diseño de arquitectura y soluciones en la nube para clientes empresariales.</p>
-        </div>
-
-        <div class="card">
-            <div class="job-header">
-                <span class="company">Devoteam</span>
-                <span class="date">Mayo 2021 - Sept 2025</span>
-            </div>
-            <p><strong>Ingeniero de Soporte Google Workspace</strong></p>
             <ul>
-                <li>Resolución de incidencias de alto nivel (L3).</li>
-                <li>Gestión del departamento de soporte y formación de agentes L1/L2.</li>
-                <li>Administración global de consolas para clientes (Superadmin).</li>
+                <li>Diseño de arquitecturas cloud seguras y escalables para clientes Enterprise.</li>
+                <li>Consultoría estratégica para optimizar flujos de trabajo en Google Workspace.</li>
             </ul>
         </div>
 
-        <div class="card">
+        <div class="timeline-card">
             <div class="job-header">
-                <span class="company">Nubalia</span>
-                <span class="date">Abril 2019 - Mayo 2021</span>
+                <div>
+                    <span class="company">Devoteam</span>
+                    <span class="role">Team Lead & Ingeniero de Soporte Workspace</span>
+                </div>
+                <span class="date">May 2021 - Sep 2025</span>
             </div>
-            <p><strong>Ingeniero de Operaciones Senior</strong></p>
             <ul>
-                <li>Preventa técnica y soporte al equipo comercial.</li>
-                <li>Gestión del cambio y formación a administradores de sistemas.</li>
-                <li>Planificación de procesos de transformación digital.</li>
+                <li>Gestión y mentoría de un equipo de <strong>10 agentes</strong> de soporte técnico (L1/L2).</li>
+                <li>Resolución de incidencias críticas (L3) en comunicación directa con Ingeniería de Google.</li>
+                <li>Administración de consolas Superadmin para clientes globales.</li>
             </ul>
         </div>
 
-        <div class="card">
+        <div class="timeline-card">
             <div class="job-header">
-                <span class="company">Accenture España</span>
+                <div>
+                    <span class="company">Nubalia</span>
+                    <span class="role">Ingeniero de Operaciones Senior</span>
+                </div>
+                <span class="date">Abr 2019 - May 2021</span>
+            </div>
+            <ul>
+                <li>Liderazgo en migraciones masivas de datos (<strong>+5.000 usuarios</strong>) hacia la nube con cero downtime crítico.</li>
+                <li>Soporte técnico avanzado en fases de preventa para cerrar propuestas comerciales complejas.</li>
+                <li>Formación técnica a equipos de IT del cliente para garantizar la adopción.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-card">
+            <div class="job-header">
+                <div>
+                    <span class="company">Intelligence Partner</span>
+                    <span class="role">Ingeniero de Operaciones Google Workspace</span>
+                </div>
+                <span class="date">Nov 2017 - Abr 2019</span>
+            </div>
+            <ul>
+                <li>Ejecución de proyectos de <strong>transformación digital</strong> "end-to-end": desde el análisis funcional hasta la implantación técnica.</li>
+                <li>Consultoría de preventa: toma de requerimientos técnicos y funcionales.</li>
+                <li>Gestión del cambio: diseño e impartición de formaciones.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-card">
+            <div class="job-header">
+                <div>
+                    <span class="company">Accenture España</span>
+                    <span class="role">Consultor IT (Proyecto Internacional)</span>
+                </div>
                 <span class="date">Nov 2015 - Mar 2017</span>
             </div>
-            <p><strong>Consultor IT (Proyecto en Riad, Arabia Saudí)</strong></p>
             <ul>
-                <li>Investigación de software global y elaboración de RFIs/RFPs.</li>
-                <li>Gestión de staff y métricas financieras de proyecto (PMO).</li>
+                <li><strong>Proyecto en Riad (Arabia Saudí):</strong> Investigación de software y redacción de pliegos técnicos (RFIs/RFPs).</li>
+                <li>Gestión de oficina de proyectos (PMO), control de métricas y reporting en inglés.</li>
             </ul>
         </div>
     </section>
 
+    <!-- Skills -->
     <section>
-        <h3 class="section-title">Aptitudes y Certificaciones</h3>
-        <div class="skills-grid">
-            <span class="skill-tag">Google Workspace</span>
-            <span class="skill-tag">Google Cloud Platform</span>
-            <span class="skill-tag">Bash Scripting</span>
-            <span class="skill-tag">Migración de Datos</span>
-            <span class="skill-tag">Gestión de Proyectos</span>
-            <span class="skill-tag">Inglés (Professional)</span>
-            <span class="skill-tag">GCP Big Data & ML Fundamentals</span>
-            <span class="skill-tag">LumApps Deployment L1</span>
+        <div class="section-header">
+            <h3 class="section-title">Stack Tecnológico</h3>
         </div>
-    </section>
-
-    <section>
-        <h3 class="section-title">Formación Académica</h3>
-        <div class="card">
-            <div class="job-header">
-                <span class="company">Universidad Complutense de Madrid</span>
-                <span class="date">2011 - 2015</span>
+        <div class="skills-wrapper">
+            <div class="skills-grid">
+                <span class="tag highlight">Google Workspace Architecture</span>
+                <span class="tag highlight">Google Cloud Platform (GCP)</span>
+                <span class="tag highlight">Bash Scripting</span>
+                <span class="tag">Soporte Técnico L3</span>
+                <span class="tag">Liderazgo de Equipos</span>
+                <span class="tag">Migración de Datos</span>
+                <span class="tag">Gestión del Cambio</span>
+                <span class="tag">Inglés (Profesional)</span>
+                <span class="tag">Francés (Profesional)</span>
             </div>
-            <p><strong>Grado en Física</strong> (Ingeniería física / Física aplicada)</p>
+            <div style="margin-top: 1.5rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                <p style="font-size: 0.9rem; margin: 0; color: var(--text-light);">
+                    <strong style="color: var(--secondary);">Certificaciones:</strong> GCP Big Data & ML Fundamentals • LumApps Deployment L1
+                </p>
+            </div>
         </div>
     </section>
 
-    <footer style="text-align: center; margin-top: 4rem; color: #888; font-size: 0.8rem;">
-        <p>&copy; 2025 Raúl Cancela. Diseñado con código limpio.</p>
+    <!-- Formación -->
+    <section>
+        <div class="section-header">
+            <h3 class="section-title">Formación Académica</h3>
+        </div>
+        <div class="timeline-card" style="padding: 2rem; display: flex; align-items: center; gap: 1rem;">
+            <!-- Icono académico sencillo con SVG -->
+            <div style="background: #e0e7ff; padding: 10px; border-radius: 50%; color: var(--primary);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+            </div>
+            <div>
+                <span class="company" style="font-size: 1.1rem;">Universidad Complutense de Madrid</span>
+                <span class="role" style="color: var(--text-light); font-weight: 500;">Grado en Física (Ingeniería Física / Física Aplicada)</span>
+                <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 4px;">2011 - 2015</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Raúl Cancela. Designed for Performance.</p>
     </footer>
+
 </div>
 
 </body>
