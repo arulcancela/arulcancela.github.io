@@ -70,18 +70,6 @@
             z-index: 2;
         }
 
-        /* LOGO INTEGRADO EN TEXTO (Sección Perfil) */
-        .about-logo {
-            float: right;
-            width: 120px;
-            height: auto;
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
         /* BADGE DE TRABAJO REMOTO */
         .remote-badge {
             display: inline-flex;
@@ -236,13 +224,6 @@
             .job-header { flex-direction: column; gap: 10px; }
             .date { align-self: flex-start; }
             .btn-header { width: 100%; justify-content: center; margin: 5px 0; }
-            
-            /* En móvil el logo no flota a la derecha, se centra */
-            .about-logo {
-                float: none;
-                display: block;
-                margin: 0 auto 1.5rem auto;
-            }
         }
 
         /* --- ESTILOS DE IMPRESIÓN --- */
@@ -255,9 +236,6 @@
                 margin-bottom: 2rem; border-bottom: 2px solid #333; padding-bottom: 1rem;
             }
             header::before, .wave-separator, .btn-header, footer { display: none !important; }
-            
-            /* Logo oculto en impresión para ahorrar tinta */
-            .about-logo { display: none; }
             
             h1 { font-size: 24pt; color: black; text-shadow: none; margin-bottom: 5px; }
             h2 { font-size: 14pt; color: #444; margin-top: 0; text-shadow: none; }
@@ -337,9 +315,6 @@
     <section>
         <div class="section-header"><h3 class="section-title">Perfil Profesional</h3></div>
         <div class="card">
-            <!-- LOGO MOVIDO AQUÍ -->
-            <img src="logo.jpg" alt="Logo Raúl Cancela" class="about-logo">
-            
             <p class="profile-text">
                 Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y especialización en <strong>Google Workspace & GCP</strong>. 
                 Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>, donde mi enfoque basado en objetivos y automatización asíncrona ofrece los mejores resultados.
