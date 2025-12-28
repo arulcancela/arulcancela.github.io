@@ -116,7 +116,7 @@
 
         .container {
             max-width: 1000px;
-            margin: 4rem auto 0 auto; /* Aumentado margen superior a 4rem */
+            margin: 4rem auto 0 auto;
             padding: 0 1.5rem 4rem 1.5rem;
             position: relative;
             z-index: 2;
@@ -139,15 +139,35 @@
 
         .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
 
+        /* Estilo unificado para el texto del perfil */
+        .profile-text {
+            font-size: 1.05rem;
+            color: var(--text-light); /* Unificado */
+            margin-bottom: 1rem;
+        }
+
         .job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1rem; }
         .company { font-size: 1.3rem; color: var(--secondary); font-weight: 700; }
         .role { color: var(--primary); font-weight: 600; font-size: 1.05rem; display: block; margin-top: 4px; }
         .date { font-size: 0.85rem; color: #64748b; font-weight: 500; background: #f1f5f9; padding: 6px 12px; border-radius: 8px; white-space: nowrap; }
 
+        /* Estilo unificado para TODAS las tags */
         .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-        .tag { background: #f8fafc; padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; color: var(--text-light); font-weight: 500; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px; }
+        .tag { 
+            background: #eff6ff; /* Fondo azul claro unificado */
+            padding: 8px 16px; 
+            border-radius: 50px; 
+            font-size: 0.9rem; 
+            color: var(--primary-dark); /* Color texto oscuro unificado */
+            font-weight: 600; 
+            border: 1px solid transparent; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: all 0.2s;
+        }
         .tag i { color: var(--primary); }
-        .tag.tech { background: #eff6ff; color: var(--primary-dark); font-weight: 600; border: none; }
+        .tag:hover { background-color: white; border-color: var(--primary); color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
         /* Estilos para los botones del header */
         .btn-header {
@@ -304,11 +324,11 @@
     <section>
         <div class="section-header"><h3 class="section-title">Perfil Profesional</h3></div>
         <div class="card">
-            <p style="font-size: 1.05rem; margin-bottom: 1rem;">
+            <p class="profile-text">
                 Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y especialización en <strong>Google Workspace & GCP</strong>. 
                 Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>.
             </p>
-            <p>
+            <p class="profile-text" style="margin-bottom: 0;">
                 Destaco en la <strong>Ingeniería Aumentada por IA</strong>, desarrollando scripts (Python, GAS, Bash) y soluciones web (HTML/CSS) que optimizan procesos complejos. Mi trayectoria combina rigor científico y técnico (Soporte L4, Migraciones) con liderazgo empático.
             </p>
         </div>
@@ -362,12 +382,13 @@
             </ul>
         </div>
 
+        <!-- DOZO: CORREGIDO ORDEN Y ESTILO -->
         <div class="card">
             <div class="job-header">
                 <div><span class="company">Dozo</span><span class="role">Analista de Datos</span></div>
                 <span class="date">2017 (3 meses)</span>
             </div>
-            <p>Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
+            <p style="margin: 0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
         </div>
 
         <div class="card">
@@ -381,6 +402,7 @@
             </ul>
         </div>
 
+        <!-- ICV: CORREGIDO ESTILO -->
         <div class="card">
             <div class="job-header">
                 <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
@@ -396,6 +418,8 @@
 
     <section>
         <div class="section-header"><h3 class="section-title">Consultoría Independiente & Automatización</h3></div>
+        
+        <!-- ALCAMPO: CORREGIDO ESTILO -->
         <div class="card">
             <div class="job-header">
                 <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones de Planificación (Remoto)</span></div>
@@ -403,8 +427,10 @@
             </div>
             <p>Desarrollo de una solución automatizada para la gestión de turnos y horarios de personal en supermercados a nivel nacional. Creación de plantillas inteligentes y scripts complejos en Google Apps Script.</p>
         </div>
-        <div class="card" style="background: #fffcf5;">
-            <div class="job-header" style="border:none; padding:0; margin:0;">
+        
+        <!-- BYMOTORS: CORREGIDO ESTILO (FONDO BLANCO) -->
+        <div class="card">
+            <div class="job-header">
                 <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos Digitales (Freelance)</span></div>
                 <span class="date">Freelance</span>
             </div>
@@ -415,14 +441,15 @@
     <section>
         <div class="section-header"><h3 class="section-title">Stack Tecnológico & Habilidades</h3></div>
         <div class="skills-grid">
-            <span class="tag tech"><i class="fab fa-google"></i> Google Workspace Arch</span>
-            <span class="tag tech"><i class="fas fa-cloud"></i> Google Cloud (GCP)</span>
-            <span class="tag tech"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
-            <span class="tag tech"><i class="fas fa-robot"></i> AI Prompt Engineering</span>
-            <span class="tag tech"><i class="fab fa-python"></i> Python (AI-Assisted)</span>
-            <span class="tag tech"><i class="fas fa-code"></i> Google Apps Script</span>
-            <span class="tag tech"><i class="fas fa-file-code"></i> Bash Scripting</span>
-            <span class="tag tech"><i class="fab fa-html5"></i> HTML/CSS (AI-Assisted)</span>
+            <!-- ETIQUETAS UNIFICADAS: TODAS TIENEN EL MISMO ESTILO AZUL -->
+            <span class="tag"><i class="fab fa-google"></i> Google Workspace Arch</span>
+            <span class="tag"><i class="fas fa-cloud"></i> Google Cloud (GCP)</span>
+            <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
+            <span class="tag"><i class="fas fa-robot"></i> AI Prompt Engineering</span>
+            <span class="tag"><i class="fab fa-python"></i> Python (AI-Assisted)</span>
+            <span class="tag"><i class="fas fa-code"></i> Google Apps Script</span>
+            <span class="tag"><i class="fas fa-file-code"></i> Bash Scripting</span>
+            <span class="tag"><i class="fab fa-html5"></i> HTML/CSS (AI-Assisted)</span>
             <span class="tag"><i class="fas fa-users"></i> Gestión de Equipos</span>
             <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación Técnica</span>
             <span class="tag"><i class="fas fa-laptop-house"></i> Trabajo Remoto</span>
@@ -430,7 +457,6 @@
         </div>
     </section>
 
-    <!-- Sección Restaurada: Liderazgo -->
     <section>
         <div class="section-header">
             <h3 class="section-title">Liderazgo y Habilidades Personales</h3>
@@ -451,7 +477,6 @@
         </div>
     </section>
 
-    <!-- Sección Restaurada: Formación -->
     <section>
         <div class="section-header">
             <h3 class="section-title">Formación Académica</h3>
