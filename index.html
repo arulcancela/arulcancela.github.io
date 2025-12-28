@@ -142,12 +142,135 @@
         .tag i { color: var(--primary); }
         .tag.tech { background: #eff6ff; color: var(--primary-dark); font-weight: 600; border: none; }
 
+        /* Estilos para los botones del header */
+        .btn-header {
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            margin: 5px; /* Espaciado entre botones */
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .btn-contact {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-download {
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-dark);
+        }
+
+        .btn-linkedin {
+            background: rgba(255,255,255,0.15); /* Fondo semitransparente */
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(4px);
+        }
+        
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-contact:hover { background-color: #f8fafc; }
+        .btn-download:hover { background-color: white; }
+        .btn-linkedin:hover { background-color: rgba(255,255,255,0.3); border-color: white; }
+
+
         footer { text-align: center; padding: 4rem 0 2rem 0; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 4rem; }
+
+        /* --- ESTILOS DE IMPRESIÓN (MAGIC CSS) --- */
+        @media print {
+            @page { margin: 1.5cm; }
+            body { 
+                background: white; 
+                color: black; 
+                font-size: 12px; 
+            }
+            header { 
+                background: none; 
+                color: black; 
+                padding: 0; 
+                text-align: left;
+                margin-bottom: 2rem;
+                border-bottom: 2px solid #333;
+                padding-bottom: 1rem;
+            }
+            header::before, .wave-separator, .btn-header, footer { display: none !important; }
+            
+            .profile-logo { display: none; } /* Ocultar logo grande para ahorrar tinta/espacio */
+            
+            h1 { font-size: 24pt; color: black; text-shadow: none; margin-bottom: 5px; }
+            h2 { font-size: 14pt; color: #444; margin-top: 0; }
+            
+            .container { padding: 0; max-width: 100%; margin: 0; }
+            section { margin-bottom: 2rem; break-inside: avoid; }
+            
+            .section-title { 
+                font-size: 16pt; 
+                border-left: none; 
+                padding-left: 0; 
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 5px;
+                margin-bottom: 1rem;
+                color: black;
+            }
+            
+            .card { 
+                box-shadow: none; 
+                border: none; 
+                padding: 0; 
+                margin-bottom: 1.5rem; 
+                background: none;
+            }
+            
+            .job-header { margin-bottom: 5px; border: none; padding: 0; }
+            .company { font-size: 13pt; font-weight: bold; color: black; }
+            .role { font-size: 12pt; color: #333; font-style: italic; }
+            .date { background: none; color: #666; font-size: 11pt; padding: 0; text-align: right; }
+            
+            ul { margin-top: 5px; padding-left: 20px; }
+            li { margin-bottom: 2px; color: black; }
+            
+            .skills-grid { gap: 5px; }
+            .tag { 
+                border: 1px solid #ccc; 
+                background: none !important; 
+                color: black !important; 
+                padding: 2px 8px;
+                border-radius: 4px;
+            }
+            
+            /* Enlaces visuales */
+            a { text-decoration: none; color: black; }
+            a[href]:after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+            
+            /* Mostrar info de contacto oculta en web */
+            .print-contact-info {
+                display: block !important;
+                margin-top: 10px;
+                font-size: 11pt;
+            }
+        }
+
+        .print-contact-info { display: none; } /* Oculto en pantalla normal */
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .job-header { flex-direction: column; gap: 10px; }
             .date { align-self: flex-start; }
+            /* Ajuste botones en móvil */
+            .btn-header { width: 100%; justify-content: center; margin: 5px 0; }
         }
     </style>
 </head>
@@ -158,12 +281,32 @@
         <img src="logo.jpg" alt="Logo Raúl Cancela" class="profile-logo">
         <h1>Raúl Cancela</h1>
         <h2>Arquitecto de Soluciones Google Cloud & Especialista en Automatización</h2>
+        
+        <!-- Info extra solo para impresión -->
+        <div class="print-contact-info">
+            <p><strong>Email:</strong> arulcancela@gmail.com | <strong>Web:</strong> arulcancela.github.io</p>
+            <p><strong>Ubicación:</strong> Madrid, España | <strong>Modalidad:</strong> Remoto / Remote-First</p>
+        </div>
+
         <div style="margin-top: 1rem; display: flex; flex-direction: column; align-items: center; gap: 5px;">
             <span style="opacity: 0.9; font-size: 1rem;"><i class="fas fa-map-marker-alt"></i> Madrid, España</span>
             <span class="remote-badge"><i class="fas fa-laptop-house"></i> Disponible en Remoto / Remote-First</span>
         </div>
-        <div style="margin-top: 2.5rem;">
-            <a href="mailto:arulcancela@gmail.com" style="background: white; color: var(--primary); padding: 12px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Contactar</a>
+        
+        <!-- BOTONES DE ACCIÓN PRINCIPALES -->
+        <div style="margin-top: 2.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+            <a href="mailto:arulcancela@gmail.com" class="btn-header btn-contact">
+                <i class="fas fa-envelope"></i> Contactar
+            </a>
+            
+            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" class="btn-header btn-linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+
+            <!-- BOTÓN MÁGICO: Imprime la página como PDF -->
+            <button onclick="window.print()" class="btn-header btn-download">
+                <i class="fas fa-file-pdf"></i> Guardar como PDF
+            </button>
         </div>
     </div>
     <div class="wave-separator">
@@ -245,7 +388,6 @@
             </ul>
         </div>
 
-        <!-- PRÁCTICAS LABORATORIO -->
         <div class="card" style="border-left: 4px solid #10b981;">
             <div class="job-header">
                 <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
