@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Iconos (FontAwesome CDN ligero para iconos simples) -->
+    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -45,13 +45,12 @@
         header {
             background: var(--gradient);
             color: white;
-            padding: 4rem 2rem 8rem 2rem; /* Más padding abajo para el efecto curva */
+            padding: 4rem 2rem 8rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        /* Efecto de fondo sutil */
         header::before {
             content: '';
             position: absolute;
@@ -60,21 +59,24 @@
             opacity: 0.3;
         }
 
-        /* ESTILOS DEL LOGO */
+        /* --- LOGO RECTANGULAR --- */
         .profile-logo {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%; /* Lo hace circular */
-            object-fit: cover; /* Asegura que la imagen no se deforme */
-            border: 4px solid rgba(255,255,255,0.3); /* Borde semitransparente elegante */
+            max-width: 300px;  /* Ancho máximo para que no se vea gigante */
+            width: 100%;       /* Se adapta a pantallas pequeñas */
+            height: auto;      /* Mantiene la proporción original (no se estira) */
+            border-radius: 12px; /* Bordes suavemente redondeados */
+            border: 4px solid rgba(255,255,255,0.3);
             margin-bottom: 1.5rem;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            background: white; /* Por si el logo tiene transparencia */
+            background: white; 
             transition: transform 0.3s ease;
+            display: block;    /* Para centrarlo bien con margin auto */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .profile-logo:hover {
-            transform: scale(1.05) rotate(2deg);
+            transform: scale(1.02); /* Efecto zoom sutil */
         }
 
         /* BADGE DE TRABAJO REMOTO */
@@ -208,7 +210,6 @@
             border-color: rgba(37, 99, 235, 0.2);
         }
 
-        /* Estilo Timeline para experiencia */
         .job-header {
             display: flex;
             justify-content: space-between;
@@ -234,7 +235,6 @@
         ul { margin: 0; padding-left: 1.2rem; }
         li { margin-bottom: 0.8rem; }
 
-        /* Highlight para métricas */
         .metric { color: var(--secondary); font-weight: 600; background-color: #dbeafe; padding: 0 4px; border-radius: 2px;}
 
         /* --- SKILLS GRID --- */
@@ -264,7 +264,7 @@
         
         .tag.tech { background: #eff6ff; color: var(--primary-dark); font-weight: 600; border: none; }
 
-        /* --- SECCIÓN PERSONAL (GRID) --- */
+        /* --- PERSONAL GRID --- */
         .personal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -288,7 +288,6 @@
             gap: 10px;
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 4rem 0 2rem 0;
@@ -310,17 +309,15 @@
 
 <header>
     <div style="position: relative; z-index: 10;">
-        <!-- LOGO AÑADIDO AQUÍ: Asegúrate de que el archivo se llame logo.jpg -->
+        <!-- LOGO: Asegúrate de guardar tu imagen generada como 'logo.jpg' -->
         <img src="logo.jpg" alt="Logo Raúl Cancela" class="profile-logo">
         
         <h1>Raúl Cancela</h1>
         <h2>Arquitecto de Soluciones Google Cloud & Especialista en Automatización</h2>
         
-        <!-- Línea de ubicación y trabajo remoto -->
         <div style="margin-top: 1rem; display: flex; flex-direction: column; align-items: center; gap: 5px;">
             <span style="opacity: 0.9; font-size: 1rem;"><i class="fas fa-map-marker-alt"></i> Madrid, España</span>
             
-            <!-- BADGE DE TRABAJO REMOTO -->
             <span class="remote-badge">
                 <i class="fas fa-laptop-house"></i> Disponible en Remoto / Remote-First
             </span>
@@ -332,7 +329,7 @@
         </div>
     </div>
 
-    <!-- Onda decorativa inferior -->
+    <!-- Onda decorativa -->
     <div class="wave-separator">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
@@ -364,7 +361,6 @@
             <h3 class="section-title">Experiencia Corporativa</h3>
         </div>
 
-        <!-- Inetum -->
         <div class="card">
             <div class="job-header">
                 <div>
@@ -380,7 +376,6 @@
             </ul>
         </div>
 
-        <!-- Devoteam -->
         <div class="card">
             <div class="job-header">
                 <div>
@@ -396,7 +391,6 @@
             </ul>
         </div>
 
-        <!-- Nubalia -->
         <div class="card">
             <div class="job-header">
                 <div>
@@ -412,7 +406,6 @@
             </ul>
         </div>
 
-        <!-- Intelligence Partner -->
         <div class="card">
             <div class="job-header">
                 <div>
@@ -427,7 +420,6 @@
             </ul>
         </div>
 
-        <!-- Dozo (Relleno de Gap) -->
         <div class="card" style="padding: 1.5rem; border-left: 4px solid #cbd5e1;">
             <div class="job-header" style="margin-bottom: 0.5rem; padding-bottom: 0; border: none;">
                 <div>
@@ -439,7 +431,6 @@
             <p style="margin: 0; font-size: 0.95rem;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
         </div>
 
-        <!-- Accenture -->
         <div class="card">
             <div class="job-header">
                 <div>
@@ -475,12 +466,14 @@
             </ul>
         </div>
         
+        <!-- ByMotors actualizado como Freelance -->
         <div class="card" style="padding: 1.5rem; background: #fffcf5;">
             <div class="job-header" style="border:none; padding:0; margin:0;">
                 <div>
                     <span class="company" style="font-size: 1.1rem;">ByMotors</span>
-                    <span class="role">Consultor de Procesos Digitales</span>
+                    <span class="role">Consultor de Procesos Digitales (Freelance)</span>
                 </div>
+                <span class="date">Freelance</span>
             </div>
             <p style="margin-top: 5px;">Asesoramiento y optimización de flujos de trabajo mediante Google Sheets avanzado.</p>
         </div>
