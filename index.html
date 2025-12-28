@@ -49,10 +49,11 @@
             /* Fallback por si la imagen falla */
             background-color: #1e3a8a; 
             color: white;
-            padding: 8rem 2rem 10rem 2rem; /* Más altura para lucir la foto */
+            padding: 8rem 2rem 6rem 2rem; /* Ajustado el padding inferior al quitar la onda */
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 4px solid var(--primary); /* Borde inferior sutil para cerrar la imagen */
         }
         
         /* Capa oscura para que el texto se lea bien sobre la foto */
@@ -84,25 +85,6 @@
             backdrop-filter: blur(4px);
             font-weight: 500;
         }
-
-        .wave-separator {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            z-index: 3;
-        }
-
-        .wave-separator svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 80px;
-        }
-
-        .wave-separator .shape-fill { fill: var(--bg-body); }
         
         h1 { margin: 0; font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
         h2 { font-weight: 400; font-size: 1.4rem; opacity: 0.95; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
@@ -235,7 +217,7 @@
                 color: black; padding: 0; text-align: left;
                 margin-bottom: 2rem; border-bottom: 2px solid #333; padding-bottom: 1rem;
             }
-            header::before, .wave-separator, .btn-header, footer { display: none !important; }
+            header::before, .btn-header, footer { display: none !important; } /* Eliminado .wave-separator de aquí porque ya se borró del HTML */
             
             h1 { font-size: 24pt; color: black; text-shadow: none; margin-bottom: 5px; }
             h2 { font-size: 14pt; color: #444; margin-top: 0; text-shadow: none; }
@@ -304,9 +286,6 @@
                 <i class="fas fa-file-pdf"></i> Guardar como PDF
             </button>
         </div>
-    </div>
-    <div class="wave-separator">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path></svg>
     </div>
 </header>
 
