@@ -26,7 +26,7 @@
             --bg-body: #f8fafc; 
             --surface: #ffffff;
             --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            --accent: #f59e0b; /* Color ámbar para destacar cosas especiales */
+            --accent: #f59e0b; 
         }
         
         * { box-sizing: border-box; }
@@ -45,7 +45,7 @@
         header {
             background: var(--gradient);
             color: white;
-            padding: 5rem 2rem 8rem 2rem; /* Más padding abajo para el efecto curva */
+            padding: 4rem 2rem 8rem 2rem; /* Más padding abajo para el efecto curva */
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -60,7 +60,38 @@
             opacity: 0.3;
         }
 
-        /* Curva inferior estilo moderno */
+        /* ESTILOS DEL LOGO */
+        .profile-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; /* Lo hace circular */
+            object-fit: cover; /* Asegura que la imagen no se deforme */
+            border: 4px solid rgba(255,255,255,0.3); /* Borde semitransparente elegante */
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: white; /* Por si el logo tiene transparencia */
+            transition: transform 0.3s ease;
+        }
+
+        .profile-logo:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* BADGE DE TRABAJO REMOTO */
+        .remote-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+            font-weight: 500;
+        }
+
         .wave-separator {
             position: absolute;
             bottom: 0;
@@ -279,11 +310,21 @@
 
 <header>
     <div style="position: relative; z-index: 10;">
+        <!-- LOGO AÑADIDO AQUÍ: Asegúrate de que el archivo se llame logo.jpg -->
+        <img src="logo.jpg" alt="Logo Raúl Cancela" class="profile-logo">
+        
         <h1>Raúl Cancela</h1>
         <h2>Arquitecto de Soluciones Google Cloud & Especialista en Automatización</h2>
-        <p style="opacity: 0.9; margin-top: 0.5rem; font-size: 1rem;">
-            <i class="fas fa-map-marker-alt"></i> Madrid, España &bull; Perfil Híbrido: Física + Tecnología + Gestión
-        </p>
+        
+        <!-- Línea de ubicación y trabajo remoto -->
+        <div style="margin-top: 1rem; display: flex; flex-direction: column; align-items: center; gap: 5px;">
+            <span style="opacity: 0.9; font-size: 1rem;"><i class="fas fa-map-marker-alt"></i> Madrid, España</span>
+            
+            <!-- BADGE DE TRABAJO REMOTO -->
+            <span class="remote-badge">
+                <i class="fas fa-laptop-house"></i> Disponible en Remoto / Remote-First
+            </span>
+        </div>
         
         <div class="cta-container">
             <a href="mailto:arulcancela@gmail.com" class="btn btn-primary">Contactar</a>
@@ -308,10 +349,11 @@
         </div>
         <div class="card">
             <p style="font-size: 1.05rem; color: var(--secondary); margin-bottom: 1rem;">
-                Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y alta capacidad de resolución técnica. Me especializo en el ecosistema <strong>Google Workspace</strong> y <strong>GCP</strong>, destacando por mi enfoque en la <strong>Ingeniería Aumentada por IA</strong>.
+                Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y especialización en <strong>Google Workspace & GCP</strong>. 
+                Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>, donde mi enfoque basado en objetivos y automatización asíncrona ofrece los mejores resultados.
             </p>
             <p>
-                Utilizo flujos de trabajo avanzados con LLMs (Gemini/GPT) para desarrollar scripts complejos (Python, Bash, Apps Script) y automatizaciones que optimizan procesos empresariales, "maquillando" la complejidad técnica con soluciones eficientes. Mi trayectoria combina roles técnicos (Soporte L3, Migraciones masivas) con habilidades de liderazgo (Gestión de equipos, Formación y Preventa).
+                Destaco en la <strong>Ingeniería Aumentada por IA</strong>, utilizando flujos de trabajo avanzados con LLMs para desarrollar scripts (Python, GAS, Bash) que optimizan procesos complejos sin necesidad de grandes equipos de desarrollo. Mi trayectoria combina rigor técnico (Soporte L3, Migraciones) con liderazgo empático (Gestión de equipos, Formación).
             </p>
         </div>
     </section>
@@ -348,9 +390,9 @@
                 <span class="date">May 2021 - Sep 2025</span>
             </div>
             <ul>
-                <li><strong>Gestión Global:</strong> Soporte técnico bilingüe (Español/Inglés) a una cartera de <span class="metric">+100 clientes</span> empresariales.</li>
-                <li><strong>Escalado L3:</strong> Interlocución directa con Ingeniería de Google para incidencias críticas, actuando como Superadmin delegado para cambios de configuración sensibles.</li>
-                <li><strong>Liderazgo:</strong> Mentoría técnica a un equipo de 10 agentes, asegurando SLAs y calidad en las respuestas (redacción técnica asistida por IA).</li>
+                <li><strong>Gestión Global (Remoto):</strong> Soporte técnico bilingüe (Español/Inglés) a una cartera de <span class="metric">+100 clientes</span> empresariales, operando eficazmente en entornos distribuidos.</li>
+                <li><strong>Escalado L3:</strong> Interlocución directa con Ingeniería de Google para incidencias críticas, actuando como Superadmin delegado.</li>
+                <li><strong>Liderazgo:</strong> Mentoría técnica a un equipo de 10 agentes, asegurando SLAs y calidad en las respuestas.</li>
             </ul>
         </div>
 
@@ -366,7 +408,7 @@
             <ul>
                 <li><strong>Experto en Intranets:</strong> Referente técnico en <strong>LumApps</strong>, gestionando incidencias complejas y relación directa con el fabricante.</li>
                 <li><strong>Migraciones Masivas:</strong> Ejecución técnica de proyectos de transformación para mover +5.000 usuarios a la nube de Google.</li>
-                <li>Certificaciones obtenidas en Google Workspace (Professional Collaboration Engineer) y ejecución de formaciones técnicas.</li>
+                <li>Certificaciones obtenidas en Google Workspace (Professional Collaboration Engineer).</li>
             </ul>
         </div>
 
@@ -381,7 +423,7 @@
             </div>
             <ul>
                 <li><strong>Consultoría 360º:</strong> Ciclo completo de vida del proyecto: Preventa (toma de requisitos) -> Migración -> Formación -> Soporte.</li>
-                <li><strong>Formador Técnico:</strong> Viajes a sedes de clientes nacionales para impartir formación especializada a Administradores de TI y usuarios finales.</li>
+                <li><strong>Formador Técnico:</strong> Viajes puntuales a sedes de clientes nacionales para impartir formación especializada.</li>
             </ul>
         </div>
 
@@ -413,7 +455,7 @@
         </div>
     </section>
 
-    <!-- Proyectos Freelance (NUEVA SECCIÓN) -->
+    <!-- Proyectos Freelance -->
     <section>
         <div class="section-header">
             <h3 class="section-title">Consultoría Independiente & Automatización</h3>
@@ -422,7 +464,7 @@
             <div class="job-header">
                 <div>
                     <span class="company">Alcampo / Sabeco</span>
-                    <span class="role">Desarrollador de Soluciones de Planificación</span>
+                    <span class="role">Desarrollador de Soluciones de Planificación (Remoto)</span>
                 </div>
                 <span class="date">Freelance</span>
             </div>
@@ -462,12 +504,12 @@
             <!-- Soft / Tools -->
             <span class="tag"><i class="fas fa-users"></i> Gestión de Equipos</span>
             <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación Técnica</span>
-            <span class="tag"><i class="fas fa-project-diagram"></i> LumApps Intranets</span>
+            <span class="tag"><i class="fas fa-laptop-house"></i> Trabajo Remoto</span>
             <span class="tag"><i class="fas fa-language"></i> Inglés Profesional</span>
         </div>
     </section>
 
-    <!-- Lado Personal / Liderazgo (NUEVA SECCIÓN POTENTE) -->
+    <!-- Lado Personal / Liderazgo -->
     <section>
         <div class="section-header">
             <h3 class="section-title">Liderazgo y Habilidades Personales</h3>
