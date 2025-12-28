@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO -->
-    <meta name="description" content="Raúl Cancela - Arquitecto de Soluciones Google Workspace y Cloud Specialist. Experiencia en proyectos internacionales y soporte L3.">
-    <title>Raúl Cancela | Google Cloud & Workspace Architect</title>
+    <!-- SEO Optimizado -->
+    <meta name="description" content="Raúl Cancela - Arquitecto de Soluciones Google Workspace, Experto en Migraciones (GAM) y Automatización con IA. Perfil híbrido técnico-gestión.">
+    <title>Raúl Cancela | Google Cloud Architect & AI-Augmented Engineer</title>
     
-    <!-- Fuentes Modernas: Poppins (Títulos) e Inter (Texto) -->
+    <!-- Fuentes Modernas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Iconos (FontAwesome CDN ligero para iconos simples) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            /* Paleta de Colores Premium */
-            --primary: #2563eb; /* Azul brillante */
+            /* Paleta de Colores Corporativa y Elegante */
+            --primary: #2563eb; 
             --primary-dark: #1e40af;
-            --secondary: #0f172a; /* Azul noche muy oscuro para textos */
-            --text-light: #475569; /* Gris pizarra para párrafos */
-            --bg-body: #f1f5f9; /* Gris muy suave para el fondo */
+            --secondary: #0f172a; 
+            --text-light: #475569; 
+            --bg-body: #f8fafc; 
             --surface: #ffffff;
-            --gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); /* Degradado Hero */
+            --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --accent: #f59e0b; /* Color ámbar para destacar cosas especiales */
         }
         
         * { box-sizing: border-box; }
@@ -35,39 +39,66 @@
             line-height: 1.7;
         }
 
-        h1, h2, h3, .company { font-family: 'Poppins', sans-serif; }
+        h1, h2, h3, .company, .card-title { font-family: 'Poppins', sans-serif; }
 
-        /* --- HERO SECTION (Cabecera) --- */
+        /* --- HERO SECTION --- */
         header {
             background: var(--gradient);
             color: white;
-            padding: 6rem 2rem;
+            padding: 5rem 2rem 8rem 2rem; /* Más padding abajo para el efecto curva */
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Corte diagonal moderno */
-            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
         }
+        
+        /* Efecto de fondo sutil */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        /* Curva inferior estilo moderno */
+        .wave-separator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-separator svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .wave-separator .shape-fill { fill: var(--bg-body); }
         
         h1 {
             margin: 0;
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             letter-spacing: -1px;
-            background: linear-gradient(to right, #ffffff, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         h2 {
             font-weight: 400;
-            font-size: 1.25rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            opacity: 0.95;
             margin-top: 1rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.4;
         }
 
-        .cta-container { margin-top: 2.5rem; }
+        .cta-container { margin-top: 2.5rem; position: relative; z-index: 10; }
 
         .btn {
             display: inline-block;
@@ -77,36 +108,37 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 0.95rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            background-color: white;
+            color: var(--primary);
         }
         .btn-primary:hover {
-            background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background-color: #f8fafc;
         }
 
         .btn-outline {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.15);
             color: white;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
             margin-left: 10px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(4px);
         }
         .btn-outline:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: white;
+            background: rgba(255,255,255,0.3);
         }
 
         /* --- CONTENEDOR PRINCIPAL --- */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 1.5rem 4rem 1.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         /* --- SECCIONES --- */
@@ -115,240 +147,258 @@
         .section-header {
             display: flex;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: var(--secondary);
             font-weight: 700;
             margin: 0;
             position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 4px;
-            background: var(--primary);
-            margin-top: 8px;
-            border-radius: 2px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary);
         }
 
-        /* --- TARJETAS DE EXPERIENCIA --- */
-        .timeline-card {
+        /* --- TARJETAS --- */
+        .card {
             background: var(--surface);
             padding: 2.5rem;
             border-radius: 16px;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); /* Sombra suave y elegante */
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .timeline-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--primary);
-            opacity: 0;
-            transition: opacity 0.3s;
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            border-color: rgba(37, 99, 235, 0.2);
         }
 
-        .timeline-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
-        }
-        .timeline-card:hover::before { opacity: 1; }
-
+        /* Estilo Timeline para experiencia */
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1rem;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #f1f5f9;
             padding-bottom: 1rem;
         }
 
-        .company {
-            font-size: 1.25rem;
-            color: var(--secondary);
-            font-weight: 700;
-        }
+        .company { font-size: 1.3rem; color: var(--secondary); font-weight: 700; }
+        .role { color: var(--primary); font-weight: 600; font-size: 1.05rem; display: block; margin-top: 4px; }
         
-        .role {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1rem;
-            display: block;
-            margin-top: 2px;
-        }
-
         .date {
             font-size: 0.85rem;
-            color: #94a3b8;
+            color: #64748b;
             font-weight: 500;
-            background: #f8fafc;
-            padding: 4px 10px;
-            border-radius: 6px;
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
         }
 
         ul { margin: 0; padding-left: 1.2rem; }
-        li { margin-bottom: 0.8rem; color: var(--text-light); }
+        li { margin-bottom: 0.8rem; }
 
-        /* --- TAGS (Skills) --- */
-        .skills-wrapper {
-            background: var(--surface);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
+        /* Highlight para métricas */
+        .metric { color: var(--secondary); font-weight: 600; background-color: #dbeafe; padding: 0 4px; border-radius: 2px;}
 
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+        /* --- SKILLS GRID --- */
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
         
         .tag {
-            background: #f1f5f9;
+            background: #f8fafc;
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 0.9rem;
-            color: var(--secondary);
+            color: var(--text-light);
             font-weight: 500;
+            border: 1px solid #e2e8f0;
             transition: all 0.2s;
-            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+        
+        .tag i { color: var(--primary); }
         
         .tag:hover {
-            background: white;
             border-color: var(--primary);
             color: var(--primary);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background: white;
         }
         
-        .tag.highlight {
-            background: #eff6ff;
-            color: var(--primary);
-            font-weight: 600;
+        .tag.tech { background: #eff6ff; color: var(--primary-dark); font-weight: 600; border: none; }
+
+        /* --- SECCIÓN PERSONAL (GRID) --- */
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .personal-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        
+        .personal-card h4 {
+            margin: 0 0 10px 0;
+            color: var(--secondary);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 3rem;
+            padding: 4rem 0 2rem 0;
             color: #94a3b8;
             font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 4rem;
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            header { padding: 4rem 1.5rem; }
-            .job-header { flex-direction: column; gap: 5px; }
-            .date { align-self: flex-start; margin-top: 5px; }
-            .timeline-card { padding: 1.5rem; }
+            h1 { font-size: 2.5rem; }
+            .job-header { flex-direction: column; gap: 10px; }
+            .date { align-self: flex-start; }
+            .personal-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Raúl Cancela</h1>
-    <h2>Google Workspace Solution Architect</h2>
-    <p style="opacity: 0.8; margin-top: 0.5rem;">Madrid, España • Física + Tecnología Cloud</p>
-    
-    <div class="cta-container">
-        <a href="mailto:arulcancela@gmail.com" class="btn btn-primary">Contactar Ahora</a>
-        <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" class="btn btn-outline">Ver LinkedIn</a>
+    <div style="position: relative; z-index: 10;">
+        <h1>Raúl Cancela</h1>
+        <h2>Arquitecto de Soluciones Google Cloud & Especialista en Automatización</h2>
+        <p style="opacity: 0.9; margin-top: 0.5rem; font-size: 1rem;">
+            <i class="fas fa-map-marker-alt"></i> Madrid, España &bull; Perfil Híbrido: Física + Tecnología + Gestión
+        </p>
+        
+        <div class="cta-container">
+            <a href="mailto:arulcancela@gmail.com" class="btn btn-primary">Contactar</a>
+            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </div>
+
+    <!-- Onda decorativa inferior -->
+    <div class="wave-separator">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
     </div>
 </header>
 
 <div class="container">
 
-    <!-- Perfil -->
+    <!-- Extracto / Sobre Mí -->
     <section>
         <div class="section-header">
-            <h3 class="section-title">Sobre mí</h3>
+            <h3 class="section-title">Perfil Profesional</h3>
         </div>
-        <p style="font-size: 1.05rem; color: var(--secondary);">
-            Arquitecto de Soluciones con base científica (Grado en Física) y especialización profunda en el ecosistema <strong>Google Cloud</strong>. Mi enfoque combina la capacidad analítica para resolver problemas complejos (L3) con la visión estratégica para liderar transformaciones digitales en grandes cuentas.
-        </p>
+        <div class="card">
+            <p style="font-size: 1.05rem; color: var(--secondary); margin-bottom: 1rem;">
+                Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y alta capacidad de resolución técnica. Me especializo en el ecosistema <strong>Google Workspace</strong> y <strong>GCP</strong>, destacando por mi enfoque en la <strong>Ingeniería Aumentada por IA</strong>.
+            </p>
+            <p>
+                Utilizo flujos de trabajo avanzados con LLMs (Gemini/GPT) para desarrollar scripts complejos (Python, Bash, Apps Script) y automatizaciones que optimizan procesos empresariales, "maquillando" la complejidad técnica con soluciones eficientes. Mi trayectoria combina roles técnicos (Soporte L3, Migraciones masivas) con habilidades de liderazgo (Gestión de equipos, Formación y Preventa).
+            </p>
+        </div>
     </section>
 
-    <!-- Experiencia -->
+    <!-- Experiencia Principal -->
     <section>
         <div class="section-header">
-            <h3 class="section-title">Trayectoria Profesional</h3>
+            <h3 class="section-title">Experiencia Corporativa</h3>
         </div>
 
-        <div class="timeline-card">
+        <!-- Inetum -->
+        <div class="card">
             <div class="job-header">
                 <div>
                     <span class="company">Inetum</span>
-                    <span class="role">Arquitecto de Soluciones Google (Workspace)</span>
+                    <span class="role">Arquitecto de Soluciones Google (Workspace Lead)</span>
                 </div>
                 <span class="date">Oct 2025 - Actualidad</span>
             </div>
             <ul>
+                <li><strong>Líder Técnico de Migración:</strong> Gestión integral (end-to-end) de la migración de <span class="metric">2.000 usuarios</span>.</li>
+                <li><strong>Automatización Avanzada:</strong> Uso experto de <strong>GAM (Google Apps Manager)</strong> para extracción masiva de datos y scripting para automatizar la provisión de usuarios, superando las limitaciones de la consola nativa.</li>
                 <li>Diseño de arquitecturas cloud seguras y escalables para clientes Enterprise.</li>
-                <li>Consultoría estratégica para optimizar flujos de trabajo en Google Workspace.</li>
             </ul>
         </div>
 
-        <div class="timeline-card">
+        <!-- Devoteam -->
+        <div class="card">
             <div class="job-header">
                 <div>
                     <span class="company">Devoteam</span>
-                    <span class="role">Team Lead & Ingeniero de Soporte Workspace</span>
+                    <span class="role">Team Lead & Senior Support Engineer</span>
                 </div>
                 <span class="date">May 2021 - Sep 2025</span>
             </div>
             <ul>
-                <li>Gestión y mentoría de un equipo de <strong>10 agentes</strong> de soporte técnico (L1/L2).</li>
-                <li>Resolución de incidencias críticas (L3) en comunicación directa con Ingeniería de Google.</li>
-                <li>Administración de consolas Superadmin para clientes globales.</li>
+                <li><strong>Gestión Global:</strong> Soporte técnico bilingüe (Español/Inglés) a una cartera de <span class="metric">+100 clientes</span> empresariales.</li>
+                <li><strong>Escalado L3:</strong> Interlocución directa con Ingeniería de Google para incidencias críticas, actuando como Superadmin delegado para cambios de configuración sensibles.</li>
+                <li><strong>Liderazgo:</strong> Mentoría técnica a un equipo de 10 agentes, asegurando SLAs y calidad en las respuestas (redacción técnica asistida por IA).</li>
             </ul>
         </div>
 
-        <div class="timeline-card">
+        <!-- Nubalia -->
+        <div class="card">
             <div class="job-header">
                 <div>
                     <span class="company">Nubalia</span>
-                    <span class="role">Ingeniero de Operaciones Senior</span>
+                    <span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span>
                 </div>
                 <span class="date">Abr 2019 - May 2021</span>
             </div>
             <ul>
-                <li>Liderazgo en migraciones masivas de datos (<strong>+5.000 usuarios</strong>) hacia la nube con cero downtime crítico.</li>
-                <li>Soporte técnico avanzado en fases de preventa para cerrar propuestas comerciales complejas.</li>
-                <li>Formación técnica a equipos de IT del cliente para garantizar la adopción.</li>
+                <li><strong>Experto en Intranets:</strong> Referente técnico en <strong>LumApps</strong>, gestionando incidencias complejas y relación directa con el fabricante.</li>
+                <li><strong>Migraciones Masivas:</strong> Ejecución técnica de proyectos de transformación para mover +5.000 usuarios a la nube de Google.</li>
+                <li>Certificaciones obtenidas en Google Workspace (Professional Collaboration Engineer) y ejecución de formaciones técnicas.</li>
             </ul>
         </div>
 
-        <div class="timeline-card">
+        <!-- Intelligence Partner -->
+        <div class="card">
             <div class="job-header">
                 <div>
                     <span class="company">Intelligence Partner</span>
-                    <span class="role">Ingeniero de Operaciones Google Workspace</span>
+                    <span class="role">Ingeniero de Operaciones & Consultor de Preventa</span>
                 </div>
                 <span class="date">Nov 2017 - Abr 2019</span>
             </div>
             <ul>
-                <li>Ejecución de proyectos de <strong>transformación digital</strong> "end-to-end": desde el análisis funcional hasta la implantación técnica.</li>
-                <li>Consultoría de preventa: toma de requerimientos técnicos y funcionales.</li>
-                <li>Gestión del cambio: diseño e impartición de formaciones.</li>
+                <li><strong>Consultoría 360º:</strong> Ciclo completo de vida del proyecto: Preventa (toma de requisitos) -> Migración -> Formación -> Soporte.</li>
+                <li><strong>Formador Técnico:</strong> Viajes a sedes de clientes nacionales para impartir formación especializada a Administradores de TI y usuarios finales.</li>
             </ul>
         </div>
 
-        <div class="timeline-card">
+        <!-- Dozo (Relleno de Gap) -->
+        <div class="card" style="padding: 1.5rem; border-left: 4px solid #cbd5e1;">
+            <div class="job-header" style="margin-bottom: 0.5rem; padding-bottom: 0; border: none;">
+                <div>
+                    <span class="company" style="font-size: 1.1rem;">Dozo</span>
+                    <span class="role" style="font-size: 0.9rem;">Analista de Datos</span>
+                </div>
+                <span class="date">2017 (3 meses)</span>
+            </div>
+            <p style="margin: 0; font-size: 0.95rem;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
+        </div>
+
+        <!-- Accenture -->
+        <div class="card">
             <div class="job-header">
                 <div>
                     <span class="company">Accenture España</span>
@@ -357,33 +407,90 @@
                 <span class="date">Nov 2015 - Mar 2017</span>
             </div>
             <ul>
-                <li><strong>Proyecto en Riad (Arabia Saudí):</strong> Investigación de software y redacción de pliegos técnicos (RFIs/RFPs).</li>
-                <li>Gestión de oficina de proyectos (PMO), control de métricas y reporting en inglés.</li>
+                <li><strong>Experiencia Internacional (Riad, Arabia Saudí):</strong> Investigación de software y redacción de documentación técnica (RFIs/RFPs).</li>
+                <li>Gestión de PMO y reporting financiero utilizando herramientas de Office 365.</li>
             </ul>
+        </div>
+    </section>
+
+    <!-- Proyectos Freelance (NUEVA SECCIÓN) -->
+    <section>
+        <div class="section-header">
+            <h3 class="section-title">Consultoría Independiente & Automatización</h3>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent);">
+            <div class="job-header">
+                <div>
+                    <span class="company">Alcampo / Sabeco</span>
+                    <span class="role">Desarrollador de Soluciones de Planificación</span>
+                </div>
+                <span class="date">Freelance</span>
+            </div>
+            <p>Desarrollo de una solución automatizada para la gestión de turnos y horarios de personal en supermercados a nivel nacional.</p>
+            <ul>
+                <li>Creación de plantillas inteligentes interconectadas.</li>
+                <li>Implementación de scripts complejos en <strong>Google Apps Script</strong> (generados mediante flujos de IA) para automatizar la lógica de negocio y validación de datos.</li>
+            </ul>
+        </div>
+        
+        <div class="card" style="padding: 1.5rem; background: #fffcf5;">
+            <div class="job-header" style="border:none; padding:0; margin:0;">
+                <div>
+                    <span class="company" style="font-size: 1.1rem;">ByMotors</span>
+                    <span class="role">Consultor de Procesos Digitales</span>
+                </div>
+            </div>
+            <p style="margin-top: 5px;">Asesoramiento y optimización de flujos de trabajo mediante Google Sheets avanzado.</p>
         </div>
     </section>
 
     <!-- Skills -->
     <section>
         <div class="section-header">
-            <h3 class="section-title">Stack Tecnológico</h3>
+            <h3 class="section-title">Stack Tecnológico & Habilidades</h3>
         </div>
-        <div class="skills-wrapper">
-            <div class="skills-grid">
-                <span class="tag highlight">Google Workspace Architecture</span>
-                <span class="tag highlight">Google Cloud Platform (GCP)</span>
-                <span class="tag highlight">Bash Scripting</span>
-                <span class="tag">Soporte Técnico L3</span>
-                <span class="tag">Liderazgo de Equipos</span>
-                <span class="tag">Migración de Datos</span>
-                <span class="tag">Gestión del Cambio</span>
-                <span class="tag">Inglés (Profesional)</span>
-                <span class="tag">Francés (Profesional)</span>
+        <div class="skills-grid">
+            <!-- Core Tech -->
+            <span class="tag tech"><i class="fab fa-google"></i> Google Workspace Arch</span>
+            <span class="tag tech"><i class="fas fa-cloud"></i> Google Cloud (GCP)</span>
+            <span class="tag tech"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
+            <span class="tag tech"><i class="fas fa-robot"></i> AI Prompt Engineering</span>
+            <span class="tag tech"><i class="fab fa-python"></i> Python (AI-Assisted)</span>
+            <span class="tag tech"><i class="fas fa-code"></i> Google Apps Script</span>
+            <span class="tag tech"><i class="fas fa-file-code"></i> Bash Scripting</span>
+            
+            <!-- Soft / Tools -->
+            <span class="tag"><i class="fas fa-users"></i> Gestión de Equipos</span>
+            <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación Técnica</span>
+            <span class="tag"><i class="fas fa-project-diagram"></i> LumApps Intranets</span>
+            <span class="tag"><i class="fas fa-language"></i> Inglés Profesional</span>
+        </div>
+    </section>
+
+    <!-- Lado Personal / Liderazgo (NUEVA SECCIÓN POTENTE) -->
+    <section>
+        <div class="section-header">
+            <h3 class="section-title">Liderazgo y Habilidades Personales</h3>
+        </div>
+        <p style="margin-bottom: 2rem;">Más allá de la tecnología, aporto habilidades de comunicación, empatía y disciplina desarrolladas en diversos ámbitos.</p>
+        
+        <div class="personal-grid">
+            <!-- Magia -->
+            <div class="personal-card">
+                <h4><i class="fas fa-magic" style="color: var(--accent);"></i> Comunicación & Oratoria</h4>
+                <p><strong>Ex-Presidente de "Llevamos Magia" (2012-2018):</strong> ONG de magos solidarios. Mi experiencia como ilusionista profesional me ha dotado de una capacidad única para <strong>hablar en público</strong>, captar la atención y gestionar audiencias, habilidades que aplico directamente en formaciones y reuniones con clientes.</p>
             </div>
-            <div style="margin-top: 1.5rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
-                <p style="font-size: 0.9rem; margin: 0; color: var(--text-light);">
-                    <strong style="color: var(--secondary);">Certificaciones:</strong> GCP Big Data & ML Fundamentals • LumApps Deployment L1
-                </p>
+
+            <!-- Comunidad -->
+            <div class="personal-card">
+                <h4><i class="fas fa-users-cog" style="color: var(--accent);"></i> Liderazgo Comunitario</h4>
+                <p><strong>Vicepresidente de AMPA:</strong> Gestión de voluntariado y organización escolar. Comprometido con la conciliación (padre de 2 hijas) y la gestión eficiente del tiempo.</p>
+            </div>
+
+            <!-- Disciplina -->
+            <div class="personal-card">
+                <h4><i class="fas fa-music" style="color: var(--accent);"></i> Disciplina y Trabajo en Equipo</h4>
+                <p>Músico (Guitarra, Clarinete, Coro) y jugador de Baloncesto en equipo. Entiendo la importancia de la constancia, la armonía y la colaboración para alcanzar objetivos comunes.</p>
             </div>
         </div>
     </section>
@@ -393,24 +500,22 @@
         <div class="section-header">
             <h3 class="section-title">Formación Académica</h3>
         </div>
-        <div class="timeline-card" style="padding: 2rem; display: flex; align-items: center; gap: 1rem;">
-            <!-- Icono académico sencillo con SVG -->
-            <div style="background: #e0e7ff; padding: 10px; border-radius: 50%; color: var(--primary);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                </svg>
+        <div class="card" style="display: flex; align-items: center; gap: 1.5rem;">
+            <div style="background: #eff6ff; padding: 15px; border-radius: 50%; color: var(--primary);">
+                <i class="fas fa-graduation-cap fa-2x"></i>
             </div>
             <div>
-                <span class="company" style="font-size: 1.1rem;">Universidad Complutense de Madrid</span>
+                <span class="company" style="font-size: 1.2rem;">Universidad Complutense de Madrid</span>
                 <span class="role" style="color: var(--text-light); font-weight: 500;">Grado en Física (Ingeniería Física / Física Aplicada)</span>
-                <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 4px;">2011 - 2015</div>
+                <div style="font-size: 0.9rem; color: #94a3b8; margin-top: 4px;">2011 - 2015</div>
+                <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">Trabajo Fin de Grado: Análisis estadístico de la variabilidad térmica en Madrid (100 años).</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Raúl Cancela. Designed for Performance.</p>
+        <p>&copy; 2025 Raúl Cancela. Arquitecto Cloud & Problem Solver.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">ISTJ-T &bull; Eneatipo 7 Conservación</p>
     </footer>
 
 </div>
