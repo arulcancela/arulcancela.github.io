@@ -40,6 +40,7 @@
 
         h1, h2, h3, .company, .card-title { font-family: 'Poppins', sans-serif; }
 
+        /* --- HERO SECTION --- */
         header {
             background: var(--gradient);
             color: white;
@@ -57,6 +58,7 @@
             opacity: 0.3;
         }
 
+        /* --- LOGO RECTANGULAR --- */
         .profile-logo {
             max-width: 300px;  
             width: 100%;       
@@ -72,6 +74,11 @@
             margin-right: auto;
         }
 
+        .profile-logo:hover {
+            transform: scale(1.02); 
+        }
+
+        /* BADGE DE TRABAJO REMOTO */
         .remote-badge {
             display: inline-flex;
             align-items: center;
@@ -109,7 +116,7 @@
 
         .container {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 4rem auto 0 auto; /* Aumentado margen superior a 4rem */
             padding: 0 1.5rem 4rem 1.5rem;
             position: relative;
             z-index: 2;
@@ -153,62 +160,63 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s ease;
-            margin: 5px; /* Espaciado entre botones */
+            margin: 5px;
             cursor: pointer;
             border: none;
             font-family: inherit;
             font-size: 1rem;
         }
 
-        .btn-contact {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-download {
-            background: rgba(255,255,255,0.9);
-            color: var(--primary-dark);
-        }
-
+        .btn-contact { background: white; color: var(--primary); }
+        .btn-download { background: rgba(255,255,255,0.9); color: var(--primary-dark); }
         .btn-linkedin {
-            background: rgba(255,255,255,0.15); /* Fondo semitransparente */
+            background: rgba(255,255,255,0.15);
             color: white;
             border: 1px solid rgba(255,255,255,0.4);
             backdrop-filter: blur(4px);
         }
         
-        .btn-header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .btn-contact:hover { background-color: #f8fafc; }
         .btn-download:hover { background-color: white; }
         .btn-linkedin:hover { background-color: rgba(255,255,255,0.3); border-color: white; }
 
+        /* --- PERSONAL GRID --- */
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .personal-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        
+        .personal-card h4 {
+            margin: 0 0 10px 0;
+            color: var(--secondary);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
         footer { text-align: center; padding: 4rem 0 2rem 0; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 4rem; }
 
         /* --- ESTILOS DE IMPRESIÓN (MAGIC CSS) --- */
         @media print {
             @page { margin: 1.5cm; }
-            body { 
-                background: white; 
-                color: black; 
-                font-size: 12px; 
-            }
+            body { background: white; color: black; font-size: 12px; }
             header { 
-                background: none; 
-                color: black; 
-                padding: 0; 
-                text-align: left;
-                margin-bottom: 2rem;
-                border-bottom: 2px solid #333;
-                padding-bottom: 1rem;
+                background: none; color: black; padding: 0; text-align: left;
+                margin-bottom: 2rem; border-bottom: 2px solid #333; padding-bottom: 1rem;
             }
             header::before, .wave-separator, .btn-header, footer { display: none !important; }
-            
-            .profile-logo { display: none; } /* Ocultar logo grande para ahorrar tinta/espacio */
+            .profile-logo { display: none; }
             
             h1 { font-size: 24pt; color: black; text-shadow: none; margin-bottom: 5px; }
             h2 { font-size: 14pt; color: #444; margin-top: 0; }
@@ -217,23 +225,11 @@
             section { margin-bottom: 2rem; break-inside: avoid; }
             
             .section-title { 
-                font-size: 16pt; 
-                border-left: none; 
-                padding-left: 0; 
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 5px;
-                margin-bottom: 1rem;
-                color: black;
+                font-size: 16pt; border-left: none; padding-left: 0; 
+                border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-bottom: 1rem; color: black;
             }
             
-            .card { 
-                box-shadow: none; 
-                border: none; 
-                padding: 0; 
-                margin-bottom: 1.5rem; 
-                background: none;
-            }
-            
+            .card { box-shadow: none; border: none; padding: 0; margin-bottom: 1.5rem; background: none; }
             .job-header { margin-bottom: 5px; border: none; padding: 0; }
             .company { font-size: 13pt; font-weight: bold; color: black; }
             .role { font-size: 12pt; color: #333; font-style: italic; }
@@ -243,33 +239,22 @@
             li { margin-bottom: 2px; color: black; }
             
             .skills-grid { gap: 5px; }
-            .tag { 
-                border: 1px solid #ccc; 
-                background: none !important; 
-                color: black !important; 
-                padding: 2px 8px;
-                border-radius: 4px;
-            }
+            .tag { border: 1px solid #ccc; background: none !important; color: black !important; padding: 2px 8px; border-radius: 4px; }
             
-            /* Enlaces visuales */
             a { text-decoration: none; color: black; }
             a[href]:after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
             
-            /* Mostrar info de contacto oculta en web */
-            .print-contact-info {
-                display: block !important;
-                margin-top: 10px;
-                font-size: 11pt;
-            }
+            .print-contact-info { display: block !important; margin-top: 10px; font-size: 11pt; }
+            .personal-grid { display: block; }
+            .personal-card { border: none; box-shadow: none; padding: 0; margin-bottom: 1rem; page-break-inside: avoid; }
         }
 
-        .print-contact-info { display: none; } /* Oculto en pantalla normal */
+        .print-contact-info { display: none; }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .job-header { flex-direction: column; gap: 10px; }
             .date { align-self: flex-start; }
-            /* Ajuste botones en móvil */
             .btn-header { width: 100%; justify-content: center; margin: 5px 0; }
         }
     </style>
@@ -319,7 +304,7 @@
     <section>
         <div class="section-header"><h3 class="section-title">Perfil Profesional</h3></div>
         <div class="card">
-            <p style="font-size: 1.05rem; color: var(--secondary); margin-bottom: 1rem;">
+            <p style="font-size: 1.05rem; margin-bottom: 1rem;">
                 Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y especialización en <strong>Google Workspace & GCP</strong>. 
                 Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>.
             </p>
@@ -379,6 +364,14 @@
 
         <div class="card">
             <div class="job-header">
+                <div><span class="company">Dozo</span><span class="role">Analista de Datos</span></div>
+                <span class="date">2017 (3 meses)</span>
+            </div>
+            <p>Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
+        </div>
+
+        <div class="card">
+            <div class="job-header">
                 <div><span class="company">Accenture España</span><span class="role">Consultor IT (Proyecto Internacional)</span></div>
                 <span class="date">Nov 2015 - Mar 2017</span>
             </div>
@@ -388,7 +381,7 @@
             </ul>
         </div>
 
-        <div class="card" style="border-left: 4px solid #10b981;">
+        <div class="card">
             <div class="job-header">
                 <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
                 <span class="date">Jun 2014 - Sep 2014</span>
@@ -402,15 +395,77 @@
     </section>
 
     <section>
-        <div class="section-header"><h3 class="section-title">Stack Tecnológico</h3></div>
+        <div class="section-header"><h3 class="section-title">Consultoría Independiente & Automatización</h3></div>
+        <div class="card">
+            <div class="job-header">
+                <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones de Planificación (Remoto)</span></div>
+                <span class="date">Freelance</span>
+            </div>
+            <p>Desarrollo de una solución automatizada para la gestión de turnos y horarios de personal en supermercados a nivel nacional. Creación de plantillas inteligentes y scripts complejos en Google Apps Script.</p>
+        </div>
+        <div class="card" style="background: #fffcf5;">
+            <div class="job-header" style="border:none; padding:0; margin:0;">
+                <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos Digitales (Freelance)</span></div>
+                <span class="date">Freelance</span>
+            </div>
+            <p style="margin-top: 5px;">Asesoramiento y optimización de flujos de trabajo mediante Google Sheets avanzado.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header"><h3 class="section-title">Stack Tecnológico & Habilidades</h3></div>
         <div class="skills-grid">
             <span class="tag tech"><i class="fab fa-google"></i> Google Workspace Arch</span>
+            <span class="tag tech"><i class="fas fa-cloud"></i> Google Cloud (GCP)</span>
             <span class="tag tech"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
             <span class="tag tech"><i class="fas fa-robot"></i> AI Prompt Engineering</span>
+            <span class="tag tech"><i class="fab fa-python"></i> Python (AI-Assisted)</span>
             <span class="tag tech"><i class="fas fa-code"></i> Google Apps Script</span>
+            <span class="tag tech"><i class="fas fa-file-code"></i> Bash Scripting</span>
             <span class="tag tech"><i class="fab fa-html5"></i> HTML/CSS (AI-Assisted)</span>
+            <span class="tag"><i class="fas fa-users"></i> Gestión de Equipos</span>
+            <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación Técnica</span>
             <span class="tag"><i class="fas fa-laptop-house"></i> Trabajo Remoto</span>
             <span class="tag"><i class="fas fa-language"></i> Inglés Profesional</span>
+        </div>
+    </section>
+
+    <!-- Sección Restaurada: Liderazgo -->
+    <section>
+        <div class="section-header">
+            <h3 class="section-title">Liderazgo y Habilidades Personales</h3>
+        </div>
+        <div class="personal-grid">
+            <div class="personal-card">
+                <h4><i class="fas fa-magic" style="color: var(--accent);"></i> Comunicación & Oratoria</h4>
+                <p><strong>Ex-Presidente de "Llevamos Magia" (2012-2018):</strong> ONG de magos solidarios. Mi experiencia como ilusionista profesional me ha dotado de una capacidad única para hablar en público y captar la atención.</p>
+            </div>
+            <div class="personal-card">
+                <h4><i class="fas fa-users-cog" style="color: var(--accent);"></i> Liderazgo Comunitario</h4>
+                <p><strong>Vicepresidente de AMPA:</strong> Gestión de voluntariado y organización escolar. Comprometido con la conciliación y la gestión eficiente del tiempo.</p>
+            </div>
+            <div class="personal-card">
+                <h4><i class="fas fa-music" style="color: var(--accent);"></i> Disciplina y Equipo</h4>
+                <p>Músico (Guitarra, Clarinete, Coro) y jugador de Baloncesto. Entiendo la importancia de la constancia y la colaboración.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Restaurada: Formación -->
+    <section>
+        <div class="section-header">
+            <h3 class="section-title">Formación Académica</h3>
+        </div>
+        <div class="card" style="display: flex; align-items: center; gap: 1.5rem;">
+            <div style="background: #eff6ff; padding: 15px; border-radius: 50%; color: var(--primary);">
+                <i class="fas fa-graduation-cap fa-2x"></i>
+            </div>
+            <div>
+                <span class="company" style="font-size: 1.2rem;">Universidad Complutense de Madrid</span>
+                <span class="role" style="color: var(--text-light); font-weight: 500;">Grado en Física (Ingeniería Física / Física Aplicada)</span>
+                <div style="font-size: 0.9rem; color: #94a3b8; margin-top: 4px;">2011 - 2015</div>
+                <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">Trabajo Fin de Grado: Análisis estadístico de la variabilidad térmica en Madrid (100 años).</p>
+            </div>
         </div>
     </section>
 
