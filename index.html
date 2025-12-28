@@ -142,8 +142,9 @@
         /* Estilo unificado para el texto del perfil */
         .profile-text {
             font-size: 1.05rem;
-            color: var(--text-light); /* Unificado */
+            color: var(--text-light);
             margin-bottom: 1rem;
+            margin-top: 0; 
         }
 
         .job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1rem; }
@@ -151,14 +152,14 @@
         .role { color: var(--primary); font-weight: 600; font-size: 1.05rem; display: block; margin-top: 4px; }
         .date { font-size: 0.85rem; color: #64748b; font-weight: 500; background: #f1f5f9; padding: 6px 12px; border-radius: 8px; white-space: nowrap; }
 
-        /* Estilo unificado para TODAS las tags */
         .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        /* Estilo unificado para todas las etiquetas */
         .tag { 
-            background: #eff6ff; /* Fondo azul claro unificado */
+            background: #eff6ff; 
             padding: 8px 16px; 
             border-radius: 50px; 
             font-size: 0.9rem; 
-            color: var(--primary-dark); /* Color texto oscuro unificado */
+            color: var(--primary-dark); 
             font-weight: 600; 
             border: 1px solid transparent; 
             display: flex; 
@@ -227,7 +228,7 @@
 
         footer { text-align: center; padding: 4rem 0 2rem 0; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 4rem; }
 
-        /* --- ESTILOS DE IMPRESIÓN (MAGIC CSS) --- */
+        /* --- ESTILOS DE IMPRESIÓN --- */
         @media print {
             @page { margin: 1.5cm; }
             body { background: white; color: black; font-size: 12px; }
@@ -326,10 +327,10 @@
         <div class="card">
             <p class="profile-text">
                 Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y especialización en <strong>Google Workspace & GCP</strong>. 
-                Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>.
+                Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>, donde mi enfoque basado en objetivos y automatización asíncrona ofrece los mejores resultados.
             </p>
             <p class="profile-text" style="margin-bottom: 0;">
-                Destaco en la <strong>Ingeniería Aumentada por IA</strong>, desarrollando scripts (Python, GAS, Bash) y soluciones web (HTML/CSS) que optimizan procesos complejos. Mi trayectoria combina rigor científico y técnico (Soporte L4, Migraciones) con liderazgo empático.
+                Destaco en la <strong>Ingeniería Aumentada por IA</strong>, utilizando flujos de trabajo avanzados con LLMs para desarrollar scripts (Python, GAS, Bash) que optimizan procesos complejos sin necesidad de grandes equipos de desarrollo. Mi trayectoria combina rigor técnico (Soporte L4, Migraciones) con liderazgo empático (Gestión de equipos, Formación).
             </p>
         </div>
     </section>
@@ -343,8 +344,9 @@
                 <span class="date">Oct 2025 - Actualidad</span>
             </div>
             <ul>
-                <li>Gestión integral de migración de <strong>2.000 usuarios</strong>.</li>
-                <li>Uso experto de <strong>GAM</strong> para automatización de provisión masiva.</li>
+                <li>Líder Técnico de Migración: Gestión integral (end-to-end) de la migración de 2.000 usuarios.</li>
+                <li>Automatización Avanzada: Uso experto de GAM (Google Apps Manager) para extracción masiva de datos y scripting para automatizar la provisión de usuarios, superando las limitaciones de la consola nativa.</li>
+                <li>Diseño de arquitecturas cloud seguras y escalables para clientes Enterprise.</li>
             </ul>
         </div>
 
@@ -354,35 +356,39 @@
                 <span class="date">May 2021 - Sep 2025</span>
             </div>
             <ul>
-                <li>Soporte técnico bilingüe a <strong>+200 clientes</strong> internacionales.</li>
-                <li>Escalado crítico L4 directo con Ingeniería de Google.</li>
-                <li>Gestión optimizada vía <strong>Jira</strong> y <strong>Freshdesk</strong> con feedback altamente positivo.</li>
+                <li>Gestión Global (Remoto): Soporte técnico bilingüe (Español/Inglés) a una cartera de <strong>+200 clientes</strong> empresariales, operando eficazmente en entornos distribuidos.</li>
+                <li>Escalado L4: Interlocución directa con Ingeniería de Google para incidencias críticas, actuando como Superadmin delegado.</li>
+                <li>Liderazgo: Mentoría técnica a un equipo de 10 agentes, asegurando SLAs. Feedbacks de clientes mayormente positivos.</li>
+                <li>Experto en ChromeOS y Google Workspace.</li>
             </ul>
         </div>
 
         <div class="card">
             <div class="job-header">
-                <div><span class="company">Nubalia</span><span class="role">Ingeniero de Operaciones Senior</span></div>
+                <div><span class="company">Nubalia</span><span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span></div>
                 <span class="date">Abr 2019 - May 2021</span>
             </div>
             <ul>
-                <li>Diseño de planes de gestión del cambio y formación técnica para adopción cloud.</li>
-                <li>Especialista técnico en <strong>LumApps</strong> e interlocutor con fabricante.</li>
+                <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica para garantizar la adopción exitosa de la nube.</li>
+                <li>Consultoría Preventa: Apoyo técnico al equipo comercial para definir alcances y cerrar propuestas de valor.</li>
+                <li>Experto en LumApps: Especialista técnico en la plataforma de intranet LumApps e interlocutor con el fabricante.</li>
+                <li>Experto en ChromeOS y Google Workspace.</li>
+                <li>Certificaciones obtenidas en Google Workspace (Professional Collaboration Engineer).</li>
             </ul>
         </div>
 
         <div class="card">
             <div class="job-header">
-                <div><span class="company">Intelligence Partner</span><span class="role">Ingeniero de Operaciones & Preventa</span></div>
+                <div><span class="company">Intelligence Partner</span><span class="role">Ingeniero de Operaciones & Consultor de Preventa</span></div>
                 <span class="date">Nov 2017 - Abr 2019</span>
             </div>
             <ul>
-                <li>Ejecución de migraciones técnicas masivas asegurando integridad de datos.</li>
-                <li>Consultoría 360º desde preventa hasta soporte final.</li>
+                <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos para grandes cuentas, asegurando integridad y cero pérdida de datos.</li>
+                <li>Consultoría 360º: Ciclo completo de vida del proyecto: Preventa (toma de requisitos) -> Migración -> Formación -> Soporte.</li>
+                <li>Formador Técnico: Viajes puntuales a sedes de clientes nacionales para impartir formación especializada.</li>
             </ul>
         </div>
 
-        <!-- DOZO: CORREGIDO ORDEN Y ESTILO -->
         <div class="card">
             <div class="job-header">
                 <div><span class="company">Dozo</span><span class="role">Analista de Datos</span></div>
@@ -397,12 +403,11 @@
                 <span class="date">Nov 2015 - Mar 2017</span>
             </div>
             <ul>
-                <li>Proyecto en <strong>Riad (Arabia Saudí)</strong>: investigación de software global y redacción de RFIs/RFPs.</li>
+                <li>Experiencia Internacional (Riad, Arabia Saudí): Investigación de software y redacción de documentación técnica (RFIs/RFPs).</li>
                 <li>Gestión de PMO y reporting financiero en entorno multinacional.</li>
             </ul>
         </div>
 
-        <!-- ICV: CORREGIDO ESTILO -->
         <div class="card">
             <div class="job-header">
                 <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
@@ -419,7 +424,6 @@
     <section>
         <div class="section-header"><h3 class="section-title">Consultoría Independiente & Automatización</h3></div>
         
-        <!-- ALCAMPO: CORREGIDO ESTILO -->
         <div class="card">
             <div class="job-header">
                 <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones de Planificación (Remoto)</span></div>
@@ -428,7 +432,6 @@
             <p>Desarrollo de una solución automatizada para la gestión de turnos y horarios de personal en supermercados a nivel nacional. Creación de plantillas inteligentes y scripts complejos en Google Apps Script.</p>
         </div>
         
-        <!-- BYMOTORS: CORREGIDO ESTILO (FONDO BLANCO) -->
         <div class="card">
             <div class="job-header">
                 <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos Digitales (Freelance)</span></div>
@@ -441,9 +444,9 @@
     <section>
         <div class="section-header"><h3 class="section-title">Stack Tecnológico & Habilidades</h3></div>
         <div class="skills-grid">
-            <!-- ETIQUETAS UNIFICADAS: TODAS TIENEN EL MISMO ESTILO AZUL -->
             <span class="tag"><i class="fab fa-google"></i> Google Workspace Arch</span>
             <span class="tag"><i class="fas fa-cloud"></i> Google Cloud (GCP)</span>
+            <span class="tag"><i class="fab fa-chrome"></i> ChromeOS</span>
             <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
             <span class="tag"><i class="fas fa-robot"></i> AI Prompt Engineering</span>
             <span class="tag"><i class="fab fa-python"></i> Python (AI-Assisted)</span>
@@ -461,18 +464,23 @@
         <div class="section-header">
             <h3 class="section-title">Liderazgo y Habilidades Personales</h3>
         </div>
+        
+        <p style="font-size: 1.05rem; color: var(--text-light); margin-bottom: 2rem;">
+            Más allá de la tecnología, aporto habilidades de comunicación, empatía y disciplina desarrolladas en diversos ámbitos.
+        </p>
+
         <div class="personal-grid">
             <div class="personal-card">
-                <h4><i class="fas fa-magic" style="color: var(--accent);"></i> Comunicación & Oratoria</h4>
-                <p><strong>Ex-Presidente de "Llevamos Magia" (2012-2018):</strong> ONG de magos solidarios. Mi experiencia como ilusionista profesional me ha dotado de una capacidad única para hablar en público y captar la atención.</p>
+                <h4><i class="fas fa-magic" style="color: var(--accent);"></i> Comunicación & Magia</h4>
+                <p><strong>Coordinador de Magos en Madrid ("Llevamos Magia"):</strong> Gestión de actuaciones solidarias y coordinación con centros. Inicios en la emblemática <strong>Sala Houdini</strong>. Estas experiencias han perfeccionado mi capacidad para hablar en público, captar la atención y gestionar audiencias.</p>
             </div>
             <div class="personal-card">
-                <h4><i class="fas fa-users-cog" style="color: var(--accent);"></i> Liderazgo Comunitario</h4>
-                <p><strong>Vicepresidente de AMPA:</strong> Gestión de voluntariado y organización escolar. Comprometido con la conciliación y la gestión eficiente del tiempo.</p>
+                <h4><i class="fas fa-users-cog" style="color: var(--accent);"></i> Liderazgo & Personalidad</h4>
+                <p><strong>Vicepresidente de AMPA:</strong> Gestión de voluntariado y organización escolar. <strong>Perfil ISTJ-T (Logista):</strong> Metódico, fiable y orientado a hechos. Comprometido con la conciliación y la eficiencia.</p>
             </div>
             <div class="personal-card">
-                <h4><i class="fas fa-music" style="color: var(--accent);"></i> Disciplina y Equipo</h4>
-                <p>Músico (Guitarra, Clarinete, Coro) y jugador de Baloncesto. Entiendo la importancia de la constancia y la colaboración.</p>
+                <h4><i class="fas fa-chess" style="color: var(--accent);"></i> Disciplina y Estrategia</h4>
+                <p><strong>Deporte y Ocio:</strong> Baloncesto en equipo y natación en solitario (constancia). Aficionado a los juegos de mesa (pensamiento estratégico). Músico (Guitarra, Clarinete, Coro).</p>
             </div>
         </div>
     </section>
