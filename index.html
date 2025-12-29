@@ -69,6 +69,20 @@
         header > div {
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* FOTO DE PERFIL */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
         }
 
         /* BADGE DE TRABAJO REMOTO */
@@ -219,6 +233,9 @@
             }
             header::before, .btn-header, footer { display: none !important; } /* Eliminado .wave-separator de aquí porque ya se borró del HTML */
             
+            /* Ocultar foto de perfil al imprimir */
+            .profile-pic { display: none; }
+
             h1 { font-size: 24pt; color: black; text-shadow: none; margin-bottom: 5px; }
             h2 { font-size: 14pt; color: #444; margin-top: 0; text-shadow: none; }
             
@@ -257,6 +274,9 @@
 
 <header>
     <div style="position: relative; z-index: 10;">
+        <!-- FOTO DE PERFIL AÑADIDA AQUÍ -->
+        <img src="profile-pic.jpg" alt="Foto de perfil de Raúl Cancela" class="profile-pic">
+        
         <h1>Raúl Cancela</h1>
         <h2>Arquitecto de Soluciones Google Cloud & Especialista en Automatización</h2>
         
@@ -387,8 +407,7 @@
                 <li>Caracterización estructural avanzada: Difracción de Rayos X (XRD) y microscopía SEM.</li>
                 <li>Análisis de datos magnéticos y correlación de propiedades estructurales.</li>
             </ul>
-        </div>
-    </section>
+        </section>
 
     <section>
         <div class="section-header"><h3 class="section-title">Consultoría Independiente & Automatización</h3></div>
