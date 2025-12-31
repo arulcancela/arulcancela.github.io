@@ -11,40 +11,110 @@
     <!-- Fuentes Modernas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Iconos -->
+    <!-- Iconos y Gráficos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
+            /* Variables CSS para Tema Claro (Default) */
             --primary: #2563eb; 
             --primary-dark: #1e40af;
             --secondary: #0f172a; 
-            --text-light: #334155; /* MEJORA: Texto más oscuro para mayor legibilidad */
-            --bg-body: #f1f5f9; /* Fondo global ligeramente más oscuro para contraste con cards */
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-body: #f8fafc; 
             --surface: #ffffff;
+            --surface-hover: #f1f5f9;
+            --border: #e2e8f0;
             --accent: #f59e0b; 
-            --radius: 16px; /* MEJORA: Variable para consistencia en bordes */
+            --radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        /* Variables para Tema Oscuro */
+        [data-theme="dark"] {
+            --primary: #60a5fa; 
+            --primary-dark: #3b82f6;
+            --secondary: #f1f5f9; 
+            --text-main: #cbd5e1;
+            --text-light: #94a3b8;
+            --bg-body: #0f172a; 
+            --surface: #1e293b;
+            --surface-hover: #334155;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+            --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.5);
         }
         
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; transition: background-color 0.3s ease, border-color 0.3s ease; }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-body);
-            color: var(--text-light);
+            color: var(--text-main);
             margin: 0;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, .company, .card-title { font-family: 'Poppins', sans-serif; }
+        h1, h2, h3, .company, .card-title { font-family: 'Poppins', sans-serif; color: var(--secondary); }
+
+        /* --- BARRA DE PROGRESO --- */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0; height: 4px;
+            background: var(--primary);
+            width: 0%; z-index: 1001;
+            transition: width 0.1s;
+        }
+
+        /* --- CONTROLES FLOTANTES (TEMA + NAV) --- */
+        .floating-controls {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            color: var(--text-main);
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover { transform: scale(1.1); border-color: var(--primary); }
+
+        .page-nav ul { list-style: none; padding: 0; margin: 0; }
+        .nav-dot {
+            width: 12px; height: 12px;
+            background: var(--border);
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .nav-dot.active { background: var(--primary); transform: scale(1.3); }
 
         /* --- HERO SECTION --- */
         header {
             background: url('cover.jpg') no-repeat center center;
             background-size: cover;
             background-color: #1e3a8a; 
+            background-attachment: fixed; /* Efecto Parallax */
             color: white;
             padding: 8rem 2rem 6rem 2rem;
             text-align: center;
@@ -57,280 +127,212 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.75); /* MEJORA: Un poco más oscuro para contraste */
+            background: rgba(15, 23, 42, 0.80); /* Overlay oscuro */
             z-index: 1;
         }
 
-        header > div {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        header > div { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
 
         .profile-pic {
-            width: 160px;
-            height: 160px;
+            width: 160px; height: 160px;
             border-radius: 50%;
             border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             object-fit: cover;
             margin-bottom: 1.5rem;
             background-color: white;
+            transition: transform 0.5s ease;
         }
+        .profile-pic:hover { transform: scale(1.05) rotate(3deg); }
 
         .remote-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.2); /* MEJORA: Más opacidad */
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            margin-top: 15px;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px; border-radius: 50px;
+            font-size: 0.95rem; margin-top: 15px;
             border: 1px solid rgba(255,255,255,0.4);
-            backdrop-filter: blur(4px);
-            font-weight: 500;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            backdrop-filter: blur(4px); font-weight: 500;
+            color: white;
         }
         
-        h1 { margin: 0; font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
-        h2 { font-weight: 400; font-size: 1.4rem; opacity: 0.95; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto; text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
+        h1 { margin: 0; font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); color: white; }
+        h2 { font-weight: 400; font-size: 1.4rem; opacity: 0.95; margin-top: 1rem; max-width: 800px; text-shadow: 0 1px 10px rgba(0,0,0,0.5); color: #e2e8f0; }
 
-        .container {
-            max-width: 1000px;
-            margin: 4rem auto 0 auto;
-            padding: 0 1.5rem 4rem 1.5rem;
-            position: relative;
-            z-index: 2;
+        /* --- BOTONES --- */
+        .btn-header {
+            padding: 12px 28px; border-radius: 50px;
+            text-decoration: none; font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.3s ease; margin: 5px;
+            cursor: pointer; border: none; font-family: inherit; font-size: 1rem;
         }
+        .btn-contact { background: white; color: #1e3a8a; }
+        .btn-download { background: rgba(255,255,255,0.9); color: #1e40af; }
+        .btn-linkedin { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px); }
+        
+        .btn-header:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
-        section { margin-bottom: 5rem; }
+        /* --- CONTAINER & SECTIONS --- */
+        .container { max-width: 1000px; margin: 4rem auto 0 auto; padding: 0 1.5rem 4rem 1.5rem; position: relative; z-index: 2; }
+        section { margin-bottom: 5rem; scroll-margin-top: 100px; }
+
+        /* Animación Fade In */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         .section-header { display: flex; align-items: center; margin-bottom: 2rem; }
-        /* MEJORA: Iconos en títulos */
         .section-title { 
-            font-size: 1.8rem; 
-            color: var(--secondary); 
-            font-weight: 700; 
-            margin: 0; 
-            position: relative; 
-            padding-left: 15px; 
-            border-left: 5px solid var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            font-size: 1.8rem; color: var(--secondary); font-weight: 700; margin: 0; 
+            position: relative; padding-left: 15px; border-left: 5px solid var(--primary);
+            display: flex; align-items: center; gap: 12px;
         }
-        
-        .section-icon { color: var(--primary); font-size: 1.4rem; opacity: 0.8; }
+        .section-icon { color: var(--primary); font-size: 1.4rem; opacity: 0.9; }
 
+        /* --- CARDS & TIMELINE --- */
+        .timeline { border-left: 3px solid var(--border); padding-left: 2rem; position: relative; }
+        
         .card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); /* MEJORA: Gradiente sutil */
+            background: var(--surface);
             padding: 2.5rem;
-            border-radius: var(--radius); /* Consistencia */
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-
-        .profile-text {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            margin-top: 0; 
-        }
-
-        .job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; }
-        .company { font-size: 1.3rem; color: var(--secondary); font-weight: 700; }
-        .role { color: var(--primary); font-weight: 600; font-size: 1.05rem; display: block; margin-top: 4px; }
-        .date { font-size: 0.85rem; color: #64748b; font-weight: 500; background: #e2e8f0; padding: 6px 12px; border-radius: 8px; white-space: nowrap; }
-
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-        .tag { 
-            background: #eff6ff; 
-            padding: 8px 16px; 
-            border-radius: 50px; 
-            font-size: 0.9rem; 
-            color: var(--primary-dark); 
-            font-weight: 600; 
-            border: 1px solid transparent; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            transition: all 0.2s ease; /* Transición suave */
-        }
-        .tag i { color: var(--primary); }
-        .tag:hover { 
-            background-color: white; 
-            border-color: var(--primary); 
-            color: var(--primary); 
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15); 
-            transform: scale(1.05); /* MEJORA: Efecto "pop" */
-        }
-
-        /* Estilos botones */
-        .btn-header {
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            margin: 5px;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        .btn-contact { background: white; color: var(--primary); }
-        .btn-download { background: rgba(255,255,255,0.9); color: var(--primary-dark); }
-        .btn-linkedin {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.4);
-            backdrop-filter: blur(4px);
-        }
-        
-        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .btn-contact:hover { background-color: #f8fafc; }
-        .btn-download:hover { background-color: white; }
-        .btn-linkedin:hover { background-color: rgba(255,255,255,0.3); border-color: white; }
-
-        .personal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .personal-card {
-            background: white;
-            padding: 2rem;
             border-radius: var(--radius);
-            border-top: 4px solid var(--accent);
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
         
-        .personal-card h4 {
-            margin: 0 0 15px 0;
-            color: var(--secondary);
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
+        /* Timeline dots para tarjetas dentro de timeline */
+        .timeline .card::before {
+            content: ''; position: absolute; left: -2.65rem; top: 2.5rem;
+            width: 16px; height: 16px; background: var(--primary);
+            border-radius: 50%; border: 3px solid var(--bg-body);
+            box-shadow: 0 0 0 2px var(--primary);
         }
 
-        footer { 
-            text-align: center; 
-            padding: 4rem 2rem; 
-            color: #64748b; 
-            font-size: 0.95rem; 
-            border-top: 1px solid #e2e8f0; 
-            margin-top: 4rem; 
-            background: white;
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
+
+        .company { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+        .role { color: var(--primary); font-weight: 600; font-size: 1.05rem; display: block; margin-top: 4px; }
+        .date { 
+            font-size: 0.85rem; color: var(--text-light); font-weight: 500; 
+            background: var(--surface-hover); padding: 6px 12px; border-radius: 8px; white-space: nowrap; 
         }
+
+        /* --- METRICS GRID --- */
+        .metrics-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; margin-bottom: 3rem;
+        }
+        .metric-card {
+            background: var(--surface); padding: 1.5rem; border-radius: var(--radius);
+            text-align: center; border: 1px solid var(--border); box-shadow: var(--shadow);
+        }
+        .metric-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; }
+        .metric-label { font-size: 0.9rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* --- SKILLS & CHART --- */
+        .skills-section-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
         
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 1rem;
+        /* Marquee (Carrusel Infinito CSS) */
+        .marquee-container { overflow: hidden; white-space: nowrap; padding: 20px 0; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+        .marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        .tag { 
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--surface); padding: 8px 18px; 
+            border-radius: 50px; font-size: 0.9rem; 
+            color: var(--text-main); font-weight: 600; 
+            border: 1px solid var(--border); margin-right: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .footer-links a {
-            color: #64748b;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: var(--primary); }
+        .tag i { color: var(--primary); font-size: 1.1em; }
 
-        /* Responsive: Ajustes para móvil */
+        /* --- PERSONAL GRID --- */
+        .personal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .personal-card {
+            background: var(--surface); padding: 2rem; border-radius: var(--radius);
+            border-top: 4px solid var(--accent); box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .personal-card h4 { margin: 0 0 15px 0; color: var(--secondary); font-size: 1.1rem; display: flex; align-items: center; gap: 10px;}
+
+        /* --- FOOTER & FLOAT BUTTON --- */
+        footer { text-align: center; padding: 4rem 2rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 4rem; background: var(--surface); }
+        
+        .float-contact {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--primary); color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transition: transform 0.3s; z-index: 99; text-decoration: none;
+        }
+        .float-contact:hover { transform: scale(1.1) rotate(10deg); }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
-            header { padding: 6rem 1.5rem 4rem 1.5rem; }
-            
-            .job-header { 
-                flex-direction: column; 
-                gap: 5px; 
-            }
-            /* MEJORA: Fecha alineada mejor en móvil */
-            .date { 
-                align-self: flex-start; 
-                margin-top: 5px;
-                font-size: 0.8rem;
-            }
-            /* MEJORA: Botones no ocupan 100% si no es necesario */
-            .btn-header { width: auto; min-width: 160px; justify-content: center; margin: 5px; font-size: 0.9rem; }
+            .skills-section-content { grid-template-columns: 1fr; }
+            .timeline { border-left: none; padding-left: 0; }
+            .timeline .card::before { display: none; }
+            .floating-controls { top: auto; bottom: 20px; left: 20px; right: auto; transform: none; flex-direction: row; }
+            .page-nav { display: none; } /* Ocultar nav dots en móvil */
+            .job-header { flex-direction: column; }
+            .date { align-self: flex-start; margin-top: 5px; }
         }
 
-        /* --- ESTILOS DE IMPRESIÓN --- */
+        /* IMPRESIÓN */
         @media print {
-            @page { margin: 1.5cm; }
-            body { background: white; color: black; font-size: 11px; }
-            header { 
-                background: none !important; color: black; padding: 0; text-align: left;
-                margin-bottom: 2rem; border-bottom: 2px solid #333; padding-bottom: 1rem;
-            }
-            header::before, .btn-header, footer, .profile-pic { display: none !important; }
-            
-            h1 { font-size: 24pt; color: black; text-shadow: none; margin-bottom: 5px; }
-            h2 { font-size: 14pt; color: #444; margin-top: 0; text-shadow: none; }
-            
-            .container { padding: 0; max-width: 100%; margin: 0; }
-            section { margin-bottom: 1.5rem; break-inside: avoid; }
-            
-            .section-title { 
-                font-size: 14pt; border-left: none; padding-left: 0; 
-                border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-bottom: 1rem; color: black;
-            }
-            .section-icon { display: none; } /* Ocultar iconos de sección al imprimir */
-            
-            .card { 
-                box-shadow: none; border: none; padding: 0; margin-bottom: 1rem; background: none; 
-                border-radius: 0;
-            }
-            .job-header { margin-bottom: 2px; border: none; padding: 0; }
-            .company { font-size: 12pt; font-weight: bold; color: black; }
-            .role { font-size: 11pt; color: #333; font-style: italic; }
-            .date { background: none; color: #666; font-size: 10pt; padding: 0; text-align: right; }
-            
-            ul { margin-top: 5px; padding-left: 20px; }
-            li { margin-bottom: 2px; color: black; }
-            
-            .skills-grid { gap: 5px; }
-            .tag { border: 1px solid #ccc; background: none !important; color: black !important; padding: 2px 8px; border-radius: 4px; font-weight: normal; }
-            
-            a { text-decoration: none; color: black; }
-            a[href]:after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
-            
-            .print-contact-info { display: block !important; margin-top: 10px; font-size: 10pt; }
-            .personal-grid { display: block; }
-            .personal-card { border: none; box-shadow: none; padding: 0; margin-bottom: 0.5rem; page-break-inside: avoid; border-top: none; }
-            .personal-card h4 { font-size: 11pt; margin-bottom: 2px; }
+            body { background: white; color: black; }
+            header { background: none !important; color: black; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #333; }
+            .profile-pic, .floating-controls, .float-contact, .progress-bar, .marquee-container { display: none !important; }
+            h1, h2 { color: black; text-shadow: none; }
+            .card, .metric-card, .personal-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+            .timeline { border: none; padding: 0; }
+            .timeline .card::before { display: none; }
+            .skills-section-content { display: block; }
+            canvas { max-height: 300px; margin: 0 auto; display: block; }
         }
-
-        .print-contact-info { display: none; }
     </style>
 </head>
 <body>
 
-<header>
+<!-- Barra de Progreso -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Controles Flotantes -->
+<div class="floating-controls">
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+        <i class="fas fa-moon"></i>
+    </button>
+    <nav class="page-nav">
+        <ul>
+            <li><a href="#inicio" class="nav-dot active" title="Inicio"></a></li>
+            <li><a href="#perfil" class="nav-dot" title="Perfil"></a></li>
+            <li><a href="#experiencia" class="nav-dot" title="Experiencia"></a></li>
+            <li><a href="#skills" class="nav-dot" title="Skills"></a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Botón Contacto Flotante: Icono corregido a SOBRE -->
+<a href="mailto:arulcancela@gmail.com" class="float-contact" title="Enviar Email">
+    <i class="fas fa-envelope"></i>
+</a>
+
+<header id="inicio">
     <div>
         <img src="profile-pic.jpg" alt="Raúl Cancela" class="profile-pic" onerror="this.style.display='none'">
         
-        <h1>Raúl Cancela</h1>
+        <h1 class="gradient-text">Raúl Cancela</h1>
         <h2>Arquitecto de Soluciones Google Cloud & Especialista en Automatización</h2>
         
-        <div class="print-contact-info">
-            <p><strong>Email:</strong> arulcancela@gmail.com | <strong>Web:</strong> arulcancela.github.io</p>
-            <p><strong>Ubicación:</strong> Madrid, España | <strong>Modalidad:</strong> Remoto / Remote-First</p>
+        <!-- Info oculta para impresión -->
+        <div class="print-contact-info" style="display:none;">
+            <p>arulcancela@gmail.com | Madrid, España | Remote-First</p>
         </div>
 
         <div style="margin-top: 0.5rem; display: flex; flex-direction: column; align-items: center; gap: 5px;">
@@ -342,11 +344,9 @@
             <a href="mailto:arulcancela@gmail.com" class="btn-header btn-contact">
                 <i class="fas fa-envelope"></i> Contactar
             </a>
-            
             <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" class="btn-header btn-linkedin">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-
             <button onclick="window.print()" class="btn-header btn-download">
                 <i class="fas fa-file-pdf"></i> Guardar como PDF
             </button>
@@ -356,202 +356,351 @@
 
 <div class="container">
 
-    <section>
+    <!-- MÉTRICAS ANIMADAS -->
+    <div class="metrics-grid fade-in">
+        <div class="metric-card">
+            <span class="metric-number" data-target="200">+0</span>
+            <span class="metric-label">Clientes Globales</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-number" data-target="2000">0</span>
+            <span class="metric-label">Usuarios Migrados (Actual)</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-number" data-target="500">+0</span>
+            <span class="metric-label">Actuaciones Solidarias</span>
+        </div>
+    </div>
+
+    <section id="perfil" class="fade-in">
         <div class="section-header">
             <h3 class="section-title"><i class="fas fa-user-circle section-icon"></i> Perfil Profesional</h3>
         </div>
         <div class="card">
-            <p class="profile-text">
+            <p style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--text-main);">
                 Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y especialización en <strong>Google Workspace & GCP</strong>. 
                 Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>, donde mi enfoque basado en objetivos y automatización asíncrona ofrece los mejores resultados.
             </p>
-            <p class="profile-text" style="margin-bottom: 0;">
-                Destaco en la <strong>Ingeniería Aumentada por IA</strong>, utilizando flujos de trabajo avanzados con LLMs para desarrollar scripts (Python, GAS, Bash) que optimizan procesos complejos sin necesidad de grandes equipos de desarrollo. Mi trayectoria combina rigor técnico (Soporte L3, Migraciones) con liderazgo empático (Gestión de equipos, Formación).
+            <p style="font-size: 1.05rem; margin: 0; color: var(--text-main);">
+                Destaco en la <strong>Ingeniería Aumentada por IA</strong>, utilizando flujos de trabajo avanzados con LLMs para desarrollar scripts (Python, GAS, Bash) que optimizan procesos complejos sin necesidad de grandes equipos de desarrollo. Mi trayectoria combina rigor técnico (Soporte L3/L4, Migraciones) con liderazgo empático (Gestión de equipos, Formación).
             </p>
         </div>
     </section>
 
-    <section>
+    <section id="experiencia" class="fade-in">
         <div class="section-header">
             <h3 class="section-title"><i class="fas fa-briefcase section-icon"></i> Experiencia Corporativa</h3>
         </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Inetum</span><span class="role">Arquitecto de Soluciones Google (Workspace Lead)</span></div>
-                <span class="date">Oct 2025 - Actualidad</span>
+        <div class="timeline">
+            <!-- INETUM -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Inetum</span><span class="role">Arquitecto de Soluciones Google (Workspace Lead)</span></div>
+                    <span class="date">Oct 2025 - Actualidad</span>
+                </div>
+                <ul>
+                    <li>Líder Técnico de Migración: Gestión integral (end-to-end) de la migración de 2.000 usuarios.</li>
+                    <li>Automatización Avanzada: Uso experto de GAM para extracción y provisión masiva.</li>
+                    <li>Diseño de arquitecturas cloud seguras y escalables.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Líder Técnico de Migración: Gestión integral (end-to-end) de la migración de 2.000 usuarios.</li>
-                <li>Automatización Avanzada: Uso experto de GAM (Google Apps Manager) para extracción masiva de datos y scripting para automatizar la provisión de usuarios, superando las limitaciones de la consola nativa.</li>
-                <li>Diseño de arquitecturas cloud seguras y escalables para clientes Enterprise.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Devoteam</span><span class="role">Team Lead & Senior Support Engineer (L4)</span></div>
-                <span class="date">May 2021 - Sep 2025</span>
+            <!-- DEVOTEAM -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Devoteam</span><span class="role">Team Lead & Senior Support Engineer (L4)</span></div>
+                    <span class="date">May 2021 - Sep 2025</span>
+                </div>
+                <ul>
+                    <li>Gestión Global (Remoto): Soporte a una cartera de <strong>+200 clientes</strong> empresariales.</li>
+                    <li>Escalado L4: Gestión de incidencias críticas directamente con Ingeniería de Google.</li>
+                    <li>Liderazgo: Mentoría a 10 agentes. Feedbacks mayormente positivos.</li>
+                    <li>Experto en ChromeOS y Google Workspace.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Gestión Global (Remoto): Soporte técnico bilingüe (Español/Inglés) a una cartera de <strong>+200 clientes</strong> empresariales, operando eficazmente en entornos distribuidos.</li>
-                <li>Escalado L4: Interlocución directa con Ingeniería de Google para incidencias críticas, actuando como Superadmin delegado.</li>
-                <li>Liderazgo: Mentoría técnica a un equipo de 10 agentes, asegurando SLAs. Feedbacks de clientes mayormente positivos.</li>
-                <li>Experto en ChromeOS y Google Workspace.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Nubalia</span><span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span></div>
-                <span class="date">Abr 2019 - May 2021</span>
+            <!-- NUBALIA -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Nubalia</span><span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span></div>
+                    <span class="date">Abr 2019 - May 2021</span>
+                </div>
+                <ul>
+                    <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica.</li>
+                    <li>Consultoría Preventa: Apoyo técnico para cierre de propuestas.</li>
+                    <li>Especialista técnico en LumApps y Experto en ChromeOS.</li>
+                    <li>Certificación: Google Workspace Professional Collaboration Engineer.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica para garantizar la adopción exitosa de la nube.</li>
-                <li>Consultoría Preventa: Apoyo técnico al equipo comercial para definir alcances y cerrar propuestas de valor.</li>
-                <li>Especialista técnico en LumApps: Gestión de incidencias complejas y relación con el fabricante.</li>
-                <li>Experto en ChromeOS y Google Workspace.</li>
-                <li>Certificaciones obtenidas en Google Workspace (Professional Collaboration Engineer).</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Intelligence Partner</span><span class="role">Ingeniero de Operaciones & Consultor de Preventa</span></div>
-                <span class="date">Nov 2017 - Abr 2019</span>
+            <!-- INTELLIGENCE PARTNER -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Intelligence Partner</span><span class="role">Ingeniero de Operaciones & Consultor de Preventa</span></div>
+                    <span class="date">Nov 2017 - Abr 2019</span>
+                </div>
+                <ul>
+                    <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos.</li>
+                    <li>Consultoría 360º: Preventa, Migración, Formación y Soporte.</li>
+                    <li>Formador Técnico: Viajes nacionales para impartir formación.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos para grandes cuentas, asegurando integridad y cero pérdida de datos.</li>
-                <li>Consultoría 360º: Ciclo completo de vida del proyecto: Preventa (toma de requisitos) -> Migración -> Formación -> Soporte.</li>
-                <li>Formador Técnico: Viajes puntuales a sedes de clientes nacionales para impartir formación especializada.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Dozo</span><span class="role">Analista de Datos</span></div>
-                <span class="date">2017 (3 meses)</span>
+            <!-- DOZO -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Dozo</span><span class="role">Analista de Datos</span></div>
+                    <span class="date">2017 (3 meses)</span>
+                </div>
+                <p style="margin:0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
             </div>
-            <p style="margin: 0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Accenture España</span><span class="role">Consultor IT (Proyecto Internacional)</span></div>
-                <span class="date">Nov 2015 - Mar 2017</span>
+            <!-- ACCENTURE -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Accenture España</span><span class="role">Consultor IT (Proyecto Internacional)</span></div>
+                    <span class="date">Nov 2015 - Mar 2017</span>
+                </div>
+                <ul>
+                    <li>Proyecto en Riad (Arabia Saudí): Investigación de software y redacción de RFIs/RFPs.</li>
+                    <li>Gestión de PMO y reporting financiero.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Experiencia Internacional (Riad, Arabia Saudí): Investigación de software y redacción de documentación técnica (RFIs/RFPs).</li>
-                <li>Gestión de PMO y reporting financiero en entorno multinacional.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
-                <span class="date">Jun 2014 - Sep 2014</span>
+            <!-- ICV -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
+                    <span class="date">Jun 2014 - Sep 2014</span>
+                </div>
+                <p style="margin:0;">Fabricación de materiales híbridos y caracterización estructural (XRD, SEM).</p>
             </div>
-            <ul>
-                <li>Fabricación de materiales híbridos mediante molienda mecánica y tratamientos térmicos específicos.</li>
-                <li>Caracterización estructural avanzada: Difracción de Rayos X (XRD) y microscopía SEM.</li>
-                <li>Análisis de datos magnéticos y correlación de propiedades estructurales.</li>
-            </ul>
         </div>
     </section>
 
-    <section>
-        <div class="section-header">
-            <h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría Independiente & Automatización</h3>
-        </div>
-        
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones de Planificación (Remoto)</span></div>
-                <span class="date">Freelance</span>
+    <section class="fade-in">
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría Independiente</h3></div>
+        <div class="personal-grid">
+            <div class="card" style="margin-bottom:0; border-top: 4px solid var(--accent);">
+                <div class="job-header">
+                    <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones (Remoto)</span></div>
+                </div>
+                <p>Desarrollo de solución automatizada para gestión de turnos a nivel nacional usando Google Apps Script.</p>
             </div>
-            <p>Desarrollo de una solución automatizada para la gestión de turnos y horarios de personal en supermercados a nivel nacional. Creación de plantillas inteligentes y scripts complejos en Google Apps Script.</p>
-        </div>
-        
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos Digitales (Freelance)</span></div>
-                <span class="date">Freelance</span>
+            <div class="card" style="margin-bottom:0;">
+                <div class="job-header">
+                    <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos Digitales</span></div>
+                </div>
+                <p>Optimización de flujos de trabajo mediante Google Sheets avanzado.</p>
             </div>
-            <p style="margin-top: 5px;">Asesoramiento y optimización de flujos de trabajo mediante Google Sheets avanzado.</p>
         </div>
     </section>
 
-    <section>
+    <section id="skills" class="fade-in">
         <div class="section-header">
-            <h3 class="section-title"><i class="fas fa-code section-icon"></i> Stack Tecnológico & Habilidades</h3>
+            <h3 class="section-title"><i class="fas fa-code section-icon"></i> Stack Tecnológico</h3>
         </div>
-        <div class="skills-grid">
-            <span class="tag"><i class="fab fa-google"></i> Google Workspace Arch</span>
-            <span class="tag"><i class="fas fa-cloud"></i> Google Cloud (GCP)</span>
-            <span class="tag"><i class="fab fa-chrome"></i> ChromeOS</span>
-            <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
-            <span class="tag"><i class="fas fa-robot"></i> AI Prompt Engineering</span>
-            <span class="tag"><i class="fab fa-python"></i> Python (AI-Assisted)</span>
-            <span class="tag"><i class="fas fa-code"></i> Google Apps Script</span>
-            <span class="tag"><i class="fas fa-file-code"></i> Bash Scripting</span>
-            <span class="tag"><i class="fab fa-html5"></i> HTML/CSS (AI-Assisted)</span>
-            <span class="tag"><i class="fas fa-users"></i> Gestión de Equipos</span>
-            <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación Técnica</span>
-            <span class="tag"><i class="fas fa-laptop-house"></i> Trabajo Remoto</span>
-            <span class="tag"><i class="fas fa-language"></i> Inglés Profesional</span>
+        
+        <div class="skills-section-content">
+            <!-- Gráfico Radar -->
+            <div style="background: var(--surface); padding: 1rem; border-radius: 16px; border: 1px solid var(--border);">
+                <canvas id="skillsChart"></canvas>
+            </div>
+
+            <!-- Marquee Infinito de Tags -->
+            <div style="overflow:hidden;">
+                <p style="margin-bottom:15px; font-weight:600;">Tecnologías Clave:</p>
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        <span class="tag"><i class="fab fa-google"></i> Workspace Arch</span>
+                        <span class="tag"><i class="fas fa-cloud"></i> GCP</span>
+                        <span class="tag"><i class="fab fa-chrome"></i> ChromeOS</span>
+                        <span class="tag"><i class="fas fa-terminal"></i> GAM</span>
+                        <span class="tag"><i class="fas fa-robot"></i> AI Prompting</span>
+                        <span class="tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tag"><i class="fas fa-code"></i> Apps Script</span>
+                        <span class="tag"><i class="fas fa-file-code"></i> Bash</span>
+                        <span class="tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                        <!-- Duplicados para efecto infinito -->
+                        <span class="tag"><i class="fab fa-google"></i> Workspace Arch</span>
+                        <span class="tag"><i class="fas fa-cloud"></i> GCP</span>
+                        <span class="tag"><i class="fab fa-chrome"></i> ChromeOS</span>
+                        <span class="tag"><i class="fas fa-terminal"></i> GAM</span>
+                    </div>
+                </div>
+                
+                <p style="margin-top:20px; margin-bottom:15px; font-weight:600;">Habilidades Soft:</p>
+                <div class="skills-grid">
+                    <span class="tag"><i class="fas fa-users"></i> Gestión Equipos</span>
+                    <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación</span>
+                    <span class="tag"><i class="fas fa-laptop-house"></i> Remoto</span>
+                    <span class="tag"><i class="fas fa-language"></i> Inglés (Pro)</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section>
-        <div class="section-header">
-            <h3 class="section-title"><i class="fas fa-users section-icon"></i> Liderazgo y Habilidades Personales</h3>
-        </div>
-        
-        <p style="font-size: 1.05rem; color: var(--text-light); margin-bottom: 2rem;">
-            Más allá de la tecnología, aporto habilidades de comunicación, empatía y disciplina desarrolladas en diversos ámbitos.
-        </p>
-
+    <section class="fade-in">
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-users section-icon"></i> Liderazgo y Personal</h3></div>
         <div class="personal-grid">
             <div class="personal-card">
                 <h4><i class="fas fa-magic" style="color: var(--accent);"></i> Comunicación & Magia</h4>
-                <p><strong>Coordinador de Magos en Madrid ("Llevamos Magia"):</strong> Gestión de actuaciones solidarias para colectivos desfavorecidos (+500 actuaciones). Mis inicios en la <strong>Sala Houdini</strong> perfeccionaron mi oratoria y capacidad para conectar con audiencias diversas.</p>
+                <p><strong>Coordinador de Magos ("Llevamos Magia"):</strong> +500 actuaciones solidarias. Inicios en <strong>Sala Houdini</strong>. Oratoria y conexión.</p>
             </div>
             <div class="personal-card">
                 <h4><i class="fas fa-users-cog" style="color: var(--accent);"></i> Liderazgo & Personalidad</h4>
-                <p><strong>Vicepresidente de AMPA:</strong> Gestión de extraescolares, becas, equipo interno y elaboración de memorias anuales. <strong>Perfil ISTJ-T (Logista):</strong> Metódico y fiable.</p>
+                <p><strong>Vicepresidente de AMPA.</strong> Perfil <strong>ISTJ-T (Logista)</strong>: Metódico y fiable.</p>
             </div>
             <div class="personal-card">
-                <h4><i class="fas fa-chess" style="color: var(--accent);"></i> Disciplina y Estrategia</h4>
-                <p><strong>Deporte y Ocio:</strong> Natación en solitario (constancia) y Baloncesto en equipo. Aficionado a los juegos de mesa (pensamiento estratégico). Músico (Guitarra, Clarinete, Coro).</p>
+                <h4><i class="fas fa-chess" style="color: var(--accent);"></i> Ocio</h4>
+                <p>Natación en solitario, baloncesto, juegos de mesa. Músico (Guitarra, Clarinete).</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <div class="section-header">
-            <h3 class="section-title"><i class="fas fa-graduation-cap section-icon"></i> Formación Académica</h3>
-        </div>
+    <section class="fade-in">
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-graduation-cap section-icon"></i> Formación Académica</h3></div>
         <div class="card" style="display: flex; align-items: center; gap: 1.5rem;">
-            <div style="background: #eff6ff; padding: 15px; border-radius: 50%; color: var(--primary);">
-                <i class="fas fa-university fa-2x"></i>
-            </div>
+            <div style="background: #eff6ff; padding: 15px; border-radius: 50%; color: var(--primary);"><i class="fas fa-university fa-2x"></i></div>
             <div>
                 <span class="company" style="font-size: 1.2rem;">Universidad Complutense de Madrid</span>
-                <span class="role" style="color: var(--text-light); font-weight: 500;">Grado en Física (Ingeniería Física / Física Aplicada)</span>
-                <div style="font-size: 0.9rem; color: #94a3b8; margin-top: 4px;">2011 - 2015</div>
-                <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">Trabajo Fin de Grado: Análisis estadístico de la variabilidad térmica en Madrid (100 años).</p>
+                <span class="role" style="font-weight: 500;">Grado en Física (Ingeniería Física / Física Aplicada)</span>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 4px;">2011 - 2015</div>
+                <p style="font-size: 0.85rem; margin-top: 5px;">TFG: Análisis estadístico de variabilidad térmica en Madrid.</p>
             </div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Raúl Cancela. Física + Tecnología.</p>
-        <div class="footer-links">
-            <a href="mailto:arulcancela@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <div style="margin-top: 10px; display: flex; justify-content: center; gap: 20px;">
+            <a href="mailto:arulcancela@gmail.com" style="color: var(--text-light); text-decoration: none;"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" style="color: var(--text-light); text-decoration: none;"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
     </footer>
 </div>
+
+<script>
+    // 1. MODO OSCURO
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+        updateChartColor(!isDark); // Actualizar color del gráfico
+    });
+
+    // 2. BARRA DE PROGRESO
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+        
+        // Active Nav Dot logic
+        const sections = document.querySelectorAll('section, header');
+        const navDots = document.querySelectorAll('.nav-dot');
+        
+        sections.forEach(sec => {
+            let top = window.scrollY;
+            let offset = sec.offsetTop - 150;
+            let height = sec.offsetHeight;
+            let id = sec.getAttribute('id');
+            
+            if(top >= offset && top < offset + height) {
+                navDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if(document.querySelector('.nav-dot[href*=' + id + ']')){
+                        document.querySelector('.nav-dot[href*=' + id + ']').classList.add('active');
+                    }
+                });
+            }
+        });
+    };
+
+    // 3. FADE IN ANIMATION
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // 4. ANIMATED COUNTERS
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.metric-number');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // ms
+                    const increment = target / (duration / 16); 
+                    
+                    let current = 0;
+                    const updateCounter = () => {
+                        current += increment;
+                        if(current < target) {
+                            counter.innerText = Math.ceil(current) + (target === 500 || target === 200 ? '+' : '');
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target + (target === 500 || target === 200 ? '+' : '');
+                        }
+                    };
+                    updateCounter();
+                });
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    });
+    
+    document.querySelector('.metrics-grid') && counterObserver.observe(document.querySelector('.metrics-grid'));
+
+    // 5. CHART.JS (Radar Chart) - AJUSTADO
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    let skillsChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Google Workspace', 'GCP', 'Scripting/Code', 'Gestión Equipos', 'Comunicación', 'Estrategia'],
+            datasets: [{
+                label: 'Nivel de Competencia',
+                // AJUSTADO: Scripting 80, Gestión Equipos 90, Estrategia 85
+                data: [100, 90, 80, 90, 95, 85],
+                backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                borderColor: '#2563eb',
+                pointBackgroundColor: '#2563eb',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#2563eb'
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(0,0,0,0.1)' },
+                    grid: { color: 'rgba(0,0,0,0.1)' },
+                    pointLabels: { font: { size: 12, family: 'Inter' }, color: '#64748b' },
+                    ticks: { display: false, max: 100 }
+                }
+            },
+            plugins: { legend: { display: false } }
+        }
+    });
+
+    function updateChartColor(isDark) {
+        const color = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
+        const textColor = isDark ? '#cbd5e1' : '#64748b';
+        skillsChart.options.scales.r.angleLines.color = color;
+        skillsChart.options.scales.r.grid.color = color;
+        skillsChart.options.scales.r.pointLabels.color = textColor;
+        skillsChart.update();
+    }
+</script>
 
 </body>
 </html>
