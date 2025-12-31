@@ -356,7 +356,7 @@
 
 <div class="container">
 
-    <!-- MÉTRICAS ANIMADAS -->
+    <!-- MÉTRICAS ANIMADAS (Sin actuaciones solidarias) -->
     <div class="metrics-grid fade-in">
         <div class="metric-card">
             <span class="metric-number" data-target="200">+0</span>
@@ -365,10 +365,6 @@
         <div class="metric-card">
             <span class="metric-number" data-target="2000">0</span>
             <span class="metric-label">Usuarios Migrados (Actual)</span>
-        </div>
-        <div class="metric-card">
-            <span class="metric-number" data-target="500">+0</span>
-            <span class="metric-label">Actuaciones Solidarias</span>
         </div>
     </div>
 
@@ -661,16 +657,16 @@
     
     document.querySelector('.metrics-grid') && counterObserver.observe(document.querySelector('.metrics-grid'));
 
-    // 5. CHART.JS (Radar Chart) - AJUSTADO
+    // 5. CHART.JS (Radar Chart) - AJUSTADO FINAL
     const ctx = document.getElementById('skillsChart').getContext('2d');
     let skillsChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Google Workspace', 'GCP', 'Scripting/Code', 'Gestión Equipos', 'Comunicación', 'Estrategia'],
+            labels: ['Google Workspace', 'Automatización con IA', 'Soporte / Troubleshooting', 'Gestión del Cambio', 'Comunicación', 'GCP Core'],
             datasets: [{
                 label: 'Nivel de Competencia',
-                // AJUSTADO: Scripting 80, Gestión Equipos 90, Estrategia 85
-                data: [100, 90, 80, 90, 95, 85],
+                // DATOS AJUSTADOS: Workspace=100, IA=90, Soporte=95, G.Cambio=80, Comunicación=75, GCP=50
+                data: [100, 90, 95, 80, 75, 50],
                 backgroundColor: 'rgba(37, 99, 235, 0.2)',
                 borderColor: '#2563eb',
                 pointBackgroundColor: '#2563eb',
@@ -685,7 +681,8 @@
                     angleLines: { color: 'rgba(0,0,0,0.1)' },
                     grid: { color: 'rgba(0,0,0,0.1)' },
                     pointLabels: { font: { size: 12, family: 'Inter' }, color: '#64748b' },
-                    ticks: { display: false, max: 100 }
+                    ticks: { display: false, max: 100 },
+                    min: 0
                 }
             },
             plugins: { legend: { display: false } }
