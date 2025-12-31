@@ -33,6 +33,11 @@
             --radius: 16px;
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
             --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            
+            /* Variables para tags (Tema Claro) */
+            --tag-bg: #eff6ff;
+            --tag-text: #1e40af;
+            --tag-border: transparent;
         }
 
         /* Variables para Tema Oscuro */
@@ -48,9 +53,14 @@
             --border: #334155;
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
             --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.5);
+
+            /* Variables para tags (Tema Oscuro) */
+            --tag-bg: #334155;
+            --tag-text: #e2e8f0;
+            --tag-border: #475569;
         }
         
-        * { box-sizing: border-box; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        * { box-sizing: border-box; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -189,12 +199,14 @@
         }
         .section-icon { color: var(--primary); font-size: 1.4rem; opacity: 0.9; }
 
-        /* --- CARDS (TIMELINE REMOVIDA) --- */
+        /* --- CARDS & TIMELINE --- */
+        .timeline { border-left: 3px solid var(--border); padding-left: 2rem; position: relative; }
+        
         .card {
             background: var(--surface);
             padding: 2.5rem;
             border-radius: var(--radius);
-            margin-bottom: 4rem; /* MARGEN AUMENTADO: Antes era 2rem, ahora 4rem */
+            margin-bottom: 4rem;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -233,18 +245,19 @@
         
         .tag { 
             display: inline-flex; align-items: center; gap: 8px;
-            background: #eff6ff; 
+            background: var(--tag-bg); 
             padding: 8px 18px; 
             border-radius: 50px; font-size: 0.9rem; 
-            color: var(--primary-dark); 
+            color: var(--tag-text); 
             font-weight: 600; 
-            border: 1px solid transparent; margin-right: 10px;
+            border: 1px solid var(--tag-border); 
+            margin-right: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             transition: all 0.2s ease;
         }
         .tag i { color: var(--primary); font-size: 1.1em; }
         .tag:hover { 
-            background-color: white; 
+            background-color: var(--surface); 
             border-color: var(--primary); 
             color: var(--primary); 
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15); 
@@ -277,6 +290,8 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             .skills-section-content { grid-template-columns: 1fr; }
+            .timeline { border-left: none; padding-left: 0; }
+            .timeline .card::before { display: none; }
             .floating-controls { top: auto; bottom: 20px; left: 20px; right: auto; transform: none; flex-direction: row; }
             .page-nav { display: none; } /* Ocultar nav dots en móvil */
             .job-header { flex-direction: column; }
@@ -290,6 +305,8 @@
             .profile-pic, .floating-controls, .float-contact, .progress-bar, .marquee-container { display: none !important; }
             h1, h2 { color: black; text-shadow: none; }
             .card, .metric-card, .personal-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 1.5rem; }
+            .timeline { border: none; padding: 0; }
+            .timeline .card::before { display: none; }
             .skills-section-content { display: block; }
             canvas { max-height: 300px; margin: 0 auto; display: block; }
         }
@@ -370,7 +387,6 @@
             <h3 class="section-title"><i class="fas fa-user-circle section-icon"></i> Perfil Profesional</h3>
         </div>
         <div class="card">
-            <!-- Párrafos con estilo unificado -->
             <p style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--text-main);">
                 Soy un <strong>Arquitecto de Soluciones</strong> con mentalidad analítica (Grado en Física) y especialización en <strong>Google Workspace & GCP</strong>. 
                 Busco activamente roles en modalidad <strong>Remota (Remote-First)</strong>, donde mi enfoque basado en objetivos y automatización asíncrona ofrece los mejores resultados.
@@ -386,114 +402,109 @@
             <h3 class="section-title"><i class="fas fa-briefcase section-icon"></i> Experiencia Corporativa</h3>
         </div>
 
-        <!-- TIMELINE REMOVIDO: Estructura plana de tarjetas -->
-        
-        <!-- INETUM -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Inetum</span><span class="role">Arquitecto de Soluciones Google (Workspace Lead)</span></div>
-                <span class="date">Oct 2025 - Actualidad</span>
+        <div class="timeline">
+            <!-- INETUM -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Inetum</span><span class="role">Arquitecto de Soluciones Google (Workspace Lead)</span></div>
+                    <span class="date">Oct 2025 - Actualidad</span>
+                </div>
+                <ul>
+                    <li>Líder Técnico de Migración: Gestión integral (end-to-end) de la migración de 2.000 usuarios.</li>
+                    <li>Automatización Avanzada: Uso experto de GAM para extracción y provisión masiva.</li>
+                    <li>Diseño de arquitecturas cloud seguras y escalables.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Líder Técnico de Migración: Gestión integral (end-to-end) de la migración de 2.000 usuarios.</li>
-                <li>Automatización Avanzada: Uso experto de GAM para extracción y provisión masiva.</li>
-                <li>Diseño de arquitecturas cloud seguras y escalables.</li>
-            </ul>
-        </div>
 
-        <!-- DEVOTEAM -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Devoteam</span><span class="role">Team Lead & Senior Support Engineer (L4)</span></div>
-                <span class="date">May 2021 - Sep 2025</span>
+            <!-- DEVOTEAM -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Devoteam</span><span class="role">Team Lead & Senior Support Engineer (L4)</span></div>
+                    <span class="date">May 2021 - Sep 2025</span>
+                </div>
+                <ul>
+                    <li>Gestión Global (Remoto): Soporte a una cartera de <strong>+200 clientes</strong> empresariales.</li>
+                    <li>Escalado L4: Gestión de incidencias críticas directamente con Ingeniería de Google.</li>
+                    <li>Liderazgo: Mentoría a 10 agentes. Feedbacks mayormente positivos.</li>
+                    <li>Experto en ChromeOS y Google Workspace.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Gestión Global (Remoto): Soporte a una cartera de <strong>+200 clientes</strong> empresariales.</li>
-                <li>Escalado L4: Gestión de incidencias críticas directamente con Ingeniería de Google.</li>
-                <li>Liderazgo: Mentoría a 10 agentes. Feedbacks mayormente positivos.</li>
-                <li>Experto en ChromeOS y Google Workspace.</li>
-            </ul>
-        </div>
 
-        <!-- NUBALIA -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Nubalia</span><span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span></div>
-                <span class="date">Abr 2019 - May 2021</span>
+            <!-- NUBALIA -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Nubalia</span><span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span></div>
+                    <span class="date">Abr 2019 - May 2021</span>
+                </div>
+                <ul>
+                    <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica.</li>
+                    <li>Consultoría Preventa: Apoyo técnico para cierre de propuestas.</li>
+                    <li>Especialista técnico en LumApps y Experto en ChromeOS.</li>
+                    <li>Certificación: Google Workspace Professional Collaboration Engineer.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica.</li>
-                <li>Consultoría Preventa: Apoyo técnico para cierre de propuestas.</li>
-                <li>Especialista técnico en LumApps y Experto en ChromeOS.</li>
-                <li>Certificación: Google Workspace Professional Collaboration Engineer.</li>
-            </ul>
-        </div>
 
-        <!-- INTELLIGENCE PARTNER -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Intelligence Partner</span><span class="role">Ingeniero de Operaciones & Consultor de Preventa</span></div>
-                <span class="date">Nov 2017 - Abr 2019</span>
+            <!-- INTELLIGENCE PARTNER -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Intelligence Partner</span><span class="role">Ingeniero de Operaciones & Consultor de Preventa</span></div>
+                    <span class="date">Nov 2017 - Abr 2019</span>
+                </div>
+                <ul>
+                    <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos.</li>
+                    <li>Consultoría 360º: Preventa, Migración, Formación y Soporte.</li>
+                    <li>Formador Técnico: Viajes nacionales para impartir formación.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos.</li>
-                <li>Consultoría 360º: Preventa, Migración, Formación y Soporte.</li>
-                <li>Formador Técnico: Viajes nacionales para impartir formación.</li>
-            </ul>
-        </div>
 
-        <!-- DOZO -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Dozo</span><span class="role">Analista de Datos</span></div>
-                <span class="date">2017 (3 meses)</span>
+            <!-- DOZO -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Dozo</span><span class="role">Analista de Datos</span></div>
+                    <span class="date">2017 (3 meses)</span>
+                </div>
+                <p style="margin:0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
             </div>
-            <p style="margin:0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
-        </div>
 
-        <!-- ACCENTURE -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Accenture España</span><span class="role">Consultor IT (Proyecto Internacional)</span></div>
-                <span class="date">Nov 2015 - Mar 2017</span>
+            <!-- ACCENTURE -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Accenture España</span><span class="role">Consultor IT (Proyecto Internacional)</span></div>
+                    <span class="date">Nov 2015 - Mar 2017</span>
+                </div>
+                <ul>
+                    <li>Proyecto en Riad (Arabia Saudí): Investigación de software y redacción de RFIs/RFPs.</li>
+                    <li>Gestión de PMO y reporting financiero.</li>
+                </ul>
             </div>
-            <ul>
-                <li>Proyecto en Riad (Arabia Saudí): Investigación de software y redacción de RFIs/RFPs.</li>
-                <li>Gestión de PMO y reporting financiero.</li>
-            </ul>
-        </div>
 
-        <!-- ICV -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
-                <span class="date">Jun 2014 - Sep 2014</span>
+            <!-- ICV -->
+            <div class="card">
+                <div class="job-header">
+                    <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
+                    <span class="date">Jun 2014 - Sep 2014</span>
+                </div>
+                <p style="margin:0;">Fabricación de materiales híbridos y caracterización estructural (XRD, SEM).</p>
             </div>
-            <p style="margin:0;">Fabricación de materiales híbridos y caracterización estructural (XRD, SEM).</p>
         </div>
     </section>
 
     <section class="fade-in">
         <div class="section-header"><h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría Independiente</h3></div>
-        
-        <!-- ALCAMPO: Con imagen añadida -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones</span></div>
-                <span class="date"><i class="fas fa-home"></i> Freelance</span>
+        <div class="personal-grid">
+            <div class="card" style="margin-bottom:0;">
+                <div class="job-header">
+                    <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones (Freelance)</span></div>
+                </div>
+                <p>Desarrollo de solución automatizada para gestión de turnos a nivel nacional usando Google Apps Script.</p>
+                <img src="alcampo.jpg" alt="Proyecto Alcampo" style="width:100%; border-radius: 8px; margin-top: 15px; border: 1px solid #e2e8f0; max-height: 400px; object-fit: cover;" onerror="this.style.display='none'">
             </div>
-            <p>Desarrollo de solución automatizada para gestión de turnos a nivel nacional usando Google Apps Script.</p>
-            <!-- Imagen del proyecto Alcampo -->
-            <img src="alcampo.jpg" alt="Proyecto Alcampo" style="width:100%; border-radius: 8px; margin-top: 15px; border: 1px solid #e2e8f0; max-height: 400px; object-fit: cover;" onerror="this.style.display='none'">
-        </div>
-        
-        <!-- BYMOTORS -->
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos Digitales</span></div>
-                <span class="date"><i class="fas fa-home"></i> Freelance</span>
+            <div class="card" style="margin-bottom:0;">
+                <div class="job-header">
+                    <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos Digitales (Freelance)</span></div>
+                </div>
+                <p>Optimización de flujos de trabajo mediante Google Sheets avanzado.</p>
             </div>
-            <p style="margin-top: 5px;">Optimización de flujos de trabajo mediante Google Sheets avanzado.</p>
         </div>
     </section>
 
@@ -510,7 +521,7 @@
 
             <!-- Marquee Infinito de Tags -->
             <div style="overflow:hidden;">
-                <p style="margin-bottom:15px; font-weight:600;">Tecnologías Clave:</p>
+                <p style="margin-bottom:15px; font-weight:600; color: var(--text-main);">Tecnologías Clave:</p>
                 <div class="marquee-container">
                     <div class="marquee-content">
                         <!-- Etiquetas unificadas -->
@@ -531,7 +542,7 @@
                     </div>
                 </div>
                 
-                <p style="margin-top:20px; margin-bottom:15px; font-weight:600;">Habilidades Soft:</p>
+                <p style="margin-top:20px; margin-bottom:15px; font-weight:600; color: var(--text-main);">Habilidades Soft:</p>
                 <div class="skills-grid">
                     <span class="tag"><i class="fas fa-users"></i> Gestión Equipos</span>
                     <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación</span>
@@ -555,7 +566,7 @@
             </div>
             <div class="personal-card">
                 <h4><i class="fas fa-chess" style="color: var(--accent);"></i> Ocio</h4>
-                <p>Natación en solitario, baloncesto, juegos de mesa. Músico (Guitarra, Clarinete, Coral).</p>
+                <p>Natación en solitario, baloncesto, juegos de mesa. Músico (Guitarra, Clarinete, Coro).</p>
             </div>
         </div>
     </section>
@@ -662,16 +673,17 @@
     
     document.querySelector('.metrics-grid') && counterObserver.observe(document.querySelector('.metrics-grid'));
 
-    // 5. CHART.JS (Radar Chart) - AJUSTADO FINAL
+    // 5. CHART.JS (Radar Chart) - DEFINITIVO
     const ctx = document.getElementById('skillsChart').getContext('2d');
     let skillsChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Google Workspace', 'Automatización con IA', 'Soporte / Troubleshooting', 'Gestión del Cambio', 'Comunicación', 'GCP Core'],
+            // ORDEN CORRECTO DE ETIQUETAS
+            labels: ['Google Workspace', 'Soporte / Troubleshooting', 'Automatización con IA', 'Gestión del Cambio', 'Comunicación', 'GCP Core'],
             datasets: [{
                 label: 'Nivel de Competencia',
-                // DATOS AJUSTADOS: Workspace=100, IA=90, Soporte=95, G.Cambio=80, Comunicación=75, GCP=50
-                data: [100, 90, 95, 80, 75, 50],
+                // DATOS CORRECTOS: GW=100, Soporte=95, IA=90, Cambio=80, Comunicación=75, GCP=50
+                data: [100, 95, 90, 80, 75, 50],
                 backgroundColor: 'rgba(37, 99, 235, 0.2)',
                 borderColor: '#2563eb',
                 pointBackgroundColor: '#2563eb',
@@ -687,7 +699,7 @@
                     grid: { color: 'rgba(0,0,0,0.1)' },
                     pointLabels: { font: { size: 12, family: 'Inter' }, color: '#64748b' },
                     ticks: { display: false, max: 100 },
-                    min: 0 // Asegura que el centro sea 0
+                    min: 0 
                 }
             },
             plugins: { legend: { display: false } }
