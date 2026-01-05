@@ -34,7 +34,6 @@
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
             --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
             
-            /* Variables para tags (Tema Claro) */
             --tag-bg: #eff6ff;
             --tag-text: #1e40af;
             --tag-border: transparent;
@@ -53,8 +52,6 @@
             --border: #334155;
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
             --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.5);
-
-            /* Variables para tags (Tema Oscuro) */
             --tag-bg: #334155;
             --tag-text: #e2e8f0;
             --tag-border: #475569;
@@ -260,14 +257,8 @@
             transform: scale(1.05);
         }
 
-        /* --- PERSONAL & FREELANCE GRID --- */
-        .personal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .personal-card {
-            background: var(--surface); padding: 2rem; border-radius: var(--radius);
-            border-top: 4px solid var(--accent); box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-        .personal-card h4 { margin: 0 0 15px 0; color: var(--secondary); font-size: 1.1rem; display: flex; align-items: center; gap: 10px;}
+        /* --- GRID PARALELO (CONSULTORÍA) --- */
+        .freelance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 
         /* --- FOOTER --- */
         footer { text-align: center; padding: 4rem 2rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 4rem; background: var(--surface); }
@@ -290,6 +281,7 @@
             .page-nav { display: none; } 
             .job-header { flex-direction: column; }
             .date { align-self: flex-start; margin-top: 5px; }
+            .freelance-grid { grid-template-columns: 1fr; }
         }
 
         /* IMPRESIÓN */
@@ -298,7 +290,7 @@
             header { background: none !important; color: black; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #333; }
             .profile-pic, .floating-controls, .float-contact, .progress-bar, .marquee-container { display: none !important; }
             h1, h2 { color: black; text-shadow: none; }
-            .card, .metric-card, .personal-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 1.5rem; }
+            .card, .metric-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 1.5rem; }
             .skills-section-content { display: block; }
             canvas { max-height: 300px; margin: 0 auto; display: block; }
         }
@@ -306,10 +298,8 @@
 </head>
 <body>
 
-<!-- Barra de Progreso -->
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- Controles Flotantes -->
 <div class="floating-controls">
     <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
         <i class="fas fa-moon"></i>
@@ -324,7 +314,6 @@
     </nav>
 </div>
 
-<!-- Botón Contacto Flotante -->
 <a href="mailto:arulcancela@gmail.com" class="float-contact" title="Enviar Email">
     <i class="fas fa-envelope"></i>
 </a>
@@ -412,7 +401,7 @@
                 <li>Gestión Global (Remoto): Soporte a una cartera de <strong>+200 clientes</strong> empresariales.</li>
                 <li>Escalado L4: Gestión de incidencias críticas directamente con Ingeniería de Google.</li>
                 <li>Liderazgo: Mentoría a un equipo de 10 agentes bilingües.</li>
-                <li>Soporte experto LumApps: Asesoramiento técnico avanzado y trato directo con el equipo de producto oficial para la resolución de bugs y despliegues complejos.</li>
+                <li>Soporte experto LumApps: Asesoramiento técnico avanzado y trato directo con el equipo de producto oficial.</li>
             </ul>
         </div>
 
@@ -423,9 +412,10 @@
                 <span class="date">Abr 2019 - May 2021</span>
             </div>
             <ul>
-                <li>Gestión del Cambio: Diseño de planes de comunicación y formación para garantizar la adopción exitosa de la nube.</li>
+                <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica para adopción exitosa.</li>
                 <li>Consultoría Preventa: Apoyo técnico al equipo comercial para definir alcances técnicos.</li>
                 <li>Certificación: Google Workspace Professional Collaboration Engineer.</li>
+                <li>Referente técnico LumApps: Arquitectura y soporte de tercer nivel, actuando como enlace principal con el fabricante.</li>
             </ul>
         </div>
 
@@ -473,25 +463,24 @@
         </div>
     </section>
 
+    <!-- CONSULTORÍA INDEPENDIENTE (GRID PARALELO) -->
     <section class="fade-in">
         <div class="section-header">
             <h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría Independiente</h3>
         </div>
-        <div class="personal-grid">
-            <!-- ALCAMPO / SABECO -->
+        <div class="freelance-grid">
             <div class="card" style="margin-bottom:0;">
-                <div class="job-header" style="border-bottom: none;">
+                <div class="job-header" style="border-bottom: none; padding-bottom: 0.5rem;">
                     <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones (Freelance)</span></div>
                 </div>
-                <p>Desarrollo de una solución automatizada para la gestión nacional de turnos mediante Google Apps Script (IA-assisted).</p>
+                <p style="font-size: 0.95rem;">Solución automatizada para la gestión nacional de turnos mediante Google Apps Script (IA-assisted).</p>
                 <img src="alcampo.jpg" alt="Proyecto Alcampo" style="width:100%; border-radius: 8px; margin-top: 15px; border: 1px solid var(--border); display: none;" onerror="this.style.display='none'">
             </div>
-            <!-- BYMOTORS -->
             <div class="card" style="margin-bottom:0;">
-                <div class="job-header" style="border-bottom: none;">
+                <div class="job-header" style="border-bottom: none; padding-bottom: 0.5rem;">
                     <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos (Freelance)</span></div>
                 </div>
-                <p>Optimización de flujos de trabajo corporativos y automatización de reporting mediante Google Sheets avanzado.</p>
+                <p style="font-size: 0.95rem;">Optimización de flujos de trabajo corporativos y automatización de reporting mediante Google Sheets avanzado.</p>
             </div>
         </div>
     </section>
@@ -502,19 +491,17 @@
         </div>
         
         <div class="skills-section-content">
-            <!-- Gráfico Radar -->
             <div style="background: var(--surface); padding: 1rem; border-radius: 16px; border: 1px solid var(--border);">
                 <canvas id="skillsChart"></canvas>
             </div>
 
-            <!-- Marquee Infinito de Tags -->
             <div style="overflow:hidden;">
                 <p style="margin-bottom:15px; font-weight:600; color: var(--text-main);">Tecnologías Clave:</p>
                 <div class="marquee-container">
                     <div class="marquee-content">
                         <span class="tag"><i class="fab fa-google"></i> Workspace Arch</span>
                         <span class="tag"><i class="fas fa-cloud"></i> GCP</span>
-                        <span class="tag"><i class="fas fa-layer-group"></i> LumApps Expert</span>
+                        <span class="tag"><i class="fas fa-layer-group"></i> LumApps</span>
                         <span class="tag"><i class="fab fa-chrome"></i> ChromeOS</span>
                         <span class="tag"><i class="fas fa-terminal"></i> GAM</span>
                         <span class="tag"><i class="fas fa-robot"></i> AI Prompting</span>
@@ -522,52 +509,48 @@
                         <span class="tag"><i class="fas fa-code"></i> Apps Script</span>
                         <span class="tag"><i class="fas fa-file-code"></i> Bash</span>
                         <span class="tag"><i class="fab fa-html5"></i> HTML/CSS</span>
-                        <!-- Duplicados para efecto infinito -->
-                        <span class="tag"><i class="fab fa-google"></i> Workspace Arch</span>
-                        <span class="tag"><i class="fas fa-cloud"></i> GCP</span>
-                        <span class="tag"><i class="fas fa-layer-group"></i> LumApps Expert</span>
                     </div>
                 </div>
                 
-                <p style="margin-top:20px; margin-bottom:15px; font-weight:600; color: var(--text-main);">Habilidades Soft:</p>
+                <p style="margin-top:20px; margin-bottom:15px; font-weight:600; color: var(--text-main);">Habilidades Soft e Idiomas:</p>
                 <div class="skills-grid" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span class="tag"><i class="fas fa-language"></i> Inglés (C1)</span>
                     <span class="tag"><i class="fas fa-users"></i> Gestión Equipos</span>
                     <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Formación</span>
                     <span class="tag"><i class="fas fa-laptop-house"></i> Remoto</span>
-                    <span class="tag"><i class="fas fa-language"></i> Inglés (Pro)</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-users section-icon"></i> Liderazgo y Personal</h3></div>
-        <div class="personal-grid">
-            <div class="personal-card">
-                <h4><i class="fas fa-magic" style="color: var(--accent);"></i> Comunicación & Magia</h4>
-                <p><strong>Coordinador de Magos ("Llevamos Magia"):</strong> Gestión de más de 500 actuaciones solidarias. Inicios en <strong>Sala Houdini</strong>. Habilidades de oratoria y conexión.</p>
-            </div>
-            <div class="personal-card">
-                <h4><i class="fas fa-users-cog" style="color: var(--accent);"></i> Liderazgo & Personalidad</h4>
-                <p><strong>Vicepresidente de AMPA:</strong> Gestión de becas y memorias anuales. Perfil <strong>ISTJ-T (Logista)</strong>: Metódico, fiable y orientado a resultados.</p>
-            </div>
-            <div class="personal-card">
-                <h4><i class="fas fa-chess" style="color: var(--accent);"></i> Ocio</h4>
-                <p>Natación en solitario, baloncesto, juegos de mesa. Músico (Guitarra, Clarinete, Coro).</p>
-            </div>
+        <div class="section-header">
+            <h3 class="section-title"><i class="fas fa-graduation-cap section-icon"></i> Formación Académica</h3>
         </div>
-    </section>
-
-    <section class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-graduation-cap section-icon"></i> Formación Académica</h3></div>
-        <div class="card" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0;">
+        <div class="card" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
             <div style="background: #eff6ff; padding: 15px; border-radius: 50%; color: var(--primary);"><i class="fas fa-university fa-2x"></i></div>
             <div>
                 <span class="company" style="font-size: 1.2rem;">Universidad Complutense de Madrid</span>
                 <span class="role" style="font-weight: 500;">Grado en Física (Ingeniería Física / Física Aplicada)</span>
                 <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 4px;">2011 - 2015</div>
-                <p style="font-size: 0.85rem; margin-top: 5px;">TFG: Análisis estadístico de variabilidad térmica en Madrid (100 años).</p>
+                <p style="font-size: 0.85rem; margin-top: 5px;">TFG: Análisis estadístico de variabilidad térmica en Madrid.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- INTERESES (COMPACTO PARA PERFIL SENIOR) -->
+    <section class="fade-in">
+        <div class="section-header">
+            <h3 class="section-title"><i class="fas fa-info-circle section-icon"></i> Intereses Personales</h3>
+        </div>
+        <div class="card" style="padding: 1.5rem 2.5rem; margin-bottom: 0;">
+            <p style="margin:0; font-size: 1rem; color: var(--text-main);">
+                <i class="fas fa-magic" style="color: var(--accent); margin-right: 8px;"></i> <strong>Ilusionismo:</strong> Especializado en comunicación y oratoria (Sala Houdini).
+                <span style="margin: 0 15px; color: var(--border);">|</span>
+                <i class="fas fa-music" style="color: var(--accent); margin-right: 8px;"></i> <strong>Música:</strong> Guitarra, Clarinete y Coro.
+                <span style="margin: 0 15px; color: var(--border);">|</span>
+                <i class="fas fa-swimmer" style="color: var(--accent); margin-right: 8px;"></i> <strong>Disciplina:</strong> Natación, baloncesto y juegos de estrategia.
+            </p>
         </div>
     </section>
 
@@ -581,7 +564,6 @@
 </div>
 
 <script>
-    // 1. MODO OSCURO
     const themeToggle = document.getElementById('themeToggle');
     const icon = themeToggle.querySelector('i');
     
@@ -592,14 +574,12 @@
         updateChartColor(!isDark); 
     });
 
-    // 2. BARRA DE PROGRESO
     window.onscroll = function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
         document.getElementById("progressBar").style.width = scrolled + "%";
         
-        // Active Nav Dot logic
         const sections = document.querySelectorAll('section, header');
         const navDots = document.querySelectorAll('.nav-dot');
         
@@ -620,7 +600,6 @@
         });
     };
 
-    // 3. FADE IN ANIMATION
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -631,14 +610,13 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // 4. ANIMATED COUNTERS
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
                 const counters = entry.target.querySelectorAll('.metric-number');
                 counters.forEach(counter => {
                     const target = +counter.getAttribute('data-target');
-                    const duration = 2000; // ms
+                    const duration = 2000; 
                     const increment = target / (duration / 16); 
                     
                     let current = 0;
@@ -660,7 +638,6 @@
     
     document.querySelector('.metrics-grid') && counterObserver.observe(document.querySelector('.metrics-grid'));
 
-    // 5. CHART.JS (Radar Chart) - DEFINITIVO
     const ctx = document.getElementById('skillsChart').getContext('2d');
     let skillsChart = new Chart(ctx, {
         type: 'radar',
