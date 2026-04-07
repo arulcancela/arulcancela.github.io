@@ -258,8 +258,8 @@
 <div class="container">
 
     <div class="metrics-grid fade-in">
-        <div class="metric-card"><span class="metric-number" data-target="200">+0</span><span class="metric-label">Clientes Globales</span></div>
-        <div class="metric-card"><span class="metric-number" data-target="2000">0</span><span class="metric-label">Usuarios Migrados</span></div>
+        <div class="metric-card"><span class="metric-number" data-target="15" data-suffix="+">0</span><span class="metric-label">Años de Experiencia</span></div>
+        <div class="metric-card"><span class="metric-number" data-target="200" data-suffix="+">0</span><span class="metric-label">Proyectos Cloud & DevOps</span></div>
     </div>
 
     <section id="perfil" class="fade-in">
@@ -493,11 +493,12 @@
                 const counters = entry.target.querySelectorAll('.metric-number');
                 counters.forEach(counter => {
                     const target = +counter.getAttribute('data-target');
+                    const suffix = counter.getAttribute('data-suffix') || '';
                     const duration = 2000; const increment = target / (duration / 16); let current = 0;
                     const updateCounter = () => {
                         current += increment;
-                        if(current < target) { counter.innerText = Math.ceil(current) + (target === 200 ? '+' : ''); requestAnimationFrame(updateCounter); } 
-                        else { counter.innerText = target + (target === 200 ? '+' : ''); }
+                        if(current < target) { counter.innerText = Math.ceil(current) + suffix; requestAnimationFrame(updateCounter); } 
+                        else { counter.innerText = target + suffix; }
                     };
                     updateCounter();
                 });
