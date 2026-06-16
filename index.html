@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -17,45 +17,55 @@
     <style>
         :root {
             --primary: #2563eb; 
+            --primary-glow: rgba(37, 99, 235, 0.15);
             --primary-dark: #1e40af;
             --secondary: #0f172a; 
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.15);
+            --success: #10b981;
+            
             --text-main: #334155;
             --text-light: #64748b;
             --bg-body: #f8fafc; 
             --surface: #ffffff;
             --surface-hover: #f1f5f9;
             --border: #e2e8f0;
-            --accent: #f59e0b; 
-            --radius: 16px;
-            --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --radius: 20px;
+            --radius-sm: 10px;
+            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 10px -1px rgba(15, 23, 42, 0.03);
+            --shadow-hover: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 10px 20px -5px rgba(15, 23, 42, 0.06);
             
             --tag-bg: #eff6ff;
             --tag-text: #1e40af;
-            --tag-border: transparent;
+            --tag-border: rgba(37, 99, 235, 0.1);
         }
 
         [data-theme="dark"] {
-            --primary: #60a5fa; 
-            --primary-dark: #3b82f6;
-            --secondary: #f1f5f9; 
+            --primary: #3b82f6; 
+            --primary-glow: rgba(59, 130, 246, 0.25);
+            --primary-dark: #60a5fa;
+            --secondary: #f8fafc; 
+            --accent: #a78bfa;
+            --accent-glow: rgba(167, 139, 250, 0.25);
+            
             --text-main: #cbd5e1;
             --text-light: #94a3b8;
-            --bg-body: #0f172a; 
-            --surface: #1e293b;
-            --surface-hover: #334155;
-            --border: #334155;
-            --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-            --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.5);
-            --tag-bg: #334155;
-            --tag-text: #e2e8f0;
-            --tag-border: #475569;
+            --bg-body: #0b0f19; 
+            --surface: #111827;
+            --surface-hover: #1f2937;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 20px 45px -5px rgba(0, 0, 0, 0.6);
+            
+            --tag-bg: rgba(59, 130, 246, 0.1);
+            --tag-text: #93c5fd;
+            --tag-border: rgba(59, 130, 246, 0.2);
         }
         
         * { box-sizing: border-box; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
             margin: 0;
@@ -63,10 +73,10 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .company, .card-title { font-family: 'Poppins', sans-serif; color: var(--secondary); }
+        h1, h2, h3, h4, .company, .card-title { font-family: 'Outfit', sans-serif; color: var(--secondary); }
 
         .progress-bar {
-            position: fixed; top: 0; left: 0; height: 4px; background: var(--primary); width: 0%; z-index: 1001; transition: width 0.1s;
+            position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0%; z-index: 1001; transition: width 0.1s;
         }
 
         .floating-controls {
@@ -74,139 +84,270 @@
         }
 
         .theme-toggle {
-            background: var(--surface); border: 2px solid var(--border); color: var(--text-main); width: 45px; height: 45px;
+            background: var(--surface); border: 1px solid var(--border); color: var(--text-main); width: 45px; height: 45px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
             box-shadow: var(--shadow); transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
-        .theme-toggle:hover { transform: scale(1.1); border-color: var(--primary); }
+        .theme-toggle:hover { transform: scale(1.1); border-color: var(--primary); color: var(--primary); }
 
         .page-nav ul { list-style: none; padding: 0; margin: 0; }
         .nav-dot { width: 12px; height: 12px; background: var(--border); border-radius: 50%; display: block; margin: 10px auto; transition: all 0.3s; cursor: pointer; }
-        .nav-dot.active { background: var(--primary); transform: scale(1.3); }
+        .nav-dot.active { background: var(--primary); transform: scale(1.3); box-shadow: 0 0 10px var(--primary-glow); }
 
         header {
-            background: url('cover.jpg') no-repeat center center; background-size: cover; background-color: #1e3a8a; 
-            background-attachment: fixed; color: white; padding: 8rem 2rem 6rem 2rem; text-align: center;
-            position: relative; overflow: hidden; border-bottom: 4px solid var(--primary);
+            background: radial-gradient(circle at 80% 20%, var(--accent-glow) 0%, transparent 40%),
+                        radial-gradient(circle at 10% 80%, var(--primary-glow) 0%, transparent 50%),
+                        var(--bg-body);
+            padding: 8rem 2rem 5rem 2rem; text-align: center;
+            position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
         }
         
-        header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.80); z-index: 1; }
-        header > div { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+        header::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+        }
+
+        .profile-container {
+            position: relative; display: inline-block; margin-bottom: 1.5rem;
+        }
 
         .profile-pic {
-            width: 160px; height: 160px; border-radius: 50%; border: 4px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            object-fit: cover; margin-bottom: 1.5rem; background-color: white; transition: transform 0.5s ease;
-        }
-        .profile-pic:hover { transform: scale(1.05) rotate(3deg); }
-
-        .remote-badge {
-            display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2);
-            padding: 8px 20px; border-radius: 50px; font-size: 0.95rem; margin-top: 15px;
-            border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px); font-weight: 500; color: white;
+            width: 170px; height: 170px; border-radius: 50%; border: 4px solid var(--surface); box-shadow: var(--shadow);
+            object-fit: cover; background-color: var(--surface); transition: transform 0.5s ease;
         }
         
-        h1 { margin: 0; font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); color: white; }
-        h2 { font-weight: 400; font-size: 1.4rem; opacity: 0.95; margin-top: 1rem; max-width: 800px; text-shadow: 0 1px 10px rgba(0,0,0,0.5); color: #e2e8f0; }
+        .profile-container:hover .profile-pic { transform: scale(1.05) rotate(2deg); }
+
+        .physics-badge {
+            position: absolute; bottom: 5px; right: 5px; background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white; border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 3px solid var(--surface);
+        }
+
+        .remote-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--tag-bg);
+            padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; margin-top: 15px;
+            border: 1px solid var(--tag-border); font-weight: 600; color: var(--tag-text);
+        }
+        
+        .pulse-dot {
+            width: 8px; height: 8px; background-color: var(--success); border-radius: 50%; display: inline-block;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse 1.8s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        
+        h1 { margin: 0; font-size: 4rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--secondary) 30%, var(--primary) 70%, var(--accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h2 { font-weight: 500; font-size: 1.35rem; max-width: 850px; margin: 1.5rem auto 0 auto; color: var(--text-light); }
 
         .btn-header {
             padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-flex; align-items: center; gap: 10px;
-            transition: all 0.3s ease; margin: 5px; cursor: pointer; border: none; font-family: inherit; font-size: 1rem;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.3s ease; margin: 5px; cursor: pointer; border: 1px solid transparent; font-family: inherit; font-size: 0.95rem;
         }
-        .btn-contact { background: white; color: #1e3a8a; }
-        .btn-download { background: rgba(255,255,255,0.9); color: #1e40af; }
-        .btn-linkedin { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px); }
-        .btn-header:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .btn-contact { background: var(--primary); color: white; box-shadow: 0 4px 15px var(--primary-glow); }
+        .btn-contact:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow); }
+        
+        .btn-download { background: var(--surface); color: var(--text-main); border-color: var(--border); box-shadow: var(--shadow); }
+        .btn-download:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        
+        .btn-linkedin { background: rgba(139, 92, 246, 0.1); color: var(--accent); border-color: var(--accent-glow); }
+        .btn-linkedin:hover { background: var(--accent); color: white; transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
 
-        .container { max-width: 1000px; margin: 4rem auto 0 auto; padding: 0 1.5rem 4rem 1.5rem; position: relative; z-index: 2; }
-        section { margin-bottom: 5rem; scroll-margin-top: 100px; }
+        .container { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; position: relative; z-index: 2; }
+        section { margin-bottom: 6rem; scroll-margin-top: 100px; }
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        .section-header { display: flex; align-items: center; margin-bottom: 2rem; }
-        .section-title { font-size: 1.8rem; color: var(--secondary); font-weight: 700; margin: 0; position: relative; padding-left: 15px; border-left: 5px solid var(--primary); display: flex; align-items: center; gap: 12px; }
-        .section-icon { color: var(--primary); font-size: 1.4rem; opacity: 0.9; }
+        .section-header { display: flex; align-items: center; margin-bottom: 2.5rem; }
+        .section-title { font-size: 2rem; color: var(--secondary); font-weight: 800; margin: 0; position: relative; display: flex; align-items: center; gap: 14px; }
+        .section-title::after {
+            content: ''; display: inline-block; width: 60px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 2px; margin-left: 15px;
+        }
+        .section-icon { color: var(--primary); font-size: 1.5rem; }
 
-        .card { background: var(--surface); padding: 2.5rem; border-radius: var(--radius); margin-bottom: 2rem; box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
-        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary); }
-        .company { font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
-        .role { color: var(--primary); font-weight: 600; font-size: 1.05rem; display: block; margin-top: 4px; }
-        .date { font-size: 0.85rem; color: var(--text-light); font-weight: 500; background: var(--surface-hover); padding: 6px 12px; border-radius: 8px; white-space: nowrap; }
+        /* Estilo de Tarjetas y Glassmorphism */
+        .card { 
+            background: var(--surface); padding: 2.5rem; border-radius: var(--radius); margin-bottom: 2rem; 
+            box-shadow: var(--shadow); border: 1px solid var(--border); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+            position: relative; overflow: hidden;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(59, 130, 246, 0.3); }
         
-        .job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        /* Línea de tiempo de experiencia */
+        .timeline {
+            position: relative; padding-left: 30px; border-left: 2px solid var(--border); margin-left: 10px;
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 3.5rem;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -41px; top: 8px; width: 20px; height: 20px;
+            border-radius: 50%; background: var(--surface); border: 4px solid var(--primary);
+            box-shadow: 0 0 0 4px var(--bg-body); transition: all 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            background: var(--accent); border-color: var(--accent); transform: scale(1.2);
+        }
+        .timeline-item.current::before {
+            border-color: var(--success);
+        }
         
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-        .metric-card { background: var(--surface); padding: 1.5rem; border-radius: var(--radius); text-align: center; border: 1px solid var(--border); box-shadow: var(--shadow); }
-        .metric-number { font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; }
-        .metric-label { font-size: 0.9rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+        .job-meta {
+            display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;
+        }
+        .company { font-size: 1.4rem; font-weight: 800; color: var(--secondary); display: flex; align-items: center; gap: 10px; }
+        .role { color: var(--primary); font-weight: 700; font-size: 1.1rem; display: block; margin-top: 4px; }
+        .date { font-size: 0.85rem; color: var(--text-light); font-weight: 600; background: var(--surface-hover); padding: 6px 14px; border-radius: 30px; border: 1px solid var(--border); }
+        
+        .job-details { margin: 0; padding-left: 1.2rem; }
+        .job-details li { margin-bottom: 0.5rem; }
+        .job-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.2rem; }
+        .job-tag { font-size: 0.75rem; background: var(--surface-hover); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; color: var(--text-light); font-weight: 600; }
 
-        /* Estilos del Laboratorio IA */
-        .ai-lab-card {
-            background: linear-gradient(145deg, var(--surface) 0%, var(--surface-hover) 100%);
-            border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem;
-            box-shadow: var(--shadow); position: relative; overflow: hidden; margin-top: 2rem;
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+        .metric-card { 
+            background: var(--surface); padding: 2rem; border-radius: var(--radius); text-align: center; 
+            border: 1px solid var(--border); box-shadow: var(--shadow); position: relative; overflow: hidden;
         }
-        .ai-lab-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-            background: linear-gradient(90deg, #2563eb, #8b5cf6, #f59e0b);
+        .metric-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent));
         }
-        .ai-textarea {
-            width: 100%; min-height: 100px; padding: 1rem; border-radius: 12px;
-            border: 2px solid var(--border); background: var(--surface); color: var(--text-main);
-            font-family: 'Inter', sans-serif; resize: vertical; margin-bottom: 1rem;
-            transition: border-color 0.3s;
-        }
-        .ai-textarea:focus { border-color: #8b5cf6; outline: none; }
-        .ai-btn {
-            background: linear-gradient(90deg, #2563eb, #8b5cf6); color: white; border: none;
-            padding: 12px 24px; border-radius: 50px; font-weight: 600; cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s; display: inline-flex; align-items: center; gap: 8px;
-        }
-        .ai-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.3); }
-        .ai-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-        .ai-output {
-            margin-top: 1.5rem; padding: 1.5rem; background: var(--bg-body); border-radius: 12px;
-            border: 1px solid var(--border); display: none; font-size: 0.95rem; color: var(--text-main);
-        }
-        .loader {
-            border: 3px solid rgba(139, 92, 246, 0.2); border-top-color: #8b5cf6;
-            border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: none;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .metric-number { font-size: 3rem; font-weight: 800; color: var(--primary); display: block; line-height: 1.1; margin-bottom: 5px; }
+        .metric-label { font-size: 0.85rem; color: var(--text-light); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;}
 
-        .skills-section-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-        .marquee-container { overflow: hidden; white-space: nowrap; padding: 20px 0; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+        /* Workspace Automation Simulator */
+        .sim-container {
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 320px 1fr;
+            margin-top: 2rem; min-height: 550px;
+        }
+        @media (max-width: 900px) {
+            .sim-container { grid-template-columns: 1fr; }
+        }
+        
+        .sim-sidebar {
+            background: var(--surface-hover); border-right: 1px solid var(--border); padding: 1.8rem;
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .sim-content {
+            padding: 2rem; display: flex; flex-direction: column;
+        }
+        .sim-preset-btn {
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+            padding: 1rem; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .sim-preset-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .sim-preset-btn.active { border-color: var(--primary); background: var(--tag-bg); box-shadow: 0 4px 12px var(--primary-glow); }
+        .sim-preset-title { font-weight: 700; font-size: 0.95rem; color: var(--secondary); }
+        .sim-preset-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.4; }
+        
+        .sim-custom-input {
+            margin-top: auto; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border); padding-top: 15px;
+        }
+        .sim-input-box {
+            width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
+            background: var(--surface); color: var(--text-main); font-family: inherit; font-size: 0.85rem;
+            resize: none;
+        }
+        .sim-input-box:focus { outline: none; border-color: var(--accent); }
+        .sim-run-btn {
+            background: linear-gradient(135deg, var(--primary), var(--accent)); color: white;
+            border: none; padding: 10px 15px; border-radius: 8px; font-weight: 600; font-size: 0.85rem;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+        
+        .sim-tabs-header {
+            display: flex; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 1.5rem;
+        }
+        .sim-tab-btn {
+            background: none; border: 1px solid transparent; color: var(--text-light);
+            padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.85rem; cursor: pointer;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .sim-tab-btn.active {
+            background: var(--tag-bg); color: var(--primary); border-color: var(--tag-border);
+        }
+        
+        .sim-display-area {
+            flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start;
+        }
+        .sim-pane { display: none; font-size: 0.95rem; line-height: 1.6; }
+        .sim-pane.active { display: block; }
+        
+        .code-block {
+            background: #0f172a; color: #e2e8f0; font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            padding: 1.5rem; border-radius: 12px; overflow-x: auto; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05);
+            margin: 0; white-space: pre-wrap; word-wrap: break-word;
+        }
+        .sim-status {
+            display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-light);
+            margin-bottom: 1rem; background: var(--surface-hover); padding: 8px 15px; border-radius: 8px;
+            border: 1px solid var(--border); font-weight: 600;
+        }
+        .sim-pulse-yellow {
+            width: 8px; height: 8px; background-color: #f59e0b; border-radius: 50%;
+            animation: pulse-y 1.5s infinite;
+        }
+        @keyframes pulse-y {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        .skills-section-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; }
+        @media (max-width: 800px) {
+            .skills-section-content { grid-template-columns: 1fr; }
+        }
+        
+        .marquee-container { overflow: hidden; white-space: nowrap; padding: 15px 0; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+        .marquee-content { display: inline-block; animation: marquee 35s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         
-        .tag { display: inline-flex; align-items: center; gap: 8px; background: var(--tag-bg); padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; color: var(--tag-text); font-weight: 600; border: 1px solid var(--tag-border); margin-right: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s ease; }
-        .tag i { color: var(--primary); font-size: 1.1em; }
-        .tag:hover { background-color: var(--surface); border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15); transform: scale(1.05); }
+        .tag { 
+            display: inline-flex; align-items: center; gap: 8px; background: var(--tag-bg); 
+            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; color: var(--tag-text); 
+            font-weight: 600; border: 1px solid var(--tag-border); margin-right: 12px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: all 0.2s ease; 
+        }
+        .tag i { color: var(--primary); font-size: 1em; }
+        .tag:hover { background-color: var(--surface); border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 12px var(--primary-glow); transform: translateY(-2px); }
 
-        .freelance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        footer { text-align: center; padding: 4rem 2rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 4rem; background: var(--surface); }
+        .freelance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        footer { text-align: center; padding: 4rem 2rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 5rem; background: var(--surface); }
         
-        .float-contact { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); transition: transform 0.3s; z-index: 99; text-decoration: none; }
-        .float-contact:hover { transform: scale(1.1) rotate(10deg); }
+        .float-contact { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 20px var(--primary-glow); transition: transform 0.3s; z-index: 99; text-decoration: none; }
+        .float-contact:hover { transform: scale(1.1) rotate(8deg); }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .skills-section-content { grid-template-columns: 1fr; }
+            h1 { font-size: 2.8rem; }
             .floating-controls { top: auto; bottom: 20px; left: 20px; right: auto; transform: none; flex-direction: row; }
             .page-nav { display: none; } 
-            .job-header { flex-direction: column; }
-            .date { align-self: flex-start; margin-top: 5px; }
-            .freelance-grid { grid-template-columns: 1fr; }
+            .job-meta { flex-direction: column; align-items: flex-start; }
+            .date { margin-top: 5px; }
         }
 
         @media print {
             body { background: white; color: black; }
-            header { background: none !important; color: black; padding: 0; margin-bottom: 2rem; border-bottom: 2px solid #333; }
-            .profile-pic, .floating-controls, .float-contact, .progress-bar, .marquee-container { display: none !important; }
-            h1, h2 { color: black; text-shadow: none; }
+            header { background: none !important; color: black; padding: 2rem 0; margin-bottom: 2rem; border-bottom: 2px solid #333; }
+            .profile-pic, .floating-controls, .float-contact, .progress-bar, .marquee-container, .sim-container, .theme-toggle, .physics-badge { display: none !important; }
+            h1, h2 { color: black; text-shadow: none; background: none; -webkit-text-fill-color: initial; }
             .card, .metric-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 1.5rem; }
             .skills-section-content { display: block; }
-            canvas { max-height: 300px; margin: 0 auto; display: block; }
+            .timeline { border-left: none; padding-left: 0; }
+            .timeline-item::before { display: none; }
+            canvas { max-height: 250px; margin: 0 auto; display: block; }
         }
     </style>
 </head>
@@ -215,7 +356,7 @@
 <div class="progress-bar" id="progressBar"></div>
 
 <div class="floating-controls">
-    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"><i class="fas fa-moon"></i></button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"><i class="fas fa-sun"></i></button>
     <nav class="page-nav">
         <ul>
             <li><a href="#inicio" class="nav-dot active" title="Inicio"></a></li>
@@ -230,16 +371,19 @@
 
 <header id="inicio">
     <div>
-        <img src="profile-pic.jpg" alt="Raúl Cancela" class="profile-pic" onerror="this.style.display='none'">
+        <div class="profile-container">
+            <img src="profile-pic.jpg" alt="Raúl Cancela" class="profile-pic" onerror="this.style.display='none'">
+            <div class="physics-badge" title="Física Aplicada / Analítica"><i class="fas fa-atom"></i></div>
+        </div>
         <h1 class="gradient-text">Raúl Cancela</h1>
-        <h2>Google Workspace Architect & AI Augmented Engineer</h2>
+        <h2>Google Workspace Architect & AI Automation Engineer</h2>
         
-        <div style="margin-top: 0.5rem; display: flex; flex-direction: column; align-items: center; gap: 5px;">
-            <span style="opacity: 0.9; font-size: 1rem;"><i class="fas fa-map-marker-alt"></i> Madrid, España</span>
-            <span class="remote-badge"><i class="fas fa-laptop-house"></i> Disponible en Remoto / Remote-First</span>
+        <div style="margin-top: 0.8rem; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <span style="opacity: 0.9; font-size: 0.95rem; font-weight: 500;"><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Madrid, España</span>
+            <span class="remote-badge"><span class="pulse-dot"></span>Disponible para Remoto / Remote-First</span>
         </div>
         
-        <div style="margin-top: 2.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+        <div style="margin-top: 2.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
             <a href="mailto:arulcancela@gmail.com" class="btn-header btn-contact"><i class="fas fa-envelope"></i> Contactar</a>
             <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" class="btn-header btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <button onclick="window.print()" class="btn-header btn-download"><i class="fas fa-file-pdf"></i> Guardar como PDF</button>
@@ -249,17 +393,19 @@
 
 <div class="container">
 
-    <div class="metrics-grid fade-in">
-        <div class="metric-card"><span class="metric-number" data-target="12" data-suffix="+">0</span><span class="metric-label">Años de Experiencia</span></div>
-        <div class="metric-card"><span class="metric-number" data-target="200" data-suffix="+">0</span><span class="metric-label">Proyectos Cloud & DevOps</span></div>
-    </div>
+    <section id="perfil" style="margin-top: 4rem;">
+        <div class="metrics-grid fade-in">
+            <div class="metric-card"><span class="metric-number" data-target="11" data-suffix="+">0</span><span class="metric-label">Años de Experiencia</span></div>
+            <div class="metric-card"><span class="metric-number" data-target="200" data-suffix="+">0</span><span class="metric-label">Proyectos Cloud & Workspace</span></div>
+            <div class="metric-card"><span class="metric-number" data-target="2000" data-suffix="+">0</span><span class="metric-label">Cuentas Migradas Inetum</span></div>
+        </div>
 
-    <div class="card">
-            <p style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--text-main);">
-                Soy <strong>Arquitecto de Soluciones Google Workspace</strong> con base en Física y más de 13 años transformando empresas. Mi enfoque combina el rigor analítico con la resolución creativa de problemas, permitiéndome liderar migraciones críticas de identidades y asegurar el entorno colaborativo corporativo.
+        <div class="card fade-in">
+            <p style="font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.8;">
+                Soy <strong>Arquitecto de Soluciones Google Workspace</strong> con sólida formación de Física Aplicada. Mi trayectoria de más de 11 años combina el rigor del análisis científico con el desarrollo creativo, lo que me capacita para liderar migraciones críticas de identidad, diseñar arquitecturas en la nube y optimizar el entorno colaborativo enterprise.
             </p>
-            <p style="font-size: 1.05rem; margin: 0; color: var(--text-main);">
-                Me defino como un <strong>Ingeniero Aumentado por IA</strong>. Utilizo flujos de trabajo avanzados con LLMs para desarrollar scripts complejos (Python, Google Apps Script, Bash) y automatizar procesos masivos y aprovisionamientos mediante <strong>GAM</strong>, superando cualquier limitación de la consola nativa.
+            <p style="font-size: 1.1rem; margin: 0; color: var(--text-main); line-height: 1.8;">
+                Como **Ingeniero Aumentado por IA**, automatizo flujos y supero las limitaciones operativas tradicionales integrando scripts complejos (Python, Google Apps Script, Bash) y gestionando entornos a gran escala mediante **GAM**.
             </p>
         </div>
     </section>
@@ -267,98 +413,191 @@
     <section id="experiencia" class="fade-in">
         <div class="section-header"><h3 class="section-title"><i class="fas fa-briefcase section-icon"></i> Experiencia Corporativa</h3></div>
 
-        <div class="card" style="border-left: 4px solid var(--accent);">
-            <div class="job-header">
-                <div><span class="company">Volkswagen Group Services Barcelona</span><span class="role">Google Workspace Architect & Migration Lead</span></div>
-                <span class="date">Abr 2026 - Actualidad</span>
+        <div class="timeline">
+            
+            <div class="timeline-item current">
+                <div class="card" style="border-left: 4px solid var(--success);">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-car" style="color: var(--success); font-size: 1.1rem;"></i> Volkswagen Group Services Barcelona</span>
+                            <span class="role">Google Workspace Architect & Migration Lead</span>
+                        </div>
+                        <span class="date">Abr 2026 - Actualidad</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Liderazgo de la estrategia de coexistencia híbrida entre Office 365 y Google Workspace para la plantilla global.</li>
+                        <li>Dirección de la fase de Discovery: auditoría de cumplimiento (Compliance), definición de políticas de administración y diseño de planes de migración de usuarios.</li>
+                        <li>Coordinación técnica con el equipo de GCP para la alineación de la gestión de identidades (IAM) y la seguridad de la arquitectura del tenant.</li>
+                        <li>Implementación de flujos de trabajo basados en IA para el análisis de infraestructuras críticas y la toma de decisiones técnicas estratégicas.</li>
+                        <li>Gestión integral del entorno de Google Workspace, desde la configuración de políticas hasta el despliegue final (Go-live).</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="job-tag">Google Workspace</span>
+                        <span class="job-tag">Office 365 Coexistence</span>
+                        <span class="job-tag">GCP IAM</span>
+                        <span class="job-tag">IA Workflow</span>
+                        <span class="job-tag">IT Security</span>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>Liderazgo de la estrategia de coexistencia híbrida entre Office 365 y Google Workspace para la plantilla global.</li>
-                <li>Dirección de la fase de Discovery: auditoría de cumplimiento (Compliance), definición de políticas de administración y diseño de planes de migración de usuarios.</li>
-                <li>Coordinación técnica con el equipo de GCP para la alineación de la gestión de identidades (IAM) y la seguridad de la arquitectura del tenant.</li>
-                <li>Implementación de flujos de trabajo basados en IA para el análisis de infraestructuras críticas y la toma de decisiones técnicas estratégicas.</li>
-                <li>Gestión integral del entorno de Google Workspace, desde la configuración de políticas hasta el despliegue final (Go-live).</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Inetum</span><span class="role">Arquitecto de Soluciones Google Workspace</span></div>
-                <span class="date">Oct 2025 - Abr 2026</span>
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-network-wired" style="color: var(--primary); font-size: 1.1rem;"></i> Inetum</span>
+                            <span class="role">Arquitecto de Soluciones Google Workspace</span>
+                        </div>
+                        <span class="date">Oct 2025 - Abr 2026</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Líder de Migración: Gestión integral (end-to-end) de la migración crítica de 2.000 usuarios a Google Workspace.</li>
+                        <li>Automatización Avanzada: Uso experto de GAM para extracción masiva de datos y scripting para automatizar el aprovisionamiento, superando límites de la consola nativa.</li>
+                        <li>Diseño de arquitecturas cloud seguras y escalables para clientes Enterprise.</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="job-tag">GAM</span>
+                        <span class="job-tag">Cloud Migration</span>
+                        <span class="job-tag">Google Workspace</span>
+                        <span class="job-tag">Data Automation</span>
+                        <span class="job-tag">Python Scripting</span>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>Líder de Migración: Gestión integral (end-to-end) de la migración de 2.000 usuarios a Google Workspace.</li>
-                <li>Automatización Avanzada: Uso experto de GAM para extracción masiva de datos y scripting para automatizar la provisión, superando las limitaciones de la consola nativa.</li>
-                <li>Diseño de arquitecturas cloud seguras y escalables para clientes Enterprise.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Devoteam</span><span class="role">Team Lead & Ingeniero de Soporte Senior (L4)</span></div>
-                <span class="date">May 2021 - Sep 2025</span>
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-project-diagram" style="color: var(--primary); font-size: 1.1rem;"></i> Devoteam</span>
+                            <span class="role">Team Lead & Ingeniero de Soporte Senior (L4)</span>
+                        </div>
+                        <span class="date">May 2021 - Sep 2025</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Gestión Global: Soporte técnico bilingüe a una cartera de +200 clientes empresariales en entornos distribuidos.</li>
+                        <li>Ingeniería Experta (L4): Gestión de escalados críticos directamente con Ingeniería de Google, actuando como Superadmin delegado.</li>
+                        <li>Calidad y Herramientas: Optimización de la gestión mediante Jira y Freshdesk, logrando feedbacks consistentemente positivos.</li>
+                        <li>Liderazgo: Mentoría técnica a un equipo de 10 agentes, asegurando cumplimiento de SLAs.</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="job-tag">L4 Escalations</span>
+                        <span class="job-tag">SLA Management</span>
+                        <span class="job-tag">Jira Service Desk</span>
+                        <span class="job-tag">Team Leadership</span>
+                        <span class="job-tag">Superadmin Delegation</span>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>Gestión Global: Soporte técnico bilingüe a una cartera de +200 clientes empresariales en entornos distribuidos.</li>
-                <li>Ingeniería Experta (L4): Gestión de escalados críticos directamente con Ingeniería de Google, actuando como Superadmin delegado.</li>
-                <li>Calidad y Herramientas: Optimización de la gestión mediante Jira y Freshdesk, logrando feedbacks consistentemente positivos.</li>
-                <li>Liderazgo: Mentoría técnica a un equipo de 10 agentes, asegurando cumplimiento de SLAs.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Nubalia</span><span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span></div>
-                <span class="date">Abr 2019 - May 2021</span>
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-cloud" style="color: var(--primary); font-size: 1.1rem;"></i> Nubalia</span>
+                            <span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span>
+                        </div>
+                        <span class="date">Abr 2019 - May 2021</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica para garantizar la adopción exitosa de la nube.</li>
+                        <li>Consultoría Preventa: Apoyo técnico al equipo comercial para definir alcances técnicos y propuestas de valor.</li>
+                        <li>Experto en Intranets: Referente técnico en la plataforma LumApps, gestionando incidencias complejas y la relación con el fabricante.</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="job-tag">LumApps</span>
+                        <span class="job-tag">Change Management</span>
+                        <span class="job-tag">Presales Consulting</span>
+                        <span class="job-tag">SaaS Operations</span>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica para garantizar la adopción exitosa de la nube.</li>
-                <li>Consultoría Preventa: Apoyo técnico al equipo comercial para definir alcances técnicos.</li>
-                <li>Experto en Intranets: Referente técnico en LumApps, gestionando incidencias complejas y la relación con el fabricante.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Intelligence Partner</span><span class="role">Ingeniero de Operaciones & Consultor Preventa</span></div>
-                <span class="date">Nov 2017 - Abr 2019</span>
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-handshake" style="color: var(--primary); font-size: 1.1rem;"></i> Intelligence Partner</span>
+                            <span class="role">Ingeniero de Operaciones & Consultor Preventa</span>
+                        </div>
+                        <span class="date">Nov 2017 - Abr 2019</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos para grandes cuentas nacionales, asegurando cero pérdida de datos.</li>
+                        <li>Consultoría 360º: Gestión del ciclo completo (Preventa, Migración, Formación de usuarios y Soporte).</li>
+                        <li>Formador Técnico: Desplazamientos a sedes de clientes para impartir capacitación especializada.</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="job-tag">Data Migration</span>
+                        <span class="job-tag">Enterprise Support</span>
+                        <span class="job-tag">Technical Training</span>
+                        <span class="job-tag">Client Consulting</span>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos para grandes cuentas, asegurando cero pérdida de datos.</li>
-                <li>Consultoría 360º: Gestión del ciclo completo (Preventa, Migración, Formación, Soporte).</li>
-                <li>Formador Técnico: Desplazamientos a sedes de clientes nacionales para impartir formación especializada.</li>
-            </ul>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Grupo MASMOVIL</span><span class="role">Analista de Datos</span></div>
-                <span class="date">Sep 2017 - Nov 2017</span>
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-chart-line" style="color: var(--primary); font-size: 1.1rem;"></i> Grupo MASMOVIL</span>
+                            <span class="role">Analista de Datos</span>
+                        </div>
+                        <span class="date">Sep 2017 - Nov 2017</span>
+                    </div>
+                    <p style="margin:0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">Excel Analytics</span>
+                        <span class="job-tag">Corporate Reporting</span>
+                        <span class="job-tag">Data Analysis</span>
+                    </div>
+                </div>
             </div>
-            <p style="margin:0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
-        </div>
 
-        <div class="card">
-            <div class="job-header">
-                <div><span class="company">Accenture España</span><span class="role">Consultor IT (Proyecto Internacional)</span></div>
-                <span class="date">Nov 2015 - Mar 2017</span>
+            <div class="timeline-item">
+                <div class="card">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-globe" style="color: var(--primary); font-size: 1.1rem;"></i> Accenture España</span>
+                            <span class="role">Consultor IT (Proyecto Internacional)</span>
+                        </div>
+                        <span class="date">Nov 2015 - Mar 2017</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Experiencia Internacional (Riad, Arabia Saudí): Investigación de software global y redacción de documentación técnica (RFIs/RFPs).</li>
+                        <li>Gestión de PMO y reporting financiero utilizando herramientas de Office 365.</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="job-tag">IT PMO</span>
+                        <span class="job-tag">RFI / RFP Drafting</span>
+                        <span class="job-tag">International Experience</span>
+                        <span class="job-tag">Financial Reporting</span>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>Experiencia Internacional (Riad, Arabia Saudí): Investigación de software global y redacción de documentación técnica (RFIs/RFPs).</li>
-                <li>Gestión de PMO y reporting financiero utilizando herramientas de Office 365.</li>
-            </ul>
-        </div>
 
-        <div class="card" style="margin-bottom: 0;">
-            <div class="job-header">
-                <div><span class="company">Inst. de Cerámica y Vidrio (ICV-CSIC)</span><span class="role">Técnico de Laboratorio (Prácticas)</span></div>
-                <span class="date">Jun 2014 - Sep 2014</span>
+            <div class="timeline-item" style="margin-bottom: 0;">
+                <div class="card">
+                    <div class="job-meta">
+                        <div>
+                            <span class="company"><i class="fas fa-flask" style="color: var(--primary); font-size: 1.1rem;"></i> Inst. de Cerámica y Vidrio (ICV-CSIC)</span>
+                            <span class="role">Técnico de Laboratorio (Prácticas)</span>
+                        </div>
+                        <span class="date">Jun 2014 - Sep 2014</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Fabricación de materiales híbridos compuestos mediante molienda mecánica de baja y alta energía.</li>
+                        <li>Caracterización estructural avanzada: Difracción de Rayos X (XRD), microscopía electrónica de barrido (SEM) y termogravimetría.</li>
+                        <li>Caracterización magnética de muestras mediante Magnetometría de Muestra Vibrante (VSM).</li>
+                    </ul>
+                    <div class="job-tags">
+                        <span class="job-tag">Material Science</span>
+                        <span class="job-tag">R&D Lab</span>
+                        <span class="job-tag">Structural Analysis</span>
+                        <span class="job-tag">Physics Practice</span>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>Fabricación de materiales híbridos compuestos mediante molienda mecánica de baja y alta energía.</li>
-                <li>Caracterización estructural avanzada: Difracción de Rayos X (XRD), microscopía electrónica de barrido (SEM) y termogravimetría.</li>
-                <li>Caracterización magnética de muestras mediante Magnetometría de Muestra Vibrante (VSM).</li>
-            </ul>
         </div>
     </section>
 
@@ -366,16 +605,32 @@
         <div class="section-header"><h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría Independiente</h3></div>
         <div class="freelance-grid">
             <div class="card" style="margin-bottom:0;">
-                <div class="job-header" style="border-bottom: none; padding-bottom: 0.5rem;">
-                    <div><span class="company">Alcampo / Sabeco</span><span class="role">Desarrollador de Soluciones (Freelance)</span></div>
+                <div class="job-meta" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 0;">
+                    <div>
+                        <span class="company"><i class="fas fa-shopping-basket" style="color: var(--accent); font-size: 1.1rem;"></i> Alcampo / Sabeco</span>
+                        <span class="role">Desarrollador de Soluciones (Freelance)</span>
+                    </div>
                 </div>
-                <p style="font-size: 0.95rem;">Solución automatizada para la gestión nacional de turnos mediante Apps Script (IA-assisted).</p>
+                <p style="font-size: 0.95rem; margin-top: 10px;">Solución automatizada a medida para la gestión nacional de turnos mediante Apps Script apoyada con modelos de lenguaje.</p>
+                <div class="job-tags">
+                    <span class="job-tag">Apps Script</span>
+                    <span class="job-tag">Automation</span>
+                    <span class="job-tag">AI-assisted Dev</span>
+                </div>
             </div>
             <div class="card" style="margin-bottom:0;">
-                <div class="job-header" style="border-bottom: none; padding-bottom: 0.5rem;">
-                    <div><span class="company">ByMotors</span><span class="role">Consultor de Procesos (Freelance)</span></div>
+                <div class="job-meta" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 0;">
+                    <div>
+                        <span class="company"><i class="fas fa-car-side" style="color: var(--accent); font-size: 1.1rem;"></i> ByMotors</span>
+                        <span class="role">Consultor de Procesos (Freelance)</span>
+                    </div>
                 </div>
-                <p style="font-size: 0.95rem;">Optimización de flujos de trabajo corporativos y automatización de reporting.</p>
+                <p style="font-size: 0.95rem; margin-top: 10px;">Optimización de flujos de trabajo corporativos y automatización de reporting integral mediante Google Sheets y automatizaciones de la nube.</p>
+                <div class="job-tags">
+                    <span class="job-tag">Process Optimization</span>
+                    <span class="job-tag">Google Sheets</span>
+                    <span class="job-tag">Reporting Systems</span>
+                </div>
             </div>
         </div>
     </section>
@@ -383,81 +638,147 @@
     <section class="fade-in">
         <div class="section-header"><h3 class="section-title"><i class="fas fa-university section-icon"></i> Formación Académica</h3></div>
         <div class="card" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0;">
-            <div style="background: #eff6ff; padding: 15px; border-radius: 50%; color: var(--primary);"><i class="fas fa-university fa-2x"></i></div>
+            <div style="background: var(--tag-bg); padding: 15px; border-radius: 50%; color: var(--primary);"><i class="fas fa-university fa-2x"></i></div>
             <div>
-                <span class="company" style="font-size: 1.2rem;">Universidad Complutense de Madrid</span>
-                <span class="role" style="font-weight: 500;">Grado en Física (Ingeniería Física/Física Aplicada)</span>
+                <span class="company" style="font-size: 1.25rem;">Universidad Complutense de Madrid</span>
+                <span class="role" style="font-weight: 500;">Grado en Física (Física Aplicada & Computacional)</span>
                 <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 4px;">2011 - 2015</div>
             </div>
         </div>
     </section>
 
     <section class="fade-in" id="ai-lab">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-magic section-icon" style="color: #8b5cf6;"></i> Laboratorio IA: Automatización & Workspace ✨</h3></div>
-        <div class="ai-lab-card">
-            <h4 style="margin-top: 0; color: var(--secondary); font-size: 1.2rem;">Consultor de Soluciones Aumentado</h4>
-            <p style="color: var(--text-light); margin-bottom: 1.5rem;">
-                Pon a prueba mi enfoque de trabajo. Describe un reto operativo o de gestión de usuarios y la IA (motorizada por <strong>Gemini</strong> y ajustada con mis directrices técnicas) diseñará una propuesta de automatización o flujo de trabajo inteligente para tu entorno.
-            </p>
-            <textarea id="aiInput" class="ai-textarea" placeholder="Ej: Necesitamos auditar el cumplimiento de políticas de 2000 cuentas de usuarios y automatizar el traspaso de información sin perder datos."></textarea>
-            <button id="aiSubmitBtn" class="ai-btn" onclick="generateArchitecture()">
-                Generar Solución Workspace ✨ <div class="loader" id="aiLoader"></div>
-            </button>
-            <div id="aiOutput" class="ai-output"></div>
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-magic section-icon" style="color: var(--accent);"></i> Simulador de Automatización Workspace ✨</h3></div>
+        <p style="color: var(--text-light); margin-top: -1.5rem; margin-bottom: 2rem; max-width: 800px;">
+            Pon a prueba mi enfoque práctico. Selecciona un caso de negocio corporativo o describe un problema a resolver. El simulador generará en tiempo real la arquitectura recomendada, los comandos de automatización en <strong>GAM</strong> o <strong>Apps Script</strong> y la optimización con Inteligencia Artificial.
+        </p>
+        
+        <div class="sim-container">
+            <div class="sim-sidebar">
+                <p style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin: 0 0 10px 0;">Seleccionar Escenario</p>
+                
+                <button class="sim-preset-btn active" onclick="loadScenario('migracion')">
+                    <span class="sim-preset-title"><i class="fas fa-exchange-alt" style="color: var(--primary);"></i> Migración Enterprise</span>
+                    <span class="sim-preset-desc">Mudar 2.000 usuarios de O365 a Google Workspace con coexistencia.</span>
+                </button>
+                
+                <button class="sim-preset-btn" onclick="loadScenario('seguridad')">
+                    <span class="sim-preset-title"><i class="fas fa-shield-alt" style="color: var(--success);"></i> Auditoría & Revocación</span>
+                    <span class="sim-preset-desc">Auditar y revocar accesos externos en Drive de forma masiva.</span>
+                </button>
+                
+                <button class="sim-preset-btn" onclick="loadScenario('onboarding')">
+                    <span class="sim-preset-title"><i class="fas fa-user-plus" style="color: var(--accent);"></i> Onboarding Automático</span>
+                    <span class="sim-preset-desc">Aprovisionamiento con GAM de cuentas, grupos y licencias.</span>
+                </button>
+                
+                <div class="sim-custom-input">
+                    <p style="font-weight: 700; font-size: 0.85rem; color: var(--text-light); margin: 0;">Caso Personalizado</p>
+                    <textarea id="customPrompt" class="sim-input-box" rows="3" placeholder="Ej: Necesito suspender cuentas inactivas por más de 90 días y transferir sus archivos de Drive..."></textarea>
+                    <button class="sim-run-btn" onclick="runCustomScenario()">Diseñar Solución <i class="fas fa-cog"></i></button>
+                </div>
+            </div>
+            
+            <div class="sim-content">
+                <div class="sim-status">
+                    <span class="sim-pulse-yellow" id="simPulse"></span>
+                    <span id="simStatusText">Listo para simular</span>
+                </div>
+                
+                <div class="sim-tabs-header">
+                    <button class="sim-tab-btn active" onclick="switchTab('arquitectura')"><i class="fas fa-sitemap"></i> Arquitectura</button>
+                    <button class="sim-tab-btn" onclick="switchTab('codigo')"><i class="fas fa-code"></i> Scripting / GAM</button>
+                    <button class="sim-tab-btn" onclick="switchTab('ia')"><i class="fas fa-robot"></i> Aumento con IA</button>
+                </div>
+                
+                <div class="sim-display-area">
+                    <div id="pane-arquitectura" class="sim-pane active">
+                        <div style="font-size: 0.95rem;" id="out-arquitectura">
+                            Haz clic en un escenario de la izquierda o introduce un caso de uso personalizado para ver la arquitectura técnica propuesta.
+                        </div>
+                    </div>
+                    
+                    <div id="pane-codigo" class="sim-pane">
+                        <pre class="code-block" id="out-codigo"># Selecciona un escenario para ver el código automatizado...</pre>
+                    </div>
+                    
+                    <div id="pane-ia" class="sim-pane">
+                        <div style="font-size: 0.95rem;" id="out-ia">
+                            Haz clic en un escenario para ver cómo se puede optimizar el flujo mediante automatizaciones avanzadas basadas en Modelos de Lenguaje (LLMs).
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section><section id="skills" class="fade-in">
+    </section>
 
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-code section-icon"></i> Stack Tecnológico</h3></div>
+    <section id="skills" class="fade-in">
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-code section-icon"></i> Stack Tecnológico & Habilidades</h3></div>
         
         <div class="skills-section-content">
-            <div style="background: var(--surface); padding: 1rem; border-radius: 16px; border: 1px solid var(--border);">
+            <div style="background: var(--surface); padding: 1.5rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow);">
                 <canvas id="skillsChart"></canvas>
             </div>
 
-            <div style="overflow:hidden;">
-                <p style="margin-bottom:15px; font-weight:600; color: var(--text-main);">Tecnologías Clave:</p>
-                <div class="marquee-container">
-                    <div class="marquee-content">
-                        <span class="tag"><i class="fab fa-google"></i> Google Workspace</span>
-                        <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
-                        <span class="tag"><i class="fas fa-robot"></i> IA & LLMs (Gemini/GPT)</span>
-                        <span class="tag"><i class="fas fa-code"></i> Google Apps Script</span>
-                        <span class="tag"><i class="fab fa-python"></i> Python & Bash Scripting</span>
-                        <span class="tag"><i class="fas fa-exchange-alt"></i> Coexistencia O365 / Migraciones</span>
-                        <span class="tag"><i class="fas fa-layer-group"></i> LumApps Intranets</span>
-                    </div>
+            <div>
+                <p style="margin-bottom:15px; font-weight:700; color: var(--secondary); font-size: 1.1rem;">Especialidad de la Nube:</p>
+                <div style="margin-bottom: 25px;">
+                    <span class="tag"><i class="fab fa-google"></i> Google Workspace</span>
+                    <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
+                    <span class="tag"><i class="fas fa-cloud"></i> GCP IAM & Admin Console</span>
+                    <span class="tag"><i class="fas fa-exchange-alt"></i> Coexistencia O365 / Migración</span>
+                    <span class="tag"><i class="fas fa-layer-group"></i> LumApps Intranets</span>
                 </div>
                 
-                <p style="margin-top:20px; margin-bottom:15px; font-weight:600; color: var(--text-main);">Habilidades Soft:</p>
-                <div class="skills-grid" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                    <span class="tag"><i class="fas fa-language"></i> Inglés (C1)</span>
-                    <span class="tag"><i class="fas fa-users"></i> Liderazgo Técnico</span>
-                    <span class="tag"><i class="fas fa-laptop-house"></i> Remoto</span>
+                <p style="margin-bottom:15px; font-weight:700; color: var(--secondary); font-size: 1.1rem;">Scripting & Inteligencia Artificial:</p>
+                <div style="margin-bottom: 25px;">
+                    <span class="tag"><i class="fas fa-robot"></i> IA & LLMs (Gemini, OpenAI)</span>
+                    <span class="tag"><i class="fab fa-python"></i> Python Enterprise</span>
+                    <span class="tag"><i class="fas fa-code"></i> Google Apps Script</span>
+                    <span class="tag"><i class="fas fa-terminal"></i> Bash Scripting</span>
+                </div>
+                
+                <p style="margin-bottom:15px; font-weight:700; color: var(--secondary); font-size: 1.1rem;">Metodología y Soft Skills:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="tag"><i class="fas fa-language"></i> Inglés Profesional (C1)</span>
+                    <span class="tag"><i class="fas fa-users"></i> Liderazgo Técnico (10+ Agentes)</span>
+                    <span class="tag"><i class="fas fa-laptop-house"></i> Trabajo Remoto (Remote-First)</span>
+                    <span class="tag"><i class="fas fa-magic"></i> Ilusionismo & Comunicación</span>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Raúl Cancela. Física + Tecnología.</p>
-        <div style="margin-top: 10px; display: flex; justify-content: center; gap: 20px;">
-            <a href="mailto:arulcancela@gmail.com" style="color: var(--text-light); text-decoration: none;"><i class="fas fa-envelope"></i> Email</a>
-            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" style="color: var(--text-light); text-decoration: none;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <p>&copy; 2026 Raúl Cancela. Ingeniería Física aplicada a la Automatización Enterprise.</p>
+        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 30px;">
+            <a href="mailto:arulcancela@gmail.com" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fas fa-envelope" style="color: var(--primary);"></i> Email</a>
+            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fab fa-linkedin" style="color: var(--accent);"></i> LinkedIn</a>
         </div>
     </footer>
 </div>
 
 <script>
+    // Configuración de Tema
     const themeToggle = document.getElementById('themeToggle');
     const icon = themeToggle.querySelector('i');
     
     themeToggle.addEventListener('click', () => {
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-        updateChartColor(!isDark); 
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        icon.className = nextTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        updateChartColor(nextTheme === 'dark'); 
     });
 
+    // Inicializar Icono al inicio
+    const initTheme = () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    initTheme();
+
+    // Barra de Progreso y Navegación
     window.onscroll = function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -484,11 +805,13 @@
         });
     };
 
+    // Observador para animaciones fade-in
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    // Contador Animado
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
@@ -510,68 +833,191 @@
     });
     document.querySelector('.metrics-grid') && counterObserver.observe(document.querySelector('.metrics-grid'));
 
+    // Configuración de Chart.js
     const ctx = document.getElementById('skillsChart').getContext('2d');
     let skillsChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Google Workspace', 'Soporte / Troubleshooting', 'Automatización con IA', 'Gestión del Cambio', 'Comunicación', 'Scripting Avanzado'],
+            labels: ['Google Workspace Enterprise', 'Soporte L4 / Escalado', 'Automatización con IA', 'Scripting (Python/Bash)', 'Google Apps Script', 'Gestión de Cambios / PMO'],
             datasets: [{
                 label: 'Competencia',
-                data: [100, 95, 90, 80, 75, 75],
-                backgroundColor: 'rgba(37, 99, 235, 0.2)',
-                borderColor: '#2563eb',
-                pointBackgroundColor: '#2563eb',
-                pointBorderColor: '#fff'
+                data: [100, 95, 90, 85, 90, 80],
+                backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                borderColor: '#3b82f6',
+                pointBackgroundColor: '#3b82f6',
+                pointBorderColor: '#fff',
+                borderWidth: 2
             }]
         },
         options: {
-            scales: { r: { angleLines: { color: 'rgba(0,0,0,0.1)' }, grid: { color: 'rgba(0,0,0,0.1)' }, pointLabels: { font: { size: 12, family: 'Inter' }, color: '#64748b' }, ticks: { display: false, max: 100 }, min: 0 } },
+            scales: { 
+                r: { 
+                    angleLines: { color: 'rgba(255, 255, 255, 0.08)' }, 
+                    grid: { color: 'rgba(255, 255, 255, 0.08)' }, 
+                    pointLabels: { font: { size: 11, family: 'Plus Jakarta Sans', weight: '600' }, color: '#cbd5e1' }, 
+                    ticks: { display: false },
+                    min: 0,
+                    max: 100
+                } 
+            },
             plugins: { legend: { display: false } }
         }
     });
 
     function updateChartColor(isDark) {
-        const color = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
-        const textColor = isDark ? '#cbd5e1' : '#64748b';
-        skillsChart.options.scales.r.angleLines.color = color;
-        skillsChart.options.scales.r.grid.color = color;
+        const gridColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.08)';
+        const textColor = isDark ? '#cbd5e1' : '#475569';
+        skillsChart.options.scales.r.angleLines.color = gridColor;
+        skillsChart.options.scales.r.grid.color = gridColor;
         skillsChart.options.scales.r.pointLabels.color = textColor;
         skillsChart.update();
     }
+    updateChartColor(document.documentElement.getAttribute('data-theme') === 'dark');
 
-    async function generateArchitecture() {
-        const inputEl = document.getElementById('aiInput');
-        const outputEl = document.getElementById('aiOutput');
-        const btnEl = document.getElementById('aiSubmitBtn');
-        const loader = document.getElementById('aiLoader');
-        const prompt = inputEl.value.trim();
-        if (!prompt) return;
-
-        btnEl.disabled = true;
-        loader.style.display = 'block';
-        outputEl.style.display = 'none';
-
-        const apiKey = "TU_API_KEY_AQUI"; // Reemplazar
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`;
-        
-        const systemPrompt = `Eres Raúl Cancela, experto en Google Workspace e Ingeniero de Automatización con IA. Diseña una solución breve (utilizando scripts, herramientas como GAM, Apps Script o flujos con LLMs) para la necesidad del usuario. Responde en español.`;
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: systemPrompt + "\nUsuario: " + prompt }] }] })
-            });
-            const data = await response.json();
-            outputEl.innerHTML = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
-            outputEl.style.display = 'block';
-        } catch (e) {
-            outputEl.innerHTML = "Error al contactar con la IA.";
-            outputEl.style.display = 'block';
+    // Datos del Simulador de Automatización Workspace
+    const scenarios = {
+        migracion: {
+            arquitectura: `1. <strong>Fase de Discovery:</strong> Auditoría completa de licenciamiento en Office 365 e inventario de buzones y Drive mediante scripts automatizados.<br><br>2. <strong>Coexistencia de Correo:</strong> Configuración de enrutamiento dividido (Split Delivery) en Google Workspace y Microsoft 365 mediante conectores SMTP seguros y enrutamientos en la consola del administrador de Google.<br><br>3. <strong>Sincronización de Identidades:</strong> Configuración de Google Cloud Directory Sync (GCDS) para replicar la estructura organizativa de Active Directory local en el Cloud IAM de Google.<br><br>4. <strong>Migración de Datos:</strong> Despliegue de servidores Google Workspace Migrate (GWM) en instancias de GCP de alto rendimiento para migrar correos, calendarios y OneDrive a Drive de manera paralela con monitorización en tiempo real.`,
+            codigo: `# 1. Sincronizar estructura organizativa usando GAM\ngam create org "/Migrados"\ngam create org "/Coexistencia"\n\n# 2. Habilitar reenvíos de correo temporales para coexistencia en lote\ngam csv usuarios_migracion.csv gam user ~Email forward on ~Alias keepchange true\n\n# 3. Mover usuarios migrados a la nueva Unidad Organizativa y asignar licencias de Google Workspace\ngam csv usuarios_migracion.csv gam update user ~Email ou "/Migrados"\ngam csv usuarios_migracion.csv gam user ~Email add license 1010020003  # ID Enterprise Plus`,
+            ia: `Para esta migración, utilizo un **flujo automatizado con LLMs** que analiza el log de errores de Google Workspace Migrate. En lugar de revisar manualmente miles de filas con errores de adjuntos o permisos, el script envía los errores a la API de Gemini para categorizarlos (ej: 'Archivo protegido por contraseña', 'Exceso de tamaño', 'Caracteres inválidos') y genera de forma autónoma una lista de acciones correctivas, reduciendo el tiempo de resolución en un 80%.`
+        },
+        seguridad: {
+            arquitectura: `1. <strong>Extracción de Permisos:</strong> Ejecución de una consulta a la API de Drive en lotes o uso de GAM Advanced para volcar todos los permisos de archivos con acceso externo a BigQuery.<br><br>2. <strong>Análisis de Riesgo:</strong> Clasificación de dominios externos permitidos y no permitidos (ej. competidores directos o dominios de correo personal no autorizados).<br><br>3. <strong>Revocación Automatizada:</strong> Procesamiento en paralelo mediante scripting para eliminar de forma inmediata el acceso externo de los archivos infractores sin alterar el acceso interno.<br><br>4. <strong>Reporte y Alerta:</strong> Generación de un dashboard interactivo para que el departamento de seguridad supervise los accesos externos activos.`,
+            codigo: `# 1. Generar reporte masivo de archivos compartidos externamente en todo el tenant\ngam all users print filelist id title owners permissions > permisos_drive.csv\n\n# 2. Tras procesar y clasificar los datos con Python (permisos externos no válidos),\n# ejecutamos la revocación masiva del ID de permiso (~PermissionId) del archivo (~FileId)\ngam csv permisos_externos_peligrosos.csv gam user ~Owner delete drivefileacl ~FileId ~PermissionId`,
+            ia: `Integro un **agente de IA** que analiza el contenido y el título de los archivos compartidos externamente (metadatos) a través de modelos de lenguaje. Si detecta archivos que contienen palabras clave sensibles o estructuras de datos confidenciales (como claves API, datos de clientes, CVs, contraseñas) pero que no están clasificados explícitamente como confidenciales en DLP nativo, los marca automáticamente y notifica al administrador de seguridad con una sugerencia de bloqueo inmediato.`
+        },
+        onboarding: {
+            arquitectura: `1. <strong>Trigger de Recursos Humanos:</strong> Recepción del perfil del nuevo empleado desde el sistema de HR (ej. Workday, Factorial) mediante un Webhook a una Cloud Function.<br><br>2. <strong>Creación de Cuenta:</strong> Generación automática de la dirección de correo y contraseña temporal segura.<br><br>3. <strong>Asignación de Recursos:</strong> Asignación a la Unidad Organizativa correspondiente, registro en los grupos de distribución de correo y chat, y asignación de licencias de Google Workspace.<br><br>4. <strong>Creación de Entorno de Trabajo:</strong> Generación de carpetas compartidas del equipo en Google Drive y envío de un correo de bienvenida con las instrucciones iniciales al correo personal del nuevo empleado.`,
+            codigo: `# 1. Crear el usuario en la Unidad Organizativa correspondiente\ngam create user rcancelamartin firstname "Raúl" lastname "Cancela" ou "/Sistemas/Ingenieria" password "TempPass2026!" changepassword on\n\n# 2. Añadir automáticamente a los grupos de distribución del departamento\ngam update group ingenieria-team@dominio.com add member user rcancelamartin@dominio.com\ngam update group cloud-architects@dominio.com add member user rcancelamartin@dominio.com\n\n# 3. Asignar licencias de Workspace y firma corporativa personalizada\ngam user rcancelamartin@dominio.com add license 1010020003\ngam user rcancelamartin@dominio.com signature file firma_plantilla.html`,
+            ia: `Utilizo **Apps Script e IA generativa** para crear un correo de bienvenida hiper-personalizado y un plan de onboarding automatizado de 30-60-90 días. La IA lee el perfil del empleado, su rol y su descripción de puesto, y genera un documento de Google Docs personalizado con la lista de canales recomendados, repositorios de GitHub relevantes y nombres de contactos clave del equipo, reduciendo drásticamente la fricción inicial.`
         }
-        btnEl.disabled = false;
-        loader.style.display = 'none';
+    };
+
+    let activeScenario = 'migracion';
+    let activeTab = 'arquitectura';
+    let isTyping = false;
+
+    function loadScenario(scenarioId) {
+        if (isTyping) return;
+        activeScenario = scenarioId;
+        
+        // Actualizar UI Sidebar
+        document.querySelectorAll('.sim-preset-btn').forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+        
+        simulateGeneration();
     }
+
+    function switchTab(tabId) {
+        activeTab = tabId;
+        document.querySelectorAll('.sim-tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+        
+        document.querySelectorAll('.sim-pane').forEach(pane => pane.classList.remove('active'));
+        document.getElementById(`pane-${tabId}`).classList.add('active');
+    }
+
+    function simulateGeneration(customData = null) {
+        isTyping = true;
+        
+        const pulse = document.getElementById('simPulse');
+        const statusText = document.getElementById('simStatusText');
+        
+        pulse.className = 'sim-pulse-yellow';
+        statusText.innerText = 'Diseñando automatización en base a requerimientos...';
+        
+        const data = customData || scenarios[activeScenario];
+        
+        // Simular typing rápido en la pestaña activa primero
+        let textToType = '';
+        let targetEl = null;
+        let isCode = false;
+        
+        if (activeTab === 'arquitectura') {
+            textToType = data.arquitectura;
+            targetEl = document.getElementById('out-arquitectura');
+        } else if (activeTab === 'codigo') {
+            textToType = data.codigo;
+            targetEl = document.getElementById('out-codigo');
+            isCode = true;
+        } else {
+            textToType = data.ia;
+            targetEl = document.getElementById('out-ia');
+        }
+        
+        // Limpiar
+        targetEl.innerHTML = '';
+        
+        // Escribir resto en background e inmediato para las otras pestañas
+        document.getElementById('out-arquitectura').innerHTML = data.arquitectura;
+        document.getElementById('out-codigo').innerText = data.codigo;
+        document.getElementById('out-ia').innerHTML = data.ia;
+        
+        if (isCode) {
+            targetEl.innerText = '';
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < textToType.length) {
+                    targetEl.innerText += textToType.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    finishSim();
+                }
+            }, 3);
+        } else {
+            // Animación por bloques de HTML para el texto con tags
+            let i = 0;
+            targetEl.innerHTML = textToType;
+            finishSim();
+        }
+        
+        function finishSim() {
+            pulse.className = 'pulse-dot';
+            statusText.innerText = 'Solución optimizada generada con éxito';
+            isTyping = false;
+        }
+    }
+
+    function runCustomScenario() {
+        if (isTyping) return;
+        const prompt = document.getElementById('customPrompt').value.trim();
+        if (!prompt) return;
+        
+        document.querySelectorAll('.sim-preset-btn').forEach(btn => btn.classList.remove('active'));
+        
+        // Generar respuesta ficticia inteligente basada en palabras clave
+        let key = prompt.toLowerCase();
+        let title = "Caso Personalizado";
+        let arch = "";
+        let code = "";
+        let ia = "";
+        
+        if (key.includes('suspender') || key.includes('inactiv') || key.includes('borrar')) {
+            title = "Limpieza de Cuentas Inactivas";
+            arch = "1. **Detección de Inactividad:** Escaneo diario de los últimos inicios de sesión (Last Login Time) y uso de Drive/Gmail mediante la API de informes de Google Workspace.<br><br>2. **Notificación Previa:** Envío de correo preventivo automático al usuario y su manager indicando la futura suspensión.<br><br>3. **Suspensión & Transferencia:** Suspensión de la cuenta en el día 90 y transferencia de la propiedad de los archivos de Drive a su manager mediante API de Drive.<br><br>4. **Eliminación Segura:** Eliminación de la cuenta después de 30 días adicionales en estado de suspensión.";
+            code = "# 1. Listar usuarios con fecha de último inicio de sesión a archivo CSV\ngam print users lastlogintime > usuarios_actividad.csv\n\n# 2. Filtrar inactivos en tu script de Python y suspender usando GAM\ngam csv inactivos_filtrados.csv gam update user ~Email suspended true\n\n# 3. Transferir propiedad de todos los archivos de Drive del usuario inactivo al Manager\ngam csv inactivos_filtrados.csv gam user ~Email transfer drive ~ManagerEmail mergewithparent true";
+            ia = "Un **modelo de IA clasificador** examina si los archivos transferidos del usuario suspendido contienen información de valor operativo real (como código fuente o manuales técnicos) para organizarlos automáticamente en carpetas compartidas del equipo (Shared Drives) y descartar archivos personales temporales, reduciendo el ruido de datos heredados.";
+        } else if (key.includes('drive') || key.includes('permis') || key.includes('compart')) {
+            title = "Control de Permisos de Drive";
+            arch = "1. **Auditoría de Enlaces Públicos:** Búsqueda sistemática de archivos con permisos 'Anyone with link' (Cualquiera con el enlace) o acceso público.<br><br>2. **Clasificación de Criticidad:** Evaluación automática basada en la ubicación del archivo y la extensión del mismo.<br><br>3. **Remediación:** Cambio inmediato a permisos privados de lectura controlada.<br><br>4. **Log de Auditoría:** Almacenamiento del registro de cambios en Cloud Logging.";
+            code = "# 1. Buscar todos los archivos compartidos con 'cualquiera con el enlace'\ngam all users print filelist query \"visibility='anyoneWithLink'\" id title permissions > publicos_drive.csv\n\n# 2. Eliminar el acceso público de forma masiva\ngam csv publicos_drive.csv gam user ~Owner delete drivefileacl ~FileId \"anyoneWithLink\"";
+            ia = "El sistema utiliza **visión por computador e IA** para auditar documentos compartidos que contienen escaneos de DNI o datos bancarios (OCR dinámico) y aplica políticas de restricción de forma proactiva, independientemente de que el usuario haya etiquetado el documento o no.";
+        } else {
+            title = "Flujo de Automatización a Medida";
+            arch = "1. **Análisis del requerimiento:** Integración de la consola del administrador con un script personalizado.<br><br>2. **Ejecución en Lotes (Batch):** Procesamiento asíncrono para evitar bloqueos por límites de cuota de la API de Google.<br><br>3. **Monitoreo de Consola:** Control y registro de cada acción en un archivo log persistente.<br><br>4. **Notificación del Resultado:** Envío automatizado de resumen de ejecución al administrador mediante correo electrónico.";
+            code = "# Ejecutar automatización a medida vía GAM para el requerimiento solicitado\ngam csv listado_operaciones.csv gam user ~Email update profile department \"~Departamento\" customfield ~Campo ~Valor";
+            ia = "Se implementa un **agente conversacional en Slack/Chat** de IT. Los administradores pueden delegar tareas complejas de administración redactándolas en lenguaje natural (ej: 'Mueve a todos los ingenieros de QA al grupo de soporte beta'). El agente interpreta la intención, simula la ejecución con GAM y ejecuta el cambio de forma segura tras recibir tu confirmación.";
+        }
+        
+        const customScenarioData = { arquitectura: arch, codigo: code, ia: ia };
+        simulateGeneration(customScenarioData);
+    }
+
+    // Inicializar simulación por defecto
+    document.addEventListener("DOMContentLoaded", () => {
+        simulateGeneration();
+    });
 </script>
 </body>
 </html>
