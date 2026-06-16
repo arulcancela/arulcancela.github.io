@@ -96,16 +96,28 @@
         .nav-dot.active { background: var(--primary); transform: scale(1.3); box-shadow: 0 0 10px var(--primary-glow); }
 
         header {
-            background: radial-gradient(circle at 80% 20%, var(--accent-glow) 0%, transparent 40%),
-                        radial-gradient(circle at 10% 80%, var(--primary-glow) 0%, transparent 50%),
-                        var(--bg-body);
-            padding: 8rem 2rem 5rem 2rem; text-align: center;
+            background: url('cover.jpg') no-repeat center center; background-size: cover; background-color: #1e3a8a; 
+            background-attachment: fixed; padding: 8rem 2rem 5rem 2rem; text-align: center;
             position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
         }
         
-        header::after {
-            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80%; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+        header::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+            background: rgba(15, 23, 42, 0.82); z-index: 1;
+        }
+
+        header > div {
+            position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
+        }
+
+        header h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        header h2 {
+            color: #e2e8f0 !important;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
         }
 
         .profile-container {
@@ -397,7 +409,7 @@
         <div class="metrics-grid fade-in">
             <div class="metric-card"><span class="metric-number" data-target="11" data-suffix="+">0</span><span class="metric-label">Años de Experiencia</span></div>
             <div class="metric-card"><span class="metric-number" data-target="200" data-suffix="+">0</span><span class="metric-label">Proyectos Cloud & Workspace</span></div>
-            <div class="metric-card"><span class="metric-number" data-target="2000" data-suffix="+">0</span><span class="metric-label">Cuentas Migradas Inetum</span></div>
+            <div class="metric-card"><span class="metric-number" data-target="2000" data-suffix="+">0</span><span class="metric-label">Cuentas Migradas</span></div>
         </div>
 
         <div class="card fade-in">
@@ -405,7 +417,7 @@
                 Soy <strong>Arquitecto de Soluciones Google Workspace</strong> con sólida formación de Física Aplicada. Mi trayectoria de más de 11 años combina el rigor del análisis científico con el desarrollo creativo, lo que me capacita para liderar migraciones críticas de identidad, diseñar arquitecturas en la nube y optimizar el entorno colaborativo enterprise.
             </p>
             <p style="font-size: 1.1rem; margin: 0; color: var(--text-main); line-height: 1.8;">
-                Como **Ingeniero Aumentado por IA**, automatizo flujos y supero las limitaciones operativas tradicionales integrando scripts complejos (Python, Google Apps Script, Bash) y gestionando entornos a gran escala mediante **GAM**.
+                Como <strong>Ingeniero Aumentado por IA</strong>, automatizo flujos y supero las limitaciones operativas tradicionales integrando scripts complejos (Python, Google Apps Script, Bash) y gestionando entornos a gran escala mediante <strong>GAM</strong>.
             </p>
         </div>
     </section>
@@ -879,17 +891,17 @@
         migracion: {
             arquitectura: `1. <strong>Fase de Discovery:</strong> Auditoría completa de licenciamiento en Office 365 e inventario de buzones y Drive mediante scripts automatizados.<br><br>2. <strong>Coexistencia de Correo:</strong> Configuración de enrutamiento dividido (Split Delivery) en Google Workspace y Microsoft 365 mediante conectores SMTP seguros y enrutamientos en la consola del administrador de Google.<br><br>3. <strong>Sincronización de Identidades:</strong> Configuración de Google Cloud Directory Sync (GCDS) para replicar la estructura organizativa de Active Directory local en el Cloud IAM de Google.<br><br>4. <strong>Migración de Datos:</strong> Despliegue de servidores Google Workspace Migrate (GWM) en instancias de GCP de alto rendimiento para migrar correos, calendarios y OneDrive a Drive de manera paralela con monitorización en tiempo real.`,
             codigo: `# 1. Sincronizar estructura organizativa usando GAM\ngam create org "/Migrados"\ngam create org "/Coexistencia"\n\n# 2. Habilitar reenvíos de correo temporales para coexistencia en lote\ngam csv usuarios_migracion.csv gam user ~Email forward on ~Alias keepchange true\n\n# 3. Mover usuarios migrados a la nueva Unidad Organizativa y asignar licencias de Google Workspace\ngam csv usuarios_migracion.csv gam update user ~Email ou "/Migrados"\ngam csv usuarios_migracion.csv gam user ~Email add license 1010020003  # ID Enterprise Plus`,
-            ia: `Para esta migración, utilizo un **flujo automatizado con LLMs** que analiza el log de errores de Google Workspace Migrate. En lugar de revisar manualmente miles de filas con errores de adjuntos o permisos, el script envía los errores a la API de Gemini para categorizarlos (ej: 'Archivo protegido por contraseña', 'Exceso de tamaño', 'Caracteres inválidos') y genera de forma autónoma una lista de acciones correctivas, reduciendo el tiempo de resolución en un 80%.`
+            ia: `Para esta migración, utilizo un <strong>flujo automatizado con LLMs</strong> que analiza el log de errores de Google Workspace Migrate. En lugar de revisar manualmente miles de filas con errores de adjuntos o permisos, el script envía los errores a la API de Gemini para categorizarlos (ej: 'Archivo protegido por contraseña', 'Exceso de tamaño', 'Caracteres inválidos') y genera de forma autónoma una lista de acciones correctivas, reduciendo el tiempo de resolución en un 80%.`
         },
         seguridad: {
             arquitectura: `1. <strong>Extracción de Permisos:</strong> Ejecución de una consulta a la API de Drive en lotes o uso de GAM Advanced para volcar todos los permisos de archivos con acceso externo a BigQuery.<br><br>2. <strong>Análisis de Riesgo:</strong> Clasificación de dominios externos permitidos y no permitidos (ej. competidores directos o dominios de correo personal no autorizados).<br><br>3. <strong>Revocación Automatizada:</strong> Procesamiento en paralelo mediante scripting para eliminar de forma inmediata el acceso externo de los archivos infractores sin alterar el acceso interno.<br><br>4. <strong>Reporte y Alerta:</strong> Generación de un dashboard interactivo para que el departamento de seguridad supervise los accesos externos activos.`,
             codigo: `# 1. Generar reporte masivo de archivos compartidos externamente en todo el tenant\ngam all users print filelist id title owners permissions > permisos_drive.csv\n\n# 2. Tras procesar y clasificar los datos con Python (permisos externos no válidos),\n# ejecutamos la revocación masiva del ID de permiso (~PermissionId) del archivo (~FileId)\ngam csv permisos_externos_peligrosos.csv gam user ~Owner delete drivefileacl ~FileId ~PermissionId`,
-            ia: `Integro un **agente de IA** que analiza el contenido y el título de los archivos compartidos externamente (metadatos) a través de modelos de lenguaje. Si detecta archivos que contienen palabras clave sensibles o estructuras de datos confidenciales (como claves API, datos de clientes, CVs, contraseñas) pero que no están clasificados explícitamente como confidenciales en DLP nativo, los marca automáticamente y notifica al administrador de seguridad con una sugerencia de bloqueo inmediato.`
+            ia: `Integro un <strong>agente de IA</strong> que analiza el contenido y el título de los archivos compartidos externamente (metadatos) a través de modelos de lenguaje. Si detecta archivos que contienen palabras clave sensibles o estructuras de datos confidenciales (como claves API, datos de clientes, CVs, contraseñas) pero que no están clasificados explícitamente como confidenciales en DLP nativo, los marca automáticamente y notifica al administrador de seguridad con una sugerencia de bloqueo inmediato.`
         },
         onboarding: {
             arquitectura: `1. <strong>Trigger de Recursos Humanos:</strong> Recepción del perfil del nuevo empleado desde el sistema de HR (ej. Workday, Factorial) mediante un Webhook a una Cloud Function.<br><br>2. <strong>Creación de Cuenta:</strong> Generación automática de la dirección de correo y contraseña temporal segura.<br><br>3. <strong>Asignación de Recursos:</strong> Asignación a la Unidad Organizativa correspondiente, registro en los grupos de distribución de correo y chat, y asignación de licencias de Google Workspace.<br><br>4. <strong>Creación de Entorno de Trabajo:</strong> Generación de carpetas compartidas del equipo en Google Drive y envío de un correo de bienvenida con las instrucciones iniciales al correo personal del nuevo empleado.`,
             codigo: `# 1. Crear el usuario en la Unidad Organizativa correspondiente\ngam create user rcancelamartin firstname "Raúl" lastname "Cancela" ou "/Sistemas/Ingenieria" password "TempPass2026!" changepassword on\n\n# 2. Añadir automáticamente a los grupos de distribución del departamento\ngam update group ingenieria-team@dominio.com add member user rcancelamartin@dominio.com\ngam update group cloud-architects@dominio.com add member user rcancelamartin@dominio.com\n\n# 3. Asignar licencias de Workspace y firma corporativa personalizada\ngam user rcancelamartin@dominio.com add license 1010020003\ngam user rcancelamartin@dominio.com signature file firma_plantilla.html`,
-            ia: `Utilizo **Apps Script e IA generativa** para crear un correo de bienvenida hiper-personalizado y un plan de onboarding automatizado de 30-60-90 días. La IA lee el perfil del empleado, su rol y su descripción de puesto, y genera un documento de Google Docs personalizado con la lista de canales recomendados, repositorios de GitHub relevantes y nombres de contactos clave del equipo, reduciendo drásticamente la fricción inicial.`
+            ia: `Utilizo <strong>Apps Script e IA generativa</strong> para crear un correo de bienvenida hiper-personalizado y un plan de onboarding automatizado de 30-60-90 días. La IA lee el perfil del empleado, su rol y su descripción de puesto, y genera un documento de Google Docs personalizado con la lista de canales recomendados, repositorios de GitHub relevantes y nombres de contactos clave del equipo, reduciendo drásticamente la fricción inicial.`
         }
     };
 
@@ -995,19 +1007,19 @@
         
         if (key.includes('suspender') || key.includes('inactiv') || key.includes('borrar')) {
             title = "Limpieza de Cuentas Inactivas";
-            arch = "1. **Detección de Inactividad:** Escaneo diario de los últimos inicios de sesión (Last Login Time) y uso de Drive/Gmail mediante la API de informes de Google Workspace.<br><br>2. **Notificación Previa:** Envío de correo preventivo automático al usuario y su manager indicando la futura suspensión.<br><br>3. **Suspensión & Transferencia:** Suspensión de la cuenta en el día 90 y transferencia de la propiedad de los archivos de Drive a su manager mediante API de Drive.<br><br>4. **Eliminación Segura:** Eliminación de la cuenta después de 30 días adicionales en estado de suspensión.";
+            arch = "1. <strong>Detección de Inactividad:</strong> Escaneo diario de los últimos inicios de sesión (Last Login Time) y uso de Drive/Gmail mediante la API de informes de Google Workspace.<br><br>2. <strong>Notificación Previa:</strong> Envío de correo preventivo automático al usuario y su manager indicando la futura suspensión.<br><br>3. <strong>Suspensión & Transferencia:</strong> Suspensión de la cuenta en el día 90 y transferencia de la propiedad de los archivos de Drive a su manager mediante API de Drive.<br><br>4. <strong>Eliminación Segura:</strong> Eliminación de la cuenta después de 30 días adicionales en estado de suspensión.";
             code = "# 1. Listar usuarios con fecha de último inicio de sesión a archivo CSV\ngam print users lastlogintime > usuarios_actividad.csv\n\n# 2. Filtrar inactivos en tu script de Python y suspender usando GAM\ngam csv inactivos_filtrados.csv gam update user ~Email suspended true\n\n# 3. Transferir propiedad de todos los archivos de Drive del usuario inactivo al Manager\ngam csv inactivos_filtrados.csv gam user ~Email transfer drive ~ManagerEmail mergewithparent true";
-            ia = "Un **modelo de IA clasificador** examina si los archivos transferidos del usuario suspendido contienen información de valor operativo real (como código fuente o manuales técnicos) para organizarlos automáticamente en carpetas compartidas del equipo (Shared Drives) y descartar archivos personales temporales, reduciendo el ruido de datos heredados.";
+            ia = "Un <strong>modelo de IA clasificador</strong> examina si los archivos transferidos del usuario suspendido contienen información de valor operativo real (como código fuente o manuales técnicos) para organizarlos automáticamente en carpetas compartidas del equipo (Shared Drives) y descartar archivos personales temporales, reduciendo el ruido de datos heredados.";
         } else if (key.includes('drive') || key.includes('permis') || key.includes('compart')) {
             title = "Control de Permisos de Drive";
-            arch = "1. **Auditoría de Enlaces Públicos:** Búsqueda sistemática de archivos con permisos 'Anyone with link' (Cualquiera con el enlace) o acceso público.<br><br>2. **Clasificación de Criticidad:** Evaluación automática basada en la ubicación del archivo y la extensión del mismo.<br><br>3. **Remediación:** Cambio inmediato a permisos privados de lectura controlada.<br><br>4. **Log de Auditoría:** Almacenamiento del registro de cambios en Cloud Logging.";
+            arch = "1. <strong>Auditoría de Enlaces Públicos:</strong> Búsqueda sistemática de archivos con permisos 'Anyone with link' (Cualquiera con el enlace) o acceso público.<br><br>2. <strong>Clasificación de Criticidad:</strong> Evaluación automática basada en la ubicación del archivo y la extensión del mismo.<br><br>3. <strong>Remediación:</strong> Cambio inmediato a permisos privados de lectura controlada.<br><br>4. <strong>Log de Auditoría:</strong> Almacenamiento del registro de cambios en Cloud Logging.";
             code = "# 1. Buscar todos los archivos compartidos con 'cualquiera con el enlace'\ngam all users print filelist query \"visibility='anyoneWithLink'\" id title permissions > publicos_drive.csv\n\n# 2. Eliminar el acceso público de forma masiva\ngam csv publicos_drive.csv gam user ~Owner delete drivefileacl ~FileId \"anyoneWithLink\"";
-            ia = "El sistema utiliza **visión por computador e IA** para auditar documentos compartidos que contienen escaneos de DNI o datos bancarios (OCR dinámico) y aplica políticas de restricción de forma proactiva, independientemente de que el usuario haya etiquetado el documento o no.";
+            ia = "El sistema utiliza <strong>visión por computador e IA</strong> para auditar documentos compartidos que contienen escaneos de DNI o datos bancarios (OCR dinámico) y aplica políticas de restricción de forma proactiva, independientemente de que el usuario haya etiquetado el documento o no.";
         } else {
             title = "Flujo de Automatización a Medida";
-            arch = "1. **Análisis del requerimiento:** Integración de la consola del administrador con un script personalizado.<br><br>2. **Ejecución en Lotes (Batch):** Procesamiento asíncrono para evitar bloqueos por límites de cuota de la API de Google.<br><br>3. **Monitoreo de Consola:** Control y registro de cada acción en un archivo log persistente.<br><br>4. **Notificación del Resultado:** Envío automatizado de resumen de ejecución al administrador mediante correo electrónico.";
+            arch = "1. <strong>Análisis del requerimiento:</strong> Integración de la consola del administrador con un script personalizado.<br><br>2. <strong>Ejecución en Lotes (Batch):</strong> Procesamiento asíncrono para evitar bloqueos por límites de cuota de la API de Google.<br><br>3. <strong>Monitoreo de Consola:</strong> Control y registro de cada acción en un archivo log persistente.<br><br>4. <strong>Notificación del Resultado:</strong> Envío automatizado de resumen de ejecución al administrador mediante correo electrónico.";
             code = "# Ejecutar automatización a medida vía GAM para el requerimiento solicitado\ngam csv listado_operaciones.csv gam user ~Email update profile department \"~Departamento\" customfield ~Campo ~Valor";
-            ia = "Se implementa un **agente conversacional en Slack/Chat** de IT. Los administradores pueden delegar tareas complejas de administración redactándolas en lenguaje natural (ej: 'Mueve a todos los ingenieros de QA al grupo de soporte beta'). El agente interpreta la intención, simula la ejecución con GAM y ejecuta el cambio de forma segura tras recibir tu confirmación.";
+            ia = "Se implementa un <strong>agente conversacional en Slack/Chat</strong> de IT. Los administradores pueden delegar tareas complejas de administración redactándolas en lenguaje natural (ej: 'Mueve a todos los ingenieros de QA al grupo de soporte beta'). El agente interpreta la intención, simula la ejecución con GAM y ejecuta el cambio de forma segura tras recibir tu confirmación.";
         }
         
         const customScenarioData = { arquitectura: arch, codigo: code, ia: ia };
