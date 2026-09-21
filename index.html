@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Raúl Cancela - Google Workspace Architect & AI Engineer. Experto en migraciones enterprise, automatización avanzada con GAM y flujos de trabajo con IA.">
-    <title>Raúl Cancela | Google Workspace Architect & AI Engineer</title>
+    <meta name="description" content="Raúl Cancela - AI-Augmented Engineer & Automation Architect. Físico orquestando soluciones con Gemini, Deepseek y Claude. Experto en Google Workspace, automatización de procesos y despliegue de IA local y APIs.">
+    <title>Raúl Cancela | AI-Augmented Engineer & Automation Architect</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,13 +97,13 @@
 
         header {
             background: url('cover.jpg') no-repeat center center; background-size: cover; background-color: #1e3a8a; 
-            background-attachment: fixed; padding: 8rem 2rem 5rem 2rem; text-align: center;
+            background-attachment: fixed; padding: 7rem 2rem 5rem 2rem; text-align: center;
             position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
         }
         
         header::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-            background: rgba(15, 23, 42, 0.82); z-index: 1;
+            background: rgba(15, 23, 42, 0.85); z-index: 1;
         }
 
         header > div {
@@ -137,10 +137,18 @@
             font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 3px solid var(--surface);
         }
 
+        .badges-wrapper {
+            display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 15px;
+        }
+
         .remote-badge {
             display: inline-flex; align-items: center; gap: 8px; background: var(--tag-bg);
-            padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; margin-top: 15px;
+            padding: 8px 18px; border-radius: 50px; font-size: 0.88rem;
             border: 1px solid var(--tag-border); font-weight: 600; color: var(--tag-text);
+        }
+
+        .ai-badge {
+            background: rgba(139, 92, 246, 0.15); border-color: var(--accent-glow); color: var(--accent);
         }
         
         .pulse-dot {
@@ -153,12 +161,16 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
         
-        h1 { margin: 0; font-size: 4rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; }
+        h1 { margin: 0; font-size: 3.8rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; }
         .gradient-text {
-            background: linear-gradient(135deg, var(--secondary) 30%, var(--primary) 70%, var(--accent) 100%);
+            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #c4b5fd 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        h2 { font-weight: 500; font-size: 1.35rem; max-width: 850px; margin: 1.5rem auto 0 auto; color: var(--text-light); }
+        h2 { font-weight: 600; font-size: 1.5rem; max-width: 900px; margin: 1.2rem auto 0 auto; color: #f8fafc; }
+
+        .headline-sub {
+            color: #cbd5e1; font-size: 1.05rem; max-width: 850px; margin: 0.8rem auto 0 auto; line-height: 1.6; font-weight: 400;
+        }
 
         .btn-header {
             padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600;
@@ -171,7 +183,7 @@
         .btn-download { background: var(--surface); color: var(--text-main); border-color: var(--border); box-shadow: var(--shadow); }
         .btn-download:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
         
-        .btn-linkedin { background: rgba(139, 92, 246, 0.1); color: var(--accent); border-color: var(--accent-glow); }
+        .btn-linkedin { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border-color: var(--accent-glow); }
         .btn-linkedin:hover { background: var(--accent); color: white; transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
 
         .container { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; position: relative; z-index: 2; }
@@ -194,6 +206,78 @@
             position: relative; overflow: hidden;
         }
         .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(59, 130, 246, 0.3); }
+
+        /* Maker Lab & Local AI Grid */
+        .maker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .maker-card {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .maker-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+        .maker-card-icon {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+        .maker-card-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.35rem;
+        }
+        .maker-card-desc {
+            font-size: 0.83rem;
+            color: var(--text-light);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* Certificaciones Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+        }
+        .cert-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+        .cert-icon-wrapper {
+            background: var(--tag-bg);
+            color: var(--primary);
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
         
         /* Línea de tiempo de experiencia */
         .timeline {
@@ -217,12 +301,12 @@
         .job-meta {
             display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;
         }
-        .company { font-size: 1.4rem; font-weight: 800; color: var(--secondary); display: flex; align-items: center; gap: 10px; }
-        .role { color: var(--primary); font-weight: 700; font-size: 1.1rem; display: block; margin-top: 4px; }
+        .company { font-size: 1.35rem; font-weight: 800; color: var(--secondary); display: flex; align-items: center; gap: 10px; }
+        .role { color: var(--primary); font-weight: 700; font-size: 1.05rem; display: block; margin-top: 4px; }
         .date { font-size: 0.85rem; color: var(--text-light); font-weight: 600; background: var(--surface-hover); padding: 6px 14px; border-radius: 30px; border: 1px solid var(--border); }
         
         .job-details { margin: 0; padding-left: 1.2rem; }
-        .job-details li { margin-bottom: 0.5rem; }
+        .job-details li { margin-bottom: 0.6rem; line-height: 1.6; }
         .job-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.2rem; }
         .job-tag { font-size: 0.75rem; background: var(--surface-hover); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; color: var(--text-light); font-weight: 600; }
 
@@ -237,11 +321,11 @@
         .metric-number { font-size: 3rem; font-weight: 800; color: var(--primary); display: block; line-height: 1.1; margin-bottom: 5px; }
         .metric-label { font-size: 0.85rem; color: var(--text-light); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;}
 
-        /* Workspace Automation Simulator */
+        /* Workspace Automation & AI Simulator */
         .sim-container {
             background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-            box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 320px 1fr;
-            margin-top: 2rem; min-height: 550px;
+            box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 330px 1fr;
+            margin-top: 2rem; min-height: 560px;
         }
         @media (max-width: 900px) {
             .sim-container { grid-template-columns: 1fr; }
@@ -249,7 +333,7 @@
         
         .sim-sidebar {
             background: var(--surface-hover); border-right: 1px solid var(--border); padding: 1.8rem;
-            display: flex; flex-direction: column; gap: 15px;
+            display: flex; flex-direction: column; gap: 14px;
         }
         .sim-content {
             padding: 2rem; display: flex; flex-direction: column;
@@ -261,7 +345,7 @@
         }
         .sim-preset-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
         .sim-preset-btn.active { border-color: var(--primary); background: var(--tag-bg); box-shadow: 0 4px 12px var(--primary-glow); }
-        .sim-preset-title { font-weight: 700; font-size: 0.95rem; color: var(--secondary); }
+        .sim-preset-title { font-weight: 700; font-size: 0.95rem; color: var(--secondary); display: flex; align-items: center; gap: 8px; }
         .sim-preset-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.4; }
         
         .sim-custom-input {
@@ -281,7 +365,7 @@
         }
         
         .sim-tabs-header {
-            display: flex; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 1.5rem;
+            display: flex; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 1.5rem; flex-wrap: wrap;
         }
         .sim-tab-btn {
             background: none; border: 1px solid transparent; color: var(--text-light);
@@ -318,22 +402,18 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
         }
 
-        .skills-section-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; }
-        @media (max-width: 800px) {
+        .skills-section-content { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem; align-items: center; }
+        @media (max-width: 850px) {
             .skills-section-content { grid-template-columns: 1fr; }
         }
         
-        .marquee-container { overflow: hidden; white-space: nowrap; padding: 15px 0; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
-        .marquee-content { display: inline-block; animation: marquee 35s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
         .tag { 
             display: inline-flex; align-items: center; gap: 8px; background: var(--tag-bg); 
-            padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; color: var(--tag-text); 
-            font-weight: 600; border: 1px solid var(--tag-border); margin-right: 12px; 
+            padding: 7px 15px; border-radius: 50px; font-size: 0.85rem; color: var(--tag-text); 
+            font-weight: 600; border: 1px solid var(--tag-border); margin: 0 6px 8px 0; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: all 0.2s ease; 
         }
-        .tag i { color: var(--primary); font-size: 1em; }
+        .tag i { color: var(--primary); font-size: 0.95em; }
         .tag:hover { background-color: var(--surface); border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 12px var(--primary-glow); transform: translateY(-2px); }
 
         .freelance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
@@ -343,7 +423,8 @@
         .float-contact:hover { transform: scale(1.1) rotate(8deg); }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
+            h1 { font-size: 2.6rem; }
+            h2 { font-size: 1.25rem; }
             .floating-controls { top: auto; bottom: 20px; left: 20px; right: auto; transform: none; flex-direction: row; }
             .page-nav { display: none; } 
             .job-meta { flex-direction: column; align-items: flex-start; }
@@ -353,9 +434,9 @@
         @media print {
             body { background: white; color: black; }
             header { background: none !important; color: black; padding: 2rem 0; margin-bottom: 2rem; border-bottom: 2px solid #333; }
-            .profile-pic, .floating-controls, .float-contact, .progress-bar, .marquee-container, .sim-container, .theme-toggle, .physics-badge { display: none !important; }
-            h1, h2 { color: black; text-shadow: none; background: none; -webkit-text-fill-color: initial; }
-            .card, .metric-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 1.5rem; }
+            .profile-pic, .floating-controls, .float-contact, .progress-bar, .sim-container, .theme-toggle, .physics-badge { display: none !important; }
+            h1, h2, .headline-sub { color: black !important; text-shadow: none !important; background: none !important; -webkit-text-fill-color: initial !important; }
+            .card, .metric-card, .cert-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 1.5rem; }
             .skills-section-content { display: block; }
             .timeline { border-left: none; padding-left: 0; }
             .timeline-item::before { display: none; }
@@ -372,9 +453,13 @@
     <nav class="page-nav">
         <ul>
             <li><a href="#inicio" class="nav-dot active" title="Inicio"></a></li>
-            <li><a href="#perfil" class="nav-dot" title="Perfil"></a></li>
+            <li><a href="#perfil" class="nav-dot" title="Perfil & IA Maker"></a></li>
             <li><a href="#experiencia" class="nav-dot" title="Experiencia"></a></li>
-            <li><a href="#skills" class="nav-dot" title="Skills"></a></li>
+            <li><a href="#freelance" class="nav-dot" title="Consultoría"></a></li>
+            <li><a href="#ai-lab" class="nav-dot" title="Simulador IA"></a></li>
+            <li><a href="#certificaciones" class="nav-dot" title="Certificaciones"></a></li>
+            <li><a href="#skills" class="nav-dot" title="Skills & Stack"></a></li>
+            <li><a href="#educacion" class="nav-dot" title="Formación"></a></li>
         </ul>
     </nav>
 </div>
@@ -385,19 +470,25 @@
     <div>
         <div class="profile-container">
             <img src="profile-pic.jpg" alt="Raúl Cancela" class="profile-pic" onerror="this.style.display='none'">
-            <div class="physics-badge" title="Física Aplicada / Analítica"><i class="fas fa-atom"></i></div>
+            <div class="physics-badge" title="Física Aplicada & IA"><i class="fas fa-atom"></i></div>
         </div>
         <h1 class="gradient-text">Raúl Cancela</h1>
-        <h2>Google Workspace Architect & AI Automation Engineer</h2>
+        <h2>AI-Augmented Engineer & Automation Architect</h2>
+        <p class="headline-sub">
+            Físico orquestando soluciones con <strong>Gemini, Deepseek y Claude</strong> | Experto en <strong>Google Workspace</strong> | Apasionado del despliegue de <strong>IA local y APIs</strong>
+        </p>
         
-        <div style="margin-top: 0.8rem; display: flex; flex-direction: column; align-items: center; gap: 8px;">
-            <span style="opacity: 0.9; font-size: 0.95rem; font-weight: 500;"><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Madrid, España</span>
+        <div class="badges-wrapper">
+            <span style="opacity: 0.9; font-size: 0.92rem; font-weight: 500; color: #cbd5e1; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Madrid, España
+            </span>
             <span class="remote-badge"><span class="pulse-dot"></span>Disponible para Remoto / Remote-First</span>
+            <span class="remote-badge ai-badge"><i class="fas fa-microchip"></i> Local LLMs & AI Orchestration</span>
         </div>
         
-        <div style="margin-top: 2.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
+        <div style="margin-top: 2.2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
             <a href="mailto:arulcancela@gmail.com" class="btn-header btn-contact"><i class="fas fa-envelope"></i> Contactar</a>
-            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" class="btn-header btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/arulcancela" target="_blank" class="btn-header btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <button onclick="window.print()" class="btn-header btn-download"><i class="fas fa-file-pdf"></i> Guardar como PDF</button>
         </div>
     </div>
@@ -407,23 +498,64 @@
 
     <section id="perfil" style="margin-top: 4rem;">
         <div class="metrics-grid fade-in">
-            <div class="metric-card"><span class="metric-number" data-target="11" data-suffix="+">0</span><span class="metric-label">Años de Experiencia</span></div>
-            <div class="metric-card"><span class="metric-number" data-target="200" data-suffix="+">0</span><span class="metric-label">Proyectos Cloud & Workspace</span></div>
+            <div class="metric-card"><span class="metric-number" data-target="15" data-suffix="+">0</span><span class="metric-label">Años de Experiencia</span></div>
+            <div class="metric-card"><span class="metric-number" data-target="200" data-suffix="+">0</span><span class="metric-label">Clientes Cloud & Workspace</span></div>
             <div class="metric-card"><span class="metric-number" data-target="2000" data-suffix="+">0</span><span class="metric-label">Cuentas Migradas</span></div>
+            <div class="metric-card"><span class="metric-number" data-target="10" data-suffix="x">0</span><span class="metric-label">Velocidad Asistida por IA</span></div>
         </div>
 
         <div class="card fade-in">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                <span style="background: var(--tag-bg); color: var(--primary); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--tag-border);">
+                    <i class="fas fa-brain"></i> Filosofía de Ingeniero Aumentado
+                </span>
+                <span style="background: var(--surface-hover); color: var(--text-light); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border);">
+                    <i class="fas fa-tools"></i> Constructor Nato (ISTP)
+                </span>
+            </div>
+
             <p style="font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.8;">
-                Soy <strong>Arquitecto de Soluciones Google Workspace</strong> con sólida formación de Física Aplicada. Mi trayectoria de más de 11 años combina el rigor del análisis científico con el desarrollo creativo, lo que me capacita para liderar migraciones críticas de identidad, diseñar arquitecturas en la nube y optimizar el entorno colaborativo enterprise.
+                Soy <strong>Físico de formación</strong> y un constructor nato (ISTP). Mi especialidad no es escribir código desde cero, sino <strong>orquestar Inteligencia Artificial (Gemini, Deepseek, Claude, ChatGPT)</strong> para diseñar, construir y desplegar soluciones tecnológicas complejas a una velocidad sin precedentes. Me defino como un <strong>AI-Augmented Engineer</strong>.
             </p>
-            <p style="font-size: 1.1rem; margin: 0; color: var(--text-main); line-height: 1.8;">
-                Como <strong>Ingeniero Aumentado por IA</strong>, automatizo flujos y supero las limitaciones operativas tradicionales integrando scripts complejos (Python, Google Apps Script, Bash) y gestionando entornos a gran escala mediante <strong>GAM</strong>.
+            <p style="font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.8;">
+                A nivel profesional, cuento con <strong>15 años de experiencia</strong> en arquitecturas Cloud y migraciones Enterprise en el entorno de <strong>Google Workspace</strong>, pero mi verdadero valor diferencial hoy es el <em>uso intensivo de la IA generativa en mi día a día</em>. Utilizo estas herramientas para asimilar nuevas tecnologías en tiempo récord, generar documentación técnica compleja y crear flujos de automatización (<strong>Python, bash, Apps Script</strong>) mediante <strong>prompt engineering avanzado y testeo iterativo</strong>.
             </p>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-main); line-height: 1.8;">
+                Busco retos en <strong>remoto</strong> donde pueda aplicar esta filosofía de <em>'Ingeniero Aumentado'</em>: usar la IA para multiplicar la eficiencia, resolver problemas de arquitectura y automatizar procesos que tradicionalmente requerirían grandes equipos de desarrollo.
+            </p>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 1.8rem; margin-top: 1.5rem;">
+                <h4 style="font-size: 1.2rem; margin: 0 0 1rem 0; display: flex; align-items: center; gap: 10px; color: var(--secondary);">
+                    <i class="fas fa-microchip" style="color: var(--accent);"></i> Faceta Maker & Infraestructura Propia de IA
+                </h4>
+                <div class="maker-grid">
+                    <div class="maker-card">
+                        <div class="maker-card-icon"><i class="fas fa-server"></i></div>
+                        <div class="maker-card-title">LLMs Locales (Ollama)</div>
+                        <p class="maker-card-desc">Despliegue y ejecución privada de modelos LLM en local sin filtración de datos sensibles ni costes recurrentes.</p>
+                    </div>
+                    <div class="maker-card">
+                        <div class="maker-card-icon"><i class="fas fa-network-wired"></i></div>
+                        <div class="maker-card-title">Agentes vía API (Deepseek)</div>
+                        <p class="maker-card-desc">Agentes de IA autónomos integrados en PC para síntesis de código, auditorías de logs y resolución técnica continua.</p>
+                    </div>
+                    <div class="maker-card">
+                        <div class="maker-card-icon"><i class="fas fa-home"></i></div>
+                        <div class="maker-card-title">Domótica & Red Segura</div>
+                        <p class="maker-card-desc">Home Assistant en Raspberry Pi con Pi-hole para filtrado DNS de red, telemetría IoT y alta disponibilidad.</p>
+                    </div>
+                    <div class="maker-card">
+                        <div class="maker-card-icon"><i class="fas fa-robot"></i></div>
+                        <div class="maker-card-title">Bots de Trading Algorítmico</div>
+                        <p class="maker-card-desc">Flujos cuantitativos y automatización de datos de mercado en Python asistidos por modelos predictivos.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="experiencia" class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-briefcase section-icon"></i> Experiencia Corporativa</h3></div>
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-briefcase section-icon"></i> Experiencia Profesional</h3></div>
 
         <div class="timeline">
             
@@ -431,24 +563,24 @@
                 <div class="card" style="border-left: 4px solid var(--success);">
                     <div class="job-meta">
                         <div>
-                            <span class="company"><i class="fas fa-car" style="color: var(--success); font-size: 1.1rem;"></i> Volkswagen Group Services Barcelona</span>
+                            <span class="company"><i class="fas fa-car" style="color: var(--success); font-size: 1.1rem;"></i> Volkswagen Group Services Iberia</span>
                             <span class="role">Google Workspace Architect & Migration Lead</span>
                         </div>
-                        <span class="date">Abr 2026 - Actualidad</span>
+                        <span class="date">Abr 2026 - Present (6 meses) · Remoto</span>
                     </div>
                     <ul class="job-details">
-                        <li>Liderazgo de la estrategia de coexistencia híbrida entre Office 365 y Google Workspace para la plantilla global.</li>
-                        <li>Dirección de la fase de Discovery: auditoría de cumplimiento (Compliance), definición de políticas de administración y diseño de planes de migración de usuarios.</li>
-                        <li>Coordinación técnica con el equipo de GCP para la alineación de la gestión de identidades (IAM) y la seguridad de la arquitectura del tenant.</li>
-                        <li>Implementación de flujos de trabajo basados en IA para el análisis de infraestructuras críticas y la toma de decisiones técnicas estratégicas.</li>
-                        <li>Gestión integral del entorno de Google Workspace, desde la configuración de políticas hasta el despliegue final (Go-live).</li>
+                        <li><strong>Estrategia Cloud:</strong> Liderazgo de la estrategia de coexistencia híbrida entre Office 365 y Google Workspace para la plantilla global.</li>
+                        <li><strong>Gestión del Cambio y Discovery:</strong> Dirección de la fase de Discovery, incluyendo auditoría de cumplimiento (Compliance), definición de políticas de administración y diseño de planes de migración de usuarios.</li>
+                        <li><strong>Investigación y análisis acelerado por IA:</strong> Uso diario de LLMs (especialmente con Gemini) como herramientas core para investigar, asimilar rápidamente conceptos técnicos complejos y generar documentación técnica detallada en tiempo récord.</li>
+                        <li><strong>Ingeniería de automatización asistida (AI-Coding):</strong> Dirección y testeo de la generación de código mediante IA para crear scripts complejos y soluciones a medida que facilitan la coexistencia de plataformas, optimizando tiempos de despliegue sin requerir un equipo de desarrollo tradicional.</li>
                     </ul>
                     <div class="job-tags">
                         <span class="job-tag">Google Workspace</span>
-                        <span class="job-tag">Office 365 Coexistence</span>
+                        <span class="job-tag">Coexistencia Office 365</span>
+                        <span class="job-tag">Investigación con IA (Gemini)</span>
+                        <span class="job-tag">AI-Coding & Testeo Iterativo</span>
+                        <span class="job-tag">Compliance & Discovery</span>
                         <span class="job-tag">GCP IAM</span>
-                        <span class="job-tag">IA Workflow</span>
-                        <span class="job-tag">IT Security</span>
                     </div>
                 </div>
             </div>
@@ -460,19 +592,19 @@
                             <span class="company"><i class="fas fa-network-wired" style="color: var(--primary); font-size: 1.1rem;"></i> Inetum</span>
                             <span class="role">Arquitecto de Soluciones Google Workspace</span>
                         </div>
-                        <span class="date">Oct 2025 - Abr 2026</span>
+                        <span class="date">Oct 2025 - Abr 2026 (7 meses) · Madrid</span>
                     </div>
                     <ul class="job-details">
-                        <li>Líder de Migración: Gestión integral (end-to-end) de la migración crítica de 2.000 usuarios a Google Workspace.</li>
-                        <li>Automatización Avanzada: Uso experto de GAM para extracción masiva de datos y scripting para automatizar el aprovisionamiento, superando límites de la consola nativa.</li>
-                        <li>Diseño de arquitecturas cloud seguras y escalables para clientes Enterprise.</li>
+                        <li><strong>Líder de Migración:</strong> Gestión integral (end-to-end) de la migración crítica de 2.000 usuarios a Google Workspace.</li>
+                        <li><strong>Automatización Avanzada:</strong> Uso experto de GAM (Google Apps Manager) para extracción masiva de datos y scripting para automatizar la provisión, superando las limitaciones de la consola nativa.</li>
+                        <li><strong>Arquitectura Enterprise:</strong> Diseño de arquitecturas cloud seguras y escalables para clientes corporativos.</li>
                     </ul>
                     <div class="job-tags">
-                        <span class="job-tag">GAM</span>
-                        <span class="job-tag">Cloud Migration</span>
+                        <span class="job-tag">GAM (Google Apps Manager)</span>
+                        <span class="job-tag">Migración 2.000 Usuarios</span>
                         <span class="job-tag">Google Workspace</span>
-                        <span class="job-tag">Data Automation</span>
-                        <span class="job-tag">Python Scripting</span>
+                        <span class="job-tag">Scripting Automatizado</span>
+                        <span class="job-tag">Cloud Architecture</span>
                     </div>
                 </div>
             </div>
@@ -484,20 +616,20 @@
                             <span class="company"><i class="fas fa-project-diagram" style="color: var(--primary); font-size: 1.1rem;"></i> Devoteam</span>
                             <span class="role">Team Lead & Ingeniero de Soporte Senior (L4)</span>
                         </div>
-                        <span class="date">May 2021 - Sep 2025</span>
+                        <span class="date">May 2021 - Sep 2025 (4 años 5 meses) · Remoto / Madrid</span>
                     </div>
                     <ul class="job-details">
-                        <li>Gestión Global: Soporte técnico bilingüe a una cartera de +200 clientes empresariales en entornos distribuidos.</li>
-                        <li>Ingeniería Experta (L4): Gestión de escalados críticos directamente con Ingeniería de Google, actuando como Superadmin delegado.</li>
-                        <li>Calidad y Herramientas: Optimización de la gestión mediante Jira y Freshdesk, logrando feedbacks consistentemente positivos.</li>
-                        <li>Liderazgo: Mentoría técnica a un equipo de 10 agentes, asegurando cumplimiento de SLAs.</li>
+                        <li><strong>Gestión Global (Remoto):</strong> Soporte técnico bilingüe a una cartera de +200 clientes internacionales en entornos distribuidos.</li>
+                        <li><strong>Ingeniería Experta (L4):</strong> Gestión de escalados críticos directamente con Ingeniería de Google, actuando como Superadmin delegado.</li>
+                        <li><strong>Calidad y Herramientas:</strong> Optimización de la gestión operativa mediante Jira y Freshdesk, logrando feedbacks consistentemente positivos.</li>
+                        <li><strong>Liderazgo:</strong> Mentoría técnica a un equipo de 10 agentes, asegurando cumplimiento riguroso de SLAs y excelencia técnica.</li>
                     </ul>
                     <div class="job-tags">
-                        <span class="job-tag">L4 Escalations</span>
+                        <span class="job-tag">L4 Escalations Google</span>
+                        <span class="job-tag">Superadmin Delegado</span>
                         <span class="job-tag">SLA Management</span>
                         <span class="job-tag">Jira Service Desk</span>
-                        <span class="job-tag">Team Leadership</span>
-                        <span class="job-tag">Superadmin Delegation</span>
+                        <span class="job-tag">Liderazgo de 10 Agentes</span>
                     </div>
                 </div>
             </div>
@@ -507,20 +639,20 @@
                     <div class="job-meta">
                         <div>
                             <span class="company"><i class="fas fa-cloud" style="color: var(--primary); font-size: 1.1rem;"></i> Nubalia</span>
-                            <span class="role">Ingeniero de Operaciones Senior & Especialista LumApps</span>
+                            <span class="role">Ingeniero de Operaciones Senior</span>
                         </div>
-                        <span class="date">Abr 2019 - May 2021</span>
+                        <span class="date">Abr 2019 - May 2021 (2 años 2 meses) · Madrid</span>
                     </div>
                     <ul class="job-details">
-                        <li>Gestión del Cambio: Diseño de planes de comunicación y formación técnica para garantizar la adopción exitosa de la nube.</li>
-                        <li>Consultoría Preventa: Apoyo técnico al equipo comercial para definir alcances técnicos y propuestas de valor.</li>
-                        <li>Experto en Intranets: Referente técnico en la plataforma LumApps, gestionando incidencias complejas y la relación con el fabricante.</li>
+                        <li><strong>Gestión del Cambio:</strong> Diseño de planes de comunicación y formación técnica para garantizar la adopción exitosa de la nube.</li>
+                        <li><strong>Consultoría Preventa:</strong> Apoyo técnico al equipo comercial para definir alcances y cerrar propuestas de valor.</li>
+                        <li><strong>Experto en Intranets:</strong> Referente técnico en LumApps, gestionando incidencias complejas y la relación directa con el fabricante.</li>
                     </ul>
                     <div class="job-tags">
-                        <span class="job-tag">LumApps</span>
-                        <span class="job-tag">Change Management</span>
-                        <span class="job-tag">Presales Consulting</span>
-                        <span class="job-tag">SaaS Operations</span>
+                        <span class="job-tag">LumApps Deployment</span>
+                        <span class="job-tag">Gestión del Cambio</span>
+                        <span class="job-tag">Consultoría Preventa</span>
+                        <span class="job-tag">Google Cloud Ecosystem</span>
                     </div>
                 </div>
             </div>
@@ -529,21 +661,21 @@
                 <div class="card">
                     <div class="job-meta">
                         <div>
-                            <span class="company"><i class="fas fa-handshake" style="color: var(--primary); font-size: 1.1rem;"></i> Intelligence Partner</span>
+                            <span class="company"><i class="fas fa-handshake" style="color: var(--primary); font-size: 1.1rem;"></i> Intelligence Partner - The Cloud Consulting Company</span>
                             <span class="role">Ingeniero de Operaciones & Consultor Preventa</span>
                         </div>
-                        <span class="date">Nov 2017 - Abr 2019</span>
+                        <span class="date">Nov 2017 - Abr 2019 (1 año 6 meses) · Madrid</span>
                     </div>
                     <ul class="job-details">
-                        <li>Migraciones Técnicas: Ejecución de proyectos de migración de datos para grandes cuentas nacionales, asegurando cero pérdida de datos.</li>
-                        <li>Consultoría 360º: Gestión del ciclo completo (Preventa, Migración, Formación de usuarios y Soporte).</li>
-                        <li>Formador Técnico: Desplazamientos a sedes de clientes para impartir capacitación especializada.</li>
+                        <li><strong>Migraciones Técnicas:</strong> Ejecución de proyectos de migración de datos para grandes cuentas, asegurando integridad y cero pérdida de datos.</li>
+                        <li><strong>Consultoría 360º:</strong> Gestión del ciclo completo: Preventa (toma de requisitos) &rarr; Migración &rarr; Formación &rarr; Soporte.</li>
+                        <li><strong>Formador Técnico:</strong> Desplazamientos a sedes de clientes nacionales para impartir formación especializada.</li>
                     </ul>
                     <div class="job-tags">
-                        <span class="job-tag">Data Migration</span>
-                        <span class="job-tag">Enterprise Support</span>
-                        <span class="job-tag">Technical Training</span>
-                        <span class="job-tag">Client Consulting</span>
+                        <span class="job-tag">Migraciones Enterprise</span>
+                        <span class="job-tag">Consultoría 360º</span>
+                        <span class="job-tag">Integridad de Datos</span>
+                        <span class="job-tag">Formación Técnica</span>
                     </div>
                 </div>
             </div>
@@ -555,13 +687,13 @@
                             <span class="company"><i class="fas fa-chart-line" style="color: var(--primary); font-size: 1.1rem;"></i> Grupo MASMOVIL</span>
                             <span class="role">Analista de Datos</span>
                         </div>
-                        <span class="date">Sep 2017 - Nov 2017</span>
+                        <span class="date">Sep 2017 - Nov 2017 (3 meses) · Madrid</span>
                     </div>
-                    <p style="margin:0;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
+                    <p style="margin:0; color: var(--text-main); line-height: 1.6;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
                     <div class="job-tags">
                         <span class="job-tag">Excel Analytics</span>
-                        <span class="job-tag">Corporate Reporting</span>
-                        <span class="job-tag">Data Analysis</span>
+                        <span class="job-tag">Reporting Corporativo</span>
+                        <span class="job-tag">Análisis de Datos</span>
                     </div>
                 </div>
             </div>
@@ -573,17 +705,17 @@
                             <span class="company"><i class="fas fa-globe" style="color: var(--primary); font-size: 1.1rem;"></i> Accenture España</span>
                             <span class="role">Consultor IT (Proyecto Internacional)</span>
                         </div>
-                        <span class="date">Nov 2015 - Mar 2017</span>
+                        <span class="date">Nov 2015 - Mar 2017 (1 año 5 meses) · Madrid</span>
                     </div>
                     <ul class="job-details">
-                        <li>Experiencia Internacional (Riad, Arabia Saudí): Investigación de software global y redacción de documentación técnica (RFIs/RFPs).</li>
-                        <li>Gestión de PMO y reporting financiero utilizando herramientas de Office 365.</li>
+                        <li><strong>Experiencia Internacional (Riad, Arabia Saudí):</strong> Investigación de software global y redacción de documentación técnica (RFIs/RFPs).</li>
+                        <li><strong>Gestión de PMO:</strong> Reporting financiero y control de proyecto utilizando herramientas de Office 365.</li>
                     </ul>
                     <div class="job-tags">
-                        <span class="job-tag">IT PMO</span>
-                        <span class="job-tag">RFI / RFP Drafting</span>
-                        <span class="job-tag">International Experience</span>
-                        <span class="job-tag">Financial Reporting</span>
+                        <span class="job-tag">PMO Global</span>
+                        <span class="job-tag">RFIs / RFPs</span>
+                        <span class="job-tag">Experiencia Internacional (Riad)</span>
+                        <span class="job-tag">Office 365</span>
                     </div>
                 </div>
             </div>
@@ -592,29 +724,30 @@
                 <div class="card">
                     <div class="job-meta">
                         <div>
-                            <span class="company"><i class="fas fa-flask" style="color: var(--primary); font-size: 1.1rem;"></i> Inst. de Cerámica y Vidrio (ICV-CSIC)</span>
+                            <span class="company"><i class="fas fa-flask" style="color: var(--primary); font-size: 1.1rem;"></i> Instituto de Cerámica y Vidrio (CSIC)</span>
                             <span class="role">Técnico de Laboratorio (Prácticas)</span>
                         </div>
-                        <span class="date">Jun 2014 - Sep 2014</span>
+                        <span class="date">Jun 2014 - Sep 2014 (4 meses) · Campus de Cantoblanco, Madrid</span>
                     </div>
                     <ul class="job-details">
                         <li>Fabricación de materiales híbridos compuestos mediante molienda mecánica de baja y alta energía.</li>
                         <li>Caracterización estructural avanzada: Difracción de Rayos X (XRD), microscopía electrónica de barrido (SEM) y termogravimetría.</li>
                         <li>Caracterización magnética de muestras mediante Magnetometría de Muestra Vibrante (VSM).</li>
+                        <li>Análisis de datos y correlación de propiedades estructurales magnéticas.</li>
                     </ul>
                     <div class="job-tags">
-                        <span class="job-tag">Material Science</span>
-                        <span class="job-tag">R&D Lab</span>
-                        <span class="job-tag">Structural Analysis</span>
-                        <span class="job-tag">Physics Practice</span>
+                        <span class="job-tag">Física Experimental</span>
+                        <span class="job-tag">Microscopía SEM & XRD</span>
+                        <span class="job-tag">Magnetometría VSM</span>
+                        <span class="job-tag">Análisis Estructural</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría Independiente</h3></div>
+    <section id="freelance" class="fade-in">
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría & Automatización Freelance</h3></div>
         <div class="freelance-grid">
             <div class="card" style="margin-bottom:0;">
                 <div class="job-meta" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 0;">
@@ -622,66 +755,66 @@
                         <span class="company"><i class="fas fa-shopping-basket" style="color: var(--accent); font-size: 1.1rem;"></i> Alcampo / Sabeco</span>
                         <span class="role">Desarrollador de Soluciones (Freelance)</span>
                     </div>
+                    <span class="date">Sep 2019 - Present</span>
                 </div>
-                <p style="font-size: 0.95rem; margin-top: 10px;">Solución automatizada a medida para la gestión nacional de turnos mediante Apps Script apoyada con modelos de lenguaje.</p>
+                <p style="font-size: 0.95rem; margin-top: 10px; color: var(--text-main);">
+                    Desarrollo de una solución a medida para la planificación de turnos a nivel nacional. Creación de plantillas inteligentes y scripts complejos en <strong>Google Apps Script (asistidos por IA)</strong> para automatizar la gestión de personal en supermercados de toda España.
+                </p>
                 <div class="job-tags">
                     <span class="job-tag">Apps Script</span>
-                    <span class="job-tag">Automation</span>
-                    <span class="job-tag">AI-assisted Dev</span>
+                    <span class="job-tag">AI-Assisted Dev</span>
+                    <span class="job-tag">Turnos Nacionales</span>
+                    <span class="job-tag">Automatización Enterprise</span>
                 </div>
             </div>
             <div class="card" style="margin-bottom:0;">
                 <div class="job-meta" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 0;">
                     <div>
                         <span class="company"><i class="fas fa-car-side" style="color: var(--accent); font-size: 1.1rem;"></i> ByMotors</span>
-                        <span class="role">Consultor de Procesos (Freelance)</span>
+                        <span class="role">Consultor de Procesos & Automatización (Freelance)</span>
                     </div>
                 </div>
-                <p style="font-size: 0.95rem; margin-top: 10px;">Optimización de flujos de trabajo corporativos y automatización de reporting integral mediante Google Sheets y automatizaciones de la nube.</p>
+                <p style="font-size: 0.95rem; margin-top: 10px; color: var(--text-main);">
+                    Consultoría de optimización de procesos digitales y automatización integral de flujos de trabajo corporativos mediante <strong>Google Sheets</strong> y ecosistema en la nube.
+                </p>
                 <div class="job-tags">
-                    <span class="job-tag">Process Optimization</span>
+                    <span class="job-tag">Optimización de Procesos</span>
                     <span class="job-tag">Google Sheets</span>
-                    <span class="job-tag">Reporting Systems</span>
+                    <span class="job-tag">Flujos Digitales</span>
+                    <span class="job-tag">Data Reporting</span>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-university section-icon"></i> Formación Académica</h3></div>
-        <div class="card" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0;">
-            <div style="background: var(--tag-bg); padding: 15px; border-radius: 50%; color: var(--primary);"><i class="fas fa-university fa-2x"></i></div>
-            <div>
-                <span class="company" style="font-size: 1.25rem;">Universidad Complutense de Madrid</span>
-                <span class="role" style="font-weight: 500;">Grado en Física (Física Aplicada & Computacional)</span>
-                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 4px;">2011 - 2015</div>
             </div>
         </div>
     </section>
 
     <section class="fade-in" id="ai-lab">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-magic section-icon" style="color: var(--accent);"></i> Simulador de Automatización Workspace ✨</h3></div>
-        <p style="color: var(--text-light); margin-top: -1.5rem; margin-bottom: 2rem; max-width: 800px;">
-            Pon a prueba mi enfoque práctico. Selecciona un caso de negocio corporativo o describe un problema a resolver. El simulador generará en tiempo real la arquitectura recomendada, los comandos de automatización en <strong>GAM</strong> o <strong>Apps Script</strong> y la optimización con Inteligencia Artificial.
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-magic section-icon" style="color: var(--accent);"></i> Simulador de Automatización & Orquestación IA ✨</h3></div>
+        <p style="color: var(--text-light); margin-top: -1.5rem; margin-bottom: 2rem; max-width: 850px;">
+            Pon a prueba mi enfoque de <strong>Ingeniero Aumentado</strong>. Selecciona un caso corporativo o describe un problema a resolver. El simulador generará en tiempo real la arquitectura recomendada, los scripts de automatización con <strong>GAM</strong> o <strong>Python</strong> y la aceleración mediante modelos de Inteligencia Artificial (Gemini, Deepseek o LLMs locales).
         </p>
         
         <div class="sim-container">
             <div class="sim-sidebar">
-                <p style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin: 0 0 10px 0;">Seleccionar Escenario</p>
+                <p style="font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin: 0 0 10px 0;">Seleccionar Escenario</p>
                 
-                <button class="sim-preset-btn active" onclick="loadScenario('migracion')">
+                <button class="sim-preset-btn active" onclick="loadScenario('ia_agente')">
+                    <span class="sim-preset-title"><i class="fas fa-brain" style="color: var(--accent);"></i> Orquestación Agente IA</span>
+                    <span class="sim-preset-desc">AI-Coding: Síntesis y validación de scripts con Deepseek, Gemini y Ollama.</span>
+                </button>
+                
+                <button class="sim-preset-btn" onclick="loadScenario('migracion')">
                     <span class="sim-preset-title"><i class="fas fa-exchange-alt" style="color: var(--primary);"></i> Migración Enterprise</span>
                     <span class="sim-preset-desc">Mudar 2.000 usuarios de O365 a Google Workspace con coexistencia.</span>
                 </button>
                 
                 <button class="sim-preset-btn" onclick="loadScenario('seguridad')">
                     <span class="sim-preset-title"><i class="fas fa-shield-alt" style="color: var(--success);"></i> Auditoría & Revocación</span>
-                    <span class="sim-preset-desc">Auditar y revocar accesos externos en Drive de forma masiva.</span>
+                    <span class="sim-preset-desc">Auditar y revocar accesos externos en Drive mediante agentes y GAM.</span>
                 </button>
                 
                 <button class="sim-preset-btn" onclick="loadScenario('onboarding')">
-                    <span class="sim-preset-title"><i class="fas fa-user-plus" style="color: var(--accent);"></i> Onboarding Automático</span>
-                    <span class="sim-preset-desc">Aprovisionamiento con GAM de cuentas, grupos y licencias.</span>
+                    <span class="sim-preset-title"><i class="fas fa-user-plus" style="color: var(--primary);"></i> Onboarding Automático</span>
+                    <span class="sim-preset-desc">Aprovisionamiento con GAM de cuentas y personalización con LLM.</span>
                 </button>
                 
                 <div class="sim-custom-input">
@@ -699,7 +832,7 @@
                 
                 <div class="sim-tabs-header">
                     <button class="sim-tab-btn active" onclick="switchTab('arquitectura')"><i class="fas fa-sitemap"></i> Arquitectura</button>
-                    <button class="sim-tab-btn" onclick="switchTab('codigo')"><i class="fas fa-code"></i> Scripting / GAM</button>
+                    <button class="sim-tab-btn" onclick="switchTab('codigo')"><i class="fas fa-code"></i> Scripting / AI-Coding</button>
                     <button class="sim-tab-btn" onclick="switchTab('ia')"><i class="fas fa-robot"></i> Aumento con IA</button>
                 </div>
                 
@@ -724,6 +857,36 @@
         </div>
     </section>
 
+    <section id="certificaciones" class="fade-in">
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-certificate section-icon"></i> Certificaciones & Credenciales</h3></div>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-icon-wrapper"><i class="fab fa-google"></i></div>
+                <div>
+                    <span class="company" style="font-size: 1.15rem;">Google Cloud Platform</span>
+                    <span class="role" style="font-weight: 600; font-size: 0.95rem;">Big Data and Machine Learning Fundamentals</span>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin: 6px 0 0 0; line-height: 1.5;">Fundamentos de procesamiento masivo de datos, pipelines de machine learning y arquitecturas analíticas avanzadas en GCP.</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon-wrapper" style="color: var(--accent); background: var(--accent-glow);"><i class="fas fa-layer-group"></i></div>
+                <div>
+                    <span class="company" style="font-size: 1.15rem;">LumApps</span>
+                    <span class="role" style="font-weight: 600; font-size: 0.95rem;">LumApps Deployment Level 1</span>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin: 6px 0 0 0; line-height: 1.5;">Certificación oficial para el despliegue técnico, gobernanza y administración de intranets enterprise integradas con Google Workspace.</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon-wrapper" style="color: var(--success); background: rgba(16, 185, 129, 0.15);"><i class="fas fa-cloud-sun"></i></div>
+                <div>
+                    <span class="company" style="font-size: 1.15rem;">Meteorología & Física Atmosférica</span>
+                    <span class="role" style="font-weight: 600; font-size: 0.95rem;">Formación en Meteorología</span>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin: 6px 0 0 0; line-height: 1.5;">Modelado físico de sistemas dinámicos caóticos, predicción estadística y análisis computacional riguroso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="skills" class="fade-in">
         <div class="section-header"><h3 class="section-title"><i class="fas fa-code section-icon"></i> Stack Tecnológico & Habilidades</h3></div>
         
@@ -733,39 +896,87 @@
             </div>
 
             <div>
-                <p style="margin-bottom:15px; font-weight:700; color: var(--secondary); font-size: 1.1rem;">Especialidad de la Nube:</p>
-                <div style="margin-bottom: 25px;">
-                    <span class="tag"><i class="fab fa-google"></i> Google Workspace</span>
-                    <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
-                    <span class="tag"><i class="fas fa-cloud"></i> GCP IAM & Admin Console</span>
-                    <span class="tag"><i class="fas fa-exchange-alt"></i> Coexistencia O365 / Migración</span>
-                    <span class="tag"><i class="fas fa-layer-group"></i> LumApps Intranets</span>
+                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
+                    <i class="fas fa-brain" style="color: var(--accent); margin-right: 6px;"></i> Orquestación de IA & Prompt Engineering:
+                </p>
+                <div style="margin-bottom: 20px;">
+                    <span class="tag"><i class="fas fa-robot"></i> IA generativa para la gestión</span>
+                    <span class="tag"><i class="fas fa-terminal"></i> AI Orchestration / Prompt Engineering</span>
+                    <span class="tag"><i class="fab fa-google"></i> Gemini</span>
+                    <span class="tag"><i class="fas fa-code-branch"></i> Deepseek API</span>
+                    <span class="tag"><i class="fas fa-atom"></i> Claude</span>
+                    <span class="tag"><i class="fas fa-comments"></i> ChatGPT</span>
+                    <span class="tag"><i class="fas fa-vial"></i> Testeo Iterativo (AI-Coding)</span>
+                </div>
+
+                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
+                    <i class="fas fa-server" style="color: var(--primary); margin-right: 6px;"></i> Infraestructura Maker & LLMs Locales:
+                </p>
+                <div style="margin-bottom: 20px;">
+                    <span class="tag"><i class="fas fa-hdd"></i> Ollama (Modelos en Local)</span>
+                    <span class="tag"><i class="fas fa-network-wired"></i> Agentes de IA en PC vía API</span>
+                    <span class="tag"><i class="fas fa-home"></i> Home Assistant</span>
+                    <span class="tag"><i class="fas fa-microchip"></i> Raspberry Pi</span>
+                    <span class="tag"><i class="fas fa-shield-virus"></i> Pi-hole (DNS Seguro)</span>
+                    <span class="tag"><i class="fas fa-chart-line"></i> Bots de Trading</span>
                 </div>
                 
-                <p style="margin-bottom:15px; font-weight:700; color: var(--secondary); font-size: 1.1rem;">Scripting & Inteligencia Artificial:</p>
-                <div style="margin-bottom: 25px;">
-                    <span class="tag"><i class="fas fa-robot"></i> IA & LLMs (Gemini, OpenAI)</span>
-                    <span class="tag"><i class="fab fa-python"></i> Python Enterprise</span>
+                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
+                    <i class="fas fa-cloud" style="color: var(--primary); margin-right: 6px;"></i> Cloud Enterprise & Google Workspace:
+                </p>
+                <div style="margin-bottom: 20px;">
+                    <span class="tag"><i class="fab fa-google"></i> Google Workspace Enterprise</span>
+                    <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
+                    <span class="tag"><i class="fas fa-exchange-alt"></i> Coexistencia O365 / Workspace</span>
+                    <span class="tag"><i class="fas fa-user-shield"></i> GCP IAM & Compliance</span>
+                    <span class="tag"><i class="fas fa-layer-group"></i> LumApps Deployment</span>
+                    <span class="tag"><i class="fas fa-headset"></i> Soporte L4 (Google Delegated)</span>
+                </div>
+                
+                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
+                    <i class="fas fa-laptop-code" style="color: var(--accent); margin-right: 6px;"></i> Scripting & Automatización:
+                </p>
+                <div style="margin-bottom: 20px;">
+                    <span class="tag"><i class="fab fa-python"></i> Python (Automatización)</span>
                     <span class="tag"><i class="fas fa-code"></i> Google Apps Script</span>
                     <span class="tag"><i class="fas fa-terminal"></i> Bash Scripting</span>
+                    <span class="tag"><i class="fas fa-cogs"></i> Automatización de procesos</span>
                 </div>
                 
-                <p style="margin-bottom:15px; font-weight:700; color: var(--secondary); font-size: 1.1rem;">Metodología y Soft Skills:</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <span class="tag"><i class="fas fa-language"></i> Inglés Profesional (C1)</span>
-                    <span class="tag"><i class="fas fa-users"></i> Liderazgo Técnico (10+ Agentes)</span>
-                    <span class="tag"><i class="fas fa-laptop-house"></i> Trabajo Remoto (Remote-First)</span>
-                    <span class="tag"><i class="fas fa-magic"></i> Ilusionismo & Comunicación</span>
+                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
+                    <i class="fas fa-globe-europe" style="color: var(--success); margin-right: 6px;"></i> Idiomas & Metodología:
+                </p>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <span class="tag"><i class="fas fa-language"></i> Inglés (Full Professional - C1)</span>
+                    <span class="tag"><i class="fas fa-language"></i> Español (Nativo)</span>
+                    <span class="tag"><i class="fas fa-laptop-house"></i> Remoto / Remote-First</span>
+                    <span class="tag"><i class="fas fa-users"></i> Mentoría Técnica (10+ Agentes)</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="educacion" class="fade-in">
+        <div class="section-header"><h3 class="section-title"><i class="fas fa-university section-icon"></i> Formación Académica</h3></div>
+        <div class="card" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0;">
+            <div style="background: var(--tag-bg); padding: 18px; border-radius: 50%; color: var(--primary);"><i class="fas fa-university fa-2x"></i></div>
+            <div>
+                <span class="company" style="font-size: 1.25rem;">Universidad Complutense de Madrid</span>
+                <span class="role" style="font-weight: 600;">Grado en Física, Ingeniería física / Física aplicada</span>
+                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 4px;">2011 - 2015 · Madrid, España</div>
+                <p style="font-size: 0.92rem; color: var(--text-main); margin: 8px 0 0 0; line-height: 1.6;">
+                    Base analítica rigurosa: formulación matemática de problemas complejos, modelado de sistemas dinámicos y mentalidad constructora (ISTP) orientada a la ingeniería práctica y computacional.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Raúl Cancela. Ingeniería Física aplicada a la Automatización Enterprise.</p>
-        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 30px;">
+        <p>&copy; 2026 Raúl Cancela. AI-Augmented Engineer & Automation Architect.</p>
+        <p style="font-size: 0.85rem; margin-top: -10px; color: var(--text-light);">Física aplicada, orquestación de Inteligencia Artificial y arquitecturas Cloud Enterprise.</p>
+        <div style="margin-top: 20px; display: flex; justify-content: center; gap: 30px;">
             <a href="mailto:arulcancela@gmail.com" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fas fa-envelope" style="color: var(--primary);"></i> Email</a>
-            <a href="https://www.linkedin.com/in/raulcancelamartin" target="_blank" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fab fa-linkedin" style="color: var(--accent);"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/arulcancela" target="_blank" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fab fa-linkedin" style="color: var(--accent);"></i> LinkedIn</a>
         </div>
     </footer>
 </div>
@@ -850,14 +1061,23 @@
     let skillsChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Google Workspace Enterprise', 'Soporte L4 / Escalado', 'Automatización con IA', 'Scripting (Python/Bash)', 'Google Apps Script', 'Gestión de Cambios / PMO'],
+            labels: [
+                'Orquestación de IA (LLMs & APIs)', 
+                'Google Workspace Enterprise', 
+                'Automatización Asistida (AI-Coding)', 
+                'GAM & Scripting (Python/Bash)', 
+                'Soporte L4 & Escalados Google', 
+                'Estrategia Cloud & Coexistencia'
+            ],
             datasets: [{
-                label: 'Competencia',
-                data: [100, 95, 90, 85, 90, 80],
-                backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                label: 'Nivel de Especialidad',
+                data: [98, 100, 95, 95, 95, 92],
+                backgroundColor: 'rgba(59, 130, 246, 0.18)',
                 borderColor: '#3b82f6',
-                pointBackgroundColor: '#3b82f6',
+                pointBackgroundColor: '#8b5cf6',
                 pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#8b5cf6',
                 borderWidth: 2
             }]
         },
@@ -886,10 +1106,15 @@
     }
     updateChartColor(document.documentElement.getAttribute('data-theme') === 'dark');
 
-    // Datos del Simulador de Automatización Workspace
+    // Datos del Simulador de Automatización Workspace & IA
     const scenarios = {
+        ia_agente: {
+            arquitectura: `1. <strong>Ingesta de Requerimientos & APIs:</strong> Integración de APIs de Workspace y servicios Cloud con LLMs (Gemini / Deepseek / Ollama local).<br><br>2. <strong>Prompt Chaining & Validación de Esquemas:</strong> Desglose modular de la tarea mediante prompt engineering avanzado y generación de especificaciones JSON estrictamente tipadas.<br><br>3. <strong>Generación Asistida (AI-Coding) & Testeo Iterativo:</strong> Síntesis automática de scripts (Python, Bash, Apps Script) y ejecución controlada en sandbox para validación de errores antes de producción.<br><br>4. <strong>Despliegue & Telemetría:</strong> Orquestación del despliegue masivo y monitorización de alertas mediante agentes en tiempo real.`,
+            codigo: `# Orquestación de Agente Asistido para análisis y generación de scripts GAM\nimport os, httpx\n\nclient = httpx.Client()\nresponse = client.post(\n    "https://api.deepseek.com/v1/chat/completions",\n    headers={"Authorization": f"Bearer {os.getenv('DEEPSEEK_API_KEY')}"},\n    json={\n        "model": "deepseek-chat",\n        "messages": [\n            {"role": "system", "content": "AI-Augmented Engineer: genera script GAM validado para Workspace."},\n            {"role": "user", "content": "Genera script para auditar y aislar cuentas sin 2FA activo en la OU /Direccion."}\n        ],\n        "temperature": 0.2\n    }\n)\nprint(response.json()["choices"][0]["message"]["content"])`,
+            ia: `Como <strong>AI-Augmented Engineer</strong>, combino modelos locales en <strong>Ollama</strong> (para procesamiento privado y seguro de datos confidenciales) con APIs de frontera como <strong>Deepseek, Gemini y Claude</strong>. Este enfoque reduce en un 80% los tiempos de desarrollo, permitiendo crear herramientas y scripts que tradicionalmente requerirían un equipo completo de desarrollo de software.`
+        },
         migracion: {
-            arquitectura: `1. <strong>Fase de Discovery:</strong> Auditoría completa de licenciamiento en Office 365 e inventario de buzones y Drive mediante scripts automatizados.<br><br>2. <strong>Coexistencia de Correo:</strong> Configuración de enrutamiento dividido (Split Delivery) en Google Workspace y Microsoft 365 mediante conectores SMTP seguros y enrutamientos en la consola del administrador de Google.<br><br>3. <strong>Sincronización de Identidades:</strong> Configuración de Google Cloud Directory Sync (GCDS) para replicar la estructura organizativa de Active Directory local en el Cloud IAM de Google.<br><br>4. <strong>Migración de Datos:</strong> Despliegue de servidores Google Workspace Migrate (GWM) en instancias de GCP de alto rendimiento para migrar correos, calendarios y OneDrive a Drive de manera paralela con monitorización en tiempo real.`,
+            arquitectura: `1. <strong>Fase de Discovery Acelerada:</strong> Auditoría completa de licenciamiento en Office 365 e inventario de buzones y Drive mediante scripts automatizados.<br><br>2. <strong>Coexistencia de Correo:</strong> Configuración de enrutamiento dividido (Split Delivery) en Google Workspace y Microsoft 365 mediante conectores SMTP seguros y enrutamientos en la consola del administrador de Google.<br><br>3. <strong>Sincronización de Identidades:</strong> Configuración de Google Cloud Directory Sync (GCDS) para replicar la estructura organizativa de Active Directory local en el Cloud IAM de Google.<br><br>4. <strong>Migración de Datos:</strong> Despliegue de servidores Google Workspace Migrate (GWM) en instancias de GCP de alto rendimiento para migrar correos, calendarios y OneDrive a Drive de manera paralela con monitorización en tiempo real.`,
             codigo: `# 1. Sincronizar estructura organizativa usando GAM\ngam create org "/Migrados"\ngam create org "/Coexistencia"\n\n# 2. Habilitar reenvíos de correo temporales para coexistencia en lote\ngam csv usuarios_migracion.csv gam user ~Email forward on ~Alias keepchange true\n\n# 3. Mover usuarios migrados a la nueva Unidad Organizativa y asignar licencias de Google Workspace\ngam csv usuarios_migracion.csv gam update user ~Email ou "/Migrados"\ngam csv usuarios_migracion.csv gam user ~Email add license 1010020003  # ID Enterprise Plus`,
             ia: `Para esta migración, utilizo un <strong>flujo automatizado con LLMs</strong> que analiza el log de errores de Google Workspace Migrate. En lugar de revisar manualmente miles de filas con errores de adjuntos o permisos, el script envía los errores a la API de Gemini para categorizarlos (ej: 'Archivo protegido por contraseña', 'Exceso de tamaño', 'Caracteres inválidos') y genera de forma autónoma una lista de acciones correctivas, reduciendo el tiempo de resolución en un 80%.`
         },
@@ -905,7 +1130,7 @@
         }
     };
 
-    let activeScenario = 'migracion';
+    let activeScenario = 'ia_agente';
     let activeTab = 'arquitectura';
     let isTyping = false;
 
@@ -936,7 +1161,7 @@
         const statusText = document.getElementById('simStatusText');
         
         pulse.className = 'sim-pulse-yellow';
-        statusText.innerText = 'Diseñando automatización en base a requerimientos...';
+        statusText.innerText = 'Diseñando solución asistida por IA...';
         
         const data = customData || scenarios[activeScenario];
         
@@ -978,8 +1203,6 @@
                 }
             }, 3);
         } else {
-            // Animación por bloques de HTML para el texto con tags
-            let i = 0;
             targetEl.innerHTML = textToType;
             finishSim();
         }
@@ -1017,9 +1240,9 @@
             ia = "El sistema utiliza <strong>visión por computador e IA</strong> para auditar documentos compartidos que contienen escaneos de DNI o datos bancarios (OCR dinámico) y aplica políticas de restricción de forma proactiva, independientemente de que el usuario haya etiquetado el documento o no.";
         } else {
             title = "Flujo de Automatización a Medida";
-            arch = "1. <strong>Análisis del requerimiento:</strong> Integración de la consola del administrador con un script personalizado.<br><br>2. <strong>Ejecución en Lotes (Batch):</strong> Procesamiento asíncrono para evitar bloqueos por límites de cuota de la API de Google.<br><br>3. <strong>Monitoreo de Consola:</strong> Control y registro de cada acción en un archivo log persistente.<br><br>4. <strong>Notificación del Resultado:</strong> Envío automatizado de resumen de ejecución al administrador mediante correo electrónico.";
-            code = "# Ejecutar automatización a medida vía GAM para el requerimiento solicitado\ngam csv listado_operaciones.csv gam user ~Email update profile department \"~Departamento\" customfield ~Campo ~Valor";
-            ia = "Se implementa un <strong>agente conversacional en Slack/Chat</strong> de IT. Los administradores pueden delegar tareas complejas de administración redactándolas en lenguaje natural (ej: 'Mueve a todos los ingenieros de QA al grupo de soporte beta'). El agente interpreta la intención, simula la ejecución con GAM y ejecuta el cambio de forma segura tras recibir tu confirmación.";
+            arch = "1. <strong>Análisis del requerimiento con LLM:</strong> Asimilación de la especificación técnica mediante prompting estructurado.<br><br>2. <strong>Ejecución en Lotes (Batch):</strong> Procesamiento asíncrono en Python o GAM para evitar bloqueos por límites de cuota de la API.<br><br>3. <strong>Monitoreo de Consola & Sandbox:</strong> Control y registro de cada acción en un archivo log persistente.<br><br>4. <strong>Notificación del Resultado:</strong> Envío automatizado de resumen de ejecución al administrador mediante correo electrónico o webhook.";
+            code = "# Ejecutar automatización a medida vía GAM y Python para el requerimiento solicitado\ngam csv listado_operaciones.csv gam user ~Email update profile department \"~Departamento\" customfield ~Campo ~Valor";
+            ia = "Se implementa un <strong>agente conversacional o CLI asistido por IA</strong>. Los administradores pueden delegar tareas complejas de administración redactándolas en lenguaje natural (ej: 'Mueve a todos los ingenieros de QA al grupo de soporte beta'). El agente interpreta la intención, simula la ejecución con GAM y ejecuta el cambio de forma segura tras recibir confirmación humana.";
         }
         
         const customScenarioData = { arquitectura: arch, codigo: code, ia: ia };
