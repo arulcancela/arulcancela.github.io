@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
@@ -262,6 +261,16 @@
             align-items: flex-start;
             gap: 1.2rem;
             transition: all 0.3s ease;
+            min-width: 0;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+        .cert-card > div:last-child {
+            min-width: 0;
+            flex: 1;
+        }
+        .cert-card a {
+            word-break: break-all;
         }
         .cert-card:hover {
             transform: translateY(-4px);
@@ -404,9 +413,33 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
         }
 
-        .skills-section-content { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem; align-items: center; }
-        @media (max-width: 850px) {
-            .skills-section-content { grid-template-columns: 1fr; }
+        .skills-grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-group-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .skill-group-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-hover);
+        }
+        .skill-group-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .tag { 
@@ -895,7 +928,7 @@
                 <div>
                     <span class="company" style="font-size:1.15rem;">agente-escritor</span>
                     <span class="role" style="font-weight:600; font-size:0.95rem;">Pipeline multi-agente de redacción</span>
-                    <p style="font-size:0.85rem; color:var(--text-light); margin:6px 0 10px 0; line-height:1.5;">Pipeline de fases (INGEST→RESEARCH→WRITE→REVIEW→REFINE→FINALIZE) con RAG, investigación web y evaluación de calidad. Interfaz Streamlit.</p>
+                    <p style="font-size:0.85rem; color:var(--text-light); margin:6px 0 10px 0; line-height:1.5;">Pipeline por fases (Ingest &rarr; Research &rarr; Write &rarr; Review &rarr; Refine &rarr; Finalize) con RAG, investigación web profunda y evaluación de calidad. Interfaz Streamlit.</p>
                     <span class="tag" style="font-size:0.75rem;">Python</span> <span class="tag" style="font-size:0.75rem;">RAG</span> <span class="tag" style="font-size:0.75rem;">Streamlit</span><br>
                     <a href="https://github.com/arulcancela/agente-escritor" target="_blank" rel="noopener" style="font-size:0.85rem; font-weight:600;">github.com/arulcancela/agente-escritor →</a>
                 </div>
@@ -956,30 +989,28 @@
     <section id="skills" class="fade-in">
         <div class="section-header"><h3 class="section-title"><i class="fas fa-code section-icon"></i> Stack Tecnológico & Habilidades</h3></div>
         
-        <div class="skills-section-content">
-            <div style="background: var(--surface); padding: 1.5rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow);">
-                <canvas id="skillsChart"></canvas>
-            </div>
-
-            <div>
-                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
-                    <i class="fas fa-brain" style="color: var(--accent); margin-right: 6px;"></i> Orquestación de IA & Entornos Agénticos:
-                </p>
-                <div style="margin-bottom: 20px;">
+        <div class="skills-grid-wrapper">
+            <div class="skill-group-card">
+                <div class="skill-group-card-title">
+                    <i class="fas fa-brain" style="color: var(--accent);"></i> Orquestación de IA & Entornos Agénticos
+                </div>
+                <div>
                     <span class="tag"><i class="fas fa-robot"></i> Google Antigravity (Agentic Dev)</span>
-                    <span class="tag"><i class="fas fa-code"></i> Google Claude Code</span>
-                    <span class="tag"><i class="fas fa-terminal"></i> AI Orchestration / Prompt Engineering</span>
-                    <span class="tag"><i class="fab fa-google"></i> Gemini</span>
-                    <span class="tag"><i class="fas fa-code-branch"></i> Deepseek API</span>
-                    <span class="tag"><i class="fas fa-atom"></i> Claude</span>
+                    <span class="tag"><i class="fas fa-code"></i> Claude Code</span>
+                    <span class="tag"><i class="fas fa-terminal"></i> Prompt Chaining Avanzado</span>
+                    <span class="tag"><i class="fab fa-google"></i> Gemini API</span>
+                    <span class="tag"><i class="fas fa-code-branch"></i> DeepSeek API</span>
+                    <span class="tag"><i class="fas fa-atom"></i> Claude API</span>
                     <span class="tag"><i class="fas fa-comments"></i> ChatGPT</span>
                     <span class="tag"><i class="fas fa-vial"></i> Testeo Iterativo (AI-Coding)</span>
                 </div>
+            </div>
 
-                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
-                    <i class="fas fa-laptop-code" style="color: var(--accent); margin-right: 6px;"></i> Vibe Coding & Automatización Políglota:
-                </p>
-                <div style="margin-bottom: 20px;">
+            <div class="skill-group-card">
+                <div class="skill-group-card-title">
+                    <i class="fas fa-laptop-code" style="color: var(--primary);"></i> Vibe Coding & Automatización Políglota
+                </div>
+                <div>
                     <span class="tag"><i class="fas fa-magic"></i> Vibe Coding (GAM & Python)</span>
                     <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
                     <span class="tag"><i class="fab fa-python"></i> Python Enterprise</span>
@@ -987,11 +1018,13 @@
                     <span class="tag"><i class="fas fa-terminal"></i> Bash Scripting</span>
                     <span class="tag"><i class="fas fa-project-diagram"></i> Adaptabilidad Políglota con IA</span>
                 </div>
+            </div>
 
-                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
-                    <i class="fas fa-cloud" style="color: var(--primary); margin-right: 6px;"></i> Arquitectura Cloud & Ecosistemas Híbridos:
-                </p>
-                <div style="margin-bottom: 20px;">
+            <div class="skill-group-card">
+                <div class="skill-group-card-title">
+                    <i class="fas fa-cloud" style="color: var(--primary);"></i> Arquitectura Cloud & Ecosistemas Híbridos
+                </div>
+                <div>
                     <span class="tag"><i class="fab fa-google"></i> Google Workspace Enterprise</span>
                     <span class="tag"><i class="fas fa-exchange-alt"></i> Coexistencia Híbrida Office 365</span>
                     <span class="tag"><i class="fas fa-user-shield"></i> GCP IAM & Directory Sync</span>
@@ -999,27 +1032,32 @@
                     <span class="tag"><i class="fas fa-layer-group"></i> LumApps Deployment</span>
                     <span class="tag"><i class="fas fa-headset"></i> Soporte L4 (Google Delegated)</span>
                 </div>
-                
-                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
-                    <i class="fas fa-server" style="color: var(--primary); margin-right: 6px;"></i> Infraestructura Maker & LLMs Locales:
-                </p>
-                <div style="margin-bottom: 20px;">
+            </div>
+
+            <div class="skill-group-card">
+                <div class="skill-group-card-title">
+                    <i class="fas fa-server" style="color: var(--accent);"></i> Infraestructura Maker & LLMs Locales
+                </div>
+                <div>
                     <span class="tag"><i class="fas fa-hdd"></i> Ollama (Modelos en Local)</span>
                     <span class="tag"><i class="fas fa-network-wired"></i> Agentes de IA en PC vía API</span>
-                    <span class="tag"><i class="fas fa-home"></i> Home Assistant</span>
+                    <span class="tag"><i class="fas fa-home"></i> Home Assistant IoT</span>
                     <span class="tag"><i class="fas fa-microchip"></i> Raspberry Pi</span>
                     <span class="tag"><i class="fas fa-shield-virus"></i> Pi-hole (DNS Seguro)</span>
                     <span class="tag"><i class="fas fa-chart-line"></i> Bots de Trading</span>
                 </div>
-                
-                <p style="margin-bottom:12px; font-weight:700; color: var(--secondary); font-size: 1.05rem;">
-                    <i class="fas fa-globe-europe" style="color: var(--success); margin-right: 6px;"></i> Idiomas & Metodología:
-                </p>
+            </div>
+
+            <div class="skill-group-card" style="grid-column: 1 / -1;">
+                <div class="skill-group-card-title">
+                    <i class="fas fa-globe-europe" style="color: var(--success);"></i> Idiomas, Liderazgo & Metodología
+                </div>
                 <div style="display: flex; flex-wrap: wrap;">
                     <span class="tag"><i class="fas fa-language"></i> Inglés (Full Professional - C1)</span>
                     <span class="tag"><i class="fas fa-language"></i> Español (Nativo)</span>
                     <span class="tag"><i class="fas fa-laptop-house"></i> Remoto / Remote-First</span>
-                    <span class="tag"><i class="fas fa-users"></i> Mentoría Técnica (10+ Agentes)</span>
+                    <span class="tag"><i class="fas fa-users"></i> Liderazgo Técnico (10+ Ingenieros)</span>
+                    <span class="tag"><i class="fas fa-tasks"></i> Gestión de SLAs & Jira Service Desk</span>
                 </div>
             </div>
         </div>
@@ -1063,7 +1101,6 @@
         const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', nextTheme);
         icon.className = nextTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        updateChartColor(nextTheme === 'dark'); 
     });
 
     // Inicializar Icono al inicio
@@ -1127,56 +1164,6 @@
         });
     });
     document.querySelector('.metrics-grid') && counterObserver.observe(document.querySelector('.metrics-grid'));
-
-    // Configuración de Chart.js
-    const ctx = document.getElementById('skillsChart').getContext('2d');
-    let skillsChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: [
-                'Orquestación de IA (LLMs & APIs)', 
-                'Google Workspace Enterprise', 
-                'Automatización Asistida (AI-Coding)', 
-                'GAM & Scripting (Python/Bash)', 
-                'Soporte L4 & Escalados Google', 
-                'Estrategia Cloud & Coexistencia'
-            ],
-            datasets: [{
-                label: 'Nivel de Especialidad',
-                data: [98, 100, 95, 95, 95, 92],
-                backgroundColor: 'rgba(59, 130, 246, 0.18)',
-                borderColor: '#3b82f6',
-                pointBackgroundColor: '#8b5cf6',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: '#8b5cf6',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            scales: { 
-                r: { 
-                    angleLines: { color: 'rgba(255, 255, 255, 0.08)' }, 
-                    grid: { color: 'rgba(255, 255, 255, 0.08)' }, 
-                    pointLabels: { font: { size: 11, family: 'Plus Jakarta Sans', weight: '600' }, color: '#cbd5e1' }, 
-                    ticks: { display: false },
-                    min: 0,
-                    max: 100
-                } 
-            },
-            plugins: { legend: { display: false } }
-        }
-    });
-
-    function updateChartColor(isDark) {
-        const gridColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.08)';
-        const textColor = isDark ? '#cbd5e1' : '#475569';
-        skillsChart.options.scales.r.angleLines.color = gridColor;
-        skillsChart.options.scales.r.grid.color = gridColor;
-        skillsChart.options.scales.r.pointLabels.color = textColor;
-        skillsChart.update();
-    }
-    updateChartColor(document.documentElement.getAttribute('data-theme') === 'dark');
 
     // Datos del Simulador de Automatización Workspace & IA
     const scenarios = {
