@@ -3,1314 +3,1489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Raúl Cancela - AI-Augmented Engineer & Cloud Automation Architect. Físico orquestando soluciones con Gemini, Deepseek y Claude. Arquitecturas Cloud, entornos híbridos, vibe coding con Google Antigravity y Claude Code.">
-    <title>Raúl Cancela | AI-Augmented Engineer & Cloud Automation Architect</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Raúl Cancela | Google Workspace, M365 y automatización con IA</title>
+    <meta name="description" content="Arquitecto cloud en Madrid. Coexistencia M365 y Google Workspace, automatización con Python y GAM, y agentes de IA validados con tests.">
+    <link rel="canonical" href="https://arulcancela.github.io/">
+
+    <!-- Metadatos Open Graph -->
+    <meta property="og:title" content="Raúl Cancela | Google Workspace, M365 y automatización con IA">
+    <meta property="og:description" content="Arquitecto cloud en Madrid. Coexistencia M365 y Google Workspace, automatización con Python y GAM, y agentes de IA validados con tests.">
+    <meta property="og:image" content="https://arulcancela.github.io/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://arulcancela.github.io/">
+    <meta property="og:type" content="website">
+
+    <!-- Metadatos Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Raúl Cancela | Google Workspace, M365 y automatización con IA">
+    <meta name="twitter:description" content="Arquitecto cloud en Madrid. Coexistencia M365 y Google Workspace, automatización con Python y GAM, y agentes de IA validados con tests.">
+    <meta name="twitter:image" content="https://arulcancela.github.io/og-image.jpg">
+
+    <!-- Iconos -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Datos estructurados JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Raúl Cancela",
+      "jobTitle": "Arquitecto Cloud & Automatización con IA",
+      "description": "Arquitecto cloud especializado en coexistencia de Microsoft 365 y Google Workspace, automatización masiva con Python y GAM, y agentes de IA validados con pruebas.",
+      "url": "https://arulcancela.github.io/",
+      "image": "https://arulcancela.github.io/profile-pic.webp",
+      "email": "mailto:arulcancela@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Madrid",
+        "addressCountry": "ES"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/arulcancela",
+        "https://github.com/arulcancela"
+      ],
+      "knowsAbout": [
+        "Google Workspace",
+        "Microsoft 365",
+        "Arquitectura Cloud",
+        "Python",
+        "GAM",
+        "Google Apps Script",
+        "Agentes de Inteligencia Artificial"
+      ]
+    }
+    </script>
 
     <style>
         :root {
-            --primary: #2563eb; 
-            --primary-glow: rgba(37, 99, 235, 0.15);
-            --primary-dark: #1e40af;
-            --secondary: #0f172a; 
-            --accent: #8b5cf6;
-            --accent-glow: rgba(139, 92, 246, 0.15);
-            --success: #10b981;
-            
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-body: #f8fafc; 
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --primary-soft: rgba(37, 99, 235, 0.12);
+            --secondary: #0f172a;
+            --accent: #7c3aed;
+            --accent-soft: rgba(124, 58, 237, 0.12);
+            --success: #059669;
+            --success-soft: rgba(5, 150, 105, 0.12);
+            --bg-body: #f8fafc;
             --surface: #ffffff;
             --surface-hover: #f1f5f9;
             --border: #e2e8f0;
-            --radius: 20px;
-            --radius-sm: 10px;
-            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 10px -1px rgba(15, 23, 42, 0.03);
-            --shadow-hover: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 10px 20px -5px rgba(15, 23, 42, 0.06);
-            
-            --tag-bg: #eff6ff;
-            --tag-text: #1e40af;
-            --tag-border: rgba(37, 99, 235, 0.1);
+            --border-hover: #cbd5e1;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --code-bg: #0f172a;
+            --code-text: #f1f5f9;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-pill: 9999px;
+            --shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+            --shadow-hover: 0 16px 32px -4px rgba(15, 23, 42, 0.1);
         }
 
         [data-theme="dark"] {
-            --primary: #3b82f6; 
-            --primary-glow: rgba(59, 130, 246, 0.25);
-            --primary-dark: #60a5fa;
-            --secondary: #f8fafc; 
+            --primary: #3b82f6;
+            --primary-hover: #60a5fa;
+            --primary-soft: rgba(59, 130, 246, 0.18);
+            --secondary: #f8fafc;
             --accent: #a78bfa;
-            --accent-glow: rgba(167, 139, 250, 0.25);
-            
-            --text-main: #cbd5e1;
-            --text-light: #94a3b8;
-            --bg-body: #0b0f19; 
+            --accent-soft: rgba(167, 139, 250, 0.18);
+            --success: #10b981;
+            --success-soft: rgba(16, 185, 129, 0.18);
+            --bg-body: #0b0f19;
             --surface: #111827;
-            --surface-hover: #1f2937;
-            --border: rgba(255, 255, 255, 0.08);
-            --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-            --shadow-hover: 0 20px 45px -5px rgba(0, 0, 0, 0.6);
-            
-            --tag-bg: rgba(59, 130, 246, 0.1);
-            --tag-text: #93c5fd;
-            --tag-border: rgba(59, 130, 246, 0.2);
+            --surface-hover: #1e293b;
+            --border: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(255, 255, 255, 0.22);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --code-bg: #030712;
+            --code-text: #e2e8f0;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+            --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.65);
         }
-        
-        * { box-sizing: border-box; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            margin: 0;
-            line-height: 1.7;
+            line-height: 1.65;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, .company, .card-title { font-family: 'Outfit', sans-serif; color: var(--secondary); }
-
-        .progress-bar {
-            position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0%; z-index: 1001; transition: width 0.1s;
+        /* Accesibilidad: enlace de salto */
+        .skip-link {
+            position: absolute;
+            top: -120px;
+            left: 16px;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 12px 20px;
+            z-index: 10000;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            text-decoration: none;
+            transition: top 0.2s ease;
         }
 
-        .floating-controls {
-            position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 15px;
+        .skip-link:focus {
+            top: 16px;
+            outline: 3px solid #ffffff;
         }
 
-        .theme-toggle {
-            background: var(--surface); border: 1px solid var(--border); color: var(--text-main); width: 45px; height: 45px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
-            box-shadow: var(--shadow); transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        .theme-toggle:hover { transform: scale(1.1); border-color: var(--primary); color: var(--primary); }
-
-        .page-nav ul { list-style: none; padding: 0; margin: 0; }
-        .nav-dot { width: 12px; height: 12px; background: var(--border); border-radius: 50%; display: block; margin: 10px auto; transition: all 0.3s; cursor: pointer; }
-        .nav-dot.active { background: var(--primary); transform: scale(1.3); box-shadow: 0 0 10px var(--primary-glow); }
-
-        header {
-            background: url('cover.jpg') no-repeat center center; background-size: cover; background-color: #1e3a8a; 
-            background-attachment: fixed; padding: 7rem 2rem 5rem 2rem; text-align: center;
-            position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
-        }
-        
-        header::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-            background: rgba(15, 23, 42, 0.85); z-index: 1;
+        :focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 3px;
         }
 
-        header > div {
-            position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
+        /* Barra de navegación superior */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
         }
 
-        header h1 {
-            color: #ffffff !important;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
         }
 
-        header h2 {
-            color: #e2e8f0 !important;
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+        .brand-link {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            letter-spacing: -0.3px;
         }
 
-        .profile-container {
-            position: relative; display: inline-block; margin-bottom: 1.5rem;
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        .profile-pic {
-            width: 170px; height: 170px; border-radius: 50%; border: 4px solid var(--surface); box-shadow: var(--shadow);
-            object-fit: cover; background-color: var(--surface); transition: transform 0.5s ease;
-        }
-        
-        .profile-container:hover .profile-pic { transform: scale(1.05) rotate(2deg); }
-
-        .physics-badge {
-            position: absolute; bottom: 5px; right: 5px; background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white; border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 3px solid var(--surface);
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
-        .badges-wrapper {
-            display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 15px;
+        .nav-link:hover {
+            color: var(--primary);
         }
 
-        .remote-badge {
-            display: inline-flex; align-items: center; gap: 8px; background: var(--tag-bg);
-            padding: 8px 18px; border-radius: 50px; font-size: 0.88rem;
-            border: 1px solid var(--tag-border); font-weight: 600; color: var(--tag-text);
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .ai-badge {
-            background: rgba(139, 92, 246, 0.15); border-color: var(--accent-glow); color: var(--accent);
+        .btn-theme {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-pill);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
         }
-        
+
+        .btn-theme:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-theme svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background-color: #0b0f19;
+            background-image: linear-gradient(180deg, rgba(11, 15, 25, 0.88) 0%, rgba(11, 15, 25, 0.96) 100%), url('cover.webp');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 5.5rem 1.5rem 4.5rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .avatar-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            background-color: #111827;
+        }
+
+        .hero h1 {
+            margin: 0 0 1rem 0;
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .hero-lead {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 780px;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .badge-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #34d399;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
         .pulse-dot {
-            width: 8px; height: 8px; background-color: var(--success); border-radius: 50%; display: inline-block;
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse 1.8s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-        
-        h1 { margin: 0; font-size: 3.8rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; }
-        .gradient-text {
-            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #c4b5fd 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        h2 { font-weight: 600; font-size: 1.5rem; max-width: 900px; margin: 1.2rem auto 0 auto; color: #f8fafc; }
-
-        .headline-sub {
-            color: #cbd5e1; font-size: 1.05rem; max-width: 850px; margin: 0.8rem auto 0 auto; line-height: 1.6; font-weight: 400;
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
         }
 
-        .btn-header {
-            padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600;
-            display: inline-flex; align-items: center; gap: 10px;
-            transition: all 0.3s ease; margin: 5px; cursor: pointer; border: 1px solid transparent; font-family: inherit; font-size: 0.95rem;
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
         }
-        .btn-contact { background: var(--primary); color: white; box-shadow: 0 4px 15px var(--primary-glow); }
-        .btn-contact:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow); }
-        
-        .btn-download { background: var(--surface); color: var(--text-main); border-color: var(--border); box-shadow: var(--shadow); }
-        .btn-download:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-        
-        .btn-linkedin { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border-color: var(--accent-glow); }
-        .btn-linkedin:hover { background: var(--accent); color: white; transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
-        .btn-github { background: rgba(148, 163, 184, 0.15); color: var(--text-main); border-color: var(--border); }
-        .btn-github:hover { background: #24292e; color: white; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(148, 163, 184, 0.3); }
 
-        .container { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; position: relative; z-index: 2; }
-        section { margin-bottom: 6rem; scroll-margin-top: 100px; }
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        .section-header { display: flex; align-items: center; margin-bottom: 2.5rem; }
-        .section-title { font-size: 2rem; color: var(--secondary); font-weight: 800; margin: 0; position: relative; display: flex; align-items: center; gap: 14px; }
-        .section-title::after {
-            content: ''; display: inline-block; width: 60px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 2px; margin-left: 15px;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 26px;
+            border-radius: var(--radius-pill);
+            font-size: 0.98rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
         }
-        .section-icon { color: var(--primary); font-size: 1.5rem; }
 
-        /* Estilo de Tarjetas y Glassmorphism */
-        .card { 
-            background: var(--surface); padding: 2.5rem; border-radius: var(--radius); margin-bottom: 2rem; 
-            box-shadow: var(--shadow); border: 1px solid var(--border); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
-            position: relative; overflow: hidden;
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
         }
-        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(59, 130, 246, 0.3); }
 
-        /* Maker Lab & Local AI Grid */
-        .maker-grid {
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: var(--surface);
+            color: var(--text-main);
+            border-color: var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Secciones */
+        section {
+            padding: 4.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            margin: 0;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        /* Tarjetas */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Rejilla de métricas */
+        .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
-        .maker-card {
+
+        .metric-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .metric-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .tag-tests {
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            white-space: nowrap;
+        }
+
+        [data-theme="dark"] .tag-tests {
+            background: rgba(30, 58, 138, 0.45);
+            color: #bfdbfe;
+            border: 1px solid rgba(96, 165, 250, 0.35);
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0 0 1.25rem 0;
+            line-height: 1.55;
+        }
+
+        .project-links {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .link-text {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .link-text:hover {
+            text-decoration: underline;
+        }
+
+        .link-text svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        .other-projects {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem 1.5rem;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Línea de tiempo de experiencia */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .job-card {
+            border-left: 4px solid var(--primary);
+        }
+
+        .job-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .job-company {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .job-period {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--surface-hover);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border);
+        }
+
+        .job-role {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0 0 0.8rem 0;
+        }
+
+        .job-desc {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .job-desc li {
+            margin-bottom: 0.4rem;
+            line-height: 1.55;
+        }
+
+        .freelance-summary {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.2rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-download-notice {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cv-download-notice p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .cv-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Banner de llamada a la acción intermedia */
+        .cta-banner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            margin: 3.5rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-banner h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0 0 0.75rem 0;
+        }
+
+        .cta-banner p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin: 0 0 1.5rem 0;
+        }
+
+        /* Cómo trabajo */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+        }
+
+        .service-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0 0 0.6rem 0;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        .stack-line {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.4rem;
+            font-size: 0.92rem;
+            color: var(--text-main);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Cómo abordo una automatización */
+        .method-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .method-block h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0 0 1.5rem 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-item {
             background: var(--surface-hover);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             padding: 1.2rem;
-            transition: all 0.3s ease;
         }
-        .maker-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px var(--accent-glow);
+
+        .step-num {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
         }
-        .maker-card-icon {
-            font-size: 1.6rem;
-            color: var(--accent);
-            margin-bottom: 0.6rem;
-        }
-        .maker-card-title {
-            font-size: 0.98rem;
+
+        .step-title {
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--secondary);
-            margin-bottom: 0.35rem;
+            margin: 0 0 0.35rem 0;
         }
-        .maker-card-desc {
-            font-size: 0.83rem;
-            color: var(--text-light);
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
             line-height: 1.45;
+        }
+
+        /* Casos de automatización interactivos y estáticos */
+        .scenarios-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .scenario-tab {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .scenario-tab.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .code-container {
+            background: var(--code-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .code-snippet {
+            margin: 0;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+            font-size: 0.86rem;
+            line-height: 1.6;
+            color: var(--code-text);
+            white-space: pre;
+        }
+
+        .footnote {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-style: normal;
             margin: 0;
         }
 
-        /* Certificaciones Grid */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 1.5rem;
-        }
-        .cert-card {
+        /* Contacto */
+        .contact-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.8rem;
+            padding: 3rem 2rem;
+            text-align: center;
             box-shadow: var(--shadow);
-            display: flex;
-            align-items: flex-start;
-            gap: 1.2rem;
-            transition: all 0.3s ease;
-            min-width: 0;
-            overflow-wrap: break-word;
-            word-break: break-word;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .cert-card > div:last-child {
-            min-width: 0;
-            flex: 1;
+
+        .contact-card h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
         }
-        .cert-card a {
+
+        .contact-lead {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin: 0 auto 1.5rem auto;
+            max-width: 650px;
+            line-height: 1.55;
+        }
+
+        .contact-email-link {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
             word-break: break-all;
         }
-        .cert-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary);
+
+        .contact-email-link:hover {
+            text-decoration: underline;
         }
-        .cert-icon-wrapper {
-            background: var(--tag-bg);
-            color: var(--primary);
+
+        .contact-social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        /* Pie de página */
+        footer {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0.25rem 0;
+        }
+
+        /* Botón flotante accesible de contacto rápido */
+        .floating-cta {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--primary);
+            color: #ffffff;
             width: 52px;
             height: 52px;
-            border-radius: 14px;
-            display: flex;
+            border-radius: 50%;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        /* Línea de tiempo de experiencia */
-        .timeline {
-            position: relative; padding-left: 30px; border-left: 2px solid var(--border); margin-left: 10px;
-        }
-        .timeline-item {
-            position: relative; margin-bottom: 3.5rem;
-        }
-        .timeline-item::before {
-            content: ''; position: absolute; left: -41px; top: 8px; width: 20px; height: 20px;
-            border-radius: 50%; background: var(--surface); border: 4px solid var(--primary);
-            box-shadow: 0 0 0 4px var(--bg-body); transition: all 0.3s ease;
-        }
-        .timeline-item:hover::before {
-            background: var(--accent); border-color: var(--accent); transform: scale(1.2);
-        }
-        .timeline-item.current::before {
-            border-color: var(--success);
-        }
-        
-        .job-meta {
-            display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;
-        }
-        .company { font-size: 1.35rem; font-weight: 800; color: var(--secondary); display: flex; align-items: center; gap: 10px; }
-        .role { color: var(--primary); font-weight: 700; font-size: 1.05rem; display: block; margin-top: 4px; }
-        .date { font-size: 0.85rem; color: var(--text-light); font-weight: 600; background: var(--surface-hover); padding: 6px 14px; border-radius: 30px; border: 1px solid var(--border); }
-        
-        .job-details { margin: 0; padding-left: 1.2rem; }
-        .job-details li { margin-bottom: 0.6rem; line-height: 1.6; }
-        .job-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.2rem; }
-        .job-tag { font-size: 0.75rem; background: var(--surface-hover); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; color: var(--text-light); font-weight: 600; }
-
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
-        .metric-card { 
-            background: var(--surface); padding: 2rem; border-radius: var(--radius); text-align: center; 
-            border: 1px solid var(--border); box-shadow: var(--shadow); position: relative; overflow: hidden;
-        }
-        .metric-card::after {
-            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent));
-        }
-        .metric-number { font-size: 3rem; font-weight: 800; color: var(--primary); display: block; line-height: 1.1; margin-bottom: 5px; }
-        .metric-label { font-size: 0.85rem; color: var(--text-light); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;}
-
-        /* Workspace Automation & AI Simulator */
-        .sim-container {
-            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-            box-shadow: var(--shadow); overflow: hidden; display: grid; grid-template-columns: 330px 1fr;
-            margin-top: 2rem; min-height: 560px;
-        }
-        @media (max-width: 900px) {
-            .sim-container { grid-template-columns: 1fr; }
-        }
-        
-        .sim-sidebar {
-            background: var(--surface-hover); border-right: 1px solid var(--border); padding: 1.8rem;
-            display: flex; flex-direction: column; gap: 14px;
-        }
-        .sim-content {
-            padding: 2rem; display: flex; flex-direction: column;
-        }
-        .sim-preset-btn {
-            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
-            padding: 1rem; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 6px;
-            transition: all 0.2s ease;
-        }
-        .sim-preset-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
-        .sim-preset-btn.active { border-color: var(--primary); background: var(--tag-bg); box-shadow: 0 4px 12px var(--primary-glow); }
-        .sim-preset-title { font-weight: 700; font-size: 0.95rem; color: var(--secondary); display: flex; align-items: center; gap: 8px; }
-        .sim-preset-desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.4; }
-        
-        .sim-custom-input {
-            margin-top: auto; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border); padding-top: 15px;
-        }
-        .sim-input-box {
-            width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
-            background: var(--surface); color: var(--text-main); font-family: inherit; font-size: 0.85rem;
-            resize: none;
-        }
-        .sim-input-box:focus { outline: none; border-color: var(--accent); }
-        .sim-run-btn {
-            background: linear-gradient(135deg, var(--primary), var(--accent)); color: white;
-            border: none; padding: 10px 15px; border-radius: 8px; font-weight: 600; font-size: 0.85rem;
-            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
-            box-shadow: 0 4px 12px var(--accent-glow);
-        }
-        
-        .sim-tabs-header {
-            display: flex; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 1.5rem; flex-wrap: wrap;
-        }
-        .sim-tab-btn {
-            background: none; border: 1px solid transparent; color: var(--text-light);
-            padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.85rem; cursor: pointer;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .sim-tab-btn.active {
-            background: var(--tag-bg); color: var(--primary); border-color: var(--tag-border);
-        }
-        
-        .sim-display-area {
-            flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start;
-        }
-        .sim-pane { display: none; font-size: 0.95rem; line-height: 1.6; }
-        .sim-pane.active { display: block; }
-        
-        .code-block {
-            background: #0f172a; color: #e2e8f0; font-family: 'Fira Code', 'Courier New', Courier, monospace;
-            padding: 1.5rem; border-radius: 12px; overflow-x: auto; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05);
-            margin: 0; white-space: pre-wrap; word-wrap: break-word;
-        }
-        .sim-status {
-            display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-light);
-            margin-bottom: 1rem; background: var(--surface-hover); padding: 8px 15px; border-radius: 8px;
-            border: 1px solid var(--border); font-weight: 600;
-        }
-        .sim-pulse-yellow {
-            width: 8px; height: 8px; background-color: #f59e0b; border-radius: 50%;
-            animation: pulse-y 1.5s infinite;
-        }
-        @keyframes pulse-y {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            z-index: 800;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
-        .skills-grid-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+        .floating-cta:hover {
+            transform: scale(1.08);
+            background: var(--primary-hover);
         }
-        .skill-group-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-        .skill-group-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-hover);
-        }
-        .skill-group-card-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.08rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .tag { 
-            display: inline-flex; align-items: center; gap: 8px; background: var(--tag-bg); 
-            padding: 7px 15px; border-radius: 50px; font-size: 0.85rem; color: var(--tag-text); 
-            font-weight: 600; border: 1px solid var(--tag-border); margin: 0 6px 8px 0; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: all 0.2s ease; 
-        }
-        .tag i { color: var(--primary); font-size: 0.95em; }
-        .tag:hover { background-color: var(--surface); border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 12px var(--primary-glow); transform: translateY(-2px); }
 
-        .freelance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-        footer { text-align: center; padding: 4rem 2rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 5rem; background: var(--surface); }
-        
-        .float-contact { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 20px var(--primary-glow); transition: transform 0.3s; z-index: 99; text-decoration: none; }
-        .float-contact:hover { transform: scale(1.1) rotate(8deg); }
+        .floating-cta svg {
+            width: 22px;
+            height: 22px;
+            fill: #ffffff;
+        }
 
+        /* Ajustes adaptativos */
         @media (max-width: 768px) {
-            h1 { font-size: 2.6rem; }
-            h2 { font-size: 1.25rem; }
-            .floating-controls { top: auto; bottom: 20px; left: 20px; right: auto; transform: none; flex-direction: row; }
-            .page-nav { display: none; } 
-            .job-meta { flex-direction: column; align-items: flex-start; }
-            .date { margin-top: 5px; }
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                padding: 4rem 1.2rem 3.5rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-lead {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.7rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-email-link {
+                font-size: 1.25rem;
+            }
+
+            .cta-banner {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .contact-card {
+                padding: 2rem 1.2rem;
+            }
+        }
+
+        /* Respetar preferencia de reducción de movimiento */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
 
         @media print {
-            body { background: white; color: black; }
-            header { background: none !important; color: black; padding: 2rem 0; margin-bottom: 2rem; border-bottom: 2px solid #333; }
-            .profile-pic, .floating-controls, .float-contact, .progress-bar, .sim-container, .theme-toggle, .physics-badge { display: none !important; }
-            h1, h2, .headline-sub { color: black !important; text-shadow: none !important; background: none !important; -webkit-text-fill-color: initial !important; }
-            .card, .metric-card, .cert-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 1.5rem; }
-            .skills-section-content { display: block; }
-            .timeline { border-left: none; padding-left: 0; }
-            .timeline-item::before { display: none; }
-            canvas { max-height: 250px; margin: 0 auto; display: block; }
+            .site-nav, .floating-cta, .btn-theme, .hero-buttons, .scenarios-selector {
+                display: none !important;
+            }
+
+            body {
+                background: #ffffff;
+                color: #000000;
+            }
+
+            .hero {
+                background: none !important;
+                color: #000000 !important;
+                padding: 1rem 0;
+            }
+
+            .hero h1, .hero-lead {
+                color: #000000 !important;
+            }
+
+            .card, .metric-card {
+                box-shadow: none;
+                border: 1px solid #cccccc;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
+    <!-- Enlace accesible de salto al contenido -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-<div class="floating-controls">
-    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"><i class="fas fa-sun"></i></button>
-    <nav class="page-nav">
-        <ul>
-            <li><a href="#inicio" class="nav-dot active" title="Inicio"></a></li>
-            <li><a href="#perfil" class="nav-dot" title="Perfil & IA Maker"></a></li>
-            <li><a href="#experiencia" class="nav-dot" title="Experiencia"></a></li>
-            <li><a href="#freelance" class="nav-dot" title="Consultoría"></a></li>
-            <li><a href="#proyectos" class="nav-dot" title="Proyectos Destacados"></a></li>
-            <li><a href="#ai-lab" class="nav-dot" title="Simulador IA"></a></li>
-            <li><a href="#certificaciones" class="nav-dot" title="Certificaciones"></a></li>
-            <li><a href="#skills" class="nav-dot" title="Skills & Stack"></a></li>
-            <li><a href="#educacion" class="nav-dot" title="Formación"></a></li>
-        </ul>
-    </nav>
-</div>
-
-<a href="mailto:arulcancela@gmail.com" class="float-contact" title="Enviar Email"><i class="fas fa-envelope"></i></a>
-
-<header id="inicio">
-    <div>
-        <div class="profile-container">
-            <img src="profile-pic.jpg" alt="Raúl Cancela" class="profile-pic" onerror="this.style.display='none'">
-            <div class="physics-badge" title="Física Aplicada & IA"><i class="fas fa-atom"></i></div>
-        </div>
-        <h1 class="gradient-text">Raúl Cancela</h1>
-        <h2>AI-Augmented Engineer & Cloud Automation Architect</h2>
-        <p class="headline-sub">
-            Físico orquestando soluciones con <strong>Gemini, Deepseek y Claude</strong> | Arquitecturas Cloud & Entornos Híbridos | <strong>Vibe Coding con Google Antigravity & Claude Code</strong>
-        </p>
-        
-        <div class="badges-wrapper">
-            <span style="opacity: 0.9; font-size: 0.92rem; font-weight: 500; color: #cbd5e1; display: inline-flex; align-items: center; gap: 6px;">
-                <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Madrid, España
-            </span>
-            <span class="remote-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;"><span class="pulse-dot"></span>Disponible · Incorporación Inmediata</span>
-            <span class="remote-badge"><i class="fas fa-laptop-house"></i> Remoto / Híbrido Madrid</span>
-            <span class="remote-badge ai-badge"><i class="fas fa-microchip"></i> Antigravity & Vibe Coding</span>
-        </div>
-        
-        <div style="margin-top: 2.2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
-            <a href="mailto:arulcancela@gmail.com" class="btn-header btn-contact"><i class="fas fa-envelope"></i> Contactar</a>
-            <a href="CV_Raul_Cancela_ES.pdf" download class="btn-header btn-download" title="Descargar CV en formato PDF (Español)"><i class="fas fa-file-pdf" style="color: #ef4444;"></i> CV Español (PDF)</a>
-            <a href="CV_Raul_Cancela_EN.pdf" download class="btn-header btn-download" title="Download CV in PDF format (English)"><i class="fas fa-file-pdf" style="color: #ef4444;"></i> CV English (PDF)</a>
-            <a href="https://github.com/arulcancela" target="_blank" class="btn-header btn-github"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/arulcancela" target="_blank" class="btn-header btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        </div>
-    </div>
-</header>
-
-<div class="container">
-
-    <section id="perfil" style="margin-top: 4rem;">
-        <div class="metrics-grid fade-in">
-            <div class="metric-card"><span class="metric-number" data-target="15" data-suffix="+">15+</span><span class="metric-label">Años de experiencia</span></div>
-            <div class="metric-card"><span class="metric-number" data-target="200" data-suffix="+">200+</span><span class="metric-label">Clientes internacionales en soporte L4</span></div>
-            <div class="metric-card"><span class="metric-number" data-target="2000" data-suffix="+">2.000</span><span class="metric-label">Usuarios migrados</span></div>
-        </div>
-
-        <div class="card fade-in">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                <span style="background: var(--tag-bg); color: var(--primary); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--tag-border);">
-                    <i class="fas fa-brain"></i> Filosofía de Ingeniero Aumentado
-                </span>
-                <span style="background: var(--surface-hover); color: var(--text-light); padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border);">
-                    <i class="fas fa-tools"></i> Constructor Nato (ISTP)
-                </span>
-            </div>
-
-            <p style="font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.8;">
-                Soy <strong>Físico de formación</strong> y un constructor nato (ISTP). Mi especialidad no es memorizar sintaxis ni escribir código boilerplate desde cero, sino <strong>orquestar Inteligencia Artificial (Gemini, Deepseek, Claude, ChatGPT)</strong> y entornos agénticos para diseñar, construir y desplegar soluciones tecnológicas complejas a un ritmo que multiplica mi productividad. Me defino como un <strong>AI-Augmented Engineer</strong>.
-            </p>
-            <p style="font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.8;">
-                A nivel profesional, cuento con <strong>15 años de experiencia</strong> en infraestructuras Cloud, entornos híbridos y migraciones Enterprise (con una sólida trayectoria en <strong>Google Workspace, Microsoft 365 y GCP</strong>). Mi base científica me confiere una alta capacidad de abstracción para entender la lógica de cualquier sistema y <strong>adaptarme ágilmente a nuevos stacks y plataformas en la nube</strong>.
-            </p>
-            <p style="font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--text-main); line-height: 1.8;">
-                Mi verdadero valor diferencial hoy radica en el dominio del <strong>desarrollo asistido por IA (<em>Vibe Coding</em>)</strong> con herramientas como <strong>Google Antigravity</strong> y <strong>Claude Code</strong>. Aplico este enfoque para orquestar automatizaciones masivas en <strong>GAM y Python</strong>, asimilar tecnologías en tiempo récord y construir soluciones en cualquier lenguaje guiando a la IA con rigor lógico y validación iterativa.
-            </p>
-            <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-main); line-height: 1.8;">
-                Busco retos en <strong>remoto</strong> donde pueda aplicar esta filosofía de <em>'Ingeniero Aumentado'</em>: usar la IA para multiplicar la eficiencia operativa, resolver problemas de arquitectura y automatizar procesos en cualquier ecosistema tecnológico.
-            </p>
-
-            <div style="border-top: 1px solid var(--border); padding-top: 1.8rem; margin-top: 1.5rem;">
-                <h4 style="font-size: 1.2rem; margin: 0 0 1rem 0; display: flex; align-items: center; gap: 10px; color: var(--secondary);">
-                    <i class="fas fa-microchip" style="color: var(--accent);"></i> Faceta Maker & Infraestructura Propia de IA
-                </h4>
-                <div class="maker-grid">
-                    <div class="maker-card">
-                        <div class="maker-card-icon"><i class="fas fa-server"></i></div>
-                        <div class="maker-card-title">LLMs Locales (Ollama)</div>
-                        <p class="maker-card-desc">Despliegue y ejecución privada de modelos LLM en local sin filtración de datos sensibles ni costes recurrentes.</p>
-                    </div>
-                    <div class="maker-card">
-                        <div class="maker-card-icon"><i class="fas fa-network-wired"></i></div>
-                        <div class="maker-card-title">Agentes vía API (Deepseek)</div>
-                        <p class="maker-card-desc">Agentes de IA autónomos integrados en PC para síntesis de código, auditorías de logs y resolución técnica continua.</p>
-                    </div>
-                    <div class="maker-card">
-                        <div class="maker-card-icon"><i class="fas fa-home"></i></div>
-                        <div class="maker-card-title">Domótica & Red Segura</div>
-                        <p class="maker-card-desc">Home Assistant en Raspberry Pi con Pi-hole para filtrado DNS de red, telemetría IoT y alta disponibilidad.</p>
-                    </div>
-                    <div class="maker-card">
-                        <div class="maker-card-icon"><i class="fas fa-robot"></i></div>
-                        <div class="maker-card-title">Bots de Trading Algorítmico</div>
-                        <p class="maker-card-desc">Flujos cuantitativos y automatización de datos de mercado en Python asistidos por modelos predictivos.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experiencia" class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-briefcase section-icon"></i> Experiencia Profesional</h3></div>
-
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <div class="card" style="border-left: 4px solid var(--primary);">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-car" style="color: var(--primary); font-size: 1.1rem;"></i> Volkswagen Group Services Iberia</span>
-                            <span class="role">Google Workspace Architect & Migration Lead</span>
-                        </div>
-                        <span class="date">Abr 2026 - Oct 2026 (7 meses) · Remoto</span>
-                    </div>
-                    <ul class="job-details">
-                        <li><strong>Estrategia Cloud:</strong> Liderazgo de la estrategia de coexistencia híbrida entre Office 365 y Google Workspace para la plantilla global.</li>
-                        <li><strong>Gestión del Cambio y Discovery:</strong> Dirección de la fase de Discovery, incluyendo auditoría de cumplimiento (Compliance), definición de políticas de administración y diseño de planes de migración de usuarios.</li>
-                        <li><strong>Investigación y análisis acelerado por IA:</strong> Uso diario de LLMs (especialmente con Gemini) como herramientas core para investigar, asimilar rápidamente conceptos técnicos complejos y generar documentación técnica detallada en tiempo récord.</li>
-                        <li><strong>Ingeniería de automatización asistida (AI-Coding):</strong> Dirección y testeo de la generación de código mediante IA para crear scripts complejos y soluciones a medida que facilitan la coexistencia de plataformas, optimizando tiempos de despliegue sin requerir un equipo de desarrollo tradicional.</li>
-                    </ul>
-                    <div class="job-tags">
-                        <span class="job-tag">Google Workspace</span>
-                        <span class="job-tag">Coexistencia Office 365</span>
-                        <span class="job-tag">Investigación con IA (Gemini)</span>
-                        <span class="job-tag">AI-Coding & Testeo Iterativo</span>
-                        <span class="job-tag">Compliance & Discovery</span>
-                        <span class="job-tag">GCP IAM</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="card">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-network-wired" style="color: var(--primary); font-size: 1.1rem;"></i> Inetum</span>
-                            <span class="role">Arquitecto de Soluciones Google Workspace</span>
-                        </div>
-                        <span class="date">Oct 2025 - Abr 2026 (7 meses) · Madrid</span>
-                    </div>
-                    <ul class="job-details">
-                        <li><strong>Líder de Migración:</strong> Gestión integral (end-to-end) de la migración crítica de 2.000 usuarios a Google Workspace.</li>
-                        <li><strong>Automatización Avanzada:</strong> Uso experto de GAM (Google Apps Manager) para extracción masiva de datos y scripting para automatizar la provisión, superando las limitaciones de la consola nativa.</li>
-                        <li><strong>Arquitectura Enterprise:</strong> Diseño de arquitecturas cloud seguras y escalables para clientes corporativos.</li>
-                    </ul>
-                    <div class="job-tags">
-                        <span class="job-tag">GAM (Google Apps Manager)</span>
-                        <span class="job-tag">Migración 2.000 Usuarios</span>
-                        <span class="job-tag">Google Workspace</span>
-                        <span class="job-tag">Scripting Automatizado</span>
-                        <span class="job-tag">Cloud Architecture</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="card">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-project-diagram" style="color: var(--primary); font-size: 1.1rem;"></i> Devoteam</span>
-                            <span class="role">Team Lead & Ingeniero de Soporte Senior (L4)</span>
-                        </div>
-                        <span class="date">May 2021 - Sep 2025 (4 años 5 meses) · Remoto / Madrid</span>
-                    </div>
-                    <ul class="job-details">
-                        <li><strong>Gestión Global (Remoto):</strong> Soporte técnico bilingüe a una cartera de +200 clientes internacionales en entornos distribuidos.</li>
-                        <li><strong>Ingeniería Experta (L4):</strong> Gestión de escalados críticos directamente con Ingeniería de Google, actuando como Superadmin delegado.</li>
-                        <li><strong>Calidad y Herramientas:</strong> Optimización de la gestión operativa mediante Jira y Freshdesk, logrando feedbacks consistentemente positivos.</li>
-                        <li><strong>Liderazgo:</strong> Mentoría técnica a un equipo de 10 agentes, asegurando cumplimiento riguroso de SLAs y excelencia técnica.</li>
-                    </ul>
-                    <div class="job-tags">
-                        <span class="job-tag">L4 Escalations Google</span>
-                        <span class="job-tag">Superadmin Delegado</span>
-                        <span class="job-tag">SLA Management</span>
-                        <span class="job-tag">Jira Service Desk</span>
-                        <span class="job-tag">Liderazgo de 10 Agentes</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="card">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-cloud" style="color: var(--primary); font-size: 1.1rem;"></i> Nubalia</span>
-                            <span class="role">Ingeniero de Operaciones Senior</span>
-                        </div>
-                        <span class="date">Abr 2019 - May 2021 (2 años 2 meses) · Madrid</span>
-                    </div>
-                    <ul class="job-details">
-                        <li><strong>Gestión del Cambio:</strong> Diseño de planes de comunicación y formación técnica para garantizar la adopción exitosa de la nube.</li>
-                        <li><strong>Consultoría Preventa:</strong> Apoyo técnico al equipo comercial para definir alcances y cerrar propuestas de valor.</li>
-                        <li><strong>Experto en Intranets:</strong> Referente técnico en LumApps, gestionando incidencias complejas y la relación directa con el fabricante.</li>
-                    </ul>
-                    <div class="job-tags">
-                        <span class="job-tag">LumApps Deployment</span>
-                        <span class="job-tag">Gestión del Cambio</span>
-                        <span class="job-tag">Consultoría Preventa</span>
-                        <span class="job-tag">Google Cloud Ecosystem</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="card">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-handshake" style="color: var(--primary); font-size: 1.1rem;"></i> Intelligence Partner - The Cloud Consulting Company</span>
-                            <span class="role">Ingeniero de Operaciones & Consultor Preventa</span>
-                        </div>
-                        <span class="date">Nov 2017 - Abr 2019 (1 año 6 meses) · Madrid</span>
-                    </div>
-                    <ul class="job-details">
-                        <li><strong>Migraciones Técnicas:</strong> Ejecución de proyectos de migración de datos para grandes cuentas, asegurando integridad y cero pérdida de datos.</li>
-                        <li><strong>Consultoría 360º:</strong> Gestión del ciclo completo: Preventa (toma de requisitos) &rarr; Migración &rarr; Formación &rarr; Soporte.</li>
-                        <li><strong>Formador Técnico:</strong> Desplazamientos a sedes de clientes nacionales para impartir formación especializada.</li>
-                    </ul>
-                    <div class="job-tags">
-                        <span class="job-tag">Migraciones Enterprise</span>
-                        <span class="job-tag">Consultoría 360º</span>
-                        <span class="job-tag">Integridad de Datos</span>
-                        <span class="job-tag">Formación Técnica</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="card">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-chart-line" style="color: var(--primary); font-size: 1.1rem;"></i> Grupo MASMOVIL</span>
-                            <span class="role">Analista de Datos</span>
-                        </div>
-                        <span class="date">Sep 2017 - Nov 2017 (3 meses) · Madrid</span>
-                    </div>
-                    <p style="margin:0; color: var(--text-main); line-height: 1.6;">Análisis de datos avanzado y reporting corporativo mediante Excel.</p>
-                    <div class="job-tags">
-                        <span class="job-tag">Excel Analytics</span>
-                        <span class="job-tag">Reporting Corporativo</span>
-                        <span class="job-tag">Análisis de Datos</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="card">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-globe" style="color: var(--primary); font-size: 1.1rem;"></i> Accenture España</span>
-                            <span class="role">Consultor IT (Proyecto Internacional)</span>
-                        </div>
-                        <span class="date">Nov 2015 - Mar 2017 (1 año 5 meses) · Madrid</span>
-                    </div>
-                    <ul class="job-details">
-                        <li><strong>Experiencia Internacional (Riad, Arabia Saudí):</strong> Investigación de software global y redacción de documentación técnica (RFIs/RFPs).</li>
-                        <li><strong>Gestión de PMO:</strong> Reporting financiero y control de proyecto utilizando herramientas de Office 365.</li>
-                    </ul>
-                    <div class="job-tags">
-                        <span class="job-tag">PMO Global</span>
-                        <span class="job-tag">RFIs / RFPs</span>
-                        <span class="job-tag">Experiencia Internacional (Riad)</span>
-                        <span class="job-tag">Office 365</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item" style="margin-bottom: 0;">
-                <div class="card">
-                    <div class="job-meta">
-                        <div>
-                            <span class="company"><i class="fas fa-flask" style="color: var(--primary); font-size: 1.1rem;"></i> Instituto de Cerámica y Vidrio (CSIC)</span>
-                            <span class="role">Técnico de Laboratorio (Prácticas)</span>
-                        </div>
-                        <span class="date">Jun 2014 - Sep 2014 (4 meses) · Campus de Cantoblanco, Madrid</span>
-                    </div>
-                    <ul class="job-details">
-                        <li>Fabricación de materiales híbridos compuestos mediante molienda mecánica de baja y alta energía.</li>
-                        <li>Caracterización estructural avanzada: Difracción de Rayos X (XRD), microscopía electrónica de barrido (SEM) y termogravimetría.</li>
-                        <li>Caracterización magnética de muestras mediante Magnetometría de Muestra Vibrante (VSM).</li>
-                        <li>Análisis de datos y correlación de propiedades estructurales magnéticas.</li>
-                    </ul>
-                    <div class="job-tags">
-                        <span class="job-tag">Física Experimental</span>
-                        <span class="job-tag">Microscopía SEM & XRD</span>
-                        <span class="job-tag">Magnetometría VSM</span>
-                        <span class="job-tag">Análisis Estructural</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="freelance" class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-rocket section-icon"></i> Consultoría & Automatización Freelance</h3></div>
-        <div class="freelance-grid">
-            <div class="card" style="margin-bottom:0;">
-                <div class="job-meta" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 0;">
-                    <div>
-                        <span class="company"><i class="fas fa-shopping-basket" style="color: var(--accent); font-size: 1.1rem;"></i> Alcampo / Sabeco</span>
-                        <span class="role">Desarrollador de Soluciones (Freelance)</span>
-                    </div>
-                    <span class="date">Sep 2019 - Present</span>
-                </div>
-                <p style="font-size: 0.95rem; margin-top: 10px; color: var(--text-main);">
-                    Desarrollo de una solución a medida para la planificación de turnos a nivel nacional. Creación de plantillas inteligentes y scripts complejos en <strong>Google Apps Script (asistidos por IA)</strong> para automatizar la gestión de personal en supermercados de toda España.
-                </p>
-                <div class="job-tags">
-                    <span class="job-tag">Apps Script</span>
-                    <span class="job-tag">AI-Assisted Dev</span>
-                    <span class="job-tag">Turnos Nacionales</span>
-                    <span class="job-tag">Automatización Enterprise</span>
-                </div>
-            </div>
-            <div class="card" style="margin-bottom:0;">
-                <div class="job-meta" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 0;">
-                    <div>
-                        <span class="company"><i class="fas fa-car-side" style="color: var(--accent); font-size: 1.1rem;"></i> ByMotors</span>
-                        <span class="role">Consultor de Procesos & Automatización (Freelance)</span>
-                    </div>
-                </div>
-                <p style="font-size: 0.95rem; margin-top: 10px; color: var(--text-main);">
-                    Consultoría de optimización de procesos digitales y automatización integral de flujos de trabajo corporativos mediante <strong>Google Sheets</strong> y ecosistema en la nube.
-                </p>
-                <div class="job-tags">
-                    <span class="job-tag">Optimización de Procesos</span>
-                    <span class="job-tag">Google Sheets</span>
-                    <span class="job-tag">Flujos Digitales</span>
-                    <span class="job-tag">Data Reporting</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="fade-in" id="ai-lab">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-magic section-icon" style="color: var(--accent);"></i> Cómo abordo una automatización</h3></div>
-        <p style="color: var(--text-light); margin-top: -1.5rem; margin-bottom: 2rem; max-width: 850px;">
-            Pon a prueba mi enfoque de <strong>Ingeniero Aumentado</strong>. Selecciona un caso corporativo o describe un problema a resolver. A continuación se detallan la arquitectura recomendada, los scripts de automatización con <strong>GAM</strong> o <strong>Python</strong> y la aceleración mediante modelos de Inteligencia Artificial (Gemini, Deepseek o LLMs locales).
-        </p>
-        
-        <div class="sim-container">
-            <div class="sim-sidebar">
-                <p style="font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin: 0 0 10px 0;">Seleccionar Escenario</p>
-                
-                <button class="sim-preset-btn active" onclick="loadScenario('ia_agente')">
-                    <span class="sim-preset-title"><i class="fas fa-brain" style="color: var(--accent);"></i> Orquestación Agente IA</span>
-                    <span class="sim-preset-desc">AI-Coding: Síntesis y validación de scripts con Deepseek, Gemini y Ollama.</span>
+    <!-- Barra de navegación -->
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="brand-link">Raúl Cancela</a>
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu">
+                    <li><a href="#prueba" class="nav-link">Prueba</a></li>
+                    <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                    <li><a href="#como-trabajo" class="nav-link">Cómo trabajo</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button type="button" class="btn-theme" id="themeToggle" aria-label="Cambiar tema de color" title="Cambiar tema">
+                    <!-- Icono Sol (modo claro) -->
+                    <svg id="iconSun" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+                    </svg>
+                    <!-- Icono Luna (modo oscuro) -->
+                    <svg id="iconMoon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12.3 2a10 10 0 0 0-.19 20 10.04 10.04 0 0 0 9.89-7.53 1 1 0 0 0-1.22-1.22 8 8 0 1 1-8.48-11.25 1 1 0 0 0 0-2z"/>
+                    </svg>
                 </button>
-                
-                <button class="sim-preset-btn" onclick="loadScenario('migracion')">
-                    <span class="sim-preset-title"><i class="fas fa-exchange-alt" style="color: var(--primary);"></i> Migración Enterprise</span>
-                    <span class="sim-preset-desc">Mudar 2.000 usuarios de O365 a Google Workspace con coexistencia.</span>
-                </button>
-                
-                <button class="sim-preset-btn" onclick="loadScenario('seguridad')">
-                    <span class="sim-preset-title"><i class="fas fa-shield-alt" style="color: var(--success);"></i> Auditoría & Revocación</span>
-                    <span class="sim-preset-desc">Auditar y revocar accesos externos en Drive mediante agentes y GAM.</span>
-                </button>
-                
-                <button class="sim-preset-btn" onclick="loadScenario('onboarding')">
-                    <span class="sim-preset-title"><i class="fas fa-user-plus" style="color: var(--primary);"></i> Onboarding Automático</span>
-                    <span class="sim-preset-desc">Aprovisionamiento con GAM de cuentas y personalización con LLM.</span>
-                </button>
-                
-                <div class="sim-custom-input">
-                    <p style="font-weight: 700; font-size: 0.85rem; color: var(--text-light); margin: 0;">Caso Personalizado</p>
-                    <textarea id="customPrompt" class="sim-input-box" rows="3" placeholder="Ej: Necesito suspender cuentas inactivas por más de 90 días y transferir sus archivos de Drive..."></textarea>
-                    <button class="sim-run-btn" onclick="runCustomScenario()">Diseñar Solución <i class="fas fa-cog"></i></button>
+                <a href="mailto:arulcancela@gmail.com" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.88rem;">Escríbeme</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bloque 1: Hero -->
+    <header class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="avatar-wrapper">
+                <picture>
+                    <source srcset="profile-pic.webp" type="image/webp">
+                    <img src="profile-pic.jpg" alt="Fotografía de Raúl Cancela" class="avatar-img" width="400" height="400" loading="eager" decoding="async">
+                </picture>
+            </div>
+            <h1>Raúl Cancela</h1>
+            <p class="hero-lead">Arquitecto cloud para empresas que hacen convivir Microsoft 365 y Google Workspace. Automatizo lo que la consola no cubre y lo valido con pruebas.</p>
+            <div class="badge-status">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                <span>Remoto o híbrido en Madrid · Disponible</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="mailto:arulcancela@gmail.com" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>Escríbeme</span>
+                </a>
+                <a href="https://www.linkedin.com/in/arulcancela" target="_blank" rel="noopener" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66 0 .92.74 1.66 1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+                    <span>Ver LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+
+        <!-- Bloque 2: Prueba -->
+        <section id="prueba">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Prueba</h2>
+                    <p>Métricas verificadas en entornos enterprise y repositorios públicos con pruebas automatizadas.</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-number" data-target="2000" data-format="integer">2.000</span>
+                        <p class="metric-label">Usuarios migrados a Google Workspace (Inetum, 2025-2026)</p>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number" data-target="200" data-prefix="+">+200</span>
+                        <p class="metric-label">Clientes internacionales en soporte L4 (Devoteam, 2021-2025)</p>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">Más de una década</span>
+                        <p class="metric-label">Trayectoria en infraestructuras cloud y entornos corporativos</p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Proyecto 1 -->
+                    <article class="card project-card">
+                        <div>
+                            <div class="project-meta">
+                                <h3 class="project-title">workspace-tenant-auditor</h3>
+                                <span class="tag-tests">60 tests · 78% cobertura</span>
+                            </div>
+                            <p class="project-desc">Herramienta CLI que audita la seguridad de un tenant de Google Workspace mediante 12 comprobaciones críticas, prioriza hallazgos por severidad y genera un informe ejecutivo en HTML, PDF y JSON.</p>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/arulcancela/workspace-tenant-auditor" target="_blank" rel="noopener" class="link-text">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                                <span>Ver código en GitHub</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2 -->
+                    <article class="card project-card">
+                        <div>
+                            <div class="project-meta">
+                                <h3 class="project-title">url-shortener</h3>
+                                <span class="tag-tests">41 tests + E2E · En producción</span>
+                            </div>
+                            <p class="project-desc">Aplicación web con analíticas en tiempo real, autenticación de usuarios, generación de códigos QR y limitación de tasa distribuida. Arquitectura desacoplada y validada con pruebas unitarias y de extremo a extremo.</p>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/arulcancela/url-shortener" target="_blank" rel="noopener" class="link-text">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                                <span>Ver código en GitHub</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3 -->
+                    <article class="card project-card">
+                        <div>
+                            <div class="project-meta">
+                                <h3 class="project-title">agente-deepseek</h3>
+                                <span class="tag-tests">18 tests automatizados</span>
+                            </div>
+                            <p class="project-desc">Agente para administración de Linux en lenguaje natural con diseño seguro por defecto: lista de control estricta, bloqueo de comandos destructivos y validación de sentencias encadenadas antes de su ejecución.</p>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/arulcancela/agente-deepseek" target="_blank" rel="noopener" class="link-text">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                                <span>Ver código en GitHub</span>
+                            </a>
+                            <a href="https://lnkd.in/p/eZk7cGyZ" target="_blank" rel="noopener" class="link-text">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66 0 .92.74 1.66 1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+                                <span>Ver publicación técnica en LinkedIn</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="other-projects">
+                    Otros proyectos públicos disponibles en <a href="https://github.com/arulcancela" target="_blank" rel="noopener" class="link-text" style="display: inline-flex;">github.com/arulcancela</a>: <strong>agente-escritor</strong> (pipeline multi-agente con RAG y evaluación de calidad) y <strong>linkedin-job-hunter</strong> (evaluación asistida por LLMs y alertas automáticas).
                 </div>
             </div>
-            
-            <div class="sim-content">
-                <div class="sim-status">
-                    <span class="sim-pulse-yellow" id="simPulse"></span>
-                    <span id="simStatusText">Listo para simular</span>
+        </section>
+
+        <!-- Bloque 3: Experiencia -->
+        <section id="experiencia">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Experiencia</h2>
+                    <p>Trayectoria reciente en coexistencia corporativa, migraciones masivas y soporte L4.</p>
                 </div>
-                
-                <div class="sim-tabs-header">
-                    <button class="sim-tab-btn active" onclick="switchTab('arquitectura')"><i class="fas fa-sitemap"></i> Arquitectura</button>
-                    <button class="sim-tab-btn" onclick="switchTab('codigo')"><i class="fas fa-code"></i> Scripting / AI-Coding</button>
-                    <button class="sim-tab-btn" onclick="switchTab('ia')"><i class="fas fa-robot"></i> Aumento con IA</button>
+
+                <div class="timeline">
+                    <!-- Puesto 1 -->
+                    <article class="card job-card">
+                        <div class="job-head">
+                            <h3 class="job-company">Volkswagen Group Services Iberia</h3>
+                            <span class="job-period">Abr 2026 – Oct 2026 · Remoto</span>
+                        </div>
+                        <p class="job-role">Google Workspace Architect & Migration Lead</p>
+                        <ul class="job-desc">
+                            <li>Coexistencia entre Microsoft 365 y Google Workspace: discovery técnico, compliance, split delivery y sincronización de identidades.</li>
+                            <li>Auditoría de cumplimiento normativo y definición de políticas globales para el tenant.</li>
+                            <li>Automatización de procesos mediante scripts validados para facilitar la operativa híbrida entre plataformas.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Puesto 2 -->
+                    <article class="card job-card">
+                        <div class="job-head">
+                            <h3 class="job-company">Inetum</h3>
+                            <span class="job-period">Oct 2025 – Abr 2026 · Madrid</span>
+                        </div>
+                        <p class="job-role">Arquitecto de Soluciones Google Workspace</p>
+                        <ul class="job-desc">
+                            <li>Gestión técnica completa de la migración de 2.000 usuarios a Google Workspace.</li>
+                            <li>Automatización avanzada con GAM (Google Apps Manager) y scripting para aprovisionamiento masivo y extracción de datos.</li>
+                            <li>Diseño de arquitecturas cloud modulares y seguras para cuentas enterprise.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Puesto 3 -->
+                    <article class="card job-card">
+                        <div class="job-head">
+                            <h3 class="job-company">Devoteam</h3>
+                            <span class="job-period">May 2021 – Sep 2025 · Remoto / Madrid</span>
+                        </div>
+                        <p class="job-role">Team Lead & Ingeniero de Soporte Senior (L4)</p>
+                        <ul class="job-desc">
+                            <li>Soporte técnico a más de 200 clientes internacionales en entornos distribuidos.</li>
+                            <li>Gestión de escalados críticos directamente con ingeniería de Google como superadmin delegado.</li>
+                            <li>Mentoría técnica a un equipo de 10 ingenieros de soporte y supervisión estricta de SLAs.</li>
+                        </ul>
+                    </article>
                 </div>
-                
-                <div class="sim-display-area">
-                    <div id="pane-arquitectura" class="sim-pane active">
-                        <div style="font-size: 0.95rem;" id="out-arquitectura">
-                            Haz clic en un escenario de la izquierda o introduce un caso de uso personalizado para ver la arquitectura técnica propuesta.
+
+                <div class="freelance-summary">
+                    <strong>Consultoría y desarrollo freelance desde 2019:</strong> Planificación de turnos para la red nacional de Alcampo con Apps Script asistido por IA y automatización de flujos de trabajo corporativos.
+                </div>
+
+                <div class="cv-download-notice">
+                    <p>El resto de la trayectoria técnica anterior (Nubalia, Intelligence Partner, Accenture, CSIC) está detallada en el currículum descargable.</p>
+                    <div class="cv-actions">
+                        <a href="CV_Raul_Cancela_ES.pdf" download class="btn btn-outline" style="font-size: 0.88rem; padding: 8px 16px;">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>CV Español (PDF)</span>
+                        </a>
+                        <a href="CV_Raul_Cancela_EN.pdf" download class="btn btn-outline" style="font-size: 0.88rem; padding: 8px 16px;">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>CV English (PDF)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Llamada a la acción intermedia (cada dos bloques) -->
+                <div class="cta-banner">
+                    <h3>¿Hablamos de tu infraestructura?</h3>
+                    <p>Escríbeme con los detalles de tu caso y concretamos una llamada técnica.</p>
+                    <a href="mailto:arulcancela@gmail.com" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>Escríbeme a arulcancela@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4: Cómo trabajo -->
+        <section id="como-trabajo">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cómo trabajo</h2>
+                    <p>Enfoque de ingeniería para entornos corporativos donde la fiabilidad es prioritaria.</p>
+                </div>
+
+                <div class="services-list">
+                    <article class="service-card">
+                        <h3 class="service-title">Coexistencia M365 y Google Workspace</h3>
+                        <p class="service-desc">Discovery, compliance, split delivery y gobierno de identidades.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-title">Automatización con Python, GAM y Apps Script</h3>
+                        <p class="service-desc">Provisión, auditoría y reporting a escala.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-title">Agentes de IA con validación</h3>
+                        <p class="service-desc">LLMs, RAG y pipelines que pasan por tests antes de tocar producción.</p>
+                    </article>
+                </div>
+
+                <div class="stack-line">
+                    <strong>Stack habitual:</strong> Python, GAM (Google Apps Manager), Google Apps Script, Bash, Docker, Git, Google Workspace Admin SDK, GCP IAM, Gemini, DeepSeek, Claude.
+                </div>
+
+                <div class="method-block">
+                    <h3>Cómo abordo una automatización</h3>
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <span class="step-num">01</span>
+                            <h4 class="step-title">Ingesta y límites</h4>
+                            <p class="step-desc">Análisis de requerimientos, esquemas de datos y límites de cuota de API en Workspace o Graph.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">02</span>
+                            <h4 class="step-title">Arquitectura y seguridad</h4>
+                            <p class="step-desc">Mínimo privilegio, ejecución segura por lotes y validación rigurosa de esquemas.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">03</span>
+                            <h4 class="step-title">Desarrollo y pruebas</h4>
+                            <p class="step-desc">Construcción en Python o GAM con pruebas unitarias en entorno controlado antes de desplegar.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">04</span>
+                            <h4 class="step-title">Despliegue y auditoría</h4>
+                            <p class="step-desc">Ejecución programada con telemetría de errores y registro de auditoría permanente.</p>
                         </div>
                     </div>
-                    
-                    <div id="pane-codigo" class="sim-pane">
-                        <pre class="code-block" id="out-codigo"># Selecciona un escenario para ver el código automatizado...</pre>
+
+                    <div class="scenarios-selector" role="tablist" aria-label="Casos de automatización">
+                        <button type="button" class="scenario-tab active" role="tab" aria-selected="true" data-scenario="agente" id="tab-agente">Agentes de IA y validación</button>
+                        <button type="button" class="scenario-tab" role="tab" aria-selected="false" data-scenario="migracion" id="tab-migracion">Migración y coexistencia</button>
+                        <button type="button" class="scenario-tab" role="tab" aria-selected="false" data-scenario="seguridad" id="tab-seguridad">Auditoría en Drive</button>
+                        <button type="button" class="scenario-tab" role="tab" aria-selected="false" data-scenario="onboarding" id="tab-onboarding">Aprovisionamiento con GAM</button>
                     </div>
-                    
-                    <div id="pane-ia" class="sim-pane">
-                        <div style="font-size: 0.95rem;" id="out-ia">
-                            Haz clic en un escenario para ver cómo se puede optimizar el flujo mediante automatizaciones avanzadas basadas en Modelos de Lenguaje (LLMs).
-                        </div>
+
+                    <div class="code-container" tabindex="0" aria-label="Bloque de código de ejemplo">
+                        <pre class="code-snippet"><code id="codeDisplay"># Escenario: Agentes de IA y validación de operaciones con Admin SDK
+from googleapiclient.discovery import build
+from google.oauth2 import service_account
+
+SCOPES = ["https://www.googleapis.com/auth/admin.directory.user.readonly"]
+
+def audit_2fa_status(service, customer_id="my_customer"):
+    """Identifica cuentas sin doble factor antes de aislar permisos."""
+    results = service.users().list(customer=customer_id, maxResults=500).execute()
+    users = results.get("users", [])
+    unprotected = [
+        u["primaryEmail"] for u in users
+        if not u.get("isEnrolledIn2Sv", False) and not u.get("suspended", False)
+    ]
+    return unprotected</code></pre>
+                    </div>
+                    <p class="footnote">Ejemplo ilustrativo, no es una demo conectada a un modelo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5: Contacto -->
+        <section id="contacto">
+            <div class="container">
+                <div class="contact-card">
+                    <h2>Contacto</h2>
+                    <p class="contact-lead">¿Tienes una coexistencia, una migración o una automatización pendiente? Escríbeme y te digo en una llamada si puedo ayudarte.</p>
+                    <a href="mailto:arulcancela@gmail.com" class="contact-email-link">arulcancela@gmail.com</a>
+                    <div class="contact-social-links">
+                        <a href="mailto:arulcancela@gmail.com" class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <span>Escribir correo</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/arulcancela" target="_blank" rel="noopener" class="btn btn-outline">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66-.92 0-1.66.74-1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/arulcancela" target="_blank" rel="noopener" class="btn btn-outline">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="CV_Raul_Cancela_ES.pdf" download class="btn btn-outline">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>CV Español (PDF)</span>
+                        </a>
+                        <a href="CV_Raul_Cancela_EN.pdf" download class="btn btn-outline">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            <span>CV English (PDF)</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-        <section id="proyectos" class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-code-branch section-icon"></i> Proyectos Destacados</h3></div>
-        <p style="text-align:center; color:var(--text-light); margin-bottom:2rem; font-size:0.95rem;">Construidos con metodología de <strong>ingeniería aumentada por IA</strong> · Todos con pruebas automatizadas e integración continua &nbsp;·&nbsp; <a href="https://github.com/arulcancela" target="_blank" rel="noopener" style="color:var(--primary); font-weight:600;">Ver todos en GitHub →</a></p>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <div class="cert-icon-wrapper" style="color:var(--primary); background:var(--primary-glow);"><i class="fas fa-shield-halved"></i></div>
-                <div>
-                    <span class="company" style="font-size:1.15rem;">workspace-tenant-auditor</span>
-                    <span class="role" style="font-weight:600; font-size:0.95rem;">Auditoría de seguridad para Google Workspace</span>
-                    <p style="font-size:0.85rem; color:var(--text-light); margin:6px 0 10px 0; line-height:1.5;">CLI que ejecuta 12 comprobaciones de seguridad sobre un tenant, prioriza por severidad y genera informe ejecutivo HTML/PDF/JSON. 60 tests · 78% cobertura.</p>
-                    <span class="tag" style="font-size:0.75rem;">Python</span> <span class="tag" style="font-size:0.75rem;">Admin SDK</span> <span class="tag" style="font-size:0.75rem;">Docker</span><br>
-                    <a href="https://github.com/arulcancela/workspace-tenant-auditor" target="_blank" rel="noopener" style="font-size:0.85rem; font-weight:600;">github.com/arulcancela/workspace-tenant-auditor →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon-wrapper" style="color:var(--accent); background:var(--accent-glow);"><i class="fas fa-robot"></i></div>
-                <div>
-                    <span class="company" style="font-size:1.15rem;">agente-deepseek</span>
-                    <span class="role" style="font-weight:600; font-size:0.95rem;">Agente administrador autónomo de Linux</span>
-                    <p style="font-size:0.85rem; color:var(--text-light); margin:6px 0 10px 0; line-height:1.5;">Agente que administra Linux en lenguaje natural, con diseño seguro por defecto: bloquea comandos destructivos y valida comandos encadenados.</p>
-                    <span class="tag" style="font-size:0.75rem;">Python</span> <span class="tag" style="font-size:0.75rem;">DeepSeek</span> <span class="tag" style="font-size:0.75rem;">Seguridad</span><br>
-                    <a href="https://github.com/arulcancela/agente-deepseek" target="_blank" rel="noopener" style="font-size:0.85rem; font-weight:600;">github.com/arulcancela/agente-deepseek →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon-wrapper" style="color:var(--success); background:rgba(16,185,129,0.15);"><i class="fas fa-pen-nib"></i></div>
-                <div>
-                    <span class="company" style="font-size:1.15rem;">agente-escritor</span>
-                    <span class="role" style="font-weight:600; font-size:0.95rem;">Pipeline multi-agente de redacción</span>
-                    <p style="font-size:0.85rem; color:var(--text-light); margin:6px 0 10px 0; line-height:1.5;">Pipeline por fases (Ingest &rarr; Research &rarr; Write &rarr; Review &rarr; Refine &rarr; Finalize) con RAG, investigación web profunda y evaluación de calidad. Interfaz Streamlit.</p>
-                    <span class="tag" style="font-size:0.75rem;">Python</span> <span class="tag" style="font-size:0.75rem;">RAG</span> <span class="tag" style="font-size:0.75rem;">Streamlit</span><br>
-                    <a href="https://github.com/arulcancela/agente-escritor" target="_blank" rel="noopener" style="font-size:0.85rem; font-weight:600;">github.com/arulcancela/agente-escritor →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon-wrapper" style="color:var(--primary); background:var(--primary-glow);"><i class="fas fa-briefcase"></i></div>
-                <div>
-                    <span class="company" style="font-size:1.15rem;">linkedin-job-hunter</span>
-                    <span class="role" style="font-weight:600; font-size:0.95rem;">Búsqueda y evaluación de ofertas con IA</span>
-                    <p style="font-size:0.85rem; color:var(--text-light); margin:6px 0 10px 0; line-height:1.5;">Sistema que evalúa ofertas contra un perfil configurable con un LLM, calcula fit score y genera dossier con carta de presentación. Alertas Notion/Telegram.</p>
-                    <span class="tag" style="font-size:0.75rem;">Python</span> <span class="tag" style="font-size:0.75rem;">LLM</span> <span class="tag" style="font-size:0.75rem;">API</span><br>
-                    <a href="https://github.com/arulcancela/linkedin-job-hunter" target="_blank" rel="noopener" style="font-size:0.85rem; font-weight:600;">github.com/arulcancela/linkedin-job-hunter →</a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon-wrapper" style="color:var(--accent); background:var(--accent-glow);"><i class="fas fa-link"></i></div>
-                <div>
-                    <span class="company" style="font-size:1.15rem;">url-shortener</span>
-                    <span class="role" style="font-weight:600; font-size:0.95rem;">Acortador de URLs con analíticas</span>
-                    <p style="font-size:0.85rem; color:var(--text-light); margin:6px 0 10px 0; line-height:1.5;">Aplicación full-stack con autenticación, analíticas en tiempo real, códigos QR y rate limiting. 41 tests + E2E. Desplegada en producción.</p>
-                    <span class="tag" style="font-size:0.75rem;">Next.js</span> <span class="tag" style="font-size:0.75rem;">TypeScript</span> <span class="tag" style="font-size:0.75rem;">Prisma</span><br>
-                    <a href="https://github.com/arulcancela/url-shortener" target="_blank" rel="noopener" style="font-size:0.85rem; font-weight:600;">github.com/arulcancela/url-shortener →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <section id="certificaciones" class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-certificate section-icon"></i> Certificaciones & Credenciales</h3></div>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <div class="cert-icon-wrapper"><i class="fab fa-google"></i></div>
-                <div>
-                    <span class="company" style="font-size: 1.15rem;">Google Cloud Platform</span>
-                    <span class="role" style="font-weight: 600; font-size: 0.95rem;">Big Data and Machine Learning Fundamentals</span>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin: 6px 0 0 0; line-height: 1.5;">Fundamentos de procesamiento masivo de datos, pipelines de machine learning y arquitecturas analíticas avanzadas en GCP.</p>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon-wrapper" style="color: var(--accent); background: var(--accent-glow);"><i class="fas fa-layer-group"></i></div>
-                <div>
-                    <span class="company" style="font-size: 1.15rem;">LumApps</span>
-                    <span class="role" style="font-weight: 600; font-size: 0.95rem;">LumApps Deployment Level 1</span>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin: 6px 0 0 0; line-height: 1.5;">Certificación oficial para el despliegue técnico, gobernanza y administración de intranets enterprise integradas con Google Workspace.</p>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon-wrapper" style="color: var(--success); background: rgba(16, 185, 129, 0.15);"><i class="fas fa-cloud-sun"></i></div>
-                <div>
-                    <span class="company" style="font-size: 1.15rem;">Meteorología & Física Atmosférica</span>
-                    <span class="role" style="font-weight: 600; font-size: 0.95rem;">Formación en Meteorología</span>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin: 6px 0 0 0; line-height: 1.5;">Modelado físico de sistemas dinámicos caóticos, predicción estadística y análisis computacional riguroso.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-code section-icon"></i> Stack Tecnológico & Habilidades</h3></div>
-        
-        <div class="skills-grid-wrapper">
-            <div class="skill-group-card">
-                <div class="skill-group-card-title">
-                    <i class="fas fa-brain" style="color: var(--accent);"></i> Orquestación de IA & Entornos Agénticos
-                </div>
-                <div>
-                    <span class="tag"><i class="fas fa-robot"></i> Google Antigravity (Agentic Dev)</span>
-                    <span class="tag"><i class="fas fa-code"></i> Claude Code</span>
-                    <span class="tag"><i class="fas fa-terminal"></i> Prompt Chaining Avanzado</span>
-                    <span class="tag"><i class="fab fa-google"></i> Gemini API</span>
-                    <span class="tag"><i class="fas fa-code-branch"></i> DeepSeek API</span>
-                    <span class="tag"><i class="fas fa-atom"></i> Claude API</span>
-                    <span class="tag"><i class="fas fa-comments"></i> ChatGPT</span>
-                    <span class="tag"><i class="fas fa-vial"></i> Testeo Iterativo (AI-Coding)</span>
-                </div>
-            </div>
-
-            <div class="skill-group-card">
-                <div class="skill-group-card-title">
-                    <i class="fas fa-laptop-code" style="color: var(--primary);"></i> Vibe Coding & Automatización Políglota
-                </div>
-                <div>
-                    <span class="tag"><i class="fas fa-magic"></i> Vibe Coding (GAM & Python)</span>
-                    <span class="tag"><i class="fas fa-terminal"></i> GAM (Google Apps Manager)</span>
-                    <span class="tag"><i class="fab fa-python"></i> Python Enterprise</span>
-                    <span class="tag"><i class="fas fa-code"></i> Google Apps Script</span>
-                    <span class="tag"><i class="fas fa-terminal"></i> Bash Scripting</span>
-                    <span class="tag"><i class="fas fa-project-diagram"></i> Adaptabilidad Políglota con IA</span>
-                </div>
-            </div>
-
-            <div class="skill-group-card">
-                <div class="skill-group-card-title">
-                    <i class="fas fa-cloud" style="color: var(--primary);"></i> Arquitectura Cloud & Ecosistemas Híbridos
-                </div>
-                <div>
-                    <span class="tag"><i class="fab fa-google"></i> Google Workspace Enterprise</span>
-                    <span class="tag"><i class="fas fa-exchange-alt"></i> Coexistencia Híbrida Office 365</span>
-                    <span class="tag"><i class="fas fa-user-shield"></i> GCP IAM & Directory Sync</span>
-                    <span class="tag"><i class="fas fa-shield-alt"></i> Seguridad Cloud & DLP</span>
-                    <span class="tag"><i class="fas fa-layer-group"></i> LumApps Deployment</span>
-                    <span class="tag"><i class="fas fa-headset"></i> Soporte L4 (Google Delegated)</span>
-                </div>
-            </div>
-
-            <div class="skill-group-card">
-                <div class="skill-group-card-title">
-                    <i class="fas fa-server" style="color: var(--accent);"></i> Infraestructura Maker & LLMs Locales
-                </div>
-                <div>
-                    <span class="tag"><i class="fas fa-hdd"></i> Ollama (Modelos en Local)</span>
-                    <span class="tag"><i class="fas fa-network-wired"></i> Agentes de IA en PC vía API</span>
-                    <span class="tag"><i class="fas fa-home"></i> Home Assistant IoT</span>
-                    <span class="tag"><i class="fas fa-microchip"></i> Raspberry Pi</span>
-                    <span class="tag"><i class="fas fa-shield-virus"></i> Pi-hole (DNS Seguro)</span>
-                    <span class="tag"><i class="fas fa-chart-line"></i> Bots de Trading</span>
-                </div>
-            </div>
-
-            <div class="skill-group-card" style="grid-column: 1 / -1;">
-                <div class="skill-group-card-title">
-                    <i class="fas fa-globe-europe" style="color: var(--success);"></i> Idiomas, Liderazgo & Metodología
-                </div>
-                <div style="display: flex; flex-wrap: wrap;">
-                    <span class="tag"><i class="fas fa-language"></i> Inglés (Full Professional - C1)</span>
-                    <span class="tag"><i class="fas fa-language"></i> Español (Nativo)</span>
-                    <span class="tag"><i class="fas fa-laptop-house"></i> Remoto / Remote-First</span>
-                    <span class="tag"><i class="fas fa-users"></i> Liderazgo Técnico (10+ Ingenieros)</span>
-                    <span class="tag"><i class="fas fa-tasks"></i> Gestión de SLAs & Jira Service Desk</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="educacion" class="fade-in">
-        <div class="section-header"><h3 class="section-title"><i class="fas fa-university section-icon"></i> Formación Académica</h3></div>
-        <div class="card" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0;">
-            <div style="background: var(--tag-bg); padding: 18px; border-radius: 50%; color: var(--primary);"><i class="fas fa-university fa-2x"></i></div>
-            <div>
-                <span class="company" style="font-size: 1.25rem;">Universidad Complutense de Madrid</span>
-                <span class="role" style="font-weight: 600;">Grado en Física, Ingeniería física / Física aplicada</span>
-                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 4px;">2011 - 2015 · Madrid, España</div>
-                <p style="font-size: 0.92rem; color: var(--text-main); margin: 8px 0 0 0; line-height: 1.6;">
-                    Base analítica rigurosa: formulación matemática de problemas complejos, modelado de sistemas dinámicos y mentalidad constructora (ISTP) orientada a la ingeniería práctica y computacional.
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- Botón flotante accesible de correo -->
+    <a href="mailto:arulcancela@gmail.com" class="floating-cta" aria-label="Enviar correo electrónico a Raúl Cancela" title="Enviar correo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
 
     <footer>
-        <p>&copy; 2026 Raúl Cancela. AI-Augmented Engineer & Automation Architect.</p>
-        <p style="font-size: 0.85rem; margin-top: -10px; color: var(--text-light);">Física aplicada, orquestación de Inteligencia Artificial y arquitecturas Cloud Enterprise.</p>
-        <div style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 24px;">
-            <a href="CV_Raul_Cancela_ES.pdf" download style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fas fa-file-pdf" style="color: #ef4444;"></i> CV Español (PDF)</a>
-            <a href="CV_Raul_Cancela_EN.pdf" download style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fas fa-file-pdf" style="color: #ef4444;"></i> CV English (PDF)</a>
-            <a href="mailto:arulcancela@gmail.com" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fas fa-envelope" style="color: var(--primary);"></i> Email</a>
-            <a href="https://www.linkedin.com/in/arulcancela" target="_blank" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fab fa-linkedin" style="color: var(--accent);"></i> LinkedIn</a>
-            <a href="https://github.com/arulcancela" target="_blank" style="color: var(--text-light); text-decoration: none; font-weight: 600;"><i class="fab fa-github" style="color: #8b949e;"></i> GitHub</a>
+        <div class="container">
+            <p>&copy; 2026 Raúl Cancela. Arquitectura cloud, coexistencia de plataformas y automatización con validación técnica.</p>
         </div>
     </footer>
-</div>
 
-<script>
-    // Configuración de Tema
-    const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
-    
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', nextTheme);
-        icon.className = nextTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    });
+    <script>
+        // Gestión del tema claro/oscuro
+        const themeToggle = document.getElementById('themeToggle');
+        const iconSun = document.getElementById('iconSun');
+        const iconMoon = document.getElementById('iconMoon');
 
-    // Inicializar Icono al inicio
-    const initTheme = () => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    }
-    initTheme();
+        function updateThemeIcons(theme) {
+            if (theme === 'dark') {
+                iconSun.style.display = 'none';
+                iconMoon.style.display = 'block';
+            } else {
+                iconSun.style.display = 'block';
+                iconMoon.style.display = 'none';
+            }
+        }
 
-    // Barra de Progreso y Navegación
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("progressBar").style.width = scrolled + "%";
-        
-        const sections = document.querySelectorAll('section, header');
-        const navDots = document.querySelectorAll('.nav-dot');
-        
-        sections.forEach(sec => {
-            let top = window.scrollY;
-            let offset = sec.offsetTop - 150;
-            let height = sec.offsetHeight;
-            let id = sec.getAttribute('id');
-            
-            if(top >= offset && top < offset + height) {
-                navDots.forEach(dot => {
-                    dot.classList.remove('active');
-                    if(document.querySelector('.nav-dot[href*=' + id + ']')){
-                        document.querySelector('.nav-dot[href*=' + id + ']').classList.add('active');
+        // Leer preferencia almacenada o del sistema
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcons(savedTheme);
+        } else {
+            const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = systemPrefersDark ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', initialTheme);
+            updateThemeIcons(initialTheme);
+        }
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme') || 'dark';
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                updateThemeIcons(next);
+            });
+        }
+
+        // Casos de automatización (cambio estático sin tecleo simulado)
+        const snippets = {
+            agente: `# Escenario: Agentes de IA y validación de operaciones con Admin SDK
+from googleapiclient.discovery import build
+from google.oauth2 import service_account
+
+SCOPES = ["https://www.googleapis.com/auth/admin.directory.user.readonly"]
+
+def audit_2fa_status(service, customer_id="my_customer"):
+    """Identifica cuentas sin doble factor antes de aislar permisos."""
+    results = service.users().list(customer=customer_id, maxResults=500).execute()
+    users = results.get("users", [])
+    unprotected = [
+        u["primaryEmail"] for u in users
+        if not u.get("isEnrolledIn2Sv", False) and not u.get("suspended", False)
+    ]
+    return unprotected`,
+            migracion: `# Escenario: Coexistencia y migración de correo por lotes
+# 1. Crear estructura organizativa de transición
+gam create org "/Migrados"
+gam create org "/Coexistencia"
+
+# 2. Configurar reenvíos temporales para coexistencia con Microsoft 365
+gam csv usuarios.csv gam user ~Email forward on ~Alias keepchange true
+
+# 3. Mover cuentas a la nueva unidad organizativa y asignar licencias
+gam csv usuarios.csv gam update user ~Email ou "/Migrados"
+gam csv usuarios.csv gam user ~Email add license 1010020003`,
+            seguridad: `# Escenario: Auditoría y revocación de permisos externos en Google Drive
+# 1. Exportar inventario masivo de archivos compartidos externamente
+gam all users print filelist id title owners permissions > drive_permisos.csv
+
+# 2. Tras filtrado analítico con Python, revocar permisos no autorizados
+gam csv revocaciones.csv gam user ~Owner delete drivefileacl ~FileId ~PermissionId`,
+            onboarding: `# Escenario: Aprovisionamiento de identidades con GAM
+# 1. Crear cuenta en la unidad organizativa de destino
+gam create user rcancelamartin firstname "Raul" lastname "Cancela" ou "/Sistemas/Ingenieria" password "TempPass2026" changepassword on
+
+# 2. Asignar membresía en grupos corporativos y licencias de producto
+gam update group ingenieria-team@dominio.com add member user rcancelamartin@dominio.com
+gam user rcancelamartin@dominio.com add license 1010020003`
+        };
+
+        const tabs = document.querySelectorAll('.scenario-tab');
+        const codeDisplay = document.getElementById('codeDisplay');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                const scenario = tab.getAttribute('data-scenario');
+                if (snippets[scenario] && codeDisplay) {
+                    codeDisplay.textContent = snippets[scenario];
+                }
+            });
+        });
+
+        // Animación progresiva de contadores solo si no se solicita reducción de movimiento
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetVal = parseInt(entry.target.getAttribute('data-target'), 10);
+                        const prefix = entry.target.getAttribute('data-prefix') || '';
+                        const isIntegerFormat = entry.target.getAttribute('data-format') === 'integer';
+                        if (!isNaN(targetVal)) {
+                            let current = 0;
+                            const step = targetVal / 40;
+                            const timer = setInterval(() => {
+                                current += step;
+                                if (current >= targetVal) {
+                                    clearInterval(timer);
+                                    entry.target.textContent = prefix + (isIntegerFormat ? targetVal.toLocaleString('es-ES') : targetVal);
+                                } else {
+                                    const val = Math.floor(current);
+                                    entry.target.textContent = prefix + (isIntegerFormat ? val.toLocaleString('es-ES') : val);
+                                }
+                            }, 25);
+                        }
+                        observer.unobserve(entry.target);
                     }
                 });
-            }
-        });
-    };
+            }, { threshold: 0.3 });
 
-    // Observador para animaciones fade-in
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Contador Animado
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                const counters = entry.target.querySelectorAll('.metric-number');
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const suffix = counter.getAttribute('data-suffix') || '';
-                    const duration = 2000; const increment = target / (duration / 16); let current = 0;
-                    const updateCounter = () => {
-                        current += increment;
-                        if(current < target) { counter.innerText = Math.ceil(current) + suffix; requestAnimationFrame(updateCounter); } 
-                        else { counter.innerText = target + suffix; }
-                    };
-                    updateCounter();
-                });
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    });
-    document.querySelector('.metrics-grid') && counterObserver.observe(document.querySelector('.metrics-grid'));
-
-    // Datos del Simulador de Automatización Workspace & IA
-    const scenarios = {
-        ia_agente: {
-            arquitectura: `1. <strong>Ingesta de Requerimientos & APIs:</strong> Integración de APIs de Workspace y servicios Cloud con LLMs (Gemini / Deepseek / Ollama local).<br><br>2. <strong>Prompt Chaining & Validación de Esquemas:</strong> Desglose modular de la tarea mediante prompt engineering avanzado y generación de especificaciones JSON estrictamente tipadas.<br><br>3. <strong>Generación Asistida (AI-Coding) & Testeo Iterativo:</strong> Síntesis automática de scripts (Python, Bash, Apps Script) y ejecución controlada en sandbox para validación de errores antes de producción.<br><br>4. <strong>Despliegue & Telemetría:</strong> Orquestación del despliegue masivo y monitorización de alertas mediante agentes en tiempo real.`,
-            codigo: `# Orquestación de Agente Asistido para análisis y generación de scripts GAM\nimport os, httpx\n\nclient = httpx.Client()\nresponse = client.post(\n    "https://api.deepseek.com/v1/chat/completions",\n    headers={"Authorization": f"Bearer {os.getenv('DEEPSEEK_API_KEY')}"},\n    json={\n        "model": "deepseek-chat",\n        "messages": [\n            {"role": "system", "content": "AI-Augmented Engineer: genera script GAM validado para Workspace."},\n            {"role": "user", "content": "Genera script para auditar y aislar cuentas sin 2FA activo en la OU /Direccion."}\n        ],\n        "temperature": 0.2\n    }\n)\nprint(response.json()["choices"][0]["message"]["content"])`,
-            ia: `Como <strong>AI-Augmented Engineer</strong>, combino modelos locales en <strong>Ollama</strong> (para procesamiento privado y seguro de datos confidenciales) con APIs de frontera como <strong>Deepseek, Gemini y Claude</strong>. Este enfoque optimiza significativamente los tiempos de desarrollo, permitiendo crear herramientas y scripts que tradicionalmente requerirían un equipo de desarrollo dedicado.`
-        },
-        migracion: {
-            arquitectura: `1. <strong>Fase de Discovery Acelerada:</strong> Auditoría completa de licenciamiento en Office 365 e inventario de buzones y Drive mediante scripts automatizados.<br><br>2. <strong>Coexistencia de Correo:</strong> Configuración de enrutamiento dividido (Split Delivery) en Google Workspace y Microsoft 365 mediante conectores SMTP seguros y enrutamientos en la consola del administrador de Google.<br><br>3. <strong>Sincronización de Identidades:</strong> Configuración de Google Cloud Directory Sync (GCDS) para replicar la estructura organizativa de Active Directory local en el Cloud IAM de Google.<br><br>4. <strong>Migración de Datos:</strong> Despliegue de servidores Google Workspace Migrate (GWM) en instancias de GCP de alto rendimiento para migrar correos, calendarios y OneDrive a Drive de manera paralela con monitorización en tiempo real.`,
-            codigo: `# 1. Sincronizar estructura organizativa usando GAM\ngam create org "/Migrados"\ngam create org "/Coexistencia"\n\n# 2. Habilitar reenvíos de correo temporales para coexistencia en lote\ngam csv usuarios_migracion.csv gam user ~Email forward on ~Alias keepchange true\n\n# 3. Mover usuarios migrados a la nueva Unidad Organizativa y asignar licencias de Google Workspace\ngam csv usuarios_migracion.csv gam update user ~Email ou "/Migrados"\ngam csv usuarios_migracion.csv gam user ~Email add license 1010020003  # ID Enterprise Plus`,
-            ia: `Para esta migración, utilizo un <strong>flujo automatizado con LLMs</strong> que analiza el log de errores de Google Workspace Migrate. En lugar de revisar manualmente miles de filas con errores de adjuntos o permisos, el script envía los errores a la API de Gemini para categorizarlos (ej: 'Archivo protegido por contraseña', 'Exceso de tamaño', 'Caracteres inválidos') y genera de forma autónoma una lista de acciones correctivas, optimizando los tiempos de resolución y garantizando consistencia en el proceso.`
-        },
-        seguridad: {
-            arquitectura: `1. <strong>Extracción de Permisos:</strong> Ejecución de una consulta a la API de Drive en lotes o uso de GAM Advanced para volcar todos los permisos de archivos con acceso externo a BigQuery.<br><br>2. <strong>Análisis de Riesgo:</strong> Clasificación de dominios externos permitidos y no permitidos (ej. competidores directos o dominios de correo personal no autorizados).<br><br>3. <strong>Revocación Automatizada:</strong> Procesamiento en paralelo mediante scripting para eliminar de forma inmediata el acceso externo de los archivos infractores sin alterar el acceso interno.<br><br>4. <strong>Reporte y Alerta:</strong> Generación de un dashboard interactivo para que el departamento de seguridad supervise los accesos externos activos.`,
-            codigo: `# 1. Generar reporte masivo de archivos compartidos externamente en todo el tenant\ngam all users print filelist id title owners permissions > permisos_drive.csv\n\n# 2. Tras procesar y clasificar los datos con Python (permisos externos no válidos),\n# ejecutamos la revocación masiva del ID de permiso (~PermissionId) del archivo (~FileId)\ngam csv permisos_externos_peligrosos.csv gam user ~Owner delete drivefileacl ~FileId ~PermissionId`,
-            ia: `Integro un <strong>agente de IA</strong> que analiza el contenido y el título de los archivos compartidos externamente (metadatos) a través de modelos de lenguaje. Si detecta archivos que contienen palabras clave sensibles o estructuras de datos confidenciales (como claves API, datos de clientes, CVs, contraseñas) pero que no están clasificados explícitamente como confidenciales en DLP nativo, los marca automáticamente y notifica al administrador de seguridad con una sugerencia de bloqueo inmediato.`
-        },
-        onboarding: {
-            arquitectura: `1. <strong>Trigger de Recursos Humanos:</strong> Recepción del perfil del nuevo empleado desde el sistema de HR (ej. Workday, Factorial) mediante un Webhook a una Cloud Function.<br><br>2. <strong>Creación de Cuenta:</strong> Generación automática de la dirección de correo y contraseña temporal segura.<br><br>3. <strong>Asignación de Recursos:</strong> Asignación a la Unidad Organizativa correspondiente, registro en los grupos de distribución de correo y chat, y asignación de licencias de Google Workspace.<br><br>4. <strong>Creación de Entorno de Trabajo:</strong> Generación de carpetas compartidas del equipo en Google Drive y envío de un correo de bienvenida con las instrucciones iniciales al correo personal del nuevo empleado.`,
-            codigo: `# 1. Crear el usuario en la Unidad Organizativa correspondiente\ngam create user rcancelamartin firstname "Raúl" lastname "Cancela" ou "/Sistemas/Ingenieria" password "TempPass2026!" changepassword on\n\n# 2. Añadir automáticamente a los grupos de distribución del departamento\ngam update group ingenieria-team@dominio.com add member user rcancelamartin@dominio.com\ngam update group cloud-architects@dominio.com add member user rcancelamartin@dominio.com\n\n# 3. Asignar licencias de Workspace y firma corporativa personalizada\ngam user rcancelamartin@dominio.com add license 1010020003\ngam user rcancelamartin@dominio.com signature file firma_plantilla.html`,
-            ia: `Utilizo <strong>Apps Script e IA generativa</strong> para crear un correo de bienvenida hiper-personalizado y un plan de onboarding automatizado de 30-60-90 días. La IA lee el perfil del empleado, su rol y su descripción de puesto, y genera un documento de Google Docs personalizado con la lista de canales recomendados, repositorios de GitHub relevantes y nombres de contactos clave del equipo, reduciendo drásticamente la fricción inicial.`
+            document.querySelectorAll('.metric-number[data-target]').forEach(el => {
+                counterObserver.observe(el);
+            });
         }
-    };
-
-    let activeScenario = 'ia_agente';
-    let activeTab = 'arquitectura';
-    let isTyping = false;
-
-    function loadScenario(scenarioId) {
-        if (isTyping) return;
-        activeScenario = scenarioId;
-        
-        // Actualizar UI Sidebar
-        document.querySelectorAll('.sim-preset-btn').forEach(btn => btn.classList.remove('active'));
-        event.currentTarget.classList.add('active');
-        
-        simulateGeneration();
-    }
-
-    function switchTab(tabId) {
-        activeTab = tabId;
-        document.querySelectorAll('.sim-tab-btn').forEach(btn => btn.classList.remove('active'));
-        event.currentTarget.classList.add('active');
-        
-        document.querySelectorAll('.sim-pane').forEach(pane => pane.classList.remove('active'));
-        document.getElementById(`pane-${tabId}`).classList.add('active');
-    }
-
-    function simulateGeneration(customData = null) {
-        isTyping = true;
-        
-        const pulse = document.getElementById('simPulse');
-        const statusText = document.getElementById('simStatusText');
-        
-        pulse.className = 'sim-pulse-yellow';
-        statusText.innerText = 'Diseñando solución asistida por IA...';
-        
-        const data = customData || scenarios[activeScenario];
-        
-        // Simular typing rápido en la pestaña activa primero
-        let textToType = '';
-        let targetEl = null;
-        let isCode = false;
-        
-        if (activeTab === 'arquitectura') {
-            textToType = data.arquitectura;
-            targetEl = document.getElementById('out-arquitectura');
-        } else if (activeTab === 'codigo') {
-            textToType = data.codigo;
-            targetEl = document.getElementById('out-codigo');
-            isCode = true;
-        } else {
-            textToType = data.ia;
-            targetEl = document.getElementById('out-ia');
-        }
-        
-        // Limpiar
-        targetEl.innerHTML = '';
-        
-        // Escribir resto en background e inmediato para las otras pestañas
-        document.getElementById('out-arquitectura').innerHTML = data.arquitectura;
-        document.getElementById('out-codigo').innerText = data.codigo;
-        document.getElementById('out-ia').innerHTML = data.ia;
-        
-        if (isCode) {
-            targetEl.innerText = '';
-            let i = 0;
-            const interval = setInterval(() => {
-                if (i < textToType.length) {
-                    targetEl.innerText += textToType.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(interval);
-                    finishSim();
-                }
-            }, 3);
-        } else {
-            targetEl.innerHTML = textToType;
-            finishSim();
-        }
-        
-        function finishSim() {
-            pulse.className = 'pulse-dot';
-            statusText.innerText = 'Solución optimizada generada con éxito';
-            isTyping = false;
-        }
-    }
-
-    function runCustomScenario() {
-        if (isTyping) return;
-        const prompt = document.getElementById('customPrompt').value.trim();
-        if (!prompt) return;
-        
-        document.querySelectorAll('.sim-preset-btn').forEach(btn => btn.classList.remove('active'));
-        
-        // Generar respuesta ficticia inteligente basada en palabras clave
-        let key = prompt.toLowerCase();
-        let title = "Caso Personalizado";
-        let arch = "";
-        let code = "";
-        let ia = "";
-        
-        if (key.includes('suspender') || key.includes('inactiv') || key.includes('borrar')) {
-            title = "Limpieza de Cuentas Inactivas";
-            arch = "1. <strong>Detección de Inactividad:</strong> Escaneo diario de los últimos inicios de sesión (Last Login Time) y uso de Drive/Gmail mediante la API de informes de Google Workspace.<br><br>2. <strong>Notificación Previa:</strong> Envío de correo preventivo automático al usuario y su manager indicando la futura suspensión.<br><br>3. <strong>Suspensión & Transferencia:</strong> Suspensión de la cuenta en el día 90 y transferencia de la propiedad de los archivos de Drive a su manager mediante API de Drive.<br><br>4. <strong>Eliminación Segura:</strong> Eliminación de la cuenta después de 30 días adicionales en estado de suspensión.";
-            code = "# 1. Listar usuarios con fecha de último inicio de sesión a archivo CSV\ngam print users lastlogintime > usuarios_actividad.csv\n\n# 2. Filtrar inactivos en tu script de Python y suspender usando GAM\ngam csv inactivos_filtrados.csv gam update user ~Email suspended true\n\n# 3. Transferir propiedad de todos los archivos de Drive del usuario inactivo al Manager\ngam csv inactivos_filtrados.csv gam user ~Email transfer drive ~ManagerEmail mergewithparent true";
-            ia = "Un <strong>modelo de IA clasificador</strong> examina si los archivos transferidos del usuario suspendido contienen información de valor operativo real (como código fuente o manuales técnicos) para organizarlos automáticamente en carpetas compartidas del equipo (Shared Drives) y descartar archivos personales temporales, reduciendo el ruido de datos heredados.";
-        } else if (key.includes('drive') || key.includes('permis') || key.includes('compart')) {
-            title = "Control de Permisos de Drive";
-            arch = "1. <strong>Auditoría de Enlaces Públicos:</strong> Búsqueda sistemática de archivos con permisos 'Anyone with link' (Cualquiera con el enlace) o acceso público.<br><br>2. <strong>Clasificación de Criticidad:</strong> Evaluación automática basada en la ubicación del archivo y la extensión del mismo.<br><br>3. <strong>Remediación:</strong> Cambio inmediato a permisos privados de lectura controlada.<br><br>4. <strong>Log de Auditoría:</strong> Almacenamiento del registro de cambios en Cloud Logging.";
-            code = "# 1. Buscar todos los archivos compartidos con 'cualquiera con el enlace'\ngam all users print filelist query \"visibility='anyoneWithLink'\" id title permissions > publicos_drive.csv\n\n# 2. Eliminar el acceso público de forma masiva\ngam csv publicos_drive.csv gam user ~Owner delete drivefileacl ~FileId \"anyoneWithLink\"";
-            ia = "El sistema utiliza <strong>visión por computador e IA</strong> para auditar documentos compartidos que contienen escaneos de DNI o datos bancarios (OCR dinámico) y aplica políticas de restricción de forma proactiva, independientemente de que el usuario haya etiquetado el documento o no.";
-        } else {
-            title = "Flujo de Automatización a Medida";
-            arch = "1. <strong>Análisis del requerimiento con LLM:</strong> Asimilación de la especificación técnica mediante prompting estructurado.<br><br>2. <strong>Ejecución en Lotes (Batch):</strong> Procesamiento asíncrono en Python o GAM para evitar bloqueos por límites de cuota de la API.<br><br>3. <strong>Monitoreo de Consola & Sandbox:</strong> Control y registro de cada acción en un archivo log persistente.<br><br>4. <strong>Notificación del Resultado:</strong> Envío automatizado de resumen de ejecución al administrador mediante correo electrónico o webhook.";
-            code = "# Ejecutar automatización a medida vía GAM y Python para el requerimiento solicitado\ngam csv listado_operaciones.csv gam user ~Email update profile department \"~Departamento\" customfield ~Campo ~Valor";
-            ia = "Se implementa un <strong>agente conversacional o CLI asistido por IA</strong>. Los administradores pueden delegar tareas complejas de administración redactándolas en lenguaje natural (ej: 'Mueve a todos los ingenieros de QA al grupo de soporte beta'). El agente interpreta la intención, simula la ejecución con GAM y ejecuta el cambio de forma segura tras recibir confirmación humana.";
-        }
-        
-        const customScenarioData = { arquitectura: arch, codigo: code, ia: ia };
-        simulateGeneration(customScenarioData);
-    }
-
-    // Inicializar simulación por defecto
-    document.addEventListener("DOMContentLoaded", () => {
-        simulateGeneration();
-    });
-</script>
+    </script>
 </body>
 </html>
