@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raúl Cancela | Google Workspace, M365 y automatización con IA</title>
+    <title>Raúl Cancela | Google Workspace, M365 y automatización IA</title>
     <meta name="description" content="Arquitecto cloud en Madrid. Coexistencia M365 y Google Workspace, automatización con Python y GAM, y agentes de IA validados con tests.">
     <link rel="canonical" href="https://arulcancela.github.io/">
 
@@ -453,6 +453,12 @@
             line-height: 1.1;
             margin-bottom: 0.4rem;
             display: block;
+        }
+
+        .metric-number--text {
+            font-size: 1.55rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
         }
 
         .metric-label {
@@ -912,6 +918,21 @@
                 display: none;
             }
 
+            .project-meta {
+                flex-wrap: wrap;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+                overflow-wrap: anywhere;
+            }
+
+            .tag-tests {
+                white-space: normal;
+            }
+
             .hero {
                 padding: 4rem 1.2rem 3.5rem 1.2rem;
             }
@@ -1008,7 +1029,7 @@
             <a href="#hero" class="brand-link">Raúl Cancela</a>
             <nav aria-label="Navegación principal">
                 <ul class="nav-menu">
-                    <li><a href="#prueba" class="nav-link">Prueba</a></li>
+                    <li><a href="#prueba" class="nav-link">Resultados</a></li>
                     <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
                     <li><a href="#como-trabajo" class="nav-link">Cómo trabajo</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
@@ -1060,11 +1081,11 @@
 
     <main id="contenido-principal">
 
-        <!-- Bloque 2: Prueba -->
+        <!-- Bloque 2: Resultados -->
         <section id="prueba">
             <div class="container">
                 <div class="section-header">
-                    <h2>Prueba</h2>
+                    <h2>Resultados</h2>
                     <p>Métricas verificadas en entornos enterprise y repositorios públicos con pruebas automatizadas.</p>
                 </div>
 
@@ -1078,7 +1099,7 @@
                         <p class="metric-label">Clientes internacionales en soporte L4 (Devoteam, 2021-2025)</p>
                     </div>
                     <div class="metric-card">
-                        <span class="metric-number">Más de una década</span>
+                        <span class="metric-number metric-number--text">Más de una década</span>
                         <p class="metric-label">Trayectoria en infraestructuras cloud y entornos corporativos</p>
                     </div>
                 </div>
@@ -1463,6 +1484,7 @@ gam user rcancelamartin@dominio.com add license 1010020003`
                         const targetVal = parseInt(entry.target.getAttribute('data-target'), 10);
                         const prefix = entry.target.getAttribute('data-prefix') || '';
                         const isIntegerFormat = entry.target.getAttribute('data-format') === 'integer';
+                        const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                         if (!isNaN(targetVal)) {
                             let current = 0;
                             const step = targetVal / 40;
@@ -1470,10 +1492,10 @@ gam user rcancelamartin@dominio.com add license 1010020003`
                                 current += step;
                                 if (current >= targetVal) {
                                     clearInterval(timer);
-                                    entry.target.textContent = prefix + (isIntegerFormat ? targetVal.toLocaleString('es-ES') : targetVal);
+                                    entry.target.textContent = prefix + (isIntegerFormat ? fmt(targetVal) : targetVal);
                                 } else {
                                     const val = Math.floor(current);
-                                    entry.target.textContent = prefix + (isIntegerFormat ? val.toLocaleString('es-ES') : val);
+                                    entry.target.textContent = prefix + (isIntegerFormat ? fmt(val) : val);
                                 }
                             }, 25);
                         }
