@@ -1,875 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Raúl Cancela Martín - AI-Augmented Engineer & Cloud Automation Architect</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #1e40af;
-            --primary-light: #2563eb;
-            --accent: #7c3aed;
-            --dark: #0f172a;
-            --text: #334155;
-            --text-muted: #64748b;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --border: #e2e8f0;
-            --tag-bg: #f1f5f9;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            background-color: var(--bg);
-            line-height: 1.6;
-            font-size: 13.5px;
-            padding: 2.5rem 1rem;
-        }
-
-        .cv-wrapper {
-            max-width: 860px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 3rem 3.5rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .print-btn-container {
-            position: absolute;
-            top: 2rem;
-            right: 2.5rem;
-        }
-
-        .btn-print {
-            background: var(--primary-light);
-            color: #ffffff;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-        }
-
-        .btn-print:hover {
-            background: var(--primary);
-            transform: translateY(-1px);
-        }
-
-        header {
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 1.8rem;
-            margin-bottom: 2rem;
-        }
-
-        h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-
-        .tagline {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-light);
-            margin-top: 0.35rem;
-        }
-
-        .sub-tagline {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-            font-weight: 500;
-        }
-
-        .contact-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px 22px;
-            margin-top: 1rem;
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        .contact-bar a {
-            color: var(--text-muted);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: color 0.2s;
-        }
-
-        .contact-bar a:hover {
-            color: var(--primary-light);
-        }
-
-        .contact-bar i {
-            color: var(--primary-light);
-            font-size: 0.95rem;
-        }
-
-        section {
-            margin-bottom: 2.2rem;
-        }
-
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 1.5px solid var(--border);
-        }
-
-        .section-title i {
-            color: var(--primary-light);
-            font-size: 1.05rem;
-        }
-
-        .summary-text {
-            color: var(--text);
-            font-size: 0.94rem;
-            line-height: 1.7;
-            text-align: justify;
-        }
-
-        .summary-text p {
-            margin-bottom: 0.8rem;
-        }
-
-        .summary-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .availability-badge {
-            display: inline-block;
-            background: #eff6ff;
-            color: #1e40af;
-            border: 1px solid #bfdbfe;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.88rem;
-            margin-top: 0.8rem;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 1rem;
-        }
-
-        .project-card {
-            background: var(--tag-bg);
-            padding: 1rem 1.2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 0.25rem;
-        }
-
-        .project-name {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.96rem;
-            color: var(--dark);
-        }
-
-        .project-link {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--primary-light);
-            text-decoration: none;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        .project-role {
-            font-size: 0.86rem;
-            font-weight: 600;
-            color: var(--primary-light);
-            margin-bottom: 0.35rem;
-        }
-
-        .project-desc {
-            font-size: 0.84rem;
-            color: var(--text);
-            line-height: 1.5;
-            margin-bottom: 0.45rem;
-        }
-
-        .project-metrics {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-metrics li {
-            position: relative;
-            padding-left: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.45;
-            margin-bottom: 0.2rem;
-        }
-
-        .project-metrics li::before {
-            content: '▪';
-            position: absolute;
-            left: 0.1rem;
-            color: var(--accent);
-        }
-
-        .project-tags {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            background: #ffffff;
-            padding: 3px 8px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            display: inline-block;
-            font-weight: 500;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-group {
-            background: var(--tag-bg);
-            padding: 1rem 1.2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .skill-group-title {
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.4rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-group-title i {
-            color: var(--accent);
-            font-size: 0.85rem;
-        }
-
-        .skill-tags {
-            font-size: 0.85rem;
-            color: var(--text);
-            line-height: 1.5;
-        }
-
-        /* Experience */
-        .timeline-item {
-            margin-bottom: 1.8rem;
-            position: relative;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 0.35rem;
-        }
-
-        .company-name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.12rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .job-role {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-light);
-            margin-bottom: 0.4rem;
-        }
-
-        .date-location {
-            font-size: 0.83rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: #f1f5f9;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .job-bullets {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .job-bullets li {
-            position: relative;
-            padding-left: 1.3rem;
-            margin-bottom: 0.45rem;
-            font-size: 0.9rem;
-            line-height: 1.55;
-            color: var(--text);
-        }
-
-        .job-bullets li::before {
-            content: '▪';
-            position: absolute;
-            left: 0.2rem;
-            color: var(--primary-light);
-            font-size: 1.1rem;
-            line-height: 1.3;
-        }
-
-        .job-bullets li strong {
-            color: var(--dark);
-        }
-
-        .grid-two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .edu-card, .cert-card {
-            background: var(--tag-bg);
-            padding: 1rem 1.2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .edu-institution {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.98rem;
-            color: var(--dark);
-        }
-
-        .edu-degree {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--primary-light);
-            margin-top: 2px;
-        }
-
-        .edu-dates {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 3px;
-        }
-
-        .cert-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .cert-list li {
-            margin-bottom: 0.5rem;
-            font-size: 0.88rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .cert-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        .cert-list i {
-            color: var(--accent);
-            margin-top: 3px;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 1rem 0.5rem; }
-            .cv-wrapper { padding: 2rem 1.5rem; }
-            .print-btn-container { position: static; margin-bottom: 1.5rem; text-align: right; }
-            .grid-two-col, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2rem; }
-        }
-
-        @media print {
-            body {
-                background: white !important;
-                color: #0f172a !important;
-                padding: 0 !important;
-                font-size: 9.8px !important;
-                line-height: 1.34 !important;
-            }
-            .cv-wrapper {
-                box-shadow: none !important;
-                border: none !important;
-                padding: 0 !important;
-                max-width: 100% !important;
-            }
-            .print-btn-container {
-                display: none !important;
-            }
-            header {
-                padding-bottom: 0.6rem !important;
-                margin-bottom: 0.7rem !important;
-            }
-            h1 { font-size: 1.95rem !important; }
-            .tagline { color: #1e40af !important; font-size: 1rem !important; }
-            .sub-tagline { font-size: 0.82rem !important; }
-            .contact-bar { margin-top: 0.4rem !important; gap: 4px 12px !important; font-size: 0.78rem !important; }
-            section { margin-bottom: 0.75rem !important; }
-            .section-title {
-                break-after: avoid !important;
-                border-bottom: 1.5px solid #cbd5e1 !important;
-                color: #0f172a !important;
-                font-size: 0.92rem !important;
-                margin-bottom: 0.4rem !important;
-                padding-bottom: 0.2rem !important;
-            }
-            .summary-text { font-size: 0.83rem !important; line-height: 1.38 !important; }
-            .summary-text p { margin-bottom: 0.35rem !important; }
-            .availability-badge { font-size: 0.78rem !important; padding: 4px 10px !important; margin-top: 0.4rem !important; }
-            
-            .projects-grid {
-                break-inside: auto !important;
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 0.45rem !important;
-            }
-            .project-card {
-                background: #f8fafc !important;
-                border: 1px solid #e2e8f0 !important;
-                padding: 0.5rem 0.65rem !important;
-                break-inside: avoid !important;
-            }
-            .project-name { font-size: 0.86rem !important; }
-            .project-link { font-size: 0.72rem !important; }
-            .project-role { font-size: 0.78rem !important; margin-bottom: 0.2rem !important; }
-            .project-desc { font-size: 0.76rem !important; line-height: 1.3 !important; margin-bottom: 0.3rem !important; }
-            .project-metrics li { font-size: 0.72rem !important; margin-bottom: 0.15rem !important; line-height: 1.25 !important; }
-            .project-tags { font-size: 0.7rem !important; padding: 1px 5px !important; }
-
-            .skills-grid {
-                break-inside: avoid !important;
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 0.45rem !important;
-            }
-            .skill-group {
-                background: #f8fafc !important;
-                border: 1px solid #e2e8f0 !important;
-                padding: 0.5rem 0.65rem !important;
-                break-inside: avoid !important;
-            }
-            .skill-group-title { font-size: 0.78rem !important; margin-bottom: 0.2rem !important; }
-            .skill-tags { font-size: 0.75rem !important; line-height: 1.28 !important; }
-            
-            .timeline-item {
-                break-inside: avoid !important;
-                margin-bottom: 0.65rem !important;
-            }
-            .company-name { font-size: 0.94rem !important; }
-            .job-role { color: #1e40af !important; font-size: 0.82rem !important; margin-bottom: 0.15rem !important; }
-            .date-location { font-size: 0.74rem !important; padding: 1px 6px !important; }
-            .job-bullets li {
-                font-size: 0.8rem !important;
-                margin-bottom: 0.2rem !important;
-                line-height: 1.34 !important;
-            }
-            .grid-two-col {
-                break-inside: avoid !important;
-                gap: 0.7rem !important;
-            }
-            .edu-card, .cert-card {
-                background: #f8fafc !important;
-                border: 1px solid #e2e8f0 !important;
-                padding: 0.6rem 0.8rem !important;
-                break-inside: avoid !important;
-            }
-            .edu-institution { font-size: 0.88rem !important; }
-            .edu-degree { font-size: 0.78rem !important; }
-            .cert-list li { font-size: 0.78rem !important; margin-bottom: 0.25rem !important; }
-            @page {
-                margin: 0.7cm 1cm;
-                size: A4 portrait;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<title>CV Raúl Cancela Martín</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm 12mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 10pt; line-height: 1.45; color: #1f2937; margin: 0; }
+  h1 { font-size: 20pt; margin: 0; color: #0f172a; letter-spacing: -0.4px; line-height: 1.05; }
+  h1 + p { font-size: 11.2pt; font-weight: 700; color: #1e40af; margin: 3pt 0 5pt; line-height: 1.25; }
+  h1 + p + p { font-size: 8.7pt; color: #475569; margin: 0 0 2pt; line-height: 1.45; }
+  h2 { font-size: 9.4pt; text-transform: uppercase; letter-spacing: 1.1px; color: #1e40af;
+       border-bottom: 1px solid #dbeafe; margin: 12.5pt 0 5.5pt; padding-bottom: 2pt; page-break-after: avoid; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 1pt 0 6pt 13pt; padding: 0; }
+  li { margin-bottom: 1.6pt; }
+  strong { color: #0f172a; }
+  a { color: #1e40af; text-decoration: none; font-size: 8.6pt; }
+  h2 + p { margin-top: 0; }
+</style>
 </head>
 <body>
-
-<div class="cv-wrapper">
-    <div class="print-btn-container">
-        <button class="btn-print" onclick="window.print()"><i class="fas fa-print"></i> Print / PDF</button>
-    </div>
-
-    <header>
-        <h1>Raúl Cancela Martín</h1>
-        <div class="tagline">AI-Augmented Engineer & Cloud Automation Architect</div>
-        <div class="sub-tagline">AI Orchestration (Gemini, Claude, DeepSeek) · Cloud Architecture & Hybrid Environments · Enterprise Automation with GAM & Python</div>
-        
-        <div class="contact-bar">
-            <span><i class="fas fa-map-marker-alt"></i> Madrid, Spain (Remote)</span>
-            <a href="mailto:arulcancela@gmail.com"><i class="fas fa-envelope"></i> arulcancela@gmail.com</a>
-            <span><i class="fas fa-phone"></i> +34 625 731 263</span>
-            <a href="https://www.linkedin.com/in/arulcancela" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/arulcancela</a>
-            <a href="https://github.com/arulcancela" target="_blank"><i class="fab fa-github"></i> github.com/arulcancela</a>
-            <a href="https://arulcancela.github.io/" target="_blank"><i class="fas fa-globe"></i> arulcancela.github.io</a>
-        </div>
-    </header>
-
-    <section>
-        <div class="section-title"><i class="fas fa-user-astronaut"></i> Professional Summary</div>
-        <div class="summary-text">
-            <p>
-                Physicist by training and natural builder. My specialty is not memorizing syntax or writing boilerplate code from scratch, but <strong>orchestrating Artificial Intelligence</strong> (Gemini, DeepSeek, Claude, ChatGPT) and agentic environments to <strong>design, build, and deploy complex technological solutions at unprecedented velocity</strong>. I define myself as an <strong>AI-Augmented Engineer</strong>.
-            </p>
-            <p>
-                I bring <strong>15 years of experience</strong> across Cloud infrastructures, hybrid environments, and Enterprise migrations (with extensive background in <strong>Google Workspace, Microsoft 365, and GCP</strong>). My scientific foundation in Applied Physics grants me strong abstraction skills to quickly understand the core logic of any system and <strong>adapt flexibly to new technology environments, cloud platforms, or software stacks</strong>.
-            </p>
-            <p>
-                My true differentiator lies in <strong>AI-augmented development</strong> applied to high-impact automations in <strong>GAM and Python</strong>: I understand the architecture, guide AI with logical rigor, and <strong>iteratively validate code with automated testing</strong> to ensure production-grade robustness.
-            </p>
-            <p>
-                On the <em>maker</em> side, I maintain my own infrastructure: local LLMs via <strong>Ollama</strong> (strict privacy), AI agents via API, trading bots, and advanced home automation (<strong>Home Assistant on Raspberry Pi with Pi-hole</strong>). I seek remote challenges to apply this <em>Augmented Engineer</em> philosophy: using AI to multiply operational efficiency, solve architectural challenges, and automate processes across any ecosystem.
-            </p>
-            <div class="availability-badge">
-                <i class="fas fa-check-circle"></i> <strong>Availability:</strong> Immediate · Remote (preferred), flexible hybrid in Madrid, or occasional travel. Full-time, part-time, or freelance/contractor (B2B).
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="section-title"><i class="fas fa-code-branch"></i> Featured Projects (Verifiable Portfolio)</div>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem;">
-            Complete, verifiable portfolio at <strong>github.com/arulcancela</strong> — 7 repositories, all with Continuous Integration (CI) and automated tests.
-        </p>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div>
-                    <div class="project-card-header">
-                        <span class="project-name">workspace-tenant-auditor</span>
-                        <a href="https://github.com/arulcancela/workspace-tenant-auditor" target="_blank" class="project-link">GitHub →</a>
-                    </div>
-                    <div class="project-role">Security Audit for Google Workspace</div>
-                    <p class="project-desc">CLI tool auditing tenant security posture across 12 checks (2FA, superadmins, external Drive, third-party OAuth, stale accounts...), prioritizing by severity and generating HTML/PDF/JSON reports.</p>
-                    <ul class="project-metrics">
-                        <li><strong>60 automated tests</strong> · 78% code coverage · GitHub Actions CI.</li>
-                        <li>Layered architecture with least-privilege read-only auth and Docker.</li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="project-tags">Python · Admin SDK · Reports API · Docker · CI/CD</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <div class="project-card-header">
-                        <span class="project-name">linkedin-job-hunter</span>
-                        <a href="https://github.com/arulcancela/linkedin-job-hunter" target="_blank" class="project-link">GitHub →</a>
-                    </div>
-                    <div class="project-role">AI-Powered Job Search & Evaluation</div>
-                    <p class="project-desc">Autonomous system discovering job postings, quantitatively evaluating them against configurable profiles via LLMs, calculating fit score (0-100), and compiling customized outreach dossiers.</p>
-                    <ul class="project-metrics">
-                        <li>AI evaluation, skill gap detection, and Notion/Telegram alerts.</li>
-                        <li><strong>16 tests</strong> with CI and PII-scrubbing validation.</li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="project-tags">Python · Pydantic · LLM (Gemini/DeepSeek) · APIs · CI/CD</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <div class="project-card-header">
-                        <span class="project-name">url-shortener</span>
-                        <a href="https://github.com/arulcancela/url-shortener" target="_blank" class="project-link">GitHub →</a>
-                    </div>
-                    <div class="project-role">URL Shortener with Real-Time Analytics</div>
-                    <p class="project-desc">Full-stack web application with authentication, real-time click analytics, QR code generator, and distributed rate limiting. Deployed to production.</p>
-                    <ul class="project-metrics">
-                        <li><strong>41 unit tests</strong> + end-to-end tests (Playwright).</li>
-                        <li>Decoupled architecture with serverless-testable business logic.</li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="project-tags">Next.js 14 · TypeScript · Prisma · PostgreSQL · Vercel · CI</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <div class="project-card-header">
-                        <span class="project-name">agente-deepseek</span>
-                        <a href="https://github.com/arulcancela/agente-deepseek" target="_blank" class="project-link">GitHub →</a>
-                    </div>
-                    <div class="project-role">Autonomous Linux Administration Agent</div>
-                    <p class="project-desc">System agent managing Linux environments via natural language with secure-by-default architecture: categorizes actions, blocks destructive commands, and validates chained syntax.</p>
-                    <ul class="project-metrics">
-                        <li>Custom security module preventing destructive command injection.</li>
-                        <li><strong>18 automated tests</strong> covering validator and config in CI.</li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="project-tags">Python · DeepSeek API · Rich · Pytest · CI/CD</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="section-title"><i class="fas fa-layer-group"></i> Core Skills & Tech Stack</div>
-        <div class="skills-grid">
-            <div class="skill-group">
-                <div class="skill-group-title"><i class="fas fa-brain"></i> AI Orchestration & Agentic Tooling</div>
-                <div class="skill-tags">
-                    Agentic workflows and AI-assisted development, advanced Prompt Chaining, iterative AI-coding, frontier APIs (Gemini, DeepSeek, Claude, OpenAI), RAG, multi-agent architectures.
-                </div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-group-title"><i class="fab fa-google"></i> Cloud Architecture & Hybrid Environments</div>
-                <div class="skill-tags">
-                    Scalable cloud design, Office 365 / Google Workspace / GCP coexistence (IAM, BigQuery, Directory Sync), tenant administration, DLP & security. Adaptable to AWS, Azure, Linux.
-                </div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-group-title"><i class="fas fa-laptop-code"></i> AI-Driven Automation (Vibe Coding)</div>
-                <div class="skill-tags">
-                    GAM (Google Apps Manager) and Python via AI-assisted development with analytical verification. REST APIs (FastAPI, Flask), web scraping, and automation across any stack.
-                </div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-group-title"><i class="fas fa-microchip"></i> Maker Lab, L4 Support & Methodology</div>
-                <div class="skill-tags">
-                    Local LLMs via Ollama, API agents, Raspberry Pi, Home Assistant IoT, Pi-hole. Google L4 critical escalations (delegated Superadmin), enterprise SLAs, Jira. Bilingual (Native Spanish / C1 English).
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Volkswagen Group Services Iberia</span>
-                <span class="date-location">Apr 2026 – Oct 2026 · Remote</span>
-            </div>
-            <div class="job-role">Google Workspace Architect & Migration Lead</div>
-            <ul class="job-bullets">
-                <li><strong>Cloud Strategy:</strong> Technical leadership of the hybrid coexistence strategy between Microsoft Office 365 and Google Workspace across the global corporate workforce.</li>
-                <li><strong>Discovery & Change Management:</strong> Directed the Discovery phase, including regulatory compliance auditing, tenant governance policy formulation, and user migration roadmap design.</li>
-                <li><strong>AI-Accelerated Technical Research:</strong> Daily use of frontier LLMs (specifically Gemini) as core tools to research, assimilate complex protocols, and generate exhaustive technical documentation in record time.</li>
-                <li><strong>AI-Assisted Automation Engineering (AI-Coding):</strong> Directed, generated, and iteratively tested AI-synthesized scripts and custom automation tools to ensure seamless cross-platform coexistence, dramatically compressing delivery timelines without traditional software development overhead.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Independent Consulting & Automation</span>
-                <span class="date-location">Sep 2019 – Present · Madrid / Remote</span>
-            </div>
-            <div class="job-role">Automation Developer & Cloud Consultant (Freelance)</div>
-            <ul class="job-bullets">
-                <li><strong>Alcampo / Sabeco:</strong> Developed a bespoke national workforce scheduling solution using smart templates and advanced Google Apps Script algorithms (AI-assisted) to automate shift planning and compliance across hypermarkets throughout Spain.</li>
-                <li><strong>ByMotors:</strong> Digital process optimization consulting, corporate workflow redesign, and automated executive reporting systems via Google Sheets and cloud integrations.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Inetum</span>
-                <span class="date-location">Oct 2025 – Apr 2026 · Madrid, Spain</span>
-            </div>
-            <div class="job-role">Google Workspace Solutions Architect</div>
-            <ul class="job-bullets">
-                <li><strong>Migration Lead:</strong> End-to-end execution of a mission-critical migration of 2,000 corporate users to Google Workspace with zero operational downtime.</li>
-                <li><strong>Advanced Automation:</strong> Leveraged deep GAM expertise for massive data extraction and Python scripting for automated user provisioning, surpassing native console limitations.</li>
-                <li><strong>Enterprise Architecture:</strong> Designed resilient, modular, and secure cloud architectures for enterprise client engagements.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Devoteam</span>
-                <span class="date-location">May 2021 – Sep 2025 · Remote</span>
-            </div>
-            <div class="job-role">Team Lead & Senior Support Engineer (L4)</div>
-            <ul class="job-bullets">
-                <li><strong>Global Enterprise Support:</strong> Provided high-tier bilingual L4 technical support across a distributed portfolio of 200+ international enterprise accounts.</li>
-                <li><strong>L4 Expert Engineering:</strong> Handled critical incident escalations directly with Google Engineering, operating with delegated Superadmin authority.</li>
-                <li><strong>Quality & Tools:</strong> Streamlined incident workflows via Jira Service Desk and Freshdesk, consistently achieving top customer satisfaction ratings (CSAT).</li>
-                <li><strong>Leadership:</strong> Mentored and led a technical team of 10 support engineers, ensuring strict SLA compliance and continuous technical excellence.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Nubalia</span>
-                <span class="date-location">Apr 2019 – May 2021 · Madrid, Spain</span>
-            </div>
-            <div class="job-role">Senior Operations Engineer & LumApps Specialist</div>
-            <ul class="job-bullets">
-                <li><strong>Change Management:</strong> Formulated and delivered comprehensive technical training programs and strategic communication plans to ensure smooth enterprise cloud adoption.</li>
-                <li><strong>Presales Consulting:</strong> Provided technical advisory support to sales teams, drafting technical scopes of work (SOW) and architectural value propositions for enterprise prospects.</li>
-                <li><strong>Intranet Subject Matter Expert:</strong> Lead technical reference for LumApps intranet deployment and deep integration with Google Workspace, handling complex escalations and direct vendor relations.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Intelligence Partner (The Cloud Consulting Company)</span>
-                <span class="date-location">Nov 2017 – Apr 2019 · Madrid, Spain</span>
-            </div>
-            <div class="job-role">Operations Engineer & Presales Consultant</div>
-            <ul class="job-bullets">
-                <li><strong>Technical Migrations:</strong> Executed large-scale cloud data migrations for tier-1 enterprise clients, guaranteeing absolute data integrity and zero data loss.</li>
-                <li><strong>360º Consulting Lifecycle:</strong> Managed end-to-end customer lifecycles: presales requirements scoping → migration architecture → user training → post-go-live stabilization.</li>
-                <li><strong>Specialized Training:</strong> Traveled on-site to corporate headquarters across Spain delivering tailored workshops for IT administrators and technical teams.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Grupo MASMOVIL</span>
-                <span class="date-location">Sep 2017 – Nov 2017 · Madrid, Spain</span>
-            </div>
-            <div class="job-role">Data Analyst</div>
-            <ul class="job-bullets">
-                <li>Advanced data modeling and corporate executive reporting through high-level Excel analytics.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Accenture España</span>
-                <span class="date-location">Nov 2015 – Mar 2017 · Madrid / Riyadh, Saudi Arabia</span>
-            </div>
-            <div class="job-role">IT Consultant (International Project)</div>
-            <ul class="job-bullets">
-                <li><strong>International Experience (Riyadh):</strong> Comparative software research and technical drafting of tender proposals and evaluations (RFIs / RFPs).</li>
-                <li><strong>PMO Management:</strong> Project management office control, milestone tracking, and financial reporting utilizing the Office 365 ecosystem.</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <div class="item-header">
-                <span class="company-name">Institute of Ceramics and Glass (CSIC)</span>
-                <span class="date-location">Jun 2014 – Sep 2014 · Madrid, Spain</span>
-            </div>
-            <div class="job-role">Laboratory Technician (Internship)</div>
-            <ul class="job-bullets">
-                <li>Synthesis and characterization of composite materials via high-energy ball milling, XRD diffraction, SEM electron microscopy, and VSM magnetometry.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <div class="grid-two-col">
-            <div>
-                <div class="section-title"><i class="fas fa-university"></i> Education</div>
-                <div class="edu-card">
-                    <div class="edu-institution">Universidad Complutense de Madrid</div>
-                    <div class="edu-degree">Bachelor's Degree in Physics (Applied & Computational Physics)</div>
-                    <div class="edu-dates">2011 – 2015 · Madrid, Spain</div>
-                    <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 6px;">
-                        Rigorous analytical foundation in quantitative modeling, dynamical systems, and structured problem solving.
-                    </p>
-                </div>
-            </div>
-
-            <div>
-                <div class="section-title"><i class="fas fa-certificate"></i> Certifications & Languages</div>
-                <div class="cert-card">
-                    <ul class="cert-list">
-                        <li>
-                            <i class="fab fa-google"></i>
-                            <div>
-                                <strong>Google Cloud Platform:</strong>
-                                <div>Big Data and Machine Learning Fundamentals</div>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-layer-group"></i>
-                            <div>
-                                <strong>LumApps:</strong>
-                                <div>LumApps Deployment Level 1</div>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-cloud-sun"></i>
-                            <div>
-                                <strong>Atmospheric Physics:</strong>
-                                <div>Training in Meteorology (Chaotic Systems)</div>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-language"></i>
-                            <div>
-                                <strong>Languages:</strong>
-                                <div>Spanish (Native) · English (C1 Full Professional)</div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+<h1 id="raúl-cancela-martín">Raúl Cancela Martín</h1>
+<p><strong>Cloud architect · M365 and Google Workspace coexistence ·
+Automation with validated AI</strong></p>
+<p>Madrid, Spain · Remote · Available immediately<br />
+arulcancela@gmail.com · +34 625 731 263<br />
+linkedin.com/in/arulcancela · <a href="https://github.com/arulcancela">github.com/arulcancela</a> ·
+arulcancela.github.io</p>
+<h2 id="profile">Profile</h2>
+<p>Physicist by training and a builder by nature. I have spent more than
+a decade designing and running cloud and hybrid infrastructure:
+enterprise Google Workspace migrations, tenant administration,
+compliance, and automation of everything the console does not cover.</p>
+<p>I do not start from zero. I design the architecture, direct AI
+(Gemini, Claude, DeepSeek) to build, and validate the result with tests
+before it reaches production. Judgement is not delegated.</p>
+<p>I work with companies that need two ecosystems to coexist without
+breaking anything, and with teams that want to automate processes
+without losing control of what actually runs.</p>
+<h2 id="featured-projects">Featured projects</h2>
+<p><strong>workspace-tenant-auditor</strong> · Python, Admin SDK,
+Reports API, Docker, CI<br />
+Security audit for Google Workspace tenants: 12 checks ranked by
+severity, an executive report in HTML, PDF and JSON, and 60 tests at 78%
+coverage. Includes a demo mode with no credentials.<br />
+<a href="https://github.com/arulcancela/workspace-tenant-auditor">github.com/arulcancela/workspace-tenant-auditor</a></p>
+<p><strong>agente-deepseek</strong> · Python, DeepSeek API, pytest,
+CI<br />
+An agent that administers Linux in natural language with secure
+defaults: it classifies actions, blocks destructive commands and detects
+chained commands. 18 tests for the validator.<br />
+<a href="https://github.com/arulcancela/agente-deepseek">github.com/arulcancela/agente-deepseek</a></p>
+<p><strong>url-shortener</strong> · Next.js, TypeScript, Prisma,
+PostgreSQL, Vercel<br />
+Full-stack application in production with authentication, click
+analytics and rate limiting. 41 unit tests and end-to-end tests.<br />
+<a href="https://github.com/arulcancela/url-shortener">github.com/arulcancela/url-shortener</a></p>
+<p>Also public: agente-escritor (multi-agent pipeline with RAG and
+Streamlit) and linkedin-job-hunter (LLM-based job evaluation and
+alerts).</p>
+<h2 id="experience">Experience</h2>
+<p><strong>Volkswagen Group Services Iberia</strong> · Google Workspace
+Architect &amp; Migration Lead<br />
+April 2026 - October 2026 · Remote<br />
+Coexistence strategy between Microsoft 365 and Google Workspace for a
+global workforce.</p>
+<ul>
+<li>Led discovery: compliance audit, tenant administration policies and
+the user migration plan.</li>
+<li>Coexistence architecture: split delivery, identity synchronisation
+and governance across both ecosystems.</li>
+<li>AI-assisted automation of the scenarios the console did not cover,
+validated iteratively before use.</li>
+<li>Technical research with LLMs to absorb complex protocols and produce
+specifications in days, not weeks.</li>
+</ul>
+<p><strong>Inetum</strong> · Google Workspace Solutions Architect<br />
+October 2025 - April 2026 · Madrid</p>
+<ul>
+<li>End-to-end migration of 2,000 users to Google Workspace with no
+disruption.</li>
+<li>Provisioning and bulk data extraction automated with GAM, beyond the
+limits of the native console.</li>
+<li>Secure, scalable cloud architectures for enterprise clients.</li>
+</ul>
+<p><strong>Independent consulting</strong> · Automation Developer and
+Cloud Consultant<br />
+September 2019 - Present · Madrid and remote</p>
+<ul>
+<li>Alcampo / Sabeco: shift planning for the entire national retail
+network (more than 300 stores) with templates and AI-assisted Apps
+Script.</li>
+<li>ByMotors: workflow redesign and reporting automation with Google
+Sheets.</li>
+</ul>
+<p><strong>Devoteam</strong> · Team Lead &amp; Senior Support Engineer
+(L4)<br />
+May 2021 - September 2025 · Remote</p>
+<ul>
+<li>Bilingual support for more than 200 international clients.</li>
+<li>Critical escalations with Google Engineering as delegated
+superadmin.</li>
+<li>Technical mentoring for 10 engineers and SLA compliance.</li>
+</ul>
+<p><strong>Earlier roles</strong> · 2015 - 2021</p>
+<ul>
+<li>Nubalia · Senior Operations Engineer (2019-2021): LumApps intranet
+deployments and cloud migrations.</li>
+<li>Intelligence Partner · Operations and Pre-sales (2017-2019): data
+migrations, technical training and end-to-end consulting.</li>
+<li>Accenture · IT Consultant (2015-2017): RFI/RFP documentation and PMO
+on an international project in Riyadh.</li>
+</ul>
+<h2 id="skills">Skills</h2>
+<p><strong>AI and agents:</strong> LLM orchestration (Gemini, Claude,
+DeepSeek, OpenAI), prompt chaining, RAG, agents with validation, local
+models with Ollama.<br />
+<strong>Cloud and Workspace:</strong> Google Workspace Enterprise,
+Microsoft 365, GCP (IAM, BigQuery), GCDS, hybrid coexistence, compliance
+and DLP.<br />
+<strong>Automation:</strong> Python, GAM, Google Apps Script, Bash, REST
+APIs, Docker, pytest, GitHub Actions.<br />
+<strong>Maker:</strong> Home Assistant, Raspberry Pi, Pi-hole, trading
+bots.</p>
+<h2 id="education-and-certifications">Education and certifications</h2>
+<p>BSc in Physics (Applied and Computational Physics) · Universidad
+Complutense de Madrid · 2011-2015<br />
+Google Cloud Platform: Big Data and Machine Learning Fundamentals ·
+LumApps Deployment Level 1<br />
+Languages: native Spanish · professional English (C1)</p>
 
 </body>
 </html>
