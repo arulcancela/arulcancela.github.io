@@ -10,7 +10,7 @@ linkedin.com/in/arulcancela · github.com/arulcancela · arulcancela.github.io
 
 Physicist by training and a builder by nature. I have spent more than a decade designing and running cloud and hybrid infrastructure: enterprise Google Workspace migrations, tenant administration, compliance, and automation of everything the console does not cover.
 
-I do not start from zero. I write the specification, direct AI (Gemini, Claude, DeepSeek) and every delivery goes through automated tests and CI before it reaches production.
+I do not start from zero. I write the specification, review what the AI is about to do and what it delivers, and every delivery goes through automated tests and CI before it reaches production.
 
 My ground is regulated enterprise, not the weekend prototype: I work with companies that need two ecosystems to coexist without breaking anything, and with teams that want to automate without losing control of what actually runs.
 

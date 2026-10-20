@@ -10,7 +10,7 @@ linkedin.com/in/arulcancela · github.com/arulcancela · arulcancela.github.io
 
 Físico de formación y constructor nato. Llevo más de una década diseñando y ejecutando infraestructura cloud e híbrida: migraciones enterprise de Google Workspace, administración de tenants, compliance y automatización de lo que la consola no cubre.
 
-No empiezo desde cero. Escribo la especificación, dirijo a la IA (Gemini, Claude, DeepSeek) y cada entrega pasa por pruebas automatizadas y CI antes de tocar producción.
+No empiezo desde cero. Escribo la especificación, reviso lo que va a hacer la IA y lo que hace, y cada entrega pasa por pruebas automatizadas y CI antes de tocar producción.
 
 Mi terreno es el enterprise regulado, no el prototipo de fin de semana: trabajo con empresas que necesitan que dos ecosistemas convivan sin romper nada, y con equipos que quieren automatizar sin perder el control de lo que se ejecuta.
 
