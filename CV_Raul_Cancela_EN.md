@@ -1,6 +1,6 @@
 # Raúl Cancela Martín
 
-**Cloud architect · M365 and Google Workspace coexistence · Automation with validated AI**
+**Enterprise automation with AI · Google Workspace and GAM · Discovery, policies and test validation**
 
 Madrid, Spain · Remote · Available immediately
 arulcancela@gmail.com · +34 625 731 263
@@ -10,9 +10,9 @@ linkedin.com/in/arulcancela · github.com/arulcancela · arulcancela.github.io
 
 Physicist by training and a builder by nature. I have spent more than a decade designing and running cloud and hybrid infrastructure: enterprise Google Workspace migrations, tenant administration, compliance, and automation of everything the console does not cover.
 
-I do not start from zero. I design the architecture, direct AI (Gemini, Claude, DeepSeek) to build, and validate the result with tests before it reaches production. Judgement is not delegated.
+I do not start from zero. I write the specification, direct AI (Gemini, Claude, DeepSeek) and every delivery goes through automated tests and CI before it reaches production.
 
-I work with companies that need two ecosystems to coexist without breaking anything, and with teams that want to automate processes without losing control of what actually runs.
+My ground is regulated enterprise, not the weekend prototype: I work with companies that need two ecosystems to coexist without breaking anything, and with teams that want to automate without losing control of what actually runs.
 
 ## Featured projects
 
@@ -37,7 +37,7 @@ April 2026 - October 2026 · Remote
 Coexistence strategy between Microsoft 365 and Google Workspace for a global workforce.
 
 - Led discovery: compliance audit, tenant administration policies and the user migration plan.
-- Coexistence architecture: split delivery, identity synchronisation and governance across both ecosystems.
+- Coexistence scenarios: split delivery, tenant policies and retention.
 - AI-assisted automation of the scenarios the console did not cover, validated iteratively before use.
 - Technical research with LLMs to absorb complex protocols and produce specifications in days, not weeks.
 
@@ -45,6 +45,7 @@ Coexistence strategy between Microsoft 365 and Google Workspace for a global wor
 October 2025 - April 2026 · Madrid
 
 - End-to-end migration of 2,000 users to Google Workspace with no disruption.
+- Policy discovery: compared source and target tenants with `gam print policies`, by OU and group, to anticipate the impact of the change before migrating.
 - Provisioning and bulk data extraction automated with GAM, beyond the limits of the native console.
 - Secure, scalable cloud architectures for enterprise clients.
 
@@ -72,6 +73,7 @@ May 2021 - September 2025 · Remote
 **AI and agents:** LLM orchestration (Gemini, Claude, DeepSeek, OpenAI), prompt chaining, RAG, agents with validation, local models with Ollama.
 **Cloud and Workspace:** Google Workspace Enterprise, Microsoft 365, GCP (IAM, BigQuery), GCDS, hybrid coexistence, compliance and DLP.
 **Automation:** Python, GAM, Google Apps Script, Bash, REST APIs, Docker, pytest, GitHub Actions.
+**Documentation and training:** technical specifications, manuals and AI-assisted presentations.
 **Maker:** Home Assistant, Raspberry Pi, Pi-hole, trading bots.
 
 ## Education and certifications
