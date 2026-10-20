@@ -14,6 +14,13 @@ No empiezo desde cero. Escribo la especificación, reviso lo que va a hacer la I
 
 Mi terreno es el enterprise regulado, no el prototipo de fin de semana: trabajo con empresas que necesitan que dos ecosistemas convivan sin romper nada, y con equipos que quieren automatizar sin perder el control de lo que se ejecuta.
 
+## Logros
+
+- Migración de 2.000 usuarios a Google Workspace sin disrupción.
+- Planificación de turnos automatizada para una red de más de 300 tiendas.
+- Auditoría de tenants con 12 comprobaciones, 60 tests y CI, publicada en abierto.
+- Soporte L4 a más de 200 clientes internacionales y mentoría de 10 ingenieros.
+
 ## Proyectos destacados
 
 **workspace-tenant-auditor** · Python, Admin SDK, Reports API, Docker, CI
@@ -40,6 +47,7 @@ Estrategia de coexistencia entre Microsoft 365 y Google Workspace para una plant
 - Diseño de escenarios de coexistencia: split delivery, políticas de tenant y retención.
 - Automatización asistida por IA de los escenarios que la consola no cubría, con validación iterativa antes de usarla.
 - Investigación técnica con LLMs para asimilar protocolos complejos y generar especificaciones en días, no en semanas.
+- Documentación técnica y especificaciones para el equipo y para el cliente.
 
 **Inetum** · Arquitecto de Soluciones Google Workspace
 Octubre 2025 - Abril 2026 · Madrid
@@ -61,6 +69,7 @@ Mayo 2021 - Septiembre 2025 · Remoto
 - Soporte bilingüe a más de 200 clientes internacionales.
 - Escalados críticos con Ingeniería de Google como superadmin delegado.
 - Mentoría técnica de 10 ingenieros y cumplimiento de SLA.
+- Gestión de incidencias y escalados con Jira y Freshdesk.
 
 **Etapa anterior** · 2015 - 2021
 
@@ -70,7 +79,7 @@ Mayo 2021 - Septiembre 2025 · Remoto
 
 ## Competencias
 
-**IA y agentes:** orquestación de LLMs (Gemini, Claude, DeepSeek, OpenAI), prompt chaining, RAG, agentes con validación, modelos locales con Ollama.
+**IA y agentes:** orquestación de LLMs (Gemini, Claude, DeepSeek, OpenAI), prompt chaining, RAG, agentes con validación, modelos locales con Ollama, selección de modelo según coste, privacidad y contexto, gestión de tokens en pipelines de agentes.
 **Cloud y Workspace:** Google Workspace Enterprise, Microsoft 365, GCP (IAM, BigQuery), GCDS, coexistencia híbrida, compliance y DLP.
 **Automatización:** Python, GAM, Google Apps Script, Bash, APIs REST, Docker, pytest, GitHub Actions.
 **Documentación y formación:** especificaciones técnicas, manuales y presentaciones apoyadas en IA.

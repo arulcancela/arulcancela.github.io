@@ -14,6 +14,13 @@ I do not start from zero. I write the specification, review what the AI is about
 
 My ground is regulated enterprise, not the weekend prototype: I work with companies that need two ecosystems to coexist without breaking anything, and with teams that want to automate without losing control of what actually runs.
 
+## Achievements
+
+- Migration of 2,000 users to Google Workspace with no disruption.
+- Shift planning automated for a network of more than 300 stores.
+- Tenant audit with 12 checks, 60 tests and CI, published in the open.
+- L4 support for more than 200 international clients and mentoring for 10 engineers.
+
 ## Featured projects
 
 **workspace-tenant-auditor** · Python, Admin SDK, Reports API, Docker, CI
@@ -40,6 +47,7 @@ Coexistence strategy between Microsoft 365 and Google Workspace for a global wor
 - Coexistence scenarios: split delivery, tenant policies and retention.
 - AI-assisted automation of the scenarios the console did not cover, validated iteratively before use.
 - Technical research with LLMs to absorb complex protocols and produce specifications in days, not weeks.
+- Technical documentation and specifications for the team and for the client.
 
 **Inetum** · Google Workspace Solutions Architect
 October 2025 - April 2026 · Madrid
@@ -61,6 +69,7 @@ May 2021 - September 2025 · Remote
 - Bilingual support for more than 200 international clients.
 - Critical escalations with Google Engineering as delegated superadmin.
 - Technical mentoring for 10 engineers and SLA compliance.
+- Incident and escalation management with Jira and Freshdesk.
 
 **Earlier roles** · 2015 - 2021
 
@@ -70,7 +79,7 @@ May 2021 - September 2025 · Remote
 
 ## Skills
 
-**AI and agents:** LLM orchestration (Gemini, Claude, DeepSeek, OpenAI), prompt chaining, RAG, agents with validation, local models with Ollama.
+**AI and agents:** LLM orchestration (Gemini, Claude, DeepSeek, OpenAI), prompt chaining, RAG, agents with validation, local models with Ollama, model selection by cost, privacy and context, token management in agent pipelines.
 **Cloud and Workspace:** Google Workspace Enterprise, Microsoft 365, GCP (IAM, BigQuery), GCDS, hybrid coexistence, compliance and DLP.
 **Automation:** Python, GAM, Google Apps Script, Bash, REST APIs, Docker, pytest, GitHub Actions.
 **Documentation and training:** technical specifications, manuals and AI-assisted presentations.
