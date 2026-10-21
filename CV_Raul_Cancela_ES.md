@@ -31,11 +31,11 @@ github.com/arulcancela/workspace-tenant-auditor
 Agente que administra Linux en lenguaje natural con diseño seguro por defecto: clasifica acciones, bloquea comandos destructivos y detecta comandos encadenados. 18 tests del validador.
 github.com/arulcancela/agente-deepseek
 
-**url-shortener** · Next.js, TypeScript, Prisma, PostgreSQL, Vercel
-Aplicación full-stack en producción con autenticación, analíticas de clics y rate limiting. 41 tests unitarios y pruebas end-to-end.
-github.com/arulcancela/url-shortener
+**gam-policy-diff** · Python, CSV/JSON/XLSX, HTML
+Comparador de políticas de dos tenants de Google Workspace: informe por impacto, búsqueda dentro del propio HTML y 139 tests. Sin credenciales y sin dependencias.
+github.com/arulcancela/gam-policy-diff
 
-También públicos: agente-escritor (pipeline multi-agente con RAG y Streamlit) y linkedin-job-hunter (evaluación de ofertas con LLM y alertas).
+También públicos: url-shortener (full-stack en producción, 41 tests y E2E), agente-escritor (RAG y Streamlit) y linkedin-job-hunter (evaluación de ofertas con LLM).
 
 ## Experiencia
 
